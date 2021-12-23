@@ -1,0 +1,18 @@
+.homePage{
+    display: inline-block;
+    justify-content: center;
+}
+
+.content{
+    display: inline-block;
+    margin-top: 150px;
+    width: 70%;
+    height: 450px;
+    border: 4px double black;
+}
+
+.text{
+    text-align: center;
+    margin-top: 10px;
+    width: 80%;
+}
