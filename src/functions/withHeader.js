@@ -1,10 +1,10 @@
 import React from 'react'
-import Header from '../components/Header'
+import MUICustomizedHeader from '../components/MUICustomisedHeader';
 
 export const withHeader = (Component) => (props) => {
     return (
         <div>
-            <Header />
+            <MUICustomizedHeader />
             <Component {...props} />
         </div>
     )
