@@ -1,20 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="0b44badc-015b-4a44-8e94-b1b8a0cbda15" name="Changes" comment="feat: add form for orders&#10;fix: styles">
-      <change afterPath="$PROJECT_DIR$/src/components/DefaultContent/index.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/DefaultContent/style.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/Pages/AdminOrdersPage/index.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/Pages/AdminOrdersPage/style.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/functions/wrapContent.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/OrderForm/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/OrderForm/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Pages/HomePage/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Pages/HomePage/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Pages/HomePage/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Pages/HomePage/style.css" afterDir="false" />
-    </list>
+    <list default="true" id="0b44badc-015b-4a44-8e94-b1b8a0cbda15" name="Changes" comment="feat: add axios request from Order Form&#10;add component Default Content&#10;add function to wrap with default content&#10;fix: styles" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -94,7 +81,7 @@
       <workItem from="1640853560734" duration="33000" />
       <workItem from="1641235875858" duration="1023000" />
       <workItem from="1641311295845" duration="8319000" />
-      <workItem from="1641322372072" duration="3214000" />
+      <workItem from="1641322372072" duration="3478000" />
     </task>
     <task id="LOCAL-00001" summary="feat: add form for orders&#10;fix: styles">
       <created>1640725607146</created>
@@ -103,7 +90,14 @@
       <option name="project" value="LOCAL" />
       <updated>1640725607146</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="feat: add axios request from Order Form&#10;add component Default Content&#10;add function to wrap with default content&#10;fix: styles">
+      <created>1641326194702</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1641326194702</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -123,6 +117,7 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="feat: add form for orders&#10;fix: styles" />
-    <option name="LAST_COMMIT_MESSAGE" value="feat: add form for orders&#10;fix: styles" />
+    <MESSAGE value="feat: add axios request from Order Form&#10;add component Default Content&#10;add function to wrap with default content&#10;fix: styles" />
+    <option name="LAST_COMMIT_MESSAGE" value="feat: add axios request from Order Form&#10;add component Default Content&#10;add function to wrap with default content&#10;fix: styles" />
   </component>
 </project>
