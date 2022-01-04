@@ -3,17 +3,15 @@ import './style.css';
 import {withHeader} from '../../../functions/withHeader';
 import {homePageText} from "../../../static/texts";
 import OrderForm from "../../OrderForm";
-import MUICustomisedHeader from '../../MUICustomisedHeader';
+import {wrapContent} from '../../../functions/wrapContent';
 
 const HomePage = () => {
     return (
-        <div className="homePage">
-            <div className="content">
-                <div className="text">{homePageText}</div>
-                <OrderForm className="text"/>
-            </div>
+        <div className="text">
+            <div>{homePageText}</div>
+            <OrderForm className="text"/>
         </div>
     )
 }
 
-export default withHeader(HomePage);
+export default withHeader(wrapContent(HomePage));

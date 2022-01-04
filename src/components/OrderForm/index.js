@@ -1,33 +1,30 @@
-import React, {useState, useEffect} from 'react';
+import React, {useState} from 'react';
 import AdapterDateFns from '@mui/lab/AdapterDateFns';
 import LocalizationProvider from '@mui/lab/LocalizationProvider';
 import DateTimePicker from '@mui/lab/DateTimePicker';
 import {clockType, citiesAvailable} from "../../static/mock/orders_mock";
-import {useForm} from "react-hook-form";
+import './style.css';
 import {
     Button,
     Dialog,
     DialogActions,
     DialogContent,
-    DialogContentText,
     DialogTitle,
-    InputLabel,
     Grid,
     TextField,
     MenuItem,
     Select, FormControl
 } from "@mui/material";
-import './style.css';
-import {logDOM} from "@testing-library/react";
 
 const initialValues = {
-    id: 0,
     name: '',
     login: '',
-    clockType: '',
+    clocktype: '',
     city: '',
-    dateTime: new Date(),
+    datetime: new Date(),
+    masterid: 0,
 }
+const axios = require('axios');
 
 const OrderForm = (props) => {
     const textStyle = props.className;
@@ -49,10 +46,17 @@ const OrderForm = (props) => {
     }
 
     const handleDateTimeChange = (newDateTime) => { //when its date string is passed to newDateTime unlike other
-        setValues({...values, dateTime: new Date(newDateTime)});
+        setValues({...values, datetime: new Date(newDateTime)});
     }
 
-    const onSubmit = (data) => console.log(data);
+    const onSubmit = () => {
+        console.log(values);
+        axios({
+            method: 'post',
+            url: 'http://localhost:3000/orders',
+            data: values
+        });
+    }
 
     return (
         <>
@@ -87,8 +91,8 @@ const OrderForm = (props) => {
                                     <Select
                                         className='field'
                                         id='field-select'
-                                        name='clockType'
-                                        value={values.clockType}
+                                        name='clocktype'
+                                        value={values.clocktype}
                                         label="Размер часов"
                                         onChange={handleValuesChange}
                                     >
@@ -102,9 +106,9 @@ const OrderForm = (props) => {
                                 <div className='field'>
                                     <LocalizationProvider dateAdapter={AdapterDateFns}>
                                         <DateTimePicker
-                                            name='dateTime'
+                                            name='datetime'
                                             label="Дата и время приезда мастера"
-                                            value={values.dateTime}
+                                            value={values.datetime}
                                             onChange={handleDateTimeChange}
                                             renderInput={(params) => <TextField {...params} />}
                                         />
