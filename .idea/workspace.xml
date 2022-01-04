@@ -1,7 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="0b44badc-015b-4a44-8e94-b1b8a0cbda15" name="Changes" comment="feat: add axios request from Order Form&#10;add component Default Content&#10;add function to wrap with default content&#10;fix: styles" />
+    <list default="true" id="0b44badc-015b-4a44-8e94-b1b8a0cbda15" name="Changes" comment="fix: packages">
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -82,6 +85,7 @@
       <workItem from="1641235875858" duration="1023000" />
       <workItem from="1641311295845" duration="8319000" />
       <workItem from="1641322372072" duration="3478000" />
+      <workItem from="1641326530254" duration="441000" />
     </task>
     <task id="LOCAL-00001" summary="feat: add form for orders&#10;fix: styles">
       <created>1640725607146</created>
@@ -97,7 +101,14 @@
       <option name="project" value="LOCAL" />
       <updated>1641326194702</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="fix: packages">
+      <created>1641326679790</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1641326679790</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -118,6 +129,7 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="feat: add form for orders&#10;fix: styles" />
     <MESSAGE value="feat: add axios request from Order Form&#10;add component Default Content&#10;add function to wrap with default content&#10;fix: styles" />
-    <option name="LAST_COMMIT_MESSAGE" value="feat: add axios request from Order Form&#10;add component Default Content&#10;add function to wrap with default content&#10;fix: styles" />
+    <MESSAGE value="fix: packages" />
+    <option name="LAST_COMMIT_MESSAGE" value="fix: packages" />
   </component>
 </project>
