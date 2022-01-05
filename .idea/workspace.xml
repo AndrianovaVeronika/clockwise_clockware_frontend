@@ -1,17 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="0b44badc-015b-4a44-8e94-b1b8a0cbda15" name="Changes" comment="fix: packages">
-      <change afterPath="$PROJECT_DIR$/src/store/initialState.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/store/reducers/rootReducer.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/store/store.js" afterDir="false" />
+    <list default="true" id="47aa944b-1eed-4aaf-807f-af5d121fc908" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/src/components/DataTable/index.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/store/middleware/api.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/App.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/MUICustomisedHeader/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/MUICustomisedHeader/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/OrderForm/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/OrderForm/index.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/Pages/AdminOrdersPage/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Pages/AdminOrdersPage/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Pages/AdminOrdersPage/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Pages/AdminPage/index.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -21,7 +18,6 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="CSS File" />
         <option value="JavaScript File" />
       </list>
     </option>
@@ -29,16 +25,7 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="GitSEFilterConfiguration">
-    <file-type-list>
-      <filtered-out-file-type name="LOCAL_BRANCH" />
-      <filtered-out-file-type name="REMOTE_BRANCH" />
-      <filtered-out-file-type name="TAG" />
-      <filtered-out-file-type name="COMMIT_BY_MESSAGE" />
-    </file-type-list>
-  </component>
-  <component name="ProjectId" id="22nHvuVXix10AUkp26GAgOFpeC1" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectId" id="23HmCScMwckueab0opsZpx76CLC" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -47,8 +34,6 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
-    <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.standard" value="true" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
@@ -58,7 +43,7 @@
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
-      <recent name="D:\ClockwiseClockware\clockwise_clockware_frontend\src\components" />
+      <recent name="D:\ClockwiseClockware\clockwise_clockware_frontend\src\components\DataTable" />
     </key>
   </component>
   <component name="RunManager">
@@ -76,56 +61,13 @@
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="0b44badc-015b-4a44-8e94-b1b8a0cbda15" name="Changes" comment="" />
-      <created>1640466664703</created>
+      <changelist id="47aa944b-1eed-4aaf-807f-af5d121fc908" name="Changes" comment="" />
+      <created>1641399268560</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1640466664703</updated>
-      <workItem from="1640466678205" duration="2225000" />
-      <workItem from="1640538949530" duration="7470000" />
-      <workItem from="1640682134334" duration="30903000" />
-      <workItem from="1640764907663" duration="1934000" />
-      <workItem from="1640805943876" duration="1242000" />
-      <workItem from="1640807208805" duration="57000" />
-      <workItem from="1640807276177" duration="607000" />
-      <workItem from="1640852280444" duration="35000" />
-      <workItem from="1640853560734" duration="33000" />
-      <workItem from="1641235875858" duration="1023000" />
-      <workItem from="1641311295845" duration="8319000" />
-      <workItem from="1641322372072" duration="3478000" />
-      <workItem from="1641326530254" duration="441000" />
-      <workItem from="1641326987290" duration="449000" />
-      <workItem from="1641382116112" duration="9818000" />
+      <updated>1641399268560</updated>
+      <workItem from="1641399271667" duration="11983000" />
     </task>
-    <task id="LOCAL-00001" summary="feat: add form for orders&#10;fix: styles">
-      <created>1640725607146</created>
-      <option name="number" value="00001" />
-      <option name="presentableId" value="LOCAL-00001" />
-      <option name="project" value="LOCAL" />
-      <updated>1640725607146</updated>
-    </task>
-    <task id="LOCAL-00002" summary="feat: add axios request from Order Form&#10;add component Default Content&#10;add function to wrap with default content&#10;fix: styles">
-      <created>1641326194702</created>
-      <option name="number" value="00002" />
-      <option name="presentableId" value="LOCAL-00002" />
-      <option name="project" value="LOCAL" />
-      <updated>1641326194702</updated>
-    </task>
-    <task id="LOCAL-00003" summary="fix: packages">
-      <created>1641326679790</created>
-      <option name="number" value="00003" />
-      <option name="presentableId" value="LOCAL-00003" />
-      <option name="project" value="LOCAL" />
-      <updated>1641326679790</updated>
-    </task>
-    <task id="LOCAL-00004" summary="fix: packages">
-      <created>1641327278221</created>
-      <option name="number" value="00004" />
-      <option name="presentableId" value="LOCAL-00004" />
-      <option name="project" value="LOCAL" />
-      <updated>1641327278222</updated>
-    </task>
-    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -141,12 +83,5 @@
         </entry>
       </map>
     </option>
-    <option name="oldMeFiltersMigrated" value="true" />
-  </component>
-  <component name="VcsManagerConfiguration">
-    <MESSAGE value="feat: add form for orders&#10;fix: styles" />
-    <MESSAGE value="feat: add axios request from Order Form&#10;add component Default Content&#10;add function to wrap with default content&#10;fix: styles" />
-    <MESSAGE value="fix: packages" />
-    <option name="LAST_COMMIT_MESSAGE" value="fix: packages" />
   </component>
 </project>
