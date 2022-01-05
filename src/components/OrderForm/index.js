@@ -133,7 +133,7 @@ const OrderForm = (props) => {
                 </form>
                 <DialogActions>
                     <Button onClick={handleClose}>Отмена</Button>
-                    <Button type='submit' onClick={onSubmit}>Заказать</Button>
+                    <Button type='submit' onClick={() => {onSubmit(); handleClose();}}>Заказать</Button>
                 </DialogActions>
             </Dialog>
         </>

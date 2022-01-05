@@ -2,8 +2,16 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="0b44badc-015b-4a44-8e94-b1b8a0cbda15" name="Changes" comment="fix: packages">
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/store/initialState.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/store/reducers/rootReducer.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/store/store.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/App.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/MUICustomisedHeader/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/MUICustomisedHeader/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/OrderForm/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/OrderForm/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Pages/AdminOrdersPage/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Pages/AdminOrdersPage/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -86,6 +94,8 @@
       <workItem from="1641311295845" duration="8319000" />
       <workItem from="1641322372072" duration="3478000" />
       <workItem from="1641326530254" duration="441000" />
+      <workItem from="1641326987290" duration="449000" />
+      <workItem from="1641382116112" duration="9818000" />
     </task>
     <task id="LOCAL-00001" summary="feat: add form for orders&#10;fix: styles">
       <created>1640725607146</created>
@@ -108,7 +118,14 @@
       <option name="project" value="LOCAL" />
       <updated>1641326679790</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="fix: packages">
+      <created>1641327278221</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1641327278222</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

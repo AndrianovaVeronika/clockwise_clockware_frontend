@@ -41,16 +41,16 @@ export default function Header() {
                         <Button
                             {...{
                                 color: 'inherit',
-                                // to: '/home',
-                                // component: RouterLink,
+                                to: '/',
+                                component: RouterLink,
                                 className: 'menu-button'
                             }}
                         >Главная</Button>
                         <Button
                             {...{
                                 color: 'inherit',
-                                // to: '/login',
-                                // component: RouterLink,
+                                to: '/admin',
+                                component: RouterLink,
                                 className: 'menu-button'
                             }}
                         >Войти</Button>
