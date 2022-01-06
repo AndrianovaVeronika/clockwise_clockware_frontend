@@ -1,14 +1,14 @@
 import React from 'react';
 import {withHeader} from '../../../functions/withHeader';
 import {wrapContent} from '../../../functions/wrapContent';
-import OrdersTable from '../../OrdersTable';
+import MastersTable from "../../MastersTable";
 
-const AdminOrdersPage = () => {
+const AdminMastersPage = () => {
     return (
         <>
-            <OrdersTable/>
+            <MastersTable/>
         </>
     )
 }
 
-export default withHeader(wrapContent(AdminOrdersPage));
+export default withHeader(wrapContent(AdminMastersPage));

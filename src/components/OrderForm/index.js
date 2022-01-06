@@ -4,6 +4,7 @@ import LocalizationProvider from '@mui/lab/LocalizationProvider';
 import DateTimePicker from '@mui/lab/DateTimePicker';
 import {clockType, citiesAvailable} from "../../static/mock/orders_mock";
 import './style.css';
+import api from "../../store/middleware/api";
 import {
     Button,
     Dialog,
@@ -19,10 +20,10 @@ import {
 const initialValues = {
     name: '',
     login: '',
-    clocktype: '',
+    clock_type: '',
     city: '',
     datetime: new Date(),
-    masterid: 0,
+    master_id: 0,
 }
 const axios = require('axios');
 
@@ -50,12 +51,7 @@ const OrderForm = (props) => {
     }
 
     const onSubmit = () => {
-        console.log(values);
-        axios({
-            method: 'post',
-            url: 'http://localhost:3000/orders',
-            data: values
-        });
+        api.post('/orders', values);
     }
 
     return (
