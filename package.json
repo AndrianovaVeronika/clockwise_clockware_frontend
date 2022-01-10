@@ -50,6 +50,7 @@
   },
   "devDependencies": {
     "@mui/lab": "^5.0.0-alpha.61",
-    "react-hook-form": "^7.22.5"
+    "react-hook-form": "^7.22.5",
+    "react-redux": "^7.2.6"
   }
 }

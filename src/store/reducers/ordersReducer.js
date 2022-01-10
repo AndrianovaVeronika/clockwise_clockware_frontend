@@ -1,22 +1,21 @@
 import initialState from "../initialState";
-import ADD_NEW_ORDER from "../actions/add_new_order";
-import HANDLE_INPUT_CHANGE from "../actions/handle_input_change";
+import {createSlice} from "@reduxjs/toolkit";
+import {getOrders} from "../actions";
 
-export default function ordersReducer(state = initialState.orders, action){
-    switch(action.type) {
-        case ADD_NEW_ORDER: {
-            return {
-                ...state,
-                contactList: [...state.ordersList, ...state.newOrder]
-            }
-        }
-        case HANDLE_INPUT_CHANGE: {
-            return {
-                ...state, newOrder: {
-                    ...state.newOrder, ...action.payload
-                }
-            }
-        }
-        default: return state;
+const {reducer} = createSlice({
+    name: 'orders',
+    initialState,
+    reducers: {
+        // omit existing reducers here
+    },
+    extraReducers(builder) {
+        builder
+            .addCase(getOrders.fulfilled, (state, action) => {
+                console.log('returned from backend');
+                state.orders.ordersList = action.payload;
+                console.log('saved to redux');
+            })
     }
-}
+})
+
+export default reducer;

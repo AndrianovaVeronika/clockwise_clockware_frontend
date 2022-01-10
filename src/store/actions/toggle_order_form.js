@@ -1,3 +1,0 @@
-const TOGGLE_ORDER_FORM = 'TOGGLE_ORDER_FORM';
-
-export default TOGGLE_ORDER_FORM;
