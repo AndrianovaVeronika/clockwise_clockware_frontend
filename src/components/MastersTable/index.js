@@ -2,9 +2,9 @@ import * as React from 'react';
 import DataTable from "../DataTable";
 import {useEffect} from "react";
 import store from "../../store/store";
-import {getOrders} from "../../store/actions";
+import {getMasters, getOrders} from "../../store/actions";
 import {useSelector} from "react-redux";
-import {getOrdersSelector} from "../../store/selectors/ordersSelector";
+import {getMastersSelector} from "../../store/selectors/mastersSelector";
 
 const columns = [
     {
@@ -20,10 +20,10 @@ const columns = [
 
 const MastersTable = () => {
     useEffect(() => {
-        store.dispatch(getOrders());
+        store.dispatch(getMasters());
     }, [])
 
-    const rows = useSelector(getOrdersSelector);
+    const rows = useSelector(getMastersSelector);
 
     return (
         <DataTable
