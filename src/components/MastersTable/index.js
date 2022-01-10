@@ -5,6 +5,11 @@ import store from "../../store/store";
 import {getMasters, getOrders} from "../../store/actions";
 import {useSelector} from "react-redux";
 import {getMastersSelector} from "../../store/selectors/mastersSelector";
+import Rating from '@mui/material/Rating';
+
+function renderRating(params) {
+    return <Rating readOnly value={params.value} />;
+}
 
 const columns = [
     {
@@ -14,7 +19,11 @@ const columns = [
         field: 'name', headerName: 'Имя', width: 100
     },
     {
-        field: 'rating', headerName: 'Рейтинг', width: 100,
+        field: 'rating',
+        headerName: 'Рейтинг',
+        width: 150,
+        renderCell: renderRating,
+        type: 'number',
     },
 ];
 

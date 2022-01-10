@@ -4,7 +4,6 @@ import LocalizationProvider from '@mui/lab/LocalizationProvider';
 import DateTimePicker from '@mui/lab/DateTimePicker';
 import {clockType, citiesAvailable} from "../../static/mock/orders_mock";
 import './style.css';
-import api from "../../store/middleware/api";
 import {
     Button,
     Dialog,
@@ -17,8 +16,7 @@ import {
     Select, FormControl
 } from "@mui/material";
 import store from "../../store/store";
-
-const axios = require('axios');
+import {addOrder} from "../../store/actions/orders";
 
 const initialValues = {
     name: '',
@@ -50,6 +48,7 @@ const OrderForm = (props) => {
 
     const onSubmit = () => {
         console.log(values);
+        store.dispatch(addOrder(values));
         toggleForm();
     }
 

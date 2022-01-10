@@ -1,15 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="47aa944b-1eed-4aaf-807f-af5d121fc908" name="Changes" comment="feat: add orders reducer&#10;fix: orders table requests store for orders list now">
-      <change afterPath="$PROJECT_DIR$/src/store/actions/masters.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/store/constants/masters.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/store/selectors/mastersSelector.js" afterDir="false" />
+    <list default="true" id="47aa944b-1eed-4aaf-807f-af5d121fc908" name="Changes" comment="feat: add masters reducer&#10;fix: masters table requests store for masters list now">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/MastersTable/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/MastersTable/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/store/actions/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/store/actions/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/OrderForm/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/OrderForm/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/store/actions/masters.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/store/actions/masters.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/store/actions/orders.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/store/actions/orders.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/store/reducers/mastersReducer.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/store/reducers/mastersReducer.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/store/reducers/rootReducer.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/store/reducers/rootReducer.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/store/reducers/ordersReducer.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/store/reducers/ordersReducer.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -81,7 +80,7 @@
       <workItem from="1641460809787" duration="15748000" />
       <workItem from="1641559780913" duration="16937000" />
       <workItem from="1641580784184" duration="4760000" />
-      <workItem from="1641812000426" duration="7048000" />
+      <workItem from="1641812000426" duration="13036000" />
     </task>
     <task id="LOCAL-00001" summary="fix: rename Admin Orders Page to Admin Page&#10;feat: add page Admin Orders Page and Data Table component">
       <created>1641420518743</created>
@@ -104,7 +103,14 @@
       <option name="project" value="LOCAL" />
       <updated>1641818665203</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="feat: add masters reducer&#10;fix: masters table requests store for masters list now">
+      <created>1641819165338</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1641819165338</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -126,6 +132,7 @@
     <MESSAGE value="fix: rename Admin Orders Page to Admin Page&#10;feat: add page Admin Orders Page and Data Table component" />
     <MESSAGE value="feat: initial redux store build" />
     <MESSAGE value="feat: add orders reducer&#10;fix: orders table requests store for orders list now" />
-    <option name="LAST_COMMIT_MESSAGE" value="feat: add orders reducer&#10;fix: orders table requests store for orders list now" />
+    <MESSAGE value="feat: add masters reducer&#10;fix: masters table requests store for masters list now" />
+    <option name="LAST_COMMIT_MESSAGE" value="feat: add masters reducer&#10;fix: masters table requests store for masters list now" />
   </component>
 </project>
