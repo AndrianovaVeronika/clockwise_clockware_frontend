@@ -1,8 +1,6 @@
 import initialState from "../initialState";
 import {createSlice} from "@reduxjs/toolkit";
-import {getMasters} from "../actions";
-import {addOrder} from "../actions/orders";
-import {addMaster} from "../actions/masters";
+import {getMasters, addMaster} from "../actions";
 
 const {reducer} = createSlice({
     name: 'masters',

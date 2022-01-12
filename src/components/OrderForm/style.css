@@ -1,14 +1,6 @@
-#openForm:hover, openForm:focus, openForm:active{
-    color: brown;
-}
-
 .fieldContainer{
     display: flex;
     flex-wrap: wrap;
     align-content: flex-start;
 }
 
-.field{
-    margin-top: 20px;
-    margin-left: 20px;
-}

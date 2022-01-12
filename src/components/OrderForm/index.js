@@ -1,133 +1,220 @@
 import React, {useEffect, useState} from 'react';
-import AdapterDateFns from '@mui/lab/AdapterDateFns';
-import LocalizationProvider from '@mui/lab/LocalizationProvider';
-import DateTimePicker from '@mui/lab/DateTimePicker';
-import {clockType, citiesAvailable} from "../../static/mock/orders_mock";
 import './style.css';
 import {
+    Box,
     Button,
-    Dialog,
-    DialogActions,
-    DialogContent,
-    DialogTitle,
-    Grid,
-    TextField,
-    MenuItem,
-    Select, FormControl
+    Dialog, DialogActions, DialogContent,
+    DialogTitle, MenuItem, Step, StepLabel, Stepper, Typography,
 } from "@mui/material";
+import CredentialsStep from "./CredentialsStep";
 import store from "../../store/store";
-import {addOrder} from "../../store/actions/orders";
+import {addOrder, getCities} from "../../store/actions";
+import {useSelector} from "react-redux";
+import {getCitiesSelector} from "../../store/selectors/citiesSelector";
 
 const initialValues = {
-    name: '',
-    login: '',
-    clock_type: '',
-    city: '',
-    datetime: new Date(),
-    master_id: 0
+    name: {
+        value: '',
+        isError: false,
+        helperText: '',
+    },
+    login: {
+        value: '',
+        isError: false,
+        helperText: '',
+    },
+    clock_type: {
+        value: '',
+        isError: false,
+        helperText: '',
+    },
+    master_id: {
+        value: 0,
+        isError: false,
+        helperText: '',
+    },
+    city_id: {
+        value: '',
+        isError: false,
+        helperText: '',
+    },
+    date: {
+        value: new Date(),
+        isError: false,
+        helperText: '',
+    },
+    time: {
+        value: new Date(),
+        isError: false,
+        helperText: '',
+    },
 }
 
-const OrderForm = (props) => {
-    const textStyle = props.className;
-    const [values, setValues] = useState(initialValues);
+const steps = ['Подробности заказа', 'Дата и время', 'Мастер'];
+
+const OrderForm = ({openButtonOnClickText}) => {
     const [open, setOpen] = useState(false);
 
     const toggleForm = () => {
         setOpen(!open);
+        setActiveStep(0);
     }
 
-    const handleValuesChange = ({target}) => {
-        setValues({...values, [target.name]: target.value});
+    const [values, setValues] = useState(initialValues);
+
+    const handleCredentialsChange = ({target}) => {
+        console.log(target.name, target.value);
+        setValues({...values, [target.name]: {value: target.value}});
     }
 
     //when its date, string is passed to newDateTime unlike other
-    const handleDateTimeChange = (newDateTime) => {
-        const target = {name: 'datetime', value: new Date(newDateTime)};
-        setValues({...values, [target.name]: target.value});
+    // const handleDateTimeChange = (newDateTime) => {
+    //     const target = {name: 'datetime', value: new Date(newDateTime)};
+    //     setValues({...values, [target.name]: target.value});
+    // }
+
+    const validateFields = () => {
+        for (const field in values) {
+            if (values[field].value === initialValues[field].value) {
+                values[field].isError = true;
+                values[field].helperText = 'Field cannot be empty';
+            } else {
+                switch (field) {
+                    case 'name': {
+                        if (values[field].value.length <= 3) {
+                            values[field].helperText = 'Name is too short';
+                            values[field].isError = true;
+                        }
+                        break;
+                    }
+                    default: {
+                        values[field].isError = false;
+                        break;
+                    }
+                }
+            }
+        }
+    }
+
+    useEffect(() => {
+        validateFields();
+    }, [values]);
+
+    const ifError = () => {
+        for (const field in values) {
+            if (values[field].isError) {
+                return true;
+            }
+        }
+        return false;
     }
 
     const onSubmit = () => {
         console.log(values);
+        if (ifError()) {
+            console.log("!ERROR IN FIELDS");
+            toggleForm();
+            return;
+        }
         store.dispatch(addOrder(values));
         toggleForm();
     }
 
+    const cities = useSelector(getCitiesSelector).map((city) => {
+        return <MenuItem key={city.id} value={city.id}>{city.name}</MenuItem>
+    })
+
+    useEffect(() => {
+        store.dispatch(getCities());
+    }, [])
+
+    const [activeStep, setActiveStep] = useState(0);
+
+    const isStepOptional = (step) => {
+        return step === 1;
+    };
+
+    const handleNext = () => {
+        setActiveStep((prevActiveStep) => prevActiveStep + 1);
+    };
+
+    const handleBack = () => {
+        setActiveStep((prevActiveStep) => prevActiveStep - 1);
+    };
+
+    const ActiveStep = () => {
+        switch (activeStep) {
+            case 0 : {
+                return <CredentialsStep
+                    name={values.name}
+                    login={values.login}
+                    clock_type={values.clock_type}
+                    city={values.city_id}
+                    handleCredentialsChange={handleCredentialsChange}
+                    cities={cities}
+                />
+            }
+            case 1 : {
+                return <div>Date & Time picker</div>
+            }
+            case 2 : {
+                return <div>Master picker</div>
+            }
+        }
+    }
+
     return (
         <>
-            <div className={textStyle} id='openForm' onClick={toggleForm}>Сделать заказ</div>
+            <Button
+                {...{
+                    color: 'inherit',
+                    onClick: toggleForm
+                }}
+            >{openButtonOnClickText}</Button>
             <Dialog open={open} onClose={toggleForm}>
-                <DialogTitle>Введите свои данные чтобы заказать мастера</DialogTitle>
-                {/*<form onSubmit={onSubmit}>*/}
+                <DialogTitle>Введите данные чтобы заказать мастера</DialogTitle>
                 <DialogContent>
-                    <Grid container>
-                        <Grid item xs={6} className='fieldsContainer'>
-                            <div className='field'>
-                                <TextField
-                                    className='field'
-                                    name='name'
-                                    variant='outlined'
-                                    label='Имя'
-                                    value={values.name}
-                                    onChange={handleValuesChange}
-                                />
-                            </div>
-                            <div className='field'>
-                                <TextField
-                                    className='field'
-                                    name='login'
-                                    variant='outlined'
-                                    label='Логин'
-                                    value={values.login}
-                                    onChange={handleValuesChange}
-                                />
-                            </div>
-                            <FormControl style={{minWidth: 200}}>
-                                <Select
-                                    className='field'
-                                    id='field-select'
-                                    name='clock_type'
-                                    value={values.clock_type}
-                                    label="Размер часов"
-                                    onChange={handleValuesChange}
-                                >
-                                    <MenuItem value={clockType.small}>Маленькие</MenuItem>
-                                    <MenuItem value={clockType.average}>Средние</MenuItem>
-                                    <MenuItem value={clockType.big}>Большие</MenuItem>
-                                </Select>
-                            </FormControl>
-                        </Grid>
-                        <Grid item xs={6} className='fieldsContainer'>
-                            <div className='field'>
-                                <LocalizationProvider dateAdapter={AdapterDateFns}>
-                                    <DateTimePicker
-                                        name='datetime'
-                                        label="Дата и время приезда мастера"
-                                        value={values.datetime}
-                                        onChange={handleDateTimeChange}
-                                        renderInput={(params) => <TextField {...params} />}
-                                    />
-                                </LocalizationProvider>
-                            </div>
-                            <FormControl style={{minWidth: 200}}>
-                                <Select
-                                    className='field'
-                                    id='field-select'
-                                    name='city'
-                                    value={values.city}
-                                    label="Город"
-                                    onChange={handleValuesChange}
-                                >
-                                    <MenuItem value={citiesAvailable[0]}>Днипро</MenuItem>
-                                    <MenuItem value={citiesAvailable[1]}>Ужгород</MenuItem>
-                                </Select>
-                            </FormControl>
-                        </Grid>
-                    </Grid>
+                    <Box sx={{width: '100%'}}>
+                        <Stepper activeStep={activeStep}>
+                            {steps.map((label, index) => {
+                                const stepProps = {};
+                                const labelProps = {};
+                                return (
+                                    <Step key={label} {...stepProps}>
+                                        <StepLabel {...labelProps}>{label}</StepLabel>
+                                    </Step>
+                                );
+                            })}
+                        </Stepper>
+                        { //Steps body
+                            activeStep === steps.length ? (
+                                    <Typography sx={{mt: 2, mb: 1}}>
+                                        All steps completed - you&apos;re finished
+                                    </Typography>
+                                ) :
+                                (
+                                    <ActiveStep/>
+                                )
+                        }
+                    </Box>
                 </DialogContent>
-                {/*</form>*/}
                 <DialogActions>
+                    <Button
+                        color="inherit"
+                        disabled={activeStep === 0}
+                        onClick={handleBack}
+                        sx={{mr: 1}}
+                    >Back</Button>
+                    {
+                        activeStep === steps.length ?
+                            <Button onClick={onSubmit}>Заказать</Button> :
+                            <Button onClick={handleNext}>
+                                {activeStep === steps.length - 1 ? 'Finish' : 'Next'}
+                            </Button>
+                    }
                     <Button onClick={toggleForm}>Отмена</Button>
-                    <Button onClick={onSubmit}>Заказать</Button>
+
+
                 </DialogActions>
             </Dialog>
         </>

@@ -1,11 +1,11 @@
 import {createAsyncThunk} from "@reduxjs/toolkit";
-import masters from '../constants/masters';
 import instance from "../middleware/api";
+import cities from "../constants/cities";
 
-export const getMasters = createAsyncThunk(masters.GET_MASTERS, async () => {
+export const getCities = createAsyncThunk(cities.GET_CITIES, async () => {
     try {
         console.log('Going to backend');
-        const response = await instance.get('/masters');
+        const response = await instance.get('/cities');
         if (response.data) {
             console.log('oh, yes, query works');
             return response.data;
@@ -20,15 +20,15 @@ export const getMasters = createAsyncThunk(masters.GET_MASTERS, async () => {
     }
 })
 
-export const addMaster = createAsyncThunk(masters.ADD_MASTER, async (newMaster) => {
+export const addCity = createAsyncThunk(cities.ADD_CITY, async (newCity) => {
     try {
-        const response = await instance.post('/masters', newMaster);
+        const response = await instance.post('/cities', newCity);
 
         if (response.status === 201){
-            return {status: 'new master added'};
+            return {status: 'new city added'};
         }
         else {
-            return {status: 'smth went wrong (new master havent been added)'};
+            return {status: 'smth went wrong (new city havent been added)'};
         }
     } catch (e) {
         console.log('!ERROR', e);

@@ -5,6 +5,9 @@ const initialState = {
     masters: {
         mastersList: [],
     },
+    cities: {
+        citiesList: [],
+    }
 };
 
 export default initialState;

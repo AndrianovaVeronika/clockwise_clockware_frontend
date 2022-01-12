@@ -9,7 +9,7 @@ const HomePage = () => {
     return (
         <div className="text">
             <div>{homePageText}</div>
-            <OrderForm className="text"/>
+            <OrderForm openButtonOnClickText={'Сделать заказ'}/>
         </div>
     )
 }

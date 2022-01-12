@@ -38,7 +38,6 @@ const MastersTable = () => {
         <DataTable
             columns={columns}
             rows={rows}
-            queryLink={'/masters'}
         />
     );
 }

@@ -5,6 +5,8 @@ import store from "../../store/store";
 import {getOrders} from "../../store/actions";
 import {useSelector} from "react-redux";
 import {getOrdersSelector} from "../../store/selectors/ordersSelector";
+import OrderForm from "../OrderForm";
+import './style.css';
 
 const columns = [
     {
@@ -38,11 +40,13 @@ const OrdersTable = () => {
     const rows = useSelector(getOrdersSelector);
 
     return (
-        <DataTable
-            columns={columns}
-            rows={rows}
-            queryLink={'/orders'}
-        />
+        <>
+            <DataTable
+                columns={columns}
+                rows={rows}
+            />
+            <OrderForm openButtonOnClickText={'Добавить заказ'}/>
+        </>
     );
 }
 

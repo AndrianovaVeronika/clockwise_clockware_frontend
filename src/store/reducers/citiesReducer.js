@@ -1,21 +1,21 @@
 import initialState from "../initialState";
 import {createSlice} from "@reduxjs/toolkit";
-import {getOrders, addOrder} from "../actions";
+import {getCities, addCity} from "../actions";
 
 const {reducer} = createSlice({
-    name: 'orders',
+    name: 'cities',
     initialState,
     reducers: {
         // omit existing reducers here
     },
     extraReducers(builder) {
         builder
-            .addCase(getOrders.fulfilled, (state, action) => {
+            .addCase(getCities.fulfilled, (state, action) => {
                 console.log('returned from backend');
-                state.orders.ordersList = action.payload;
+                state.cities.citiesList = action.payload;
                 console.log('saved to redux');
             })
-            .addCase(addOrder.fulfilled, (state, action) => {
+            .addCase(addCity.fulfilled, (state, action) => {
                 console.log(action.payload.status);
             })
     }

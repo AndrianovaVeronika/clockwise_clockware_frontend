@@ -23,6 +23,13 @@ const AdminPage = () => {
                         component: RouterLink,
                     }}
                 >Мастера</Button>
+                <Button
+                    {...{
+                        color: 'inherit',
+                        to: '/admin/masters',
+                        component: RouterLink,
+                    }}
+                >Города</Button>
             </Toolbar>
         </>
     )
