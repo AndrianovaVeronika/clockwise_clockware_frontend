@@ -1,9 +1,9 @@
 import React from 'react';
-import './style.css';
 import {withHeader} from '../../../functions/withHeader';
 import {homePageText} from "../../../static/texts";
 import OrderForm from "../../OrderForm";
 import {wrapContent} from '../../../functions/wrapContent';
+import {compose} from "redux";
 
 const HomePage = () => {
     return (
@@ -14,4 +14,4 @@ const HomePage = () => {
     )
 }
 
-export default withHeader(wrapContent(HomePage));
+export default compose(withHeader, wrapContent)(HomePage);

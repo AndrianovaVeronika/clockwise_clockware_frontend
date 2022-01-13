@@ -3,11 +3,11 @@ import {withHeader} from '../../../functions/withHeader';
 import {wrapContent} from '../../../functions/wrapContent';
 import {Button, Toolbar} from "@mui/material";
 import {Link as RouterLink} from "react-router-dom";
+import {compose} from "redux";
 
 const AdminPage = () => {
     return (
         <>
-            <div className='text'>Добро пожаловать, мастер! Чего изволите?</div>
             <Toolbar>
                 <Button
                     {...{
@@ -35,4 +35,4 @@ const AdminPage = () => {
     )
 }
 
-export default withHeader(wrapContent(AdminPage));
+export default compose(withHeader, wrapContent)(AdminPage);

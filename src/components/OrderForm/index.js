@@ -4,53 +4,27 @@ import {
     Box,
     Button,
     Dialog, DialogActions, DialogContent,
-    DialogTitle, MenuItem, Step, StepLabel, Stepper, Typography,
+    DialogTitle, FormControl, InputLabel, MenuItem, Select, Step, StepLabel, Stepper, TextField, Typography,
 } from "@mui/material";
 import CredentialsStep from "./CredentialsStep";
 import store from "../../store/store";
 import {addOrder, getCities} from "../../store/actions";
 import {useSelector} from "react-redux";
 import {getCitiesSelector} from "../../store/selectors/citiesSelector";
+import DateTimeStep from "./DateTimeStep";
+import clockType from "../../static/clockType";
 
 const initialValues = {
-    name: {
-        value: '',
-        isError: false,
-        helperText: '',
-    },
-    login: {
-        value: '',
-        isError: false,
-        helperText: '',
-    },
-    clock_type: {
-        value: '',
-        isError: false,
-        helperText: '',
-    },
-    master_id: {
-        value: 0,
-        isError: false,
-        helperText: '',
-    },
-    city_id: {
-        value: '',
-        isError: false,
-        helperText: '',
-    },
-    date: {
-        value: new Date(),
-        isError: false,
-        helperText: '',
-    },
-    time: {
-        value: new Date(),
-        isError: false,
-        helperText: '',
-    },
+    name: '',
+    login: '',
+    clock_type: '',
+    master_id: 0,
+    city_id: 0,
+    date: new Date(),
+    time: new Date('9:00'),
 }
 
-const steps = ['Подробности заказа', 'Дата и время', 'Мастер'];
+const steps = ['Подробности заказа', 'Мастер', 'Дата и время'];
 
 const OrderForm = ({openButtonOnClickText}) => {
     const [open, setOpen] = useState(false);
@@ -62,61 +36,36 @@ const OrderForm = ({openButtonOnClickText}) => {
 
     const [values, setValues] = useState(initialValues);
 
-    const handleCredentialsChange = ({target}) => {
-        console.log(target.name, target.value);
-        setValues({...values, [target.name]: {value: target.value}});
+    const handleValuesChange = ({target}) => {
+        target.value ??= values[target.name];
+        console.log(target);
+        setValues({...values, [target.name]: target.value});
     }
 
-    //when its date, string is passed to newDateTime unlike other
-    // const handleDateTimeChange = (newDateTime) => {
-    //     const target = {name: 'datetime', value: new Date(newDateTime)};
-    //     setValues({...values, [target.name]: target.value});
+    const handleDateChange = (value) => {
+        console.log(value);
+        setValues({...values, ['date']: new Date(value)});
+    }
+
+    // const validate = (target) => {
+    //     switch (target.name) {
+    //         case 'name': {
+    //             if (target.value.length <= 3) {
+    //                 target.helperText = 'Name is too short';
+    //                 target.isError = true;
+    //             }
+    //             break;
+    //         }
+    //         default: {
+    //             target.isError = false;
+    //             break;
+    //         }
+    //     }
     // }
 
-    const validateFields = () => {
-        for (const field in values) {
-            if (values[field].value === initialValues[field].value) {
-                values[field].isError = true;
-                values[field].helperText = 'Field cannot be empty';
-            } else {
-                switch (field) {
-                    case 'name': {
-                        if (values[field].value.length <= 3) {
-                            values[field].helperText = 'Name is too short';
-                            values[field].isError = true;
-                        }
-                        break;
-                    }
-                    default: {
-                        values[field].isError = false;
-                        break;
-                    }
-                }
-            }
-        }
-    }
-
-    useEffect(() => {
-        validateFields();
-    }, [values]);
-
-    const ifError = () => {
-        for (const field in values) {
-            if (values[field].isError) {
-                return true;
-            }
-        }
-        return false;
-    }
-
     const onSubmit = () => {
-        console.log(values);
-        if (ifError()) {
-            console.log("!ERROR IN FIELDS");
-            toggleForm();
-            return;
-        }
-        store.dispatch(addOrder(values));
+        console.log('submitting', values);
+        // store.dispatch(addOrder(values));
         toggleForm();
     }
 
@@ -129,10 +78,6 @@ const OrderForm = ({openButtonOnClickText}) => {
     }, [])
 
     const [activeStep, setActiveStep] = useState(0);
-
-    const isStepOptional = (step) => {
-        return step === 1;
-    };
 
     const handleNext = () => {
         setActiveStep((prevActiveStep) => prevActiveStep + 1);
@@ -150,15 +95,23 @@ const OrderForm = ({openButtonOnClickText}) => {
                     login={values.login}
                     clock_type={values.clock_type}
                     city={values.city_id}
-                    handleCredentialsChange={handleCredentialsChange}
+                    handleChange={handleValuesChange}
                     cities={cities}
                 />
             }
             case 1 : {
-                return <div>Date & Time picker</div>
+                return <div>Master picker</div>
             }
             case 2 : {
-                return <div>Master picker</div>
+                return <DateTimeStep
+                    date={values.date}
+                    onChangeDate={handleDateChange}
+                    minDate={new Date()}
+                    // time={values.time}
+                    // minTime={9}
+                    // maxTime={18}
+                    // onChangeTime={handleValuesChange}
+                />
             }
         }
     }
@@ -213,8 +166,6 @@ const OrderForm = ({openButtonOnClickText}) => {
                             </Button>
                     }
                     <Button onClick={toggleForm}>Отмена</Button>
-
-
                 </DialogActions>
             </Dialog>
         </>
