@@ -4,22 +4,20 @@ import {
     Box,
     Button,
     Dialog, DialogActions, DialogContent,
-    DialogTitle, FormControl, InputLabel, MenuItem, Select, Step, StepLabel, Stepper, TextField, Typography,
+    DialogTitle, Step, StepLabel, Stepper, Typography,
 } from "@mui/material";
 import CredentialsStep from "./CredentialsStep";
 import store from "../../store/store";
-import {addOrder, getCities} from "../../store/actions";
-import {useSelector} from "react-redux";
-import {getCitiesSelector} from "../../store/selectors/citiesSelector";
+import {addOrder, getCities, getMasters} from "../../store/actions";
 import DateTimeStep from "./DateTimeStep";
-import clockType from "../../static/clockType";
+import MasterStep from "./MasterStep";
 
 const initialValues = {
     name: '',
     login: '',
     clock_type: '',
     master_id: 0,
-    city_id: 0,
+    city_id: '',
     date: new Date(),
     time: new Date('9:00'),
 }
@@ -36,15 +34,18 @@ const OrderForm = ({openButtonOnClickText}) => {
 
     const [values, setValues] = useState(initialValues);
 
-    const handleValuesChange = ({target}) => {
-        target.value ??= values[target.name];
-        console.log(target);
-        setValues({...values, [target.name]: target.value});
+    const handleValuesChange = (e) => {
+        setValues({...values, [e.target.name]: e.target.value});
     }
 
     const handleDateChange = (value) => {
         console.log(value);
-        setValues({...values, ['date']: new Date(value)});
+        setValues({...values, ['date']: value});
+    }
+
+    const handleMasterChange = (id) => {
+        console.log(id);
+        setValues({...values, ['master_id']: id});
     }
 
     // const validate = (target) => {
@@ -69,14 +70,6 @@ const OrderForm = ({openButtonOnClickText}) => {
         toggleForm();
     }
 
-    const cities = useSelector(getCitiesSelector).map((city) => {
-        return <MenuItem key={city.id} value={city.id}>{city.name}</MenuItem>
-    })
-
-    useEffect(() => {
-        store.dispatch(getCities());
-    }, [])
-
     const [activeStep, setActiveStep] = useState(0);
 
     const handleNext = () => {
@@ -87,6 +80,11 @@ const OrderForm = ({openButtonOnClickText}) => {
         setActiveStep((prevActiveStep) => prevActiveStep - 1);
     };
 
+    useEffect(() => {
+        store.dispatch(getCities());
+        store.dispatch(getMasters());
+    }, [])
+
     const ActiveStep = () => {
         switch (activeStep) {
             case 0 : {
@@ -96,16 +94,19 @@ const OrderForm = ({openButtonOnClickText}) => {
                     clock_type={values.clock_type}
                     city={values.city_id}
                     handleChange={handleValuesChange}
-                    cities={cities}
                 />
             }
             case 1 : {
-                return <div>Master picker</div>
+                // return <MasterStep
+                //     master_id={values.master_id}
+                //     handleMasterChange={handleMasterChange}
+                // />
+                return <div>Master step</div>
             }
             case 2 : {
                 return <DateTimeStep
                     date={values.date}
-                    onChangeDate={handleDateChange}
+                    handleDateChange={handleDateChange}
                     minDate={new Date()}
                     // time={values.time}
                     // minTime={9}

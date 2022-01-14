@@ -1,14 +1,19 @@
 import React, {useEffect} from "react";
 import {Box, FormControl, FormHelperText, Grid, InputLabel, MenuItem, Select, TextField} from "@mui/material";
 import clockType from "../../static/clockType";
+import {useSelector} from "react-redux";
+import {getCitiesSelector} from "../../store/selectors/citiesSelector";
 
-const CredentialsStep = ({name, login, clock_type, city, handleChange, cities}) => {
+const CredentialsStep = ({name, login, clock_type, city, handleChange}) => {
+    const cities = useSelector(getCitiesSelector).map((city) => {
+        return <MenuItem key={city.id} value={city.id}>{city.name}</MenuItem>
+    })
 
     return (
         <Box sx={{display: 'flex', flexWrap: 'wrap', justifyContent: 'space-around'}}>
             <TextField
                 // className='field'
-                id="outlined-error-helper-text"
+                // id="outlined-error-helper-text"
                 name='name'
                 variant='outlined'
                 label='Имя'
@@ -19,7 +24,7 @@ const CredentialsStep = ({name, login, clock_type, city, handleChange, cities}) 
             />
             <TextField
                 // className='field'
-                id="outlined-error-helper-text"
+                // id="outlined-error-helper-text"
                 name='login'
                 variant='outlined'
                 label='Логин'
@@ -36,7 +41,7 @@ const CredentialsStep = ({name, login, clock_type, city, handleChange, cities}) 
                 <InputLabel id="select-clock_type">Размер часов</InputLabel>
                 <Select
                     labelId='select-clock_type'
-                    id='demo-simple-select-helper'
+                    // id='demo-simple-select-helper'
                     name='clock_type'
                     label='Размер часов'
                     value={clock_type}
@@ -56,9 +61,9 @@ const CredentialsStep = ({name, login, clock_type, city, handleChange, cities}) 
                 <InputLabel id="select-city">Город</InputLabel>
                 <Select
                     labelId='select-city'
-                    id='demo-simple-select-helper'
+                    // id='demo-simple-select-helper'
                     name='city_id'
-                    value={cities[city]}
+                    value={city}
                     onChange={handleChange}
                 >{cities}</Select>
                 {/*<FormHelperText>{city.helperText}</FormHelperText>*/}

@@ -1,15 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="47aa944b-1eed-4aaf-807f-af5d121fc908" name="Changes" comment="feat: add city model to store, add Stepper to Order form&#10;fix: decompose Order form component">
+    <list default="true" id="47aa944b-1eed-4aaf-807f-af5d121fc908" name="Changes" comment="fix: Order form, texts, Home page &amp; Amin page exports">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/OrderForm/CredentialsStep.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/OrderForm/CredentialsStep.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/OrderForm/DateTimeStep.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/OrderForm/DateTimeStep.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/OrderForm/MasterStep.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/OrderForm/MasterStep.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/OrderForm/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/OrderForm/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Pages/AdminPage/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Pages/AdminPage/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Pages/HomePage/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Pages/HomePage/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Pages/HomePage/style.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/static/texts.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/static/texts.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -87,7 +84,8 @@
       <workItem from="1641894044158" duration="14439000" />
       <workItem from="1641991194786" duration="19637000" />
       <workItem from="1642065646508" duration="5481000" />
-      <workItem from="1642102653288" duration="7191000" />
+      <workItem from="1642102653288" duration="7369000" />
+      <workItem from="1642156412475" duration="9425000" />
     </task>
     <task id="LOCAL-00001" summary="fix: rename Admin Orders Page to Admin Page&#10;feat: add page Admin Orders Page and Data Table component">
       <created>1641420518743</created>
@@ -131,7 +129,14 @@
       <option name="project" value="LOCAL" />
       <updated>1642017828946</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="fix: Order form, texts, Home page &amp; Amin page exports">
+      <created>1642110078271</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1642110078271</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -157,6 +162,7 @@
     <MESSAGE value="feat: add actions to add order and master to the store" />
     <MESSAGE value="feat: add actions to add order and master to the store&#10;fix: rating display in&#10; masters table" />
     <MESSAGE value="feat: add city model to store, add Stepper to Order form&#10;fix: decompose Order form component" />
-    <option name="LAST_COMMIT_MESSAGE" value="feat: add city model to store, add Stepper to Order form&#10;fix: decompose Order form component" />
+    <MESSAGE value="fix: Order form, texts, Home page &amp; Amin page exports" />
+    <option name="LAST_COMMIT_MESSAGE" value="fix: Order form, texts, Home page &amp; Amin page exports" />
   </component>
 </project>
