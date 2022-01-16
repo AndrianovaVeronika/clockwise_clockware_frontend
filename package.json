@@ -51,6 +51,12 @@
   },
   "devDependencies": {
     "@mui/lab": "^5.0.0-alpha.61",
+    "eslint": "^8.7.0",
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-plugin-prettier": "^4.0.0",
+    "eslint-plugin-react": "^7.28.0",
+    "babel-eslint": "^10.1.0",
+    "prettier": "^2.5.1",
     "react-hook-form": "^7.22.5"
   }
 }
