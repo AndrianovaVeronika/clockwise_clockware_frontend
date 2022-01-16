@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="47aa944b-1eed-4aaf-807f-af5d121fc908" name="Changes" comment="fix: Order form">
+    <list default="true" id="47aa944b-1eed-4aaf-807f-af5d121fc908" name="Changes" comment="fix: dependencies">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
     </list>
@@ -83,7 +83,7 @@
       <workItem from="1642065646508" duration="5481000" />
       <workItem from="1642102653288" duration="7369000" />
       <workItem from="1642156412475" duration="9512000" />
-      <workItem from="1642351741504" duration="662000" />
+      <workItem from="1642351741504" duration="1128000" />
     </task>
     <task id="LOCAL-00001" summary="fix: rename Admin Orders Page to Admin Page&#10;feat: add page Admin Orders Page and Data Table component">
       <created>1641420518743</created>
@@ -141,7 +141,14 @@
       <option name="project" value="LOCAL" />
       <updated>1642166004699</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="fix: dependencies">
+      <created>1642352631110</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1642352631110</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -169,6 +176,7 @@
     <MESSAGE value="feat: add city model to store, add Stepper to Order form&#10;fix: decompose Order form component" />
     <MESSAGE value="fix: Order form, texts, Home page &amp; Amin page exports" />
     <MESSAGE value="fix: Order form" />
-    <option name="LAST_COMMIT_MESSAGE" value="fix: Order form" />
+    <MESSAGE value="fix: dependencies" />
+    <option name="LAST_COMMIT_MESSAGE" value="fix: dependencies" />
   </component>
 </project>
