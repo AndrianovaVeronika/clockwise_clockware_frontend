@@ -4,18 +4,16 @@ import cities from "../constants/cities";
 
 export const getCities = createAsyncThunk(cities.GET_CITIES, async () => {
     try {
-        console.log('Going to backend');
         const response = await instance.get('/cities');
         if (response.data) {
-            console.log('oh, yes, query works');
             return response.data;
         } else {
-            console.log('Query screwed up');
+            console.log('getCities: Query screwed up');
             return {};
         }
     } catch (e) {
         console.log(e);
-        console.log('Query screwed up with error');
+        console.log('getCities: Query screwed up with error');
         return {};
     }
 })
@@ -23,15 +21,13 @@ export const getCities = createAsyncThunk(cities.GET_CITIES, async () => {
 export const addCity = createAsyncThunk(cities.ADD_CITY, async (newCity) => {
     try {
         const response = await instance.post('/cities', newCity);
-
         if (response.status === 201){
-            return {status: 'new city added'};
+            return {status: 'addCity: new city added'};
         }
         else {
-            return {status: 'smth went wrong (new city havent been added)'};
+            return {status: 'addCity: smth went wrong (new city havent been added)'};
         }
     } catch (e) {
-        console.log('!ERROR', e);
         return {status: '!ERROR'};
     }
 })

@@ -11,12 +11,10 @@ const {reducer} = createSlice({
     extraReducers(builder) {
         builder
             .addCase(getCities.fulfilled, (state, action) => {
-                console.log('returned from backend');
                 state.cities.citiesList = action.payload;
-                console.log('saved to redux');
             })
             .addCase(addCity.fulfilled, (state, action) => {
-                console.log(action.payload.status);
+                console.log(action.payload.status === 201 ? 'city added (reducer)' : 'city reducer: error query status: ' + action.payload.status);
             })
     }
 })

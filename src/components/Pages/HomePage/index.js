@@ -1,7 +1,7 @@
 import React from 'react';
 import {withHeader} from '../../../functions/withHeader';
 import {homePageText} from "../../../static/texts";
-import OrderForm from "../../OrderForm";
+import OrderForm from "../../OrderFormDialog";
 import {wrapContent} from '../../../functions/wrapContent';
 import {compose} from "redux";
 

@@ -11,12 +11,10 @@ const {reducer} = createSlice({
     extraReducers(builder) {
         builder
             .addCase(getMasters.fulfilled, (state, action) => {
-                console.log('returned from backend');
                 state.masters.mastersList = action.payload;
-                console.log('saved to redux');
             })
             .addCase(addMaster.fulfilled, (state, action) => {
-                console.log(action.payload.status);
+                console.log(action.payload.status === 201 ? 'master added (reducer)' : 'master reducer: error query status: ' + action.payload.status);
             })
     }
 })

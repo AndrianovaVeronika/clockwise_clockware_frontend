@@ -5,7 +5,7 @@ import store from "../../store/store";
 import {getOrders} from "../../store/actions";
 import {useSelector} from "react-redux";
 import {getOrdersSelector} from "../../store/selectors/ordersSelector";
-import OrderForm from "../OrderForm";
+import OrderForm from "../OrderFormDialog";
 import './style.css';
 
 const columns = [

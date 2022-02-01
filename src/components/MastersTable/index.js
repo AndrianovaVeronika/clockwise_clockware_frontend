@@ -27,7 +27,7 @@ const columns = [
     },
 ];
 
-const MastersTable = () => {
+const MastersTable = ({withCheckbox = true}) => {
     useEffect(() => {
         store.dispatch(getMasters());
     }, [])
@@ -35,10 +35,13 @@ const MastersTable = () => {
     const rows = useSelector(getMastersSelector);
 
     return (
-        <DataTable
-            columns={columns}
-            rows={rows}
-        />
+        <>
+            <DataTable
+                columns={columns}
+                rows={rows}
+                withCheckbox={withCheckbox}
+            />
+        </>
     );
 }
 

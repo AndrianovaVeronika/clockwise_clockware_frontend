@@ -1,6 +1,7 @@
 const initialState = {
     orders: {
         ordersList: [],
+        occupiedHours: []
     },
     masters: {
         mastersList: [],
