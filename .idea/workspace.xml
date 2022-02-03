@@ -2,15 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="47aa944b-1eed-4aaf-807f-af5d121fc908" name="Changes" comment="fix: dependencies">
-      <change afterPath="$PROJECT_DIR$/src/components/OrderFormDialog/ResultsReport.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/OrderFormDialog/DateTimeForm.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/OrderFormDialog/DateTimeForm.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/OrderFormDialog/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/OrderFormDialog/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/store/actions/cities.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/store/actions/cities.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/store/actions/masters.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/store/actions/masters.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/store/constants/cities.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/store/constants/cities.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/store/constants/masters.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/store/constants/masters.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -106,7 +98,7 @@
       <workItem from="1643716312795" duration="7908000" />
       <workItem from="1643727357724" duration="10437000" />
       <workItem from="1643806505558" duration="17644000" />
-      <workItem from="1643884819138" duration="16877000" />
+      <workItem from="1643884819138" duration="18220000" />
     </task>
     <task id="LOCAL-00001" summary="fix: rename Admin Orders Page to Admin Page&#10;feat: add page Admin Orders Page and Data Table component">
       <created>1641420518743</created>
@@ -227,7 +219,21 @@
       <option name="project" value="LOCAL" />
       <updated>1643890706465</updated>
     </task>
-    <option name="localTasksCounter" value="18" />
+    <task id="LOCAL-00018" summary="feat: add results report in order form dialog, city and master get by id func in store&#10;fix: dependencies">
+      <created>1643911611758</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1643911611758</updated>
+    </task>
+    <task id="LOCAL-00019" summary="fix: dependencies">
+      <created>1643912215494</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1643912215494</updated>
+    </task>
+    <option name="localTasksCounter" value="20" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -259,6 +265,7 @@
     <MESSAGE value="feat: add validation to forms&#10;fix: forms" />
     <MESSAGE value="feat: add cities table, cities admin page &amp; cities form" />
     <MESSAGE value="fix: orders table" />
+    <MESSAGE value="feat: add results report in order form dialog, city and master get by id func in store&#10;fix: dependencies" />
     <MESSAGE value="fix: dependencies" />
     <option name="LAST_COMMIT_MESSAGE" value="fix: dependencies" />
   </component>

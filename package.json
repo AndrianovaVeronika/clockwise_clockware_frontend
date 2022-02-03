@@ -63,6 +63,7 @@
   "devDependencies": {
     "@mui/lab": "5.0.0-alpha.64",
     "babel-eslint": "10.1.0",
+    "mini-css-extract-plugin": "2.4.5",
     "react-hook-form": "7.24.0",
     "webpack": "^5.68.0"
   },
