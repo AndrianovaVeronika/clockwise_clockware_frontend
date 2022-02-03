@@ -6,9 +6,6 @@
     "node": "17.3.0",
     "npm": "8.3.0"
   },
-  "resolutions": {
-    "mini-css-extract-plugin": "2.4.5"
-  },
   "dependencies": {
     "@date-io/moment": "2.11.0",
     "@emotion/react": "11.7.1",
@@ -68,5 +65,8 @@
     "babel-eslint": "10.1.0",
     "react-hook-form": "7.24.0",
     "webpack": "^5.68.0"
+  },
+  "overrides": {
+    "mini-css-extract-plugin": "2.4.5"
   }
 }
