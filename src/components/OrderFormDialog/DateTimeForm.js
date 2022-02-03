@@ -89,7 +89,7 @@ const DateTimeForm = ({shiftTimeStart, shiftTimeEnd, master_id, onChangeDatetime
             hourElements.push(
                 <ListItem key={i} component="div" disablePadding>
                     <ListItemButton
-                        onClick={(e) => onChangeDatetime({date: values.date, time: e.target.value})}
+                        onClick={(e) => onChangeDatetime({date: values.date.format('DD-MM-YYYY'), time: e.target.innerText})}
                     >
                         <ListItemText>
                             {availableHours[i]}

@@ -6,6 +6,9 @@
     "node": "17.3.0",
     "npm": "8.3.0"
   },
+  "resolutions": {
+    "mini-css-extract-plugin": "2.4.5"
+  },
   "dependencies": {
     "@date-io/moment": "2.11.0",
     "@emotion/react": "11.7.1",

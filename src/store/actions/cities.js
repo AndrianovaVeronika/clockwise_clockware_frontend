@@ -1,6 +1,7 @@
 import {createAsyncThunk} from "@reduxjs/toolkit";
 import instance from "../middleware/api";
 import cities from "../constants/cities";
+import masters from "../constants/masters";
 
 export const getCities = createAsyncThunk(cities.GET_CITIES, async () => {
     try {
@@ -14,6 +15,21 @@ export const getCities = createAsyncThunk(cities.GET_CITIES, async () => {
     } catch (e) {
         console.log(e);
         console.log('getCities: Query screwed up with error');
+        return {};
+    }
+})
+
+export const getCityById = createAsyncThunk(cities.GET_CITY_BY_ID, async (id) => {
+    try {
+        const response = await instance.get('/cities/' + id);
+        if (response.data) {
+            return response.data;
+        } else {
+            console.log('getMasters: Query screwed up');
+            return {};
+        }
+    } catch (e) {
+        console.log('getMasters: Query screwed up with error');
         return {};
     }
 })

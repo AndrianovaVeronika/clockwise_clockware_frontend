@@ -7,7 +7,6 @@ import CredentialsForm from "./CredentialsForm";
 import store from "../../store/store";
 import {addOrder, getCities, getMasters} from "../../store/actions";
 import DateTimeForm from "./DateTimeForm";
-import moment from "moment";
 import ChooseMasterForm from "./ChooseMasterForm";
 import FormDialog from "../FormDialog";
 
@@ -21,31 +20,38 @@ const initialValues = {
     time: '',
 }
 
-const steps = ['Подробности заказа', 'Мастер', 'Дата и время'];
+const steps = ['Подробности заказа', 'Мастер', 'Дата и время', 'Проверьте данные'];
 
 const shiftTimeStart = 10;
 const shiftTimeEnd = 18;
 
 const OrderForm = ({openButtonOnClickText}) => {
     const [values, setValues] = useState(initialValues);
+    console.log('VALUES', values);
 
     const onCredentialsChange = (v, props) => {
         console.log(v);
         setValues({...values, ...v});
         handleNext();
-        // store.dispatch(addOrder(values));
-        console.log(values);
     }
 
     const onMasterIdChange = ({row}) => {
-        setValues({master_id: row.id, ...values})
-        console.log(values);
+        console.log('ROW, MASTER_ID', row);
+        setValues({...values, master_id: row.id})
     }
 
     const onChangeDatetime = (v) => {
         console.log(v);
         setValues({...values, ...v});
         console.log(values);
+    }
+
+    const onResultsSubmit = () => {
+
+    }
+
+    const onSubmit = () => {
+        // store.dispatch(addOrder(values));
     }
 
     const [activeStep, setActiveStep] = useState(0);
@@ -84,6 +90,9 @@ const OrderForm = ({openButtonOnClickText}) => {
                 return <Button type='submit' form='form0'>Далее</Button>
             }
             case 1: {
+                return <Button onClick={handleNext}>Далее</Button>
+            }
+            case 2: {
                 return <Button onClick={handleNext}>Далее</Button>
             }
             default: {
