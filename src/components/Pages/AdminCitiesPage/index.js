@@ -1,23 +1,23 @@
 import React from 'react';
 import {withHeader} from '../../../functions/withHeader';
 import {wrapContent} from '../../../functions/wrapContent';
-import MastersTable from "../../MastersTable";
-import AddMasterForm from "../../AddMasterForm";
 import FormDialog from "../../FormDialog";
+import CitiesTable from "../../CitiesTable";
+import AddCityForm from "../../AddCityForm";
 
-const AdminMastersPage = () => {
+const AdminCitiesPage = () => {
     return (
         <>
-            <MastersTable/>
+            <CitiesTable/>
             <FormDialog
-                formId='add-master-form'
+                formId='add-city-form'
                 openDialogButtonText={'Добавить'}
-                dialogTitle={'Данные мастера'}
+                dialogTitle={'Введите название города'}
             >
-                <AddMasterForm/>
+                <AddCityForm/>
             </FormDialog>
         </>
     )
 }
 
-export default withHeader(wrapContent(AdminMastersPage));
+export default withHeader(wrapContent(AdminCitiesPage));

@@ -10,13 +10,20 @@ import moment from "moment";
 import clockType from "../../static/clockType";
 import store from "../../store/store";
 import {getOccupiedHours} from "../../store/actions/orders";
+import {Field, Formik, Form} from "formik";
 
-const DateTimeForm = ({shiftTimeStart, shiftTimeEnd}) => {
-    const [date, setState] = useState(moment().format('DD-MM-YYYY'));
+const initialValues = {
+    date: moment(),
+    time: ''
+}
+
+const DateTimeForm = ({shiftTimeStart, shiftTimeEnd, master_id, onChangeDatetime}) => {
+    const [values, setValues] = useState(initialValues);
 
     useEffect(() => {
-        store.dispatch(getOccupiedHours({master_id: master_id, date: moment(date).format('DD-MM-YYYY')}));
-    }, [master_id, date]);
+        store.dispatch(getOccupiedHours({master_id: master_id, date: moment(values.date).format('DD-MM-YYYY')}));
+    }, [master_id, values]);
+
     const occupiedHours = useSelector(getOccupiedHoursSelector);
 
     //different types of clocks are being repaired differently amount of time
@@ -82,7 +89,7 @@ const DateTimeForm = ({shiftTimeStart, shiftTimeEnd}) => {
             hourElements.push(
                 <ListItem key={i} component="div" disablePadding>
                     <ListItemButton
-                        onClick={handleTimeChange}
+                        onClick={(e) => onChangeDatetime({date: values.date, time: e.target.value})}
                     >
                         <ListItemText>
                             {availableHours[i]}
@@ -104,9 +111,9 @@ const DateTimeForm = ({shiftTimeStart, shiftTimeEnd}) => {
                     name="date"
                     label="Дата"
                     minDate={new Date()}
-                    value={date}
-                    onChange={(date) => setDate(date)}
-                    renderInput={(params) => <TextField {...params} />}/>
+                    value={values.date}
+                    onChange={(value) => setValues({...values, date: value})}
+                    renderInput={(params) => <TextField {...params}/>}/>
             </LocalizationProvider>
             <Box sx={{width: '100%', maxWidth: 360, bgcolor: 'background.paper'}}>
                 <nav aria-label="main mailbox folders">
@@ -115,7 +122,6 @@ const DateTimeForm = ({shiftTimeStart, shiftTimeEnd}) => {
                     </List>
                 </nav>
             </Box>
-            <Button onClick={sendData}>CONFIRM</Button>
         </Box>
     )
 }

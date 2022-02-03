@@ -27,7 +27,7 @@ const columns = [
     },
 ];
 
-const MastersTable = ({withCheckbox = true}) => {
+const MastersTable = ({withCheckbox, onRowClick}) => {
     useEffect(() => {
         store.dispatch(getMasters());
     }, [])
@@ -40,6 +40,7 @@ const MastersTable = ({withCheckbox = true}) => {
                 columns={columns}
                 rows={rows}
                 withCheckbox={withCheckbox}
+                onRowClick={onRowClick}
             />
         </>
     );

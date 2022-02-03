@@ -1,17 +1,12 @@
-import React, {useState} from "react";
+import React from "react";
 import MastersTable from "../MastersTable";
 
-const ChooseMasterForm = () => {
-    const [id, setId] = useState(0);
-
-    const ifChecked = (e) => {
-        console.log(e);
-        return true;
-    }
-
-
+const ChooseMasterForm = ({onMasterIdChange}) => {
     return (
-        <MastersTable withCheckbox={false}/>
+        <MastersTable
+            withCheckbox={false}
+            onRowClick={onMasterIdChange}
+        />
     )
 }
 

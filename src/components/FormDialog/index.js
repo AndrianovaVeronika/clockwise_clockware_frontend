@@ -6,7 +6,7 @@ import DialogContent from '@mui/material/DialogContent';
 import DialogTitle from '@mui/material/DialogTitle';
 import {useState} from "react";
 
-const FormDialog = ({formId, openDialogButtonText, dialogTitle, additionalButtons, children}) => {
+const FormDialog = ({formId, openDialogButtonText, dialogTitle, additionalButtons, autoGenerateSubmitButton = true, children}) => {
     const [open, setOpen] = useState(false);
 
     const toggle = () => {
@@ -28,7 +28,9 @@ const FormDialog = ({formId, openDialogButtonText, dialogTitle, additionalButton
                 <DialogActions>
                     {additionalButtons}
                     <Button onClick={toggle}>Отмена</Button>
-                    <Button type='submit' form={formId} onClick={toggle}>Добавить</Button>
+                    {
+                        autoGenerateSubmitButton? <Button type='submit' form={formId} onClick={toggle}>Добавить</Button> : <></>
+                    }
                 </DialogActions>
             </Dialog>
         </div>

@@ -6,6 +6,7 @@ import AdminOrdersPage from './components/Pages/AdminOrdersPage';
 import AdminMastersPage from "./components/Pages/AdminMastersPage";
 import {Provider} from "react-redux";
 import store from "./store/store";
+import AdminCitiesPage from "./components/Pages/AdminCitiesPage";
 
 function App() {
     return (
@@ -15,6 +16,7 @@ function App() {
                 <Route path='/admin' element={<AdminPage/>}/>
                 <Route path='/admin/orders' element={<AdminOrdersPage/>}/>
                 <Route path='/admin/masters' element={<AdminMastersPage/>}/>
+                <Route path='/admin/cities' element={<AdminCitiesPage/>}/>
             </Routes>
         </Provider>
     );

@@ -26,7 +26,7 @@ const AdminPage = () => {
                 <Button
                     {...{
                         color: 'inherit',
-                        to: '/admin/masters',
+                        to: '/admin/cities',
                         component: RouterLink,
                     }}
                 >Города</Button>
