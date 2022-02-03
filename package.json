@@ -2,6 +2,9 @@
   "name": "clockwise_clockware_frontend",
   "version": "0.1.0",
   "private": true,
+  "engines": {
+    "node": "17.3.0"
+  },
   "dependencies": {
     "@date-io/moment": "^2.11.0",
     "@emotion/react": "^11.7.1",
