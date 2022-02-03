@@ -13,19 +13,22 @@ const columns = [
         field: 'id', headerName: 'ID', width: 50
     },
     {
-        field: 'client_name', headerName: 'Имя', width: 100
+        field: 'client_name', headerName: 'Имя', width: 150
     },
     {
-        field: 'login', headerName: 'Логин', width: 130,
+        field: 'login', headerName: 'Логин', width: 200,
     },
     {
-        field: 'clock_type', headerName: 'Тип часов', width: 100,
+        field: 'clock_type', headerName: 'Тип часов', width: 80,
     },
     {
         field: 'city', headerName: 'Город', width: 80,
     },
     {
-        field: 'datetime', headerName: 'Время', width: 200,
+        field: 'date', headerName: 'Дата', width: 200,
+    },
+    {
+        field: 'time', headerName: 'Время', width: 150,
     },
     {
         field: 'master_name', headerName: 'Мастер', width: 90,

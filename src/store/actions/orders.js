@@ -1,7 +1,6 @@
 import {createAsyncThunk} from "@reduxjs/toolkit";
 import orders from '../constants/orders';
 import instance from "../middleware/api";
-import {value} from "lodash/seq";
 
 export const getOrders = createAsyncThunk(orders.GET_ORDERS, async () => {
     try {
