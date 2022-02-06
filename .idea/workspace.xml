@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="47aa944b-1eed-4aaf-807f-af5d121fc908" name="Changes" comment="fix: .env">
+    <list default="true" id="47aa944b-1eed-4aaf-807f-af5d121fc908" name="Changes" comment="test">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/store/middleware/api.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/store/middleware/api.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -101,7 +102,8 @@
       <workItem from="1643806505558" duration="17644000" />
       <workItem from="1643884819138" duration="20497000" />
       <workItem from="1644004107662" duration="2563000" />
-      <workItem from="1644077412734" duration="3798000" />
+      <workItem from="1644077412734" duration="6541000" />
+      <workItem from="1644146940897" duration="3350000" />
     </task>
     <task id="LOCAL-00001" summary="fix: rename Admin Orders Page to Admin Page&#10;feat: add page Admin Orders Page and Data Table component">
       <created>1641420518743</created>
@@ -271,7 +273,14 @@
       <option name="project" value="LOCAL" />
       <updated>1644080850943</updated>
     </task>
-    <option name="localTasksCounter" value="25" />
+    <task id="LOCAL-00025" summary="test">
+      <created>1644082834741</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1644082834741</updated>
+    </task>
+    <option name="localTasksCounter" value="26" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -306,7 +315,8 @@
     <MESSAGE value="feat: add results report in order form dialog, city and master get by id func in store&#10;fix: dependencies" />
     <MESSAGE value="fix: dependencies" />
     <MESSAGE value="fix: .env" />
-    <option name="LAST_COMMIT_MESSAGE" value="fix: .env" />
+    <MESSAGE value="test" />
+    <option name="LAST_COMMIT_MESSAGE" value="test" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

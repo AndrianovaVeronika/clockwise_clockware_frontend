@@ -7,14 +7,12 @@ import AdminMastersPage from "./components/Pages/AdminMastersPage";
 import {Provider} from "react-redux";
 import store from "./store/store";
 import AdminCitiesPage from "./components/Pages/AdminCitiesPage";
-import {CircularProgress} from "@mui/material";
 
 function App() {
     return (
         <Provider store={store}>
             <Routes>
                 <Route index element={<HomePage/>}/>
-                <Route path='/favicon.ico' element={<CircularProgress/>}/>
                 <Route path='/admin' element={<AdminPage/>}/>
                 <Route path='/admin/orders' element={<AdminOrdersPage/>}/>
                 <Route path='/admin/masters' element={<AdminMastersPage/>}/>
