@@ -1,10 +1,10 @@
 import React from "react";
 import {Formik, Form, Field, ErrorMessage} from "formik";
-import {TextField, Paper, Button, Typography, Rating, Grid, Divider} from "@mui/material";
+import {TextField, Paper, Typography, Rating} from "@mui/material";
 import * as Yup from 'yup';
-import store from "../../store/store";
 import {addMaster} from "../../store/actions";
 import './style.css';
+import {useDispatch} from "react-redux";
 
 const initialValues = {
     name: '',
@@ -12,6 +12,8 @@ const initialValues = {
 }
 
 const AddMasterForm = () => {
+    const dispatch = useDispatch();
+
     const paperStyle = {padding: '10px 10px', width: '90%', margin: '10px auto'}
 
     const validationSchema = Yup.object().shape({
@@ -19,8 +21,7 @@ const AddMasterForm = () => {
     })
 
     const onSubmit = (values, props) => {
-        console.log(values);
-        store.dispatch(addMaster(values));
+        dispatch(addMaster(values));
         props.resetForm();
     }
 

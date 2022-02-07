@@ -2,12 +2,12 @@ import React, {useEffect, useState} from 'react';
 import './style.css';
 import {Box, Button, Step, StepLabel, Stepper, Typography} from "@mui/material";
 import CredentialsForm from "./CredentialsForm";
-import store from "../../store/store";
 import {addOrder, getCities, getMasters} from "../../store/actions";
 import DateTimePick from "./DateTimePick";
 import MasterPick from "./MasterPick";
 import FormDialog from "../FormDialog";
 import ResultsReport from "./ResultsReport";
+import {useDispatch} from "react-redux";
 
 const initialValues = {
     name: '',
@@ -25,28 +25,25 @@ const shiftTimeStart = 10;
 const shiftTimeEnd = 18;
 
 const OrderForm = ({openButtonOnClickText}) => {
+    const dispatch = useDispatch();
+
     const [values, setValues] = useState(initialValues);
 
     const onCredentialsChange = (v, props) => {
-        console.log(v);
         setValues({...values, ...v});
         handleNext();
     }
 
     const onMasterIdChange = ({row}) => {
-        console.log('ROW, MASTER_ID', row);
         setValues({...values, master_id: row.id})
     }
 
     const onChangeDatetime = (v) => {
-        console.log(v);
         setValues({...values, ...v});
-        console.log(values);
     }
 
     const onSubmit = () => {
-        console.log('onSubmit OrderFormDialog', values);
-        store.dispatch(addOrder(values));
+        dispatch(addOrder(values));
     }
 
     const [activeStep, setActiveStep] = useState(0);
@@ -60,8 +57,8 @@ const OrderForm = ({openButtonOnClickText}) => {
     // };
 
     useEffect(() => {
-        store.dispatch(getCities());
-        store.dispatch(getMasters());
+        dispatch(getCities());
+        dispatch(getMasters());
     }, [])
 
     const ActiveStep = () => {

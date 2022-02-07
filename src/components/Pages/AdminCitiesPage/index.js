@@ -4,6 +4,7 @@ import {wrapContent} from '../../../functions/wrapContent';
 import FormDialog from "../../FormDialog";
 import CitiesTable from "../../CitiesTable";
 import AddCityForm from "../../AddCityForm";
+import {compose} from "redux";
 
 const AdminCitiesPage = () => {
     return (
@@ -24,4 +25,4 @@ const AdminCitiesPage = () => {
     )
 }
 
-export default withHeader(wrapContent(AdminCitiesPage));
+export default compose(withHeader, wrapContent)(AdminCitiesPage);

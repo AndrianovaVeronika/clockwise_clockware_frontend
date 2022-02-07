@@ -5,11 +5,11 @@ import {useSelector} from "react-redux";
 import {getMastersSelector} from "../../store/selectors/mastersSelector";
 
 const ResultsReport = ({values}) => {
-    const city = useSelector(getCitiesSelector).filter((el)=>el.id === values.city_id);
+    const city = useSelector(getCitiesSelector).filter((el) => el.id === values.city_id);
 
-    const master = useSelector(getMastersSelector).filter((el)=>el.id === values.master_id);
+    const master = useSelector(getMastersSelector).filter((el) => el.id === values.master_id);
 
-    return(
+    return (
         <>
             <Typography>Имя: {values.name}</Typography>
             <Typography>Логин: {values.login}</Typography>

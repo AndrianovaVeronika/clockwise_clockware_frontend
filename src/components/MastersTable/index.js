@@ -1,14 +1,12 @@
-import * as React from 'react';
+import React, {useEffect} from 'react';
 import DataTable from "../DataTable";
-import {useEffect} from "react";
-import store from "../../store/store";
-import {getMasters, getOrders} from "../../store/actions";
-import {useSelector} from "react-redux";
+import {getMasters} from "../../store/actions";
+import {useDispatch, useSelector} from "react-redux";
 import {getMastersSelector} from "../../store/selectors/mastersSelector";
 import Rating from '@mui/material/Rating';
 
 function renderRating(params) {
-    return <Rating readOnly value={params.value} />;
+    return <Rating readOnly value={params.value}/>;
 }
 
 const columns = [
@@ -28,8 +26,10 @@ const columns = [
 ];
 
 const MastersTable = ({withCheckbox, onRowClick}) => {
+    const dispatch = useDispatch();
+
     useEffect(() => {
-        store.dispatch(getMasters());
+        dispatch(getMasters());
     }, [])
 
     const rows = useSelector(getMastersSelector);

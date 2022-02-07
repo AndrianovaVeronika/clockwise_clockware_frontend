@@ -1,9 +1,8 @@
 import * as React from 'react';
 import DataTable from "../DataTable";
 import {useEffect} from "react";
-import store from "../../store/store";
 import {getCities} from "../../store/actions";
-import {useSelector} from "react-redux";
+import {useDispatch, useSelector} from "react-redux";
 import {getCitiesSelector} from "../../store/selectors/citiesSelector";
 
 const columns = [
@@ -16,8 +15,10 @@ const columns = [
 ];
 
 const CitiesTable = ({withCheckbox, onRowClick}) => {
+    const dispatch = useDispatch();
+
     useEffect(() => {
-        store.dispatch(getCities());
+        dispatch(getCities());
     }, [])
 
     const rows = useSelector(getCitiesSelector);

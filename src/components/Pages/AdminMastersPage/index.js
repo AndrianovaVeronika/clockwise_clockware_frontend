@@ -4,6 +4,7 @@ import {wrapContent} from '../../../functions/wrapContent';
 import MastersTable from "../../MastersTable";
 import AddMasterForm from "../../AddMasterForm";
 import FormDialog from "../../FormDialog";
+import {compose} from "redux";
 
 const AdminMastersPage = () => {
     return (
@@ -24,4 +25,4 @@ const AdminMastersPage = () => {
     )
 }
 
-export default withHeader(wrapContent(AdminMastersPage));
+export default compose(withHeader, wrapContent)(AdminMastersPage);

@@ -1,9 +1,8 @@
 import * as React from 'react';
 import DataTable from "../DataTable";
 import {useEffect} from "react";
-import store from "../../store/store";
 import {getOrders} from "../../store/actions";
-import {useSelector} from "react-redux";
+import {useDispatch, useSelector} from "react-redux";
 import {getOrdersSelector} from "../../store/selectors/ordersSelector";
 import OrderForm from "../OrderFormDialog";
 import './style.css';
@@ -36,8 +35,10 @@ const columns = [
 ];
 
 const OrdersTable = () => {
+    const dispatch = useDispatch();
+
     useEffect(() => {
-        store.dispatch(getOrders());
+        dispatch(getOrders());
     }, [])
 
     const rows = useSelector(getOrdersSelector);
