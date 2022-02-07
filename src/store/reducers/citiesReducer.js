@@ -1,7 +1,6 @@
 import initialState from "../initialState";
 import {createSlice} from "@reduxjs/toolkit";
 import {getCities, addCity} from "../actions";
-import {getCityById} from "../actions/cities";
 
 const {reducer} = createSlice({
     name: 'cities',

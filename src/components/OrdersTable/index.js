@@ -39,7 +39,7 @@ const OrdersTable = () => {
 
     useEffect(() => {
         dispatch(getOrders());
-    }, [])
+    }, [dispatch])
 
     const rows = useSelector(getOrdersSelector);
 

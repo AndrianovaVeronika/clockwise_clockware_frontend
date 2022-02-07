@@ -30,7 +30,7 @@ const MastersTable = ({withCheckbox, onRowClick}) => {
 
     useEffect(() => {
         dispatch(getMasters());
-    }, [])
+    }, [dispatch])
 
     const rows = useSelector(getMastersSelector);
 

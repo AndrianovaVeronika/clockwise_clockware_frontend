@@ -59,7 +59,7 @@ const OrderForm = ({openButtonOnClickText}) => {
     useEffect(() => {
         dispatch(getCities());
         dispatch(getMasters());
-    }, [])
+    }, [dispatch])
 
     const ActiveStep = () => {
         switch (activeStep) {

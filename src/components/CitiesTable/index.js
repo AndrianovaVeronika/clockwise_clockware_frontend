@@ -19,7 +19,7 @@ const CitiesTable = ({withCheckbox, onRowClick}) => {
 
     useEffect(() => {
         dispatch(getCities());
-    }, [])
+    }, [dispatch])
 
     const rows = useSelector(getCitiesSelector);
 
