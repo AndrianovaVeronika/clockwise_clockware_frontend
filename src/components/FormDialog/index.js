@@ -6,7 +6,7 @@ import DialogContent from '@mui/material/DialogContent';
 import DialogTitle from '@mui/material/DialogTitle';
 import {useState} from "react";
 
-const FormDialog = ({openDialogButtonText, dialogTitle, additionalButtons, submitButtonParams, children}) => {
+const FormDialog = ({openDialogButtonText, dialogTitle, additionalButtons, submitButtonParams, cancelOnClick, children}) => {
     const [open, setOpen] = useState(false);
 
     const toggle = () => {
@@ -46,7 +46,10 @@ const FormDialog = ({openDialogButtonText, dialogTitle, additionalButtons, submi
                 </DialogContent>
                 <DialogActions>
                     {additionalButtons}
-                    <Button onClick={toggle}>Отмена</Button>
+                    <Button onClick={()=> {
+                        cancelOnClick();
+                        toggle();
+                    }}>Отмена</Button>
                     {show ? <SubmitButton/> : <></>}
                 </DialogActions>
             </Dialog>

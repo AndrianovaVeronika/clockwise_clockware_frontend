@@ -26,7 +26,6 @@ const shiftTimeEnd = 18;
 
 const OrderForm = ({openButtonOnClickText}) => {
     const [values, setValues] = useState(initialValues);
-    console.log('VALUES', values);
 
     const onCredentialsChange = (v, props) => {
         console.log(v);
@@ -81,6 +80,8 @@ const OrderForm = ({openButtonOnClickText}) => {
             case 3 : {
                 return <ResultsReport values={values}/>
             }
+            default:
+                return;
         }
     }
 
@@ -104,6 +105,7 @@ const OrderForm = ({openButtonOnClickText}) => {
                 openDialogButtonText={openButtonOnClickText}
                 dialogTitle='Введите данные чтобы заказать мастера'
                 additionalButtons={<ActiveButton/>}
+                cancelOnClick={() => setActiveStep(0)}
                 submitButtonParams={{
                     onSubmit: onSubmit,
                     submitButtonText: 'Заказать',

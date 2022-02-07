@@ -1,18 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="47aa944b-1eed-4aaf-807f-af5d121fc908" name="Changes" comment="test">
+    <list default="true" id="47aa944b-1eed-4aaf-807f-af5d121fc908" name="Changes" comment="fix: order form submit, formDialog">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/FormDialog/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/FormDialog/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/OrderFormDialog/ChooseMasterForm.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/OrderFormDialog/MasterPick.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/OrderFormDialog/DateTimeForm.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/OrderFormDialog/DateTimePick.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/OrderFormDialog/ResultsReport.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/OrderFormDialog/ResultsReport.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/OrderFormDialog/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/OrderFormDialog/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Pages/AdminCitiesPage/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Pages/AdminCitiesPage/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Pages/AdminMastersPage/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Pages/AdminMastersPage/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/store/actions/cities.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/store/actions/cities.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -138,7 +130,7 @@
       <workItem from="1644004107662" duration="2563000" />
       <workItem from="1644077412734" duration="6541000" />
       <workItem from="1644146940897" duration="9216000" />
-      <workItem from="1644233849607" duration="10597000" />
+      <workItem from="1644233849607" duration="11174000" />
     </task>
     <task id="LOCAL-00001" summary="fix: rename Admin Orders Page to Admin Page&#10;feat: add page Admin Orders Page and Data Table component">
       <created>1641420518743</created>
@@ -322,7 +314,14 @@
       <option name="project" value="LOCAL" />
       <updated>1644152283093</updated>
     </task>
-    <option name="localTasksCounter" value="27" />
+    <task id="LOCAL-00027" summary="fix: order form submit, formDialog">
+      <created>1644247744789</created>
+      <option name="number" value="00027" />
+      <option name="presentableId" value="LOCAL-00027" />
+      <option name="project" value="LOCAL" />
+      <updated>1644247744789</updated>
+    </task>
+    <option name="localTasksCounter" value="28" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -358,7 +357,9 @@
     <MESSAGE value="fix: dependencies" />
     <MESSAGE value="fix: .env" />
     <MESSAGE value="test" />
-    <option name="LAST_COMMIT_MESSAGE" value="test" />
+    <MESSAGE value="fix: order form submit" />
+    <MESSAGE value="fix: order form submit, formDialog" />
+    <option name="LAST_COMMIT_MESSAGE" value="fix: order form submit, formDialog" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
