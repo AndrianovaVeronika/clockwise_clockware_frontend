@@ -1,13 +1,15 @@
 import React from 'react';
 import {ErrorMessage, Field, Form, Formik} from "formik";
-import {Paper, Rating, TextField, Typography} from "@mui/material";
+import {Paper, TextField} from "@mui/material";
 import * as Yup from "yup";
-import store from "../../store/store";
-import {addCity, addMaster} from "../../store/actions";
+import {addCity} from "../../store/actions";
+import {useDispatch} from "react-redux";
 
 const initialValues = {name: ''};
 
 const AddCityForm = () => {
+    const dispatch = useDispatch();
+
     const paperStyle = {padding: '10px 10px', width: '90%', margin: '10px auto'}
 
     const validationSchema = Yup.object().shape({
@@ -15,8 +17,7 @@ const AddCityForm = () => {
     })
 
     const onSubmit = (values, props) => {
-        console.log(values);
-        store.dispatch(addCity(values));
+        dispatch(addCity(values));
         props.resetForm();
     }
 

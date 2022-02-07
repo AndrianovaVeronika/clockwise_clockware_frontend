@@ -22,9 +22,16 @@ const FormDialog = ({
 
     const {onSubmit, submitButtonText, show = true, ...params} = submitButtonParams;
 
-    const onClick = () => {
+    const onSubmitAction = () => {
         if (onSubmit) {
             onSubmit();
+        }
+        toggle();
+    }
+
+    const onCancelAction = () => {
+        if (cancelOnClick) {
+            cancelOnClick();
         }
         toggle();
     }
@@ -43,13 +50,10 @@ const FormDialog = ({
                 </DialogContent>
                 <DialogActions>
                     {additionalButtons}
-                    <Button onClick={() => {
-                        cancelOnClick();
-                        toggle();
-                    }}>Отмена</Button>
+                    <Button onClick={onCancelAction}>Отмена</Button>
                     {show && submitButtonParams &&
                     <Button
-                        onClick={onClick}
+                        onClick={onSubmitAction}
                         {...params}
                     >{submitButtonText}</Button>}
                 </DialogActions>
