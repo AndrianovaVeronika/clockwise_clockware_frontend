@@ -1,7 +1,6 @@
 import {createAsyncThunk} from "@reduxjs/toolkit";
 import instance from "../middleware/api";
 import cities from "../constants/cities";
-import masters from "../constants/masters";
 
 export const getCities = createAsyncThunk(cities.GET_CITIES, async () => {
     try {

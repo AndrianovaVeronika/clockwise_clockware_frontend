@@ -3,8 +3,16 @@
   <component name="ChangeListManager">
     <list default="true" id="47aa944b-1eed-4aaf-807f-af5d121fc908" name="Changes" comment="test">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/store/middleware/api.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/store/middleware/api.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/FormDialog/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/FormDialog/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/OrderFormDialog/ChooseMasterForm.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/OrderFormDialog/MasterPick.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/OrderFormDialog/DateTimeForm.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/OrderFormDialog/DateTimePick.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/OrderFormDialog/ResultsReport.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/OrderFormDialog/ResultsReport.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/OrderFormDialog/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/OrderFormDialog/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Pages/AdminCitiesPage/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Pages/AdminCitiesPage/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Pages/AdminMastersPage/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Pages/AdminMastersPage/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/store/actions/cities.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/store/actions/cities.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -57,7 +65,27 @@
       <recent name="D:\ClockwiseClockware\clockwise_clockware_frontend\src\components\DataTable" />
     </key>
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="npm.start">
+    <configuration name="analyze" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
+      <package-json value="$PROJECT_DIR$/package.json" />
+      <command value="run" />
+      <scripts>
+        <script value="analyze" />
+      </scripts>
+      <node-interpreter value="project" />
+      <envs />
+      <method v="2" />
+    </configuration>
+    <configuration name="build" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
+      <package-json value="$PROJECT_DIR$/package.json" />
+      <command value="run" />
+      <scripts>
+        <script value="build" />
+      </scripts>
+      <node-interpreter value="project" />
+      <envs />
+      <method v="2" />
+    </configuration>
     <configuration name="start" type="js.build_tools.npm" nameIsGenerated="true">
       <package-json value="$PROJECT_DIR$/package.json" />
       <command value="run" />
@@ -68,6 +96,12 @@
       <envs />
       <method v="2" />
     </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="npm.analyze" />
+        <item itemvalue="npm.build" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -103,7 +137,8 @@
       <workItem from="1643884819138" duration="20497000" />
       <workItem from="1644004107662" duration="2563000" />
       <workItem from="1644077412734" duration="6541000" />
-      <workItem from="1644146940897" duration="3350000" />
+      <workItem from="1644146940897" duration="9216000" />
+      <workItem from="1644233849607" duration="10597000" />
     </task>
     <task id="LOCAL-00001" summary="fix: rename Admin Orders Page to Admin Page&#10;feat: add page Admin Orders Page and Data Table component">
       <created>1641420518743</created>
@@ -280,7 +315,14 @@
       <option name="project" value="LOCAL" />
       <updated>1644082834741</updated>
     </task>
-    <option name="localTasksCounter" value="26" />
+    <task id="LOCAL-00026" summary="test">
+      <created>1644152283093</created>
+      <option name="number" value="00026" />
+      <option name="presentableId" value="LOCAL-00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1644152283093</updated>
+    </task>
+    <option name="localTasksCounter" value="27" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

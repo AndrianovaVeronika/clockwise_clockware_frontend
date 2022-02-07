@@ -16,3 +16,5 @@ const ResultsReport = ({values}) => {
         </>
     )
 }
+
+export default ResultsReport;

@@ -1,7 +1,5 @@
 import React, {useEffect, useState} from "react";
-import {
-    Box, Button, List, ListItem, ListItemButton, ListItemText, TextField,
-} from "@mui/material";
+import {Box, List, ListItem, ListItemButton, ListItemText, TextField} from "@mui/material";
 import {DesktopDatePicker, LocalizationProvider} from "@mui/lab";
 import AdapterDateFns from '@mui/lab/AdapterDateFns';
 import {getOccupiedHoursSelector} from "../../store/selectors/ordersSelector";
@@ -10,14 +8,13 @@ import moment from "moment";
 import clockType from "../../static/clockType";
 import store from "../../store/store";
 import {getOccupiedHours} from "../../store/actions/orders";
-import {Field, Formik, Form} from "formik";
 
 const initialValues = {
     date: moment(),
     time: ''
 }
 
-const DateTimeForm = ({shiftTimeStart, shiftTimeEnd, master_id, onChangeDatetime}) => {
+const DateTimePick = ({shiftTimeStart, shiftTimeEnd, master_id, onChangeDatetime}) => {
     const [values, setValues] = useState(initialValues);
 
     useEffect(() => {
@@ -26,7 +23,7 @@ const DateTimeForm = ({shiftTimeStart, shiftTimeEnd, master_id, onChangeDatetime
 
     const occupiedHours = useSelector(getOccupiedHoursSelector);
 
-    //different types of clocks are being repaired differently amount of time
+    //different types of clocks are being repaired different amount of time
     const getRepairingHoursByType = (type) => {
         switch (type) {
             case clockType.small: {
@@ -89,7 +86,10 @@ const DateTimeForm = ({shiftTimeStart, shiftTimeEnd, master_id, onChangeDatetime
             hourElements.push(
                 <ListItem key={i} component="div" disablePadding>
                     <ListItemButton
-                        onClick={(e) => onChangeDatetime({date: values.date.format('DD-MM-YYYY'), time: e.target.innerText})}
+                        onClick={(e) => onChangeDatetime({
+                            date: values.date.format('DD-MM-YYYY'),
+                            time: e.target.innerText
+                        })}
                     >
                         <ListItemText>
                             {availableHours[i]}
@@ -126,4 +126,4 @@ const DateTimeForm = ({shiftTimeStart, shiftTimeEnd, master_id, onChangeDatetime
     )
 }
 
-export default DateTimeForm;
+export default DateTimePick;

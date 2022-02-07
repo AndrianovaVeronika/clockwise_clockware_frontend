@@ -1,14 +1,13 @@
 import React, {useEffect, useState} from 'react';
 import './style.css';
-import {
-    Box, Button, Step, StepLabel, Stepper, switchClasses, Typography,
-} from "@mui/material";
+import {Box, Button, Step, StepLabel, Stepper, Typography} from "@mui/material";
 import CredentialsForm from "./CredentialsForm";
 import store from "../../store/store";
 import {addOrder, getCities, getMasters} from "../../store/actions";
-import DateTimeForm from "./DateTimeForm";
-import ChooseMasterForm from "./ChooseMasterForm";
+import DateTimePick from "./DateTimePick";
+import MasterPick from "./MasterPick";
 import FormDialog from "../FormDialog";
+import ResultsReport from "./ResultsReport";
 
 const initialValues = {
     name: '',
@@ -46,12 +45,10 @@ const OrderForm = ({openButtonOnClickText}) => {
         console.log(values);
     }
 
-    const onResultsSubmit = () => {
-
-    }
-
     const onSubmit = () => {
-        // store.dispatch(addOrder(values));
+        console.log('onSubmit OrderFormDialog', values);
+        store.dispatch(addOrder(values));
+
     }
 
     const [activeStep, setActiveStep] = useState(0);
@@ -75,11 +72,14 @@ const OrderForm = ({openButtonOnClickText}) => {
                 return <CredentialsForm formId='form0' submitAction={onCredentialsChange}/>
             }
             case 1 : {
-                return <ChooseMasterForm onMasterIdChange={onMasterIdChange}/>
+                return <MasterPick onMasterIdChange={onMasterIdChange}/>
             }
             case 2 : {
-                return <DateTimeForm shiftTimeStart={shiftTimeStart} shiftTimeEnd={shiftTimeEnd}
+                return <DateTimePick shiftTimeStart={shiftTimeStart} shiftTimeEnd={shiftTimeEnd}
                                      master_id={values.master_id} onChangeDatetime={onChangeDatetime}/>
+            }
+            case 3 : {
+                return <ResultsReport values={values}/>
             }
         }
     }
@@ -89,14 +89,11 @@ const OrderForm = ({openButtonOnClickText}) => {
             case 0: {
                 return <Button type='submit' form='form0'>Далее</Button>
             }
-            case 1: {
-                return <Button onClick={handleNext}>Далее</Button>
-            }
-            case 2: {
-                return <Button onClick={handleNext}>Далее</Button>
+            case steps.length - 1: {
+                return <></>
             }
             default: {
-                return <></>
+                return <Button onClick={handleNext}>Далее</Button>
             }
         }
     }
@@ -104,10 +101,14 @@ const OrderForm = ({openButtonOnClickText}) => {
     return (
         <>
             <FormDialog
-                autoGenerateSubmitButton={false}
                 openDialogButtonText={openButtonOnClickText}
                 dialogTitle='Введите данные чтобы заказать мастера'
                 additionalButtons={<ActiveButton/>}
+                submitButtonParams={{
+                    onSubmit: onSubmit,
+                    submitButtonText: 'Заказать',
+                    show: activeStep === steps.length - 1
+                }}
             >
                 <Box sx={{width: '100%'}}>
                     <Stepper activeStep={activeStep}>

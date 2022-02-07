@@ -10,9 +10,13 @@ const AdminMastersPage = () => {
         <>
             <MastersTable/>
             <FormDialog
-                formId='add-master-form'
                 openDialogButtonText={'Добавить'}
                 dialogTitle={'Данные мастера'}
+                submitButtonParams={{
+                    submitButtonText: 'Добавить',
+                    type: 'submit',
+                    form: 'add-master-form'
+                }}
             >
                 <AddMasterForm/>
             </FormDialog>

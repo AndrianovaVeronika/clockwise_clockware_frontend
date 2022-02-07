@@ -6,12 +6,31 @@ import DialogContent from '@mui/material/DialogContent';
 import DialogTitle from '@mui/material/DialogTitle';
 import {useState} from "react";
 
-const FormDialog = ({formId, openDialogButtonText, dialogTitle, additionalButtons, autoGenerateSubmitButton = true, children}) => {
+const FormDialog = ({openDialogButtonText, dialogTitle, additionalButtons, submitButtonParams, children}) => {
     const [open, setOpen] = useState(false);
 
     const toggle = () => {
         setOpen(!open);
     };
+
+    const {onSubmit, submitButtonText, show, ...params} = submitButtonParams;
+
+    const onClick = () => {
+        if (onSubmit) {
+            onSubmit();
+        }
+        toggle();
+    }
+
+    const SubmitButton = () => {
+        if (submitButtonParams) {
+            return <Button
+                onClick={onClick}
+                {...params}
+            >{submitButtonText}</Button>;
+        }
+        return <></>;
+    }
 
     return (
         <div>
@@ -28,9 +47,7 @@ const FormDialog = ({formId, openDialogButtonText, dialogTitle, additionalButton
                 <DialogActions>
                     {additionalButtons}
                     <Button onClick={toggle}>Отмена</Button>
-                    {
-                        autoGenerateSubmitButton? <Button type='submit' form={formId} onClick={toggle}>Добавить</Button> : <></>
-                    }
+                    {show ? <SubmitButton/> : <></>}
                 </DialogActions>
             </Dialog>
         </div>

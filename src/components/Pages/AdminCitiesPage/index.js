@@ -10,9 +10,14 @@ const AdminCitiesPage = () => {
         <>
             <CitiesTable/>
             <FormDialog
-                formId='add-city-form'
                 openDialogButtonText={'Добавить'}
                 dialogTitle={'Введите название города'}
+                submitButtonParams={{
+                    submitButtonText: 'Добавить',
+                    onSubmit: ()=>console.log('add-city-form submitted'),
+                    type: 'submit',
+                    form: 'add-city-form'
+                }}
             >
                 <AddCityForm/>
             </FormDialog>

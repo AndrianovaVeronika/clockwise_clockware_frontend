@@ -1,7 +1,7 @@
 import React from "react";
 import MastersTable from "../MastersTable";
 
-const ChooseMasterForm = ({onMasterIdChange}) => {
+const MasterPick = ({onMasterIdChange}) => {
     return (
         <MastersTable
             withCheckbox={false}
@@ -10,4 +10,4 @@ const ChooseMasterForm = ({onMasterIdChange}) => {
     )
 }
 
-export default ChooseMasterForm;
+export default MasterPick;
