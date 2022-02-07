@@ -47,7 +47,6 @@ const OrderForm = ({openButtonOnClickText}) => {
     const onSubmit = () => {
         console.log('onSubmit OrderFormDialog', values);
         store.dispatch(addOrder(values));
-
     }
 
     const [activeStep, setActiveStep] = useState(0);

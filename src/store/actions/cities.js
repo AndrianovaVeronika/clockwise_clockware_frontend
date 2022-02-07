@@ -18,20 +18,20 @@ export const getCities = createAsyncThunk(cities.GET_CITIES, async () => {
     }
 })
 
-export const getCityById = createAsyncThunk(cities.GET_CITY_BY_ID, async (id) => {
-    try {
-        const response = await instance.get('/cities/' + id);
-        if (response.data) {
-            return response.data;
-        } else {
-            console.log('getMasters: Query screwed up');
-            return {};
-        }
-    } catch (e) {
-        console.log('getMasters: Query screwed up with error');
-        return {};
-    }
-})
+// export const getCityById = createAsyncThunk(cities.GET_CITY_BY_ID, async (id) => {
+//     try {
+//         const response = await instance.get('/cities/' + id);
+//         if (response.data) {
+//             return response.data;
+//         } else {
+//             console.log('getMasters: Query screwed up');
+//             return {};
+//         }
+//     } catch (e) {
+//         console.log('getMasters: Query screwed up with error');
+//         return {};
+//     }
+// })
 
 export const addCity = createAsyncThunk(cities.ADD_CITY, async (newCity) => {
     try {

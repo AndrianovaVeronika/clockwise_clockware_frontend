@@ -6,30 +6,27 @@ import DialogContent from '@mui/material/DialogContent';
 import DialogTitle from '@mui/material/DialogTitle';
 import {useState} from "react";
 
-const FormDialog = ({openDialogButtonText, dialogTitle, additionalButtons, submitButtonParams, cancelOnClick, children}) => {
+const FormDialog = ({
+                        openDialogButtonText,
+                        dialogTitle,
+                        additionalButtons,
+                        submitButtonParams,
+                        cancelOnClick,
+                        children
+                    }) => {
     const [open, setOpen] = useState(false);
 
     const toggle = () => {
         setOpen(!open);
     };
 
-    const {onSubmit, submitButtonText, show, ...params} = submitButtonParams;
+    const {onSubmit, submitButtonText, show = true, ...params} = submitButtonParams;
 
     const onClick = () => {
         if (onSubmit) {
             onSubmit();
         }
         toggle();
-    }
-
-    const SubmitButton = () => {
-        if (submitButtonParams) {
-            return <Button
-                onClick={onClick}
-                {...params}
-            >{submitButtonText}</Button>;
-        }
-        return <></>;
     }
 
     return (
@@ -46,11 +43,15 @@ const FormDialog = ({openDialogButtonText, dialogTitle, additionalButtons, submi
                 </DialogContent>
                 <DialogActions>
                     {additionalButtons}
-                    <Button onClick={()=> {
+                    <Button onClick={() => {
                         cancelOnClick();
                         toggle();
                     }}>Отмена</Button>
-                    {show ? <SubmitButton/> : <></>}
+                    {show && submitButtonParams &&
+                    <Button
+                        onClick={onClick}
+                        {...params}
+                    >{submitButtonText}</Button>}
                 </DialogActions>
             </Dialog>
         </div>

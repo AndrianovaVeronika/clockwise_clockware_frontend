@@ -17,20 +17,20 @@ export const getMasters = createAsyncThunk(masters.GET_MASTERS, async () => {
     }
 })
 
-export const getMastersById = createAsyncThunk(masters.GET_MASTER_BY_ID, async (id) => {
-    try {
-        const response = await instance.get('/masters/' + id);
-        if (response.data) {
-            return response.data;
-        } else {
-            console.log('getMasters: Query screwed up');
-            return {};
-        }
-    } catch (e) {
-        console.log('getMasters: Query screwed up with error');
-        return {};
-    }
-})
+// export const getMastersById = createAsyncThunk(masters.GET_MASTER_BY_ID, async (id) => {
+//     try {
+//         const response = await instance.get('/masters/' + id);
+//         if (response.data) {
+//             return response.data;
+//         } else {
+//             console.log('getMasters: Query screwed up');
+//             return {};
+//         }
+//     } catch (e) {
+//         console.log('getMasters: Query screwed up with error');
+//         return {};
+//     }
+// })
 
 export const addMaster = createAsyncThunk(masters.ADD_MASTER, async (newMaster) => {
     try {

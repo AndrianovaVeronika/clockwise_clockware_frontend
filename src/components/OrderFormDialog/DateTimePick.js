@@ -87,7 +87,7 @@ const DateTimePick = ({shiftTimeStart, shiftTimeEnd, master_id, onChangeDatetime
                 <ListItem key={i} component="div" disablePadding>
                     <ListItemButton
                         onClick={(e) => onChangeDatetime({
-                            date: values.date.format('DD-MM-YYYY'),
+                            date: moment(values.date).format('DD-MM-YYYY'),
                             time: e.target.innerText
                         })}
                     >
