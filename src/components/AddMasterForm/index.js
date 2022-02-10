@@ -1,8 +1,8 @@
-import React from "react";
+import React, {useEffect} from "react";
 import {Formik, Form, Field, ErrorMessage} from "formik";
 import {TextField, Paper, Typography, Rating} from "@mui/material";
 import * as Yup from 'yup';
-import {addMaster} from "../../store/actions";
+import {addMaster, getCities} from "../../store/actions";
 import './style.css';
 import {useDispatch, useSelector} from "react-redux";
 import FormSelect from "../FormSelect";
@@ -30,7 +30,7 @@ const AddMasterForm = () => {
 
     const incomeCities = useSelector(getCitiesSelector);
 
-    const getCities = () => {
+    const getCityOptions = () => {
         const cities = [];
         for (const city of incomeCities) {
             cities.push({key: city.name, value: city.name});
@@ -38,7 +38,11 @@ const AddMasterForm = () => {
         return cities;
     }
 
-    const cityOptions = getCities();
+    const cityOptions = getCityOptions();
+
+    useEffect(()=>{
+        dispatch(getCities)
+    }, [dispatch])
 
     const paperStyle = {padding: '10px 10px', width: '90%', margin: '10px auto'}
 
@@ -47,8 +51,8 @@ const AddMasterForm = () => {
     })
 
     const onSubmit = (values, props) => {
-        console.log(values);
-        // dispatch(addMaster(values));
+        console.log({...values, cities: citiesChosed});
+        dispatch(addMaster({...values, cities: citiesChosed}));
         props.resetForm();
     }
 
@@ -81,7 +85,7 @@ const AddMasterForm = () => {
                                 value={citiesChosed}
                                 onChange={handleChange}
                                 multiple
-                                fullwidth
+                                fullwidth='true'
                             />
                         </Form>
                     )
