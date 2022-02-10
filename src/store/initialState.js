@@ -1,4 +1,8 @@
 const initialState = {
+    users: {
+        usersList: [],
+        rolesList: []
+    },
     orders: {
         ordersList: [],
         occupiedHours: []
@@ -8,6 +12,9 @@ const initialState = {
     },
     cities: {
         citiesList: [],
+    },
+    clock_type: {
+        clockTypesList: [],
     }
 };
 

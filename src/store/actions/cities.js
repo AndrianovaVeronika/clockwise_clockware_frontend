@@ -4,7 +4,7 @@ import cities from "../constants/cities";
 
 export const getCities = createAsyncThunk(cities.GET_CITIES, async () => {
     try {
-        const response = await instance.get('/cities');
+        const response = await instance.get('/api/cities');
         if (response.data) {
             return response.data;
         } else {
@@ -35,7 +35,7 @@ export const getCities = createAsyncThunk(cities.GET_CITIES, async () => {
 
 export const addCity = createAsyncThunk(cities.ADD_CITY, async (newCity) => {
     try {
-        const response = await instance.post('/cities', newCity);
+        const response = await instance.post('/api/cities', newCity);
         if (response.status === 201){
             return {status: 'addCity: new city added'};
         }

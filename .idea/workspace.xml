@@ -1,12 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="47aa944b-1eed-4aaf-807f-af5d121fc908" name="Changes" comment="fix: imports, exports">
-      <change beforePath="$PROJECT_DIR$/src/components/CitiesTable/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/CitiesTable/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/MastersTable/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/MastersTable/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/OrderFormDialog/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/OrderFormDialog/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/OrdersTable/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/OrdersTable/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/store/reducers/citiesReducer.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/store/reducers/citiesReducer.js" afterDir="false" />
+    <list default="true" id="47aa944b-1eed-4aaf-807f-af5d121fc908" name="Changes" comment="fix: useEffect &amp; dispatch problem">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/AddMasterForm/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/AddMasterForm/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/OrderFormDialog/DateTimePick.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/OrderFormDialog/DateTimePick.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/store/actions/cities.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/store/actions/cities.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/store/actions/masters.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/store/actions/masters.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/store/actions/orders.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/store/actions/orders.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/store/initialState.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/store/initialState.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/store/reducers/ordersReducer.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/store/reducers/ordersReducer.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/store/selectors/ordersSelector.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/store/selectors/ordersSelector.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -133,7 +137,8 @@
       <workItem from="1644077412734" duration="6541000" />
       <workItem from="1644146940897" duration="9216000" />
       <workItem from="1644233849607" duration="11228000" />
-      <workItem from="1644257229797" duration="7138000" />
+      <workItem from="1644257229797" duration="7781000" />
+      <workItem from="1644493243131" duration="8885000" />
     </task>
     <task id="LOCAL-00001" summary="fix: rename Admin Orders Page to Admin Page&#10;feat: add page Admin Orders Page and Data Table component">
       <created>1641420518743</created>
@@ -352,7 +357,14 @@
       <option name="project" value="LOCAL" />
       <updated>1644266118070</updated>
     </task>
-    <option name="localTasksCounter" value="32" />
+    <task id="LOCAL-00032" summary="fix: useEffect &amp; dispatch problem">
+      <created>1644266317739</created>
+      <option name="number" value="00032" />
+      <option name="presentableId" value="LOCAL-00032" />
+      <option name="project" value="LOCAL" />
+      <updated>1644266317739</updated>
+    </task>
+    <option name="localTasksCounter" value="33" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -394,7 +406,8 @@
     <MESSAGE value="fix: date time pick&#10;feat: add extracting city and master by id" />
     <MESSAGE value="fix: form dialog cancel action" />
     <MESSAGE value="fix: imports, exports" />
-    <option name="LAST_COMMIT_MESSAGE" value="fix: imports, exports" />
+    <MESSAGE value="fix: useEffect &amp; dispatch problem" />
+    <option name="LAST_COMMIT_MESSAGE" value="fix: useEffect &amp; dispatch problem" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

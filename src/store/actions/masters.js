@@ -4,7 +4,7 @@ import instance from "../middleware/api";
 
 export const getMasters = createAsyncThunk(masters.GET_MASTERS, async () => {
     try {
-        const response = await instance.get('/masters');
+        const response = await instance.get('/api/masters');
         if (response.data) {
             return response.data;
         } else {
@@ -34,7 +34,7 @@ export const getMasters = createAsyncThunk(masters.GET_MASTERS, async () => {
 
 export const addMaster = createAsyncThunk(masters.ADD_MASTER, async (newMaster) => {
     try {
-        const response = await instance.post('/masters', newMaster);
+        const response = await instance.post('/api/masters', newMaster);
 
         if (response.status === 201) {
             return {status: 'new master added'};

@@ -4,7 +4,9 @@ import {TextField, Paper, Typography, Rating} from "@mui/material";
 import * as Yup from 'yup';
 import {addMaster} from "../../store/actions";
 import './style.css';
-import {useDispatch} from "react-redux";
+import {useDispatch, useSelector} from "react-redux";
+import FormSelect from "../FormSelect";
+import {getCitiesSelector} from "../../store/selectors/citiesSelector";
 
 const initialValues = {
     name: '',
@@ -14,6 +16,30 @@ const initialValues = {
 const AddMasterForm = () => {
     const dispatch = useDispatch();
 
+    const [citiesChosed, setCitiesChosed] = React.useState([]);
+
+    const handleChange = (event) => {
+        const {
+            target: { value },
+        } = event;
+        setCitiesChosed(
+            // On autofill we get a stringified value.
+            typeof value === 'string' ? value.split(',') : value,
+        );
+    };
+
+    const incomeCities = useSelector(getCitiesSelector);
+
+    const getCities = () => {
+        const cities = [];
+        for (const city of incomeCities) {
+            cities.push({key: city.name, value: city.name});
+        }
+        return cities;
+    }
+
+    const cityOptions = getCities();
+
     const paperStyle = {padding: '10px 10px', width: '90%', margin: '10px auto'}
 
     const validationSchema = Yup.object().shape({
@@ -21,7 +47,8 @@ const AddMasterForm = () => {
     })
 
     const onSubmit = (values, props) => {
-        dispatch(addMaster(values));
+        console.log(values);
+        // dispatch(addMaster(values));
         props.resetForm();
     }
 
@@ -47,6 +74,15 @@ const AddMasterForm = () => {
                                     onChange={({target}) => props.setFieldValue('rating', parseInt(target.value))}
                                 />
                             </div>
+                            <FormSelect
+                                label='Города'
+                                name='cities'
+                                options={cityOptions}
+                                value={citiesChosed}
+                                onChange={handleChange}
+                                multiple
+                                fullwidth
+                            />
                         </Form>
                     )
                 }
