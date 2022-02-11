@@ -8,12 +8,11 @@ const initialState = {
     },
     masters: {
         mastersList: [],
-        mastersCities: []
     },
     cities: {
         citiesList: [],
     },
-    clock_type: {
+    clockTypes: {
         clockTypesList: [],
     }
 };

@@ -1,15 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="47aa944b-1eed-4aaf-807f-af5d121fc908" name="Changes" comment="fix: add master form">
+    <list default="true" id="47aa944b-1eed-4aaf-807f-af5d121fc908" name="Changes" comment="fix: add master form, masters table, orders table">
+      <change afterPath="$PROJECT_DIR$/src/store/actions/clockTypes.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/store/constants/clockTypes.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/store/reducers/clockTypesReducer.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/store/selectors/clockTypesSelector.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/AddMasterForm/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/AddMasterForm/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/AddMasterForm/style.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/MastersTable/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/MastersTable/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/OrdersTable/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/OrdersTable/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/store/constants/masters.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/store/constants/masters.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/OrderFormDialog/CredentialsForm.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/OrderFormDialog/CredentialsForm.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/OrderFormDialog/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/OrderFormDialog/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/static/clockType.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/static/texts.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/static/texts.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/store/actions/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/store/actions/index.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/store/initialState.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/store/initialState.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/store/reducers/mastersReducer.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/store/reducers/mastersReducer.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/store/reducers/rootReducer.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/store/reducers/rootReducer.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -138,7 +142,7 @@
       <workItem from="1644233849607" duration="11228000" />
       <workItem from="1644257229797" duration="7781000" />
       <workItem from="1644493243131" duration="17051000" />
-      <workItem from="1644576893958" duration="7824000" />
+      <workItem from="1644576893958" duration="12305000" />
     </task>
     <task id="LOCAL-00001" summary="fix: rename Admin Orders Page to Admin Page&#10;feat: add page Admin Orders Page and Data Table component">
       <created>1641420518743</created>
@@ -378,7 +382,14 @@
       <option name="project" value="LOCAL" />
       <updated>1644516547480</updated>
     </task>
-    <option name="localTasksCounter" value="35" />
+    <task id="LOCAL-00035" summary="fix: add master form, masters table, orders table">
+      <created>1644593884157</created>
+      <option name="number" value="00035" />
+      <option name="presentableId" value="LOCAL-00035" />
+      <option name="project" value="LOCAL" />
+      <updated>1644593884157</updated>
+    </task>
+    <option name="localTasksCounter" value="36" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -397,7 +408,6 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="feat: initial redux store build" />
     <MESSAGE value="feat: add orders reducer&#10;fix: orders table requests store for orders list now" />
     <MESSAGE value="feat: add masters reducer&#10;fix: masters table requests store for masters list now" />
     <MESSAGE value="feat: add actions to add order and master to the store" />
@@ -422,7 +432,8 @@
     <MESSAGE value="fix: useEffect &amp; dispatch problem" />
     <MESSAGE value="delete: get occupied hours&#10;feat: add select cities in add master form" />
     <MESSAGE value="fix: add master form" />
-    <option name="LAST_COMMIT_MESSAGE" value="fix: add master form" />
+    <MESSAGE value="fix: add master form, masters table, orders table" />
+    <option name="LAST_COMMIT_MESSAGE" value="fix: add master form, masters table, orders table" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

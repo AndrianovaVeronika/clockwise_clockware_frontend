@@ -2,7 +2,7 @@ import React, {useEffect, useState} from 'react';
 import './style.css';
 import {Box, Button, Step, StepLabel, Stepper, Typography} from "@mui/material";
 import CredentialsForm from "./CredentialsForm";
-import {addOrder, getCities, getMasters} from "../../store/actions";
+import {addOrder, getCities, getClockTypes, getMasters} from "../../store/actions";
 import DateTimePick from "./DateTimePick";
 import MasterPick from "./MasterPick";
 import FormDialog from "../FormDialog";
@@ -30,6 +30,7 @@ const OrderForm = ({openButtonOnClickText}) => {
     useEffect(() => {
         dispatch(getCities());
         dispatch(getMasters());
+        dispatch(getClockTypes());
     }, [dispatch]);
 
     const [values, setValues] = useState(initialValues);

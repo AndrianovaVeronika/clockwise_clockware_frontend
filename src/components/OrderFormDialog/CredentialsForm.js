@@ -1,11 +1,11 @@
 import React from "react";
 import {Box, TextField} from "@mui/material";
 import * as Yup from 'yup';
-import clockType from "../../static/clockType";
 import {useSelector} from "react-redux";
 import {getCitiesSelector} from "../../store/selectors/citiesSelector";
 import {ErrorMessage, Field, Form, Formik} from "formik";
 import FormSelect from "../FormSelect";
+import {getClockTypesSelector} from "../../store/selectors/clockTypesSelector";
 
 const initialValues = {
     name: '',
@@ -15,11 +15,12 @@ const initialValues = {
 }
 
 const CredentialsForm = ({formId, submitAction}) => {
-    const income = useSelector(getCitiesSelector);
+    const incomeCities = useSelector(getCitiesSelector);
+    const clockTypes = useSelector(getClockTypesSelector);
 
     const getCities = () => {
         const cities = [];
-        for (const city of income) {
+        for (const city of incomeCities) {
             cities.push({key: city.id, value: city.name});
         }
         return cities;
@@ -27,8 +28,8 @@ const CredentialsForm = ({formId, submitAction}) => {
 
     const getClockTypes = () => {
         const types = [];
-        for (const typeKey in clockType) {
-            types.push({key: typeKey, value: clockType[typeKey]});
+        for (const type of clockTypes) {
+            types.push({key: type.id, value: type.name});
         }
         return types;
     }
