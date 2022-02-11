@@ -5,10 +5,10 @@ const initialState = {
     },
     orders: {
         ordersList: [],
-        occupiedHours: []
     },
     masters: {
         mastersList: [],
+        mastersCities: []
     },
     cities: {
         citiesList: [],

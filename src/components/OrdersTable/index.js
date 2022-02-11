@@ -12,10 +12,10 @@ const columns = [
         field: 'id', headerName: 'ID', width: 50
     },
     {
-        field: 'client_name', headerName: 'Имя', width: 150
+        field: 'user', headerName: 'Имя', width: 150
     },
     {
-        field: 'login', headerName: 'Логин', width: 200,
+        field: 'email', headerName: 'Почта', width: 200,
     },
     {
         field: 'clock_type', headerName: 'Тип часов', width: 80,
@@ -30,7 +30,7 @@ const columns = [
         field: 'time', headerName: 'Время', width: 150,
     },
     {
-        field: 'master_name', headerName: 'Мастер', width: 90,
+        field: 'master', headerName: 'Мастер', width: 90,
     },
 ];
 
@@ -41,7 +41,24 @@ const OrdersTable = () => {
         dispatch(getOrders());
     }, [dispatch])
 
-    const rows = useSelector(getOrdersSelector);
+    const orders= useSelector(getOrdersSelector);
+
+    const getRows = () => {
+        const rows = [];
+        for (const order of orders) {
+            rows.push({
+                ...order,
+                user: order.user.username,
+                email: order.user.email,
+                clock_type: order.clock_type.name,
+                city: order.city.name,
+                master: order.master.name
+            });
+        }
+        return rows;
+    }
+
+    const rows = getRows();
 
     return (
         <>

@@ -1,9 +1,10 @@
 import React, {useEffect} from 'react';
 import DataTable from "../DataTable";
-import {getMasters} from "../../store/actions";
+import {getMasterCities, getMasters} from "../../store/actions";
 import {useDispatch, useSelector} from "react-redux";
 import {getMastersSelector} from "../../store/selectors/mastersSelector";
 import Rating from '@mui/material/Rating';
+import cities from "../../store/constants/cities";
 
 function renderRating(params) {
     return <Rating readOnly value={params.value}/>;
@@ -23,6 +24,11 @@ const columns = [
         renderCell: renderRating,
         type: 'number',
     },
+    {
+        field: 'cities',
+        headerName: 'Работает в',
+        width: 150,
+    }
 ];
 
 const MastersTable = ({withCheckbox, onRowClick}) => {
@@ -32,7 +38,23 @@ const MastersTable = ({withCheckbox, onRowClick}) => {
         dispatch(getMasters());
     }, [dispatch])
 
-    const rows = useSelector(getMastersSelector);
+    const masters = useSelector(getMastersSelector);
+
+    const getRows = () => {
+        const rows = [];
+
+        for (const master of masters) {
+            const cities = [];
+            for (const city of master.cities) {
+                cities.push(city.name);
+            }
+            rows.push({...master, cities: cities.join(', ')});
+        }
+
+        return rows;
+    }
+
+    const rows = getRows();
 
     return (
         <>

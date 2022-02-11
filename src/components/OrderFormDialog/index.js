@@ -27,6 +27,11 @@ const shiftTimeEnd = 18;
 const OrderForm = ({openButtonOnClickText}) => {
     const dispatch = useDispatch();
 
+    useEffect(() => {
+        dispatch(getCities());
+        dispatch(getMasters());
+    }, [dispatch]);
+
     const [values, setValues] = useState(initialValues);
 
     const onCredentialsChange = (v, props) => {
@@ -55,11 +60,6 @@ const OrderForm = ({openButtonOnClickText}) => {
     // const handleBack = () => {
     //     setActiveStep((prevActiveStep) => prevActiveStep - 1);
     // };
-
-    useEffect(() => {
-        dispatch(getCities());
-        dispatch(getMasters());
-    }, [dispatch])
 
     const ActiveStep = () => {
         switch (activeStep) {

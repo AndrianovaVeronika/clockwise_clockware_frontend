@@ -3,7 +3,6 @@ import {Formik, Form, Field, ErrorMessage} from "formik";
 import {TextField, Paper, Typography, Rating} from "@mui/material";
 import * as Yup from 'yup';
 import {addMaster, getCities} from "../../store/actions";
-import './style.css';
 import {useDispatch, useSelector} from "react-redux";
 import FormSelect from "../FormSelect";
 import {getCitiesSelector} from "../../store/selectors/citiesSelector";
@@ -31,17 +30,19 @@ const AddMasterForm = () => {
     const incomeCities = useSelector(getCitiesSelector);
 
     const getCityOptions = () => {
+        console.log('INCOME CITIES' ,incomeCities);
         const cities = [];
         for (const city of incomeCities) {
             cities.push({key: city.name, value: city.name});
         }
+        console.log('RESULT CITIES' ,cities);
         return cities;
     }
 
     const cityOptions = getCityOptions();
 
     useEffect(()=>{
-        dispatch(getCities)
+        dispatch(getCities());
     }, [dispatch])
 
     const paperStyle = {padding: '10px 10px', width: '90%', margin: '10px auto'}
@@ -85,7 +86,7 @@ const AddMasterForm = () => {
                                 value={citiesChosed}
                                 onChange={handleChange}
                                 multiple
-                                fullwidth='true'
+                                fullWidth
                             />
                         </Form>
                     )
