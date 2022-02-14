@@ -9,9 +9,9 @@ import {getClockTypesSelector} from "../../store/selectors/clockTypesSelector";
 
 const initialValues = {
     name: '',
-    login: '',
-    clock_type: '',
-    city_id: '',
+    email: '',
+    clockTypeId: '',
+    cityId: '',
 }
 
 const CredentialsForm = ({formId, submitAction}) => {
@@ -40,9 +40,7 @@ const CredentialsForm = ({formId, submitAction}) => {
 
     const validationSchema = Yup.object().shape({
         name: Yup.string().min(3, 'Name is too short').required('Required'),
-        login: Yup.string().email('email is not valid'),
-        // clockType: Yup.string().required('Required'),
-        // city_id: Yup.number().required('Required'),
+        login: Yup.string().email('email is not valid')
     })
 
     return (
@@ -61,8 +59,8 @@ const CredentialsForm = ({formId, submitAction}) => {
                                        fullWidth
                                 />
                                 <Field as={TextField}
-                                       label='Логин'
-                                       name='login'
+                                       label='Почта'
+                                       name='email'
                                        error={props.errors.login && props.touched.login}
                                        helperText={<ErrorMessage name='login'/>}
                                        required
@@ -70,14 +68,16 @@ const CredentialsForm = ({formId, submitAction}) => {
                                 />
                                 <FormSelect
                                     label='Размер часов'
-                                    name='clock_type'
+                                    name='clockTypeId'
                                     options={clockTypeOptions}
+                                    required
                                     fullWidth
                                 />
                                 <FormSelect
                                     label='Город'
-                                    name='city_id'
+                                    name='cityId'
                                     options={cityOptions}
+                                    required
                                     fullWidth
                                 />
                             </Form>

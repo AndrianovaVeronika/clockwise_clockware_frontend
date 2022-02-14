@@ -10,13 +10,13 @@ import ResultsReport from "./ResultsReport";
 import {useDispatch} from "react-redux";
 
 const initialValues = {
-    name: '',
-    login: '',
-    clock_type: '',
-    master_id: 0,
-    city_id: 0,
-    date: '',
-    time: '',
+    name: undefined,
+    email: undefined,
+    clockTypeId: undefined,
+    masterId: undefined,
+    cityId: undefined,
+    date: undefined,
+    time: undefined,
 }
 
 const steps = ['Подробности заказа', 'Мастер', 'Дата и время', 'Проверьте данные'];
@@ -36,12 +36,13 @@ const OrderForm = ({openButtonOnClickText}) => {
     const [values, setValues] = useState(initialValues);
 
     const onCredentialsChange = (v, props) => {
+        console.log(v);
         setValues({...values, ...v});
         handleNext();
     }
 
     const onMasterIdChange = ({row}) => {
-        setValues({...values, master_id: row.id})
+        setValues({...values, masterId: row.id})
     }
 
     const onChangeDatetime = (v) => {
