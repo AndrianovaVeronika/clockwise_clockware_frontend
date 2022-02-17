@@ -1,0 +1,9 @@
+const auth = {
+    SIGN_UP: 'SIGN_UP',
+    SIGN_IN: 'SIGN_IN',
+    GET_USERS: 'GET_USERS',
+    VERIFY_USER_ACCESS: 'VERIFY_USER_ACCESS',
+    VERIFY_ADMIN_ACCESS: 'VERIFY_ADMIN_ACCESS'
+}
+
+export default auth;

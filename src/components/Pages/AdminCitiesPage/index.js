@@ -5,6 +5,7 @@ import FormDialog from "../../FormDialog";
 import CitiesTable from "../../CitiesTable";
 import AddCityForm from "../../AddCityForm";
 import {compose} from "redux";
+import withRedirectAfterLogout from "../../../functions/withRedirectAfterLogout";
 
 const AdminCitiesPage = () => {
     return (
@@ -25,4 +26,4 @@ const AdminCitiesPage = () => {
     )
 }
 
-export default compose(withHeader, wrapContent)(AdminCitiesPage);
+export default compose(withHeader, wrapContent, withRedirectAfterLogout)(AdminCitiesPage);

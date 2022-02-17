@@ -1,6 +1,6 @@
 import initialState from "../initialState";
 import {createSlice} from "@reduxjs/toolkit";
-import {getMasters, addMaster, getMasterCities} from "../actions";
+import {getMasters, addMaster} from "../actions";
 
 const {reducer} = createSlice({
     name: 'masters',

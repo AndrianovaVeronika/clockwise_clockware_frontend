@@ -2,26 +2,21 @@ import {createAsyncThunk} from "@reduxjs/toolkit";
 import orders from '../constants/orders';
 import instance from "../middleware/api";
 
-export const getOrders = createAsyncThunk(orders.GET_ORDERS, async () => {
+export const getOrders = createAsyncThunk(orders.GET_ORDERS, async (_, thunkAPI) => {
     try {
         const response = await instance.get('/api/orders');
-        if (response.data) {
-            return response.data;
-        } else {
-            console.log('getOrders: Query screwed up');
-            return {};
-        }
+        return response.data || {};
     } catch (e) {
         console.log(e);
-        return {};
+        return thunkAPI.rejectWithValue(e);
     }
 })
 
-export const addOrder = createAsyncThunk(orders.ADD_ORDER, async (newOrder) => {
+export const addOrder = createAsyncThunk(orders.ADD_ORDER, async (newOrder, thunkAPI) => {
     try {
         const response = await instance.post('/api/orders', newOrder);
         return {status: response.status};
     } catch (e) {
-        return {status: '!ERROR'};
+        return thunkAPI.rejectWithValue(e);
     }
 })

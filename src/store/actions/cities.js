@@ -2,19 +2,14 @@ import {createAsyncThunk} from "@reduxjs/toolkit";
 import instance from "../middleware/api";
 import cities from "../constants/cities";
 
-export const getCities = createAsyncThunk(cities.GET_CITIES, async () => {
+export const getCities = createAsyncThunk(cities.GET_CITIES, async (_, thunkAPI) => {
     try {
         const response = await instance.get('/api/cities');
-        if (response.data) {
-            return response.data;
-        } else {
-            console.log('getCities: Query screwed up');
-            return {};
-        }
+        return response.data || {};
     } catch (e) {
         console.log(e);
         console.log('getCities: Query screwed up with error');
-        return {};
+        return thunkAPI.rejectWithValue(e);
     }
 })
 
@@ -33,7 +28,7 @@ export const getCities = createAsyncThunk(cities.GET_CITIES, async () => {
 //     }
 // })
 
-export const addCity = createAsyncThunk(cities.ADD_CITY, async (newCity) => {
+export const addCity = createAsyncThunk(cities.ADD_CITY, async (newCity, thunkAPI) => {
     try {
         const response = await instance.post('/api/cities', newCity);
         if (response.status === 201){
@@ -43,6 +38,6 @@ export const addCity = createAsyncThunk(cities.ADD_CITY, async (newCity) => {
             return {status: 'addCity: smth went wrong (new city havent been added)'};
         }
     } catch (e) {
-        return {status: '!ERROR'};
+        return thunkAPI.rejectWithValue(e);
     }
 })

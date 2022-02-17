@@ -1,10 +1,9 @@
 import React, {useEffect} from 'react';
 import DataTable from "../DataTable";
-import {getMasterCities, getMasters} from "../../store/actions";
+import {getMasters} from "../../store/actions";
 import {useDispatch, useSelector} from "react-redux";
 import {getMastersSelector} from "../../store/selectors/mastersSelector";
 import Rating from '@mui/material/Rating';
-import cities from "../../store/constants/cities";
 
 function renderRating(params) {
     return <Rating readOnly value={params.value}/>;

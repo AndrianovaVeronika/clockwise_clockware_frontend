@@ -4,6 +4,7 @@ import {wrapContent} from '../../../functions/wrapContent';
 import {Button, Toolbar} from "@mui/material";
 import {Link as RouterLink} from "react-router-dom";
 import {compose} from "redux";
+import withRedirectAfterLogout from "../../../functions/withRedirectAfterLogout";
 
 const AdminPage = () => {
     return (
@@ -35,4 +36,4 @@ const AdminPage = () => {
     )
 }
 
-export default compose(withHeader, wrapContent)(AdminPage);
+export default compose(withHeader, wrapContent, withRedirectAfterLogout)(AdminPage);

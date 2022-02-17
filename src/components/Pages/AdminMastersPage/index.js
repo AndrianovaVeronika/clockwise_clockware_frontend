@@ -5,6 +5,7 @@ import MastersTable from "../../MastersTable";
 import AddMasterForm from "../../AddMasterForm";
 import FormDialog from "../../FormDialog";
 import {compose} from "redux";
+import withRedirectAfterLogout from "../../../functions/withRedirectAfterLogout";
 
 const AdminMastersPage = () => {
     return (
@@ -25,4 +26,4 @@ const AdminMastersPage = () => {
     )
 }
 
-export default compose(withHeader, wrapContent)(AdminMastersPage);
+export default compose(withHeader, wrapContent, withRedirectAfterLogout)(AdminMastersPage);

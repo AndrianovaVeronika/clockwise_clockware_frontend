@@ -40,7 +40,7 @@ const CredentialsForm = ({formId, submitAction}) => {
 
     const validationSchema = Yup.object().shape({
         name: Yup.string().min(3, 'Name is too short').required('Required'),
-        login: Yup.string().email('email is not valid')
+        email: Yup.string().email('email is not valid')
     })
 
     return (
@@ -62,7 +62,7 @@ const CredentialsForm = ({formId, submitAction}) => {
                                        label='Почта'
                                        name='email'
                                        error={props.errors.login && props.touched.login}
-                                       helperText={<ErrorMessage name='login'/>}
+                                       helperText={<ErrorMessage name='email'/>}
                                        required
                                        fullWidth
                                 />

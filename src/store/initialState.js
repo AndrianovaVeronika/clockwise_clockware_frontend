@@ -1,4 +1,9 @@
 const initialState = {
+    auth: {
+        currentUser: {},
+        isAuth: false,
+        userLoading: true
+    },
     users: {
         usersList: [],
         rolesList: []

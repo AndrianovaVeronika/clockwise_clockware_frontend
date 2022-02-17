@@ -1,7 +1,10 @@
-import {AppBar, Toolbar, Typography, Button} from "@mui/material";
+import {AppBar, Button, Toolbar, Typography} from "@mui/material";
 import {makeStyles} from "@mui/styles";
 import React from "react";
 import {Link as RouterLink} from "react-router-dom";
+import {useNavigate} from "react-router";
+import {useSelector} from "react-redux";
+import {isAuthUserSelector} from "../../store/selectors/authSelector";
 
 const useStyles = makeStyles(() => ({
     header: {
@@ -22,8 +25,12 @@ const useStyles = makeStyles(() => ({
 }));
 
 export default function Header() {
+    const isAuth = useSelector(isAuthUserSelector);
+
+    const navigate = useNavigate();
 
     const styles = useStyles();
+
 
     return (
         <header>
@@ -41,14 +48,13 @@ export default function Header() {
                                 className: 'menu-button'
                             }}
                         >Главная</Button>
-                        <Button
-                            {...{
-                                color: 'inherit',
-                                to: '/admin',
-                                component: RouterLink,
-                                className: 'menu-button'
+                        {!isAuth && <Button
+                            onClick={() => {
+                                navigate('/profile');
                             }}
-                        >Войти</Button>
+                            color='inherit'
+                            className='menu-button'
+                        >Войти</Button>}
                     </div>
                 </Toolbar>
             </AppBar>

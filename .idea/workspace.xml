@@ -1,12 +1,36 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="47aa944b-1eed-4aaf-807f-af5d121fc908" name="Changes" comment="feat: add clockType model to store">
-      <change afterPath="$PROJECT_DIR$/src/store/constants/authentication.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/store/constants/autorization.js" afterDir="false" />
+    <list default="true" id="47aa944b-1eed-4aaf-807f-af5d121fc908" name="Changes" comment="fix: credentials form step">
+      <change afterPath="$PROJECT_DIR$/src/components/AuthenticationFormDialog/index.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/Pages/ProfilePage/index.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/functions/withRedirectAfterLogout.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/store/actions/auth.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/store/constants/auth.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/store/reducers/authReducer.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/store/selectors/authSelector.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Header/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Header/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/MastersTable/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/MastersTable/index.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/OrderFormDialog/CredentialsForm.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/OrderFormDialog/CredentialsForm.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/OrderFormDialog/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/OrderFormDialog/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Pages/AdminCitiesPage/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Pages/AdminCitiesPage/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Pages/AdminMastersPage/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Pages/AdminMastersPage/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Pages/AdminOrdersPage/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Pages/AdminOrdersPage/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Pages/AdminPage/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Pages/AdminPage/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/store/actions/cities.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/store/actions/cities.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/store/actions/clockTypes.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/store/actions/clockTypes.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/store/actions/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/store/actions/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/store/actions/masters.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/store/actions/masters.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/store/actions/orders.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/store/actions/orders.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/store/constants/authentication.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/store/constants/autorization.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/store/initialState.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/store/initialState.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/store/reducers/mastersReducer.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/store/reducers/mastersReducer.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/store/reducers/rootReducer.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/store/reducers/rootReducer.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -50,6 +74,7 @@
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="prettierjs.PrettierConfiguration.Package" value="D:\ClockwiseClockware\clockwise_clockware_frontend\node_modules\prettier" />
     <property name="settings.editor.selected.configurable" value="settings.javascript.linters.eslint" />
+    <property name="ts.external.directory.path" value="D:\Download\JetBrains\WebStorm 2021.2\plugins\JavaScriptLanguage\jsLanguageServicesImpl\external" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
@@ -136,7 +161,9 @@
       <workItem from="1644257229797" duration="7781000" />
       <workItem from="1644493243131" duration="17051000" />
       <workItem from="1644576893958" duration="16348000" />
-      <workItem from="1644824181198" duration="3968000" />
+      <workItem from="1644824181198" duration="12792000" />
+      <workItem from="1644870574525" duration="32409000" />
+      <workItem from="1645094962884" duration="28525000" />
     </task>
     <task id="LOCAL-00001" summary="fix: rename Admin Orders Page to Admin Page&#10;feat: add page Admin Orders Page and Data Table component">
       <created>1641420518743</created>
@@ -390,7 +417,14 @@
       <option name="project" value="LOCAL" />
       <updated>1644598746231</updated>
     </task>
-    <option name="localTasksCounter" value="37" />
+    <task id="LOCAL-00037" summary="fix: credentials form step">
+      <created>1644833609101</created>
+      <option name="number" value="00037" />
+      <option name="presentableId" value="LOCAL-00037" />
+      <option name="project" value="LOCAL" />
+      <updated>1644833609101</updated>
+    </task>
+    <option name="localTasksCounter" value="38" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -409,7 +443,6 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="feat: add masters reducer&#10;fix: masters table requests store for masters list now" />
     <MESSAGE value="feat: add actions to add order and master to the store" />
     <MESSAGE value="feat: add actions to add order and master to the store&#10;fix: rating display in&#10; masters table" />
     <MESSAGE value="feat: add city model to store, add Stepper to Order form&#10;fix: decompose Order form component" />
@@ -434,7 +467,8 @@
     <MESSAGE value="fix: add master form" />
     <MESSAGE value="fix: add master form, masters table, orders table" />
     <MESSAGE value="feat: add clockType model to store" />
-    <option name="LAST_COMMIT_MESSAGE" value="feat: add clockType model to store" />
+    <MESSAGE value="fix: credentials form step" />
+    <option name="LAST_COMMIT_MESSAGE" value="fix: credentials form step" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
