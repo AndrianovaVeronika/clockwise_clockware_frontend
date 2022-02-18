@@ -4,9 +4,9 @@ import {isAuthUserSelector, isUserLoadingSelector} from "../store/selectors/auth
 import {useEffect} from "react";
 
 const withRedirectAfterLogout = (Component) => (props) => {
-    const navigate = useNavigate();
     const isAuth = useSelector(isAuthUserSelector);
     const userLoading = useSelector(isUserLoadingSelector);
+    const navigate = useNavigate();
 
     useEffect(() => {
         if (!isAuth && !userLoading){

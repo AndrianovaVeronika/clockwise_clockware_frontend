@@ -21,7 +21,6 @@ export const signUp = createAsyncThunk(auth.SIGN_UP, async (newUser, thunkAPI) =
 export const signIn = createAsyncThunk(auth.SIGN_IN, async (user, thunkAPI) => {
     try {
         const response = await instance.post('/api/auth/signin', user);
-        console.log('SIGNIN', response, response.data);
         return response.data;
     } catch (e) {
         console.log(e);
@@ -54,7 +53,6 @@ export const verifyUserAccess = createAsyncThunk(auth.VERIFY_USER_ACCESS, async 
                 'x-access-token': accessToken
             }
         });
-        console.log('USER ACCESS', accessToken, response.data);
         return response.data;
     } catch (e) {
         console.log('verifyUserAccess: Query screwed up with error', e);

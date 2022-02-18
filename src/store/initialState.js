@@ -13,6 +13,7 @@ const initialState = {
     },
     masters: {
         mastersList: [],
+        availableMasters: []
     },
     cities: {
         citiesList: [],

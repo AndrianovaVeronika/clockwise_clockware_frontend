@@ -2,7 +2,7 @@ import React from 'react';
 import {ErrorMessage, Field, Form, Formik} from "formik";
 import {Paper, TextField} from "@mui/material";
 import * as Yup from "yup";
-import {addCity} from "../../store/actions";
+import {addCity} from "../../../store/actions";
 import {useDispatch} from "react-redux";
 
 const initialValues = {name: ''};

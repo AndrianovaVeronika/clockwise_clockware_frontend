@@ -1,36 +1,44 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="47aa944b-1eed-4aaf-807f-af5d121fc908" name="Changes" comment="fix: credentials form step">
-      <change afterPath="$PROJECT_DIR$/src/components/AuthenticationFormDialog/index.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/Pages/ProfilePage/index.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/functions/withRedirectAfterLogout.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/store/actions/auth.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/store/constants/auth.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/store/reducers/authReducer.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/store/selectors/authSelector.js" afterDir="false" />
+    <list default="true" id="47aa944b-1eed-4aaf-807f-af5d121fc908" name="Changes" comment="feat: hoc with redirect after logout, auth model&#10;fix: return statements in store when error catched">
+      <change afterPath="$PROJECT_DIR$/src/components/Auth/SignUpFormDialog/index.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/Forms/OrderFormDialog/DateTimePick.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/Forms/OrderFormDialog/MasterPick.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Header/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Header/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/MastersTable/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/MastersTable/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/OrderFormDialog/CredentialsForm.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/OrderFormDialog/CredentialsForm.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/AddCityForm/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Forms/AddCityForm/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/AddMasterForm/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Forms/AddMasterForm/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/AuthenticationFormDialog/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Auth/SignInFormDialog/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/CitiesTable/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/DataTables/CitiesTable/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/DataTable/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/DataTables/DataTable/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/DefaultContent/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/PageComponents/DefaultContent/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/DefaultContent/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/PageComponents/DefaultContent/style.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/FormDialog/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Forms/FormDialog/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/FormSelect/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Forms/FormSelect/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Header/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/PageComponents/Header/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/MastersTable/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/DataTables/MastersTable/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/OrderFormDialog/CredentialsForm.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Forms/OrderFormDialog/CredentialsForm.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/OrderFormDialog/DateTimePick.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/OrderFormDialog/MasterPick.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/OrderFormDialog/ResultsReport.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Forms/OrderFormDialog/ResultsReport.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/OrderFormDialog/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Forms/OrderFormDialog/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/OrderFormDialog/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Forms/OrderFormDialog/style.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/OrdersTable/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/DataTables/OrdersTable/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/OrdersTable/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/DataTables/OrdersTable/style.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/Pages/AdminCitiesPage/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Pages/AdminCitiesPage/index.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/Pages/AdminMastersPage/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Pages/AdminMastersPage/index.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/Pages/AdminOrdersPage/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Pages/AdminOrdersPage/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Pages/AdminPage/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Pages/AdminPage/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/store/actions/cities.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/store/actions/cities.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/store/actions/clockTypes.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/store/actions/clockTypes.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/store/actions/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/store/actions/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/store/actions/masters.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/store/actions/masters.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/store/actions/orders.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/store/actions/orders.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/store/constants/authentication.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/store/constants/autorization.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Pages/HomePage/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Pages/HomePage/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Pages/ProfilePage/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Pages/ProfilePage/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/functions/withHeader.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/functions/withHeader.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/functions/withRedirectAfterLogout.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/functions/withRedirectAfterLogout.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/functions/wrapContent.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/functions/wrapContent.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/static/texts.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/static/texts.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/store/actions/auth.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/store/actions/auth.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/store/initialState.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/store/initialState.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/store/reducers/mastersReducer.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/store/reducers/mastersReducer.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/store/reducers/rootReducer.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/store/reducers/rootReducer.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -79,9 +87,11 @@
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\ClockwiseClockware\clockwise_clockware_frontend\src\components\PageComponents" />
+      <recent name="D:\ClockwiseClockware\clockwise_clockware_frontend\src\components\DataTables" />
+      <recent name="D:\ClockwiseClockware\clockwise_clockware_frontend\src\components\Forms" />
+      <recent name="D:\ClockwiseClockware\clockwise_clockware_frontend\src\components\Auth" />
       <recent name="D:\ClockwiseClockware\clockwise_clockware_frontend\src\components\MastersTable" />
-      <recent name="D:\ClockwiseClockware\clockwise_clockware_frontend\src\components\OrdersTable" />
-      <recent name="D:\ClockwiseClockware\clockwise_clockware_frontend\src\components\DataTable" />
     </key>
   </component>
   <component name="RunManager" selected="npm.start">
@@ -163,7 +173,9 @@
       <workItem from="1644576893958" duration="16348000" />
       <workItem from="1644824181198" duration="12792000" />
       <workItem from="1644870574525" duration="32409000" />
-      <workItem from="1645094962884" duration="28525000" />
+      <workItem from="1645094962884" duration="29325000" />
+      <workItem from="1645131909690" duration="1175000" />
+      <workItem from="1645179279749" duration="31327000" />
     </task>
     <task id="LOCAL-00001" summary="fix: rename Admin Orders Page to Admin Page&#10;feat: add page Admin Orders Page and Data Table component">
       <created>1641420518743</created>
@@ -424,7 +436,14 @@
       <option name="project" value="LOCAL" />
       <updated>1644833609101</updated>
     </task>
-    <option name="localTasksCounter" value="38" />
+    <task id="LOCAL-00038" summary="feat: hoc with redirect after logout, auth model&#10;fix: return statements in store when error catched">
+      <created>1645131646987</created>
+      <option name="number" value="00038" />
+      <option name="presentableId" value="LOCAL-00038" />
+      <option name="project" value="LOCAL" />
+      <updated>1645131646987</updated>
+    </task>
+    <option name="localTasksCounter" value="39" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -443,7 +462,6 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="feat: add actions to add order and master to the store" />
     <MESSAGE value="feat: add actions to add order and master to the store&#10;fix: rating display in&#10; masters table" />
     <MESSAGE value="feat: add city model to store, add Stepper to Order form&#10;fix: decompose Order form component" />
     <MESSAGE value="fix: Order form, texts, Home page &amp; Amin page exports" />
@@ -468,7 +486,8 @@
     <MESSAGE value="fix: add master form, masters table, orders table" />
     <MESSAGE value="feat: add clockType model to store" />
     <MESSAGE value="fix: credentials form step" />
-    <option name="LAST_COMMIT_MESSAGE" value="fix: credentials form step" />
+    <MESSAGE value="feat: hoc with redirect after logout, auth model&#10;fix: return statements in store when error catched" />
+    <option name="LAST_COMMIT_MESSAGE" value="feat: hoc with redirect after logout, auth model&#10;fix: return statements in store when error catched" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

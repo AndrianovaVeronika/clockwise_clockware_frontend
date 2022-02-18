@@ -1,9 +1,9 @@
 import * as React from 'react';
 import DataTable from "../DataTable";
 import {useEffect} from "react";
-import {getCities} from "../../store/actions";
+import {getCities} from "../../../store/actions";
 import {useDispatch, useSelector} from "react-redux";
-import {getCitiesSelector} from "../../store/selectors/citiesSelector";
+import {getCitiesSelector} from "../../../store/selectors/citiesSelector";
 
 const columns = [
     {

@@ -4,7 +4,7 @@ import React from "react";
 import {Link as RouterLink} from "react-router-dom";
 import {useNavigate} from "react-router";
 import {useSelector} from "react-redux";
-import {isAuthUserSelector} from "../../store/selectors/authSelector";
+import {isAuthUserSelector} from "../../../store/selectors/authSelector";
 
 const useStyles = makeStyles(() => ({
     header: {
@@ -59,6 +59,5 @@ export default function Header() {
                 </Toolbar>
             </AppBar>
         </header>
-    )
-        ;
+    );
 }

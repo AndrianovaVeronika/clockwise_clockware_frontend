@@ -1,8 +1,8 @@
 import React, {useEffect} from 'react';
 import DataTable from "../DataTable";
-import {getMasters} from "../../store/actions";
+import {getMasters} from "../../../store/actions";
 import {useDispatch, useSelector} from "react-redux";
-import {getMastersSelector} from "../../store/selectors/mastersSelector";
+import {getMastersSelector} from "../../../store/selectors/mastersSelector";
 import Rating from '@mui/material/Rating';
 
 function renderRating(params) {
@@ -30,7 +30,7 @@ const columns = [
     }
 ];
 
-const MastersTable = ({withCheckbox, onRowClick}) => {
+const MastersTable = ({withCheckbox, onRowClick, ...rest}) => {
     const dispatch = useDispatch();
 
     useEffect(() => {
@@ -62,6 +62,7 @@ const MastersTable = ({withCheckbox, onRowClick}) => {
                 rows={rows}
                 withCheckbox={withCheckbox}
                 onRowClick={onRowClick}
+                {...rest}
             />
         </>
     );

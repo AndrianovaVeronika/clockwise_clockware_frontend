@@ -2,7 +2,7 @@ import './App.css';
 import {Route, Routes} from 'react-router-dom';
 import HomePage from "./components/Pages/HomePage";
 import AdminPage from "./components/Pages/AdminPage";
-import AuthenticationFormDialog from "./components/AuthenticationFormDialog";
+import AuthenticationFormDialog from "./components/Auth/SignInFormDialog";
 import ProfilePage from "./components/Pages/ProfilePage";
 import AdminOrdersPage from "./components/Pages/AdminOrdersPage";
 import AdminMastersPage from "./components/Pages/AdminMastersPage";

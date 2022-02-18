@@ -1,22 +1,23 @@
 import React from "react";
 import {Box, TextField} from "@mui/material";
-import * as Yup from 'yup';
 import {useSelector} from "react-redux";
-import {getCitiesSelector} from "../../store/selectors/citiesSelector";
-import {ErrorMessage, Field, Form, Formik} from "formik";
+import {getCitiesSelector} from "../../../store/selectors/citiesSelector";
+import {Field, Form, Formik} from "formik";
 import FormSelect from "../FormSelect";
-import {getClockTypesSelector} from "../../store/selectors/clockTypesSelector";
-
-const initialValues = {
-    name: '',
-    email: '',
-    clockTypeId: '',
-    cityId: '',
-}
+import {getClockTypesSelector} from "../../../store/selectors/clockTypesSelector";
+import {getCurrentUserSelector} from "../../../store/selectors/authSelector";
 
 const CredentialsForm = ({formId, submitAction}) => {
     const incomeCities = useSelector(getCitiesSelector);
     const clockTypes = useSelector(getClockTypesSelector);
+    const user = useSelector(getCurrentUserSelector);
+
+    const initialValues = {
+        // username: user.username,
+        // email: user.email,
+        clockTypeId: '',
+        cityId: '',
+    }
 
     const getCities = () => {
         const cities = [];
@@ -38,34 +39,29 @@ const CredentialsForm = ({formId, submitAction}) => {
 
     const clockTypeOptions = getClockTypes();
 
-    const validationSchema = Yup.object().shape({
-        name: Yup.string().min(3, 'Name is too short').required('Required'),
-        email: Yup.string().email('email is not valid')
-    })
+    const onSubmit = (v, props) => {
+        submitAction({...v, userId: user.id});
+    }
 
     return (
         <>
             <Box sx={{display: 'flex', flexWrap: 'wrap', justifyContent: 'space-around'}}>
-                <Formik initialValues={initialValues} validationSchema={validationSchema} onSubmit={submitAction}>
+                <Formik initialValues={initialValues} onSubmit={onSubmit}>
                     {
                         (props) => (
                             <Form id={formId}>
-                                <Field as={TextField}
-                                       label='Имя'
-                                       name='name'
-                                       error={props.errors.name && props.touched.name}
-                                       helperText={<ErrorMessage name='name'/>}
-                                       required
-                                       fullWidth
-                                />
-                                <Field as={TextField}
-                                       label='Почта'
-                                       name='email'
-                                       error={props.errors.login && props.touched.login}
-                                       helperText={<ErrorMessage name='email'/>}
-                                       required
-                                       fullWidth
-                                />
+                                {/*<Field as={TextField}*/}
+                                {/*       label='Имя'*/}
+                                {/*       name='username'*/}
+                                {/*       fullWidth*/}
+                                {/*       disabled*/}
+                                {/*/>*/}
+                                {/*<Field as={TextField}*/}
+                                {/*       label='Почта'*/}
+                                {/*       name='email'*/}
+                                {/*       fullWidth*/}
+                                {/*       disabled*/}
+                                {/*/>*/}
                                 <FormSelect
                                     label='Размер часов'
                                     name='clockTypeId'

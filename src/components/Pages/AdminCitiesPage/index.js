@@ -1,9 +1,9 @@
 import React from 'react';
 import {withHeader} from '../../../functions/withHeader';
 import {wrapContent} from '../../../functions/wrapContent';
-import FormDialog from "../../FormDialog";
-import CitiesTable from "../../CitiesTable";
-import AddCityForm from "../../AddCityForm";
+import FormDialog from "../../Forms/FormDialog";
+import CitiesTable from "../../DataTables/CitiesTable";
+import AddCityForm from "../../Forms/AddCityForm";
 import {compose} from "redux";
 import withRedirectAfterLogout from "../../../functions/withRedirectAfterLogout";
 

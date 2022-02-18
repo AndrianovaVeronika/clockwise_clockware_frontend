@@ -1,10 +1,10 @@
 import * as React from 'react';
 import DataTable from "../DataTable";
 import {useEffect} from "react";
-import {getOrders} from "../../store/actions";
+import {getOrders} from "../../../store/actions";
 import {useDispatch, useSelector} from "react-redux";
-import {getOrdersSelector} from "../../store/selectors/ordersSelector";
-import OrderForm from "../OrderFormDialog";
+import {getOrdersSelector} from "../../../store/selectors/ordersSelector";
+import OrderForm from "../../Forms/OrderFormDialog";
 import './style.css';
 
 const columns = [

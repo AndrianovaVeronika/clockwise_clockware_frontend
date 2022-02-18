@@ -1,9 +1,9 @@
 import React from 'react';
 import {withHeader} from '../../../functions/withHeader';
 import {wrapContent} from '../../../functions/wrapContent';
-import MastersTable from "../../MastersTable";
-import AddMasterForm from "../../AddMasterForm";
-import FormDialog from "../../FormDialog";
+import MastersTable from "../../DataTables/MastersTable";
+import AddMasterForm from "../../Forms/AddMasterForm";
+import FormDialog from "../../Forms/FormDialog";
 import {compose} from "redux";
 import withRedirectAfterLogout from "../../../functions/withRedirectAfterLogout";
 

@@ -2,10 +2,10 @@ import React, {useEffect} from "react";
 import {Formik, Form, Field, ErrorMessage} from "formik";
 import {TextField, Paper, Typography, Rating} from "@mui/material";
 import * as Yup from 'yup';
-import {addMaster, getCities} from "../../store/actions";
+import {addMaster, getCities} from "../../../store/actions";
 import {useDispatch, useSelector} from "react-redux";
 import FormSelect from "../FormSelect";
-import {getCitiesSelector} from "../../store/selectors/citiesSelector";
+import {getCitiesSelector} from "../../../store/selectors/citiesSelector";
 
 const initialValues = {
     name: '',
