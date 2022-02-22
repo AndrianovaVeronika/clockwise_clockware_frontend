@@ -16,11 +16,11 @@ import ErrorNotAdminPage from "./components/Pages/ErrorNotAdminPage";
 function App() {
     const dispatch = useDispatch();
 
-    // useEffect(() => {
-    //     if (sessionStorage.getItem('TOKEN')) {
-    //         dispatch(verifyUserAccess());
-    //     }
-    // }, [dispatch]);
+    useEffect(() => {
+        if (sessionStorage.getItem('TOKEN')) {
+            dispatch(verifyUserAccess());
+        }
+    }, [dispatch]);
 
     return (
         <div className='page'>
