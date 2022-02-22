@@ -48,6 +48,7 @@ const SignInFormDialog = () => {
                                     <Field as={TextField}
                                            label='Password'
                                            name='password'
+                                           type='password'
                                            fullWidth
                                            error={props.errors.name && props.touched.name}
                                            helperText={<ErrorMessage name='password'/>}

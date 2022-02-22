@@ -1,7 +1,6 @@
 import {AppBar, Button, Toolbar, Typography} from "@mui/material";
 import {makeStyles} from "@mui/styles";
 import React from "react";
-import {Link as RouterLink} from "react-router-dom";
 import {useNavigate} from "react-router";
 import {useSelector} from "react-redux";
 import {isAuthUserSelector} from "../../../store/selectors/authSelector";
@@ -41,20 +40,33 @@ export default function Header() {
                     </Typography>
                     <div>
                         <Button
-                            {...{
-                                color: 'inherit',
-                                to: '/',
-                                component: RouterLink,
-                                className: 'menu-button'
+                            onClick={() => {
+                                navigate('/');
                             }}
+                            color='inherit'
+                            className='menu-button'
                         >Главная</Button>
                         {!isAuth && <Button
+                            onClick={() => {
+                                navigate('/login');
+                            }}
+                            color='inherit'
+                            className='menu-button'
+                        >Войти</Button>}
+                        {!isAuth && <Button
+                            onClick={() => {
+                                navigate('/signup');
+                            }}
+                            color='inherit'
+                            className='menu-button'
+                        >Регистрация</Button>}
+                        {isAuth && <Button
                             onClick={() => {
                                 navigate('/profile');
                             }}
                             color='inherit'
                             className='menu-button'
-                        >Войти</Button>}
+                        >Кабинет</Button>}
                     </div>
                 </Toolbar>
             </AppBar>

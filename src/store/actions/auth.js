@@ -29,18 +29,12 @@ export const signIn = createAsyncThunk(auth.SIGN_IN, async (user, thunkAPI) => {
     }
 });
 
-export const getUsers = createAsyncThunk(auth.GET_USERS, async (_, thunkAPI) => {
+export const logOut = createAsyncThunk(auth.LOG_OUT, async (_, thunkAPI) => {
     try {
-        const response = await instance.get('/api/users');
-        if (response.data) {
-            return response.data;
-        } else {
-            console.log('getUsers: Query screwed up');
-            return {};
-        }
+        return {};
     } catch (e) {
         console.log(e);
-        console.log('getUsers: Query screwed up with error');
+        console.log('logOut: error');
         return thunkAPI.rejectWithValue(e);
     }
 });

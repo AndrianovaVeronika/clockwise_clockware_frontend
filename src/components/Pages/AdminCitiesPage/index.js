@@ -1,11 +1,12 @@
 import React from 'react';
 import {withHeader} from '../../../functions/withHeader';
-import {wrapContent} from '../../../functions/wrapContent';
 import FormDialog from "../../Forms/FormDialog";
 import CitiesTable from "../../DataTables/CitiesTable";
 import AddCityForm from "../../Forms/AddCityForm";
 import {compose} from "redux";
 import withRedirectAfterLogout from "../../../functions/withRedirectAfterLogout";
+import withSidebar from "../../../functions/withSidebar";
+import withRedirectIfNotAdmin from "../../../functions/withRedirectIfNotAdmin";
 
 const AdminCitiesPage = () => {
     return (
@@ -26,4 +27,4 @@ const AdminCitiesPage = () => {
     )
 }
 
-export default compose(withHeader, wrapContent, withRedirectAfterLogout)(AdminCitiesPage);
+export default compose(withHeader, withSidebar, withRedirectAfterLogout)(AdminCitiesPage);

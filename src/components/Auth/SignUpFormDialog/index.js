@@ -27,7 +27,7 @@ const SignUpFormDialog = () => {
 
     const onSubmit = async (values, props) => {
         await dispatch(signUp(values));
-        navigate('/profile');
+        navigate('/login');
     }
 
     return (
@@ -62,6 +62,7 @@ const SignUpFormDialog = () => {
                                            error={props.errors.name && props.touched.name}
                                            helperText={<ErrorMessage name='password'/>}
                                            required
+                                           type="password"
                                     />
                                 </Form>
                             )
@@ -78,7 +79,7 @@ const SignUpFormDialog = () => {
                 <Button
                     type='submit'
                     form='signup-form'
-                >Войти</Button>
+                >Отправить</Button>
             </DialogActions>
         </Dialog>
     )

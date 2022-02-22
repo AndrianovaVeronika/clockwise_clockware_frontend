@@ -1,29 +1,29 @@
 import React from 'react';
 import {withHeader} from '../../../functions/withHeader';
-import MastersTable from "../../DataTables/MastersTable";
-import AddMasterForm from "../../Forms/AddMasterForm";
-import FormDialog from "../../Forms/FormDialog";
 import {compose} from "redux";
 import withRedirectAfterLogout from "../../../functions/withRedirectAfterLogout";
+import FormDialog from "../../Forms/FormDialog";
+import UsersTable from "../../DataTables/UsersTable";
 import withSidebar from "../../../functions/withSidebar";
+import AddUserForm from "../../Forms/AddUserForm";
 
-const AdminMastersPage = () => {
+const AdminUsersPage = () => {
     return (
         <>
-            <MastersTable/>
+            <UsersTable/>
             <FormDialog
                 openDialogButtonText={'Добавить'}
-                dialogTitle={'Данные мастера'}
+                dialogTitle={'Введите данные нового юзера'}
                 submitButtonParams={{
                     submitButtonText: 'Добавить',
                     type: 'submit',
-                    form: 'add-master-form'
+                    form: 'add-user-form'
                 }}
             >
-                <AddMasterForm/>
+                <AddUserForm/>
             </FormDialog>
         </>
     )
 }
 
-export default compose(withHeader, withSidebar, withRedirectAfterLogout)(AdminMastersPage);
+export default compose(withHeader, withSidebar, withRedirectAfterLogout)(AdminUsersPage);
