@@ -8,11 +8,11 @@ const withRedirectAfterLogout = (Component) => (props) => {
     const userLoading = useSelector(isUserLoadingSelector);
     const navigate = useNavigate();
 
-    useEffect(() => {
-        if (!isAuth && !userLoading){
-            navigate('/login');
-        }
-    }, [isAuth, userLoading]);
+    // useEffect(() => {
+    //     if (!isAuth && !userLoading){
+    //         navigate('/login');
+    //     }
+    // }, [isAuth, userLoading]);
 
     return <Component {...props}/>
 }
