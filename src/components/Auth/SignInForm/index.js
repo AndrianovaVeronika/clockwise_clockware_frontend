@@ -1,37 +1,48 @@
+import React from 'react';
 import {ErrorMessage, Field, Form, Formik} from "formik";
-import {Paper, TextField} from "@mui/material";
-import React from "react";
+import {Box, Button, Paper, TextField} from "@mui/material";
 import * as Yup from "yup";
-import {signUp} from "../../../store/actions";
 import {useDispatch} from "react-redux";
+import {Link as RouterLink} from "react-router-dom";
+import {signIn} from "../../../store/actions";
+import {useNavigate} from "react-router";
 
 const initialValues = {
     username: '',
-    email: '',
     password: ''
 };
-const AddUserForm = () => {
-    const dispatch = useDispatch();
 
-    const paperStyle = {padding: '10px 10px', width: '90%', margin: '10px auto'}
+const SignInForm = () => {
+    const dispatch = useDispatch();
+    const navigate = useNavigate();
 
     const validationSchema = Yup.object().shape({
         username: Yup.string().min(3, 'Username is too short').required('Required'),
-        password: Yup.string().min(8, 'Password is too short').required('Required'),
-        email: Yup.string().email('email is not valid')
+        password: Yup.string().min(8, 'Password is too short').required('Required')
     })
 
     const onSubmit = async (values, props) => {
-        await dispatch(signUp(values));
+        await dispatch(signIn(values));
+        navigate('/profile');
     }
 
     return (
-        <>
-            <Paper elevation={0} style={paperStyle}>
+        <Box>
+            <Paper
+                style={{
+                    maxHeight: '200px',
+                    maxWidth: '400px',
+                    minHeight: '100px',
+                    minWidth: '200px',
+                    padding: '40px 30px',
+                    margin: '10px auto',
+                    flexDirection: 'column',
+                }}
+            >
                 <Formik initialValues={initialValues} validationSchema={validationSchema} onSubmit={onSubmit}>
                     {
                         (props) => (
-                            <Form id='add-user-form'>
+                            <Form id='auth-form'>
                                 <Field as={TextField}
                                        label='Username'
                                        name='username'
@@ -41,16 +52,9 @@ const AddUserForm = () => {
                                        required
                                 />
                                 <Field as={TextField}
-                                       label='Почта'
-                                       name='email'
-                                       error={props.errors.email && props.touched.email}
-                                       helperText={<ErrorMessage name='email'/>}
-                                       required
-                                       fullWidth
-                                />
-                                <Field as={TextField}
                                        label='Password'
                                        name='password'
+                                       type='password'
                                        fullWidth
                                        error={props.errors.name && props.touched.name}
                                        helperText={<ErrorMessage name='password'/>}
@@ -60,9 +64,20 @@ const AddUserForm = () => {
                         )
                     }
                 </Formik>
+                <div style={{justifyContent: 'flex-end'}}>
+                    <Button
+                        {...{
+                            to: '/',
+                            component: RouterLink
+                        }}>Отмена</Button>
+                    <Button
+                        type='submit'
+                        form='auth-form'
+                    >Войти</Button>
+                </div>
             </Paper>
-        </>
+        </Box>
     )
 }
 
-export default AddUserForm;
+export default SignInForm;

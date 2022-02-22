@@ -1,6 +1,5 @@
-import { ProSidebar, Menu, MenuItem, SubMenu } from 'react-pro-sidebar';
+import {Menu, MenuItem, ProSidebar, SubMenu} from 'react-pro-sidebar';
 import 'react-pro-sidebar/dist/css/styles.css';
-import AddCircleIcon from '@mui/icons-material/AddCircle';
 import AccountBoxIcon from '@mui/icons-material/AccountBox';
 import BackupTableIcon from '@mui/icons-material/BackupTable';
 import {useNavigate} from "react-router";
@@ -12,10 +11,18 @@ const Sidebar = () => {
     const navigate = useNavigate();
 
     return (
-        <div style={{width: '300px', height: '700px'}}>
-            <ProSidebar>
-                <Menu iconShape="square">
-                    <MenuItem icon={<AccountBoxIcon/>} onClick={()=>navigate('/profile')}>Profile</MenuItem>
+        <>
+            <ProSidebar style={{marginLeft: '-10px', backgroundColor: '#1d1d1d'}}>
+                <Menu iconShape="square"
+                      style={{
+                          height: 'auto',
+                          width: '250px',
+                          marginTop: '50px',
+                          backgroundColor: '#1d1d1d',
+                          marginLeft: '10px',
+                          marginRight: '10px'
+                      }}>
+                    <MenuItem icon={<AccountBoxIcon/>} onClick={() => navigate('/profile')}>Profile</MenuItem>
                     <SubMenu title="Tables" icon={<BackupTableIcon/>}>
                         <MenuItem onClick={() => navigate('/admin/orders')}>Orders</MenuItem>
                         <MenuItem onClick={() => navigate('/admin/users')}>Users</MenuItem>
@@ -24,7 +31,7 @@ const Sidebar = () => {
                     </SubMenu>
                 </Menu>
             </ProSidebar>
-        </div>
+        </>
     )
 }
 

@@ -1,7 +1,39 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="47aa944b-1eed-4aaf-807f-af5d121fc908" name="Changes" comment="fix: try fix dependencies" />
+    <list default="true" id="47aa944b-1eed-4aaf-807f-af5d121fc908" name="Changes" comment="fix: try">
+      <change afterPath="$PROJECT_DIR$/src/components/Auth/SignInForm/index.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/Auth/SignUpForm/index.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/PageComponents/Spinner/index.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/Pages/AdminPages/AdminCitiesPage/index.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/Pages/AdminPages/AdminMastersPage/index.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/Pages/AdminPages/AdminUsersPage/index.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/Pages/AuthPages/SignInPage/index.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/Pages/AuthPages/SignUpPage/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/App.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Auth/SignInFormDialog/index.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Auth/SignUpFormDialog/index.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/DataTables/DataTable/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/DataTables/DataTable/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/DataTables/OrdersTable/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/DataTables/OrdersTable/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Forms/AddCityForm/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Forms/AddCityForm/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Forms/AddMasterForm/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Forms/AddMasterForm/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Forms/AddUserForm/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Forms/AddUserForm/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Forms/FormDialog/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Forms/FormDialog/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Forms/OrderFormDialog/CredentialsForm.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Forms/OrderFormDialog/CredentialsForm.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/PageComponents/Header/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/PageComponents/Header/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/PageComponents/Sidebar/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/PageComponents/Sidebar/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Pages/AdminCitiesPage/index.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Pages/AdminMastersPage/index.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Pages/AdminOrdersPage/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Pages/AdminPages/AdminOrdersPage/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Pages/AdminUsersPage/index.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Pages/ErrorNotAdminPage/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Pages/ErrorPages/ErrorAccessAdminDeniedPage/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Pages/HomePage/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Pages/HomePage/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Pages/ProfilePage/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Pages/UserPages/ProfilePage/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/functions/withSidebar.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/functions/withSidebar.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/index.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.css" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -49,11 +81,11 @@
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\ClockwiseClockware\clockwise_clockware_frontend\src\components\Pages\UserPages" />
+      <recent name="D:\ClockwiseClockware\clockwise_clockware_frontend\src\components\Pages\ErrorPages" />
+      <recent name="D:\ClockwiseClockware\clockwise_clockware_frontend\src\components\Pages\AdminPages" />
       <recent name="D:\ClockwiseClockware\clockwise_clockware_frontend\src\components\PageComponents" />
       <recent name="D:\ClockwiseClockware\clockwise_clockware_frontend\src\components\DataTables" />
-      <recent name="D:\ClockwiseClockware\clockwise_clockware_frontend\src\components\Forms" />
-      <recent name="D:\ClockwiseClockware\clockwise_clockware_frontend\src\components\Auth" />
-      <recent name="D:\ClockwiseClockware\clockwise_clockware_frontend\src\components\MastersTable" />
     </key>
   </component>
   <component name="RunManager" selected="npm.start">
@@ -140,7 +172,7 @@
       <workItem from="1645179279749" duration="31847000" />
       <workItem from="1645283986399" duration="8148000" />
       <workItem from="1645460186577" duration="19481000" />
-      <workItem from="1645515894512" duration="5432000" />
+      <workItem from="1645515894512" duration="26769000" />
     </task>
     <task id="LOCAL-00001" summary="fix: rename Admin Orders Page to Admin Page&#10;feat: add page Admin Orders Page and Data Table component">
       <created>1641420518743</created>
@@ -457,7 +489,14 @@
       <option name="project" value="LOCAL" />
       <updated>1645521143569</updated>
     </task>
-    <option name="localTasksCounter" value="46" />
+    <task id="LOCAL-00046" summary="fix: try">
+      <created>1645521575340</created>
+      <option name="number" value="00046" />
+      <option name="presentableId" value="LOCAL-00046" />
+      <option name="project" value="LOCAL" />
+      <updated>1645521575340</updated>
+    </task>
+    <option name="localTasksCounter" value="47" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -499,9 +538,9 @@
     <MESSAGE value="fix: order form" />
     <MESSAGE value="fix: styles&#10;feat: with redirect if not Admin, sidebar" />
     <MESSAGE value="fix" />
-    <MESSAGE value="fix: try" />
     <MESSAGE value="fix: try fix dependencies" />
-    <option name="LAST_COMMIT_MESSAGE" value="fix: try fix dependencies" />
+    <MESSAGE value="fix: try" />
+    <option name="LAST_COMMIT_MESSAGE" value="fix: try" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

@@ -1,19 +1,21 @@
-import {ErrorMessage, Field, Form, Formik} from "formik";
-import {Paper, TextField} from "@mui/material";
-import React from "react";
+import {useDispatch} from "react-redux";
+import {useNavigate} from "react-router";
 import * as Yup from "yup";
 import {signUp} from "../../../store/actions";
-import {useDispatch} from "react-redux";
+import {Box, Button, Paper, TextField} from "@mui/material";
+import {ErrorMessage, Field, Form, Formik} from "formik";
+import {Link as RouterLink} from "react-router-dom";
+import React from "react";
 
 const initialValues = {
     username: '',
     email: '',
     password: ''
 };
-const AddUserForm = () => {
-    const dispatch = useDispatch();
 
-    const paperStyle = {padding: '10px 10px', width: '90%', margin: '10px auto'}
+const SignUpForm = () => {
+    const dispatch = useDispatch();
+    const navigate = useNavigate();
 
     const validationSchema = Yup.object().shape({
         username: Yup.string().min(3, 'Username is too short').required('Required'),
@@ -23,15 +25,26 @@ const AddUserForm = () => {
 
     const onSubmit = async (values, props) => {
         await dispatch(signUp(values));
+        navigate('/login');
     }
 
     return (
-        <>
-            <Paper elevation={0} style={paperStyle}>
+        <Box>
+            <Paper
+                style={{
+                    maxHeight: '200px',
+                    maxWidth: '400px',
+                    minHeight: '100px',
+                    minWidth: '200px',
+                    padding: '40px 30px',
+                    margin: '10px auto',
+                    flexDirection: 'column',
+                }}
+            >
                 <Formik initialValues={initialValues} validationSchema={validationSchema} onSubmit={onSubmit}>
                     {
                         (props) => (
-                            <Form id='add-user-form'>
+                            <Form id='signup-form'>
                                 <Field as={TextField}
                                        label='Username'
                                        name='username'
@@ -55,14 +68,26 @@ const AddUserForm = () => {
                                        error={props.errors.name && props.touched.name}
                                        helperText={<ErrorMessage name='password'/>}
                                        required
+                                       type="password"
                                 />
                             </Form>
                         )
                     }
                 </Formik>
+                <div style={{justifyContent: 'flex-end'}}>
+                    <Button
+                        {...{
+                            to: '/',
+                            component: RouterLink
+                        }}>Отмена</Button>
+                    <Button
+                        type='submit'
+                        form='signup-form'
+                    >Отправить</Button>
+                </div>
             </Paper>
-        </>
+        </Box>
     )
 }
 
-export default AddUserForm;
+export default SignUpForm;

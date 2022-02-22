@@ -2,8 +2,14 @@ import * as React from 'react';
 import {useState} from 'react';
 import {Button, Dialog, DialogActions, DialogContent, DialogTitle} from '@mui/material';
 
-const FormDialog = ({openDialogButtonText, dialogTitle, additionalButtons, submitButtonParams, cancelOnClick, children
-}) => {
+const FormDialog = ({
+                        openDialogButtonText,
+                        dialogTitle,
+                        additionalButtons,
+                        submitButtonParams,
+                        cancelOnClick,
+                        children
+                    }) => {
     const [open, setOpen] = useState(false);
 
     const toggle = () => {
@@ -27,8 +33,17 @@ const FormDialog = ({openDialogButtonText, dialogTitle, additionalButtons, submi
     }
 
     return (
-        <div>
-            <Button variant="outlined" onClick={toggle}>
+        <>
+            <Button style={{
+                height: '50px',
+                width: '120px',
+                margin: '10px',
+                borderRadius: '10px',
+                padding: '18px 36px',
+                fontSize: '16px',
+                backgroundColor: '#2b2b2b',
+                color: 'whitesmoke'
+            }} variant="outlined" onClick={toggle}>
                 {openDialogButtonText}
             </Button>
             <Dialog open={open} onClose={toggle}>
@@ -48,9 +63,8 @@ const FormDialog = ({openDialogButtonText, dialogTitle, additionalButtons, submi
                     >{submitButtonText}</Button>}
                 </DialogActions>
             </Dialog>
-        </div>
-    )
-        ;
-}
+        </>
+    );
+};
 
 export default FormDialog;

@@ -66,7 +66,6 @@ const OrdersTable = () => {
                 columns={columns}
                 rows={rows}
             />
-            <OrderForm openButtonOnClickText={'Добавить заказ'}/>
         </>
     );
 }

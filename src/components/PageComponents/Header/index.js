@@ -6,15 +6,6 @@ import {useSelector} from "react-redux";
 import {isAuthUserSelector} from "../../../store/selectors/authSelector";
 
 const useStyles = makeStyles(() => ({
-    header: {
-        backgroundColor: "#fff",
-        paddingRight: "79px",
-        paddingLeft: "118px",
-    },
-    toolbar: {
-        display: "flex",
-        justifyContent: "space-between",
-    },
     menuButton: {
         fontFamily: "Open Sans, sans-serif",
         fontWeight: 700,
@@ -30,11 +21,14 @@ export default function Header() {
 
     const styles = useStyles();
 
-
     return (
         <header>
-            <AppBar className={styles.header}>
-                <Toolbar className={styles.toolbar}>
+            <AppBar style={{
+                backgroundColor: "#2b2b2b",
+                paddingRight: "79px",
+                paddingLeft: "118px"
+            }}>
+                <Toolbar style={{justifyContent: "space-between"}}>
                     <Typography variant="h6" component="h1">
                         Clockwise Clockware
                     </Typography>

@@ -22,24 +22,26 @@ const AddCityForm = () => {
     }
 
     return (
-        <Paper elevation={0} style={paperStyle}>
-            <Formik initialValues={initialValues} validationSchema={validationSchema} onSubmit={onSubmit}>
-                {
-                    (props) => (
-                        <Form className='cityForm' id='add-city-form'>
-                            <Field as={TextField}
-                                   label='Name'
-                                   name='name'
-                                   fullWidth
-                                   error={props.errors.name && props.touched.name}
-                                   helperText={<ErrorMessage name='name'/>}
-                                   required
-                            />
-                        </Form>
-                    )
-                }
-            </Formik>
-        </Paper>
+        <>
+            <Paper elevation={0} style={paperStyle}>
+                <Formik initialValues={initialValues} validationSchema={validationSchema} onSubmit={onSubmit}>
+                    {
+                        (props) => (
+                            <Form className='cityForm' id='add-city-form'>
+                                <Field as={TextField}
+                                       label='Name'
+                                       name='name'
+                                       fullWidth
+                                       error={props.errors.name && props.touched.name}
+                                       helperText={<ErrorMessage name='name'/>}
+                                       required
+                                />
+                            </Form>
+                        )
+                    }
+                </Formik>
+            </Paper>
+        </>
     )
 }
 

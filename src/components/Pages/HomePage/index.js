@@ -5,8 +5,8 @@ import {compose} from "redux";
 
 const HomePage = () => {
     return (
-        <div className="text page">
-            <div>{homePageText}</div>
+        <div style={{marginTop: '100px', justifyContent: 'center'}}>
+            <div className='text'>{homePageText}</div>
         </div>
     )
 }
