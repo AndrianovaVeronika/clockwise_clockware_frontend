@@ -6,6 +6,7 @@ import FormDialog from "../../../Forms/FormDialog";
 import {compose} from "redux";
 import withRedirectAfterLogout from "../../../../functions/withRedirectAfterLogout";
 import withSidebar from "../../../../functions/withSidebar";
+import withRedirectIfNotAdmin from "../../../../functions/withRedirectIfNotAdmin";
 
 const AdminMastersPage = () => {
     return (
@@ -30,4 +31,4 @@ const AdminMastersPage = () => {
     )
 }
 
-export default compose(withHeader, withSidebar, withRedirectAfterLogout)(AdminMastersPage);
+export default compose(withHeader, withSidebar, withRedirectAfterLogout, withRedirectIfNotAdmin)(AdminMastersPage);

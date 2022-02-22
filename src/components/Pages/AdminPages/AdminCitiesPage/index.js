@@ -6,6 +6,7 @@ import AddCityForm from "../../../Forms/AddCityForm";
 import {compose} from "redux";
 import withRedirectAfterLogout from "../../../../functions/withRedirectAfterLogout";
 import withSidebar from "../../../../functions/withSidebar";
+import withRedirectIfNotAdmin from "../../../../functions/withRedirectIfNotAdmin";
 
 const AdminCitiesPage = () => {
     return (
@@ -30,4 +31,4 @@ const AdminCitiesPage = () => {
     )
 }
 
-export default compose(withHeader, withSidebar, withRedirectAfterLogout)(AdminCitiesPage);
+export default compose(withHeader, withSidebar, withRedirectAfterLogout, withRedirectIfNotAdmin)(AdminCitiesPage);

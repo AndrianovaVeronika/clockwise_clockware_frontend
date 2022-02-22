@@ -2,7 +2,8 @@ const initialState = {
     auth: {
         currentUser: {},
         isAuth: false,
-        userLoading: true
+        userLoading: true,
+        isAdmin: false
     },
     users: {
         usersList: [],

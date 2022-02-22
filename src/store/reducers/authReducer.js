@@ -1,6 +1,6 @@
 import initialState from "../initialState";
 import {createSlice} from "@reduxjs/toolkit";
-import {signIn, signUp, getUsers, verifyUserAccess, verifyAdminAccess} from "../actions";
+import {signIn, signUp, verifyUserAccess} from "../actions";
 import {logOut} from "../actions/auth";
 
 const {reducer} = createSlice({
@@ -20,23 +20,29 @@ const {reducer} = createSlice({
                 sessionStorage.setItem("TOKEN", action.payload.accessToken);
             })
             .addCase(logOut.fulfilled, (state, action) => {
-                state.auth.currentUser = action.payload;
+                state.auth.currentUser = {};
                 state.auth.isAuth = false;
+                state.auth.isAdmin = false;
                 sessionStorage.clear();
+                console.log('cleared');
             })
             .addCase(verifyUserAccess.fulfilled, (state, action) => {
                 state.auth.userLoading = false;
                 state.auth.isAuth = true;
                 state.auth.currentUser = action.payload;
+                if (action.payload.roles.includes('ROLE_ADMIN')){
+                    state.auth.isAdmin = true;
+                }
             })
             .addCase(verifyUserAccess.rejected, (state, action)=>{
                 state.auth.userLoading = false;
                 state.auth.isAuth = false;
                 state.auth.currentUser = {};
+                state.auth.isAdmin = false;
             })
-            .addCase(verifyAdminAccess.fulfilled, (state, action) => {
-                //...
-            })
+            // .addCase(verifyAdminAccess.fulfilled, (state, action) => {
+            //     //...
+            // })
     }
 })
 

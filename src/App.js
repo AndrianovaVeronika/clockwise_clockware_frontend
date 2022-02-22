@@ -8,7 +8,6 @@ import AdminCitiesPage from "./components/Pages/AdminPages/AdminCitiesPage";
 import {useDispatch} from "react-redux";
 import {useEffect} from "react";
 import {verifyUserAccess} from "./store/actions";
-import SignUpFormDialog from "./components/Auth/SignUpForm";
 import AdminUsersPage from "./components/Pages/AdminPages/AdminUsersPage";
 import ErrorNotAdminPage from "./components/Pages/ErrorPages/ErrorAccessAdminDeniedPage";
 import SignInPage from "./components/Pages/AuthPages/SignInPage";

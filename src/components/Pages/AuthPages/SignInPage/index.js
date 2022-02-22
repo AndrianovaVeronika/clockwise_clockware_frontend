@@ -1,6 +1,6 @@
 import React from 'react';
 import gearsBackgroundImage from '../../../../static/gears-background-image.jpg';
-import SignInForm from "../../../Auth/SignInForm";
+import SignInForm from "../../../Forms/SignInForm";
 
 const SignInPage = () => {
     return (

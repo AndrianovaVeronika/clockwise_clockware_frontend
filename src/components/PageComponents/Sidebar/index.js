@@ -3,12 +3,15 @@ import 'react-pro-sidebar/dist/css/styles.css';
 import AccountBoxIcon from '@mui/icons-material/AccountBox';
 import BackupTableIcon from '@mui/icons-material/BackupTable';
 import {useNavigate} from "react-router";
-import {useSelector} from "react-redux";
-import {getCurrentUserSelector} from "../../../store/selectors/authSelector";
+import {useDispatch, useSelector} from "react-redux";
+import LogoutIcon from '@mui/icons-material/Logout';
+import {logOut} from "../../../store/actions/auth";
+import {isAdminSelector} from "../../../store/selectors/authSelector";
 
 const Sidebar = () => {
-    const user = useSelector(getCurrentUserSelector);
+    const dispatch = useDispatch();
     const navigate = useNavigate();
+    const isAdmin = useSelector(isAdminSelector);
 
     return (
         <>
@@ -23,12 +26,16 @@ const Sidebar = () => {
                           marginRight: '10px'
                       }}>
                     <MenuItem icon={<AccountBoxIcon/>} onClick={() => navigate('/profile')}>Profile</MenuItem>
-                    <SubMenu title="Tables" icon={<BackupTableIcon/>}>
+                    {isAdmin && <SubMenu title="Tables" icon={<BackupTableIcon/>}>
                         <MenuItem onClick={() => navigate('/admin/orders')}>Orders</MenuItem>
                         <MenuItem onClick={() => navigate('/admin/users')}>Users</MenuItem>
                         <MenuItem onClick={() => navigate('/admin/masters')}>Masters</MenuItem>
                         <MenuItem onClick={() => navigate('/admin/cities')}>Cities</MenuItem>
-                    </SubMenu>
+                    </SubMenu>}
+                    <MenuItem icon={<LogoutIcon/>} onClick={() => {
+                        dispatch(logOut());
+                        navigate('/');
+                    }}>Log out</MenuItem>
                 </Menu>
             </ProSidebar>
         </>

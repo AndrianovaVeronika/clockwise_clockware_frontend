@@ -6,6 +6,7 @@ import FormDialog from "../../../Forms/FormDialog";
 import UsersTable from "../../../DataTables/UsersTable";
 import withSidebar from "../../../../functions/withSidebar";
 import AddUserForm from "../../../Forms/AddUserForm";
+import withRedirectIfNotAdmin from "../../../../functions/withRedirectIfNotAdmin";
 
 const AdminUsersPage = () => {
     return (
@@ -30,4 +31,4 @@ const AdminUsersPage = () => {
     )
 }
 
-export default compose(withHeader, withSidebar, withRedirectAfterLogout)(AdminUsersPage);
+export default compose(withHeader, withSidebar, withRedirectAfterLogout, withRedirectIfNotAdmin)(AdminUsersPage);
