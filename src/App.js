@@ -12,6 +12,7 @@ import AdminUsersPage from "./components/Pages/AdminPages/AdminUsersPage";
 import ErrorNotAdminPage from "./components/Pages/ErrorPages/ErrorAccessAdminDeniedPage";
 import SignInPage from "./components/Pages/AuthPages/SignInPage";
 import SignUpPage from "./components/Pages/AuthPages/SignUpPage";
+import AddOrderPage from "./components/Pages/UserPages/AddOrderPage";
 
 function App() {
     const dispatch = useDispatch();
@@ -26,6 +27,7 @@ function App() {
             <Route path='/login' element={<SignInPage/>}/>
             <Route path='/signup' element={<SignUpPage/>}/>
             <Route path='/profile' element={<ProfilePage/>}/>
+            <Route path='/add/order' element={<AddOrderPage/>}/>
             <Route path='/admin/orders' element={<AdminOrdersPage/>}/>
             <Route path='/admin/users' element={<AdminUsersPage/>}/>
             <Route path='/admin/masters' element={<AdminMastersPage/>}/>

@@ -5,7 +5,7 @@ import {useSelector} from "react-redux";
 import {getCurrentUserSelector} from "../../../../store/selectors/authSelector";
 import {Typography} from "@mui/material";
 import withRedirectAfterLogout from "../../../../functions/withRedirectAfterLogout";
-import OrderForm from "../../../Forms/OrderFormDialog";
+import OrderForm from "../../../Forms/OrderForm";
 import withSidebar from "../../../../functions/withSidebar";
 
 const ProfilePage = () => {
@@ -18,9 +18,6 @@ const ProfilePage = () => {
                 <Typography>Email: {user.email}</Typography>
                 <Typography>Roles: {user.roles && user.roles.join(', ')}</Typography>
                 <Typography>Password: {user.password}</Typography>
-            </div>
-            <div style={{width: '150px', marginTop: '50px', marginLeft: '50px'}}>
-                <OrderForm openButtonOnClickText={'Сделать заказ'}/>
             </div>
         </>
     )

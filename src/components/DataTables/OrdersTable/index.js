@@ -4,7 +4,7 @@ import {useEffect} from "react";
 import {getOrders} from "../../../store/actions";
 import {useDispatch, useSelector} from "react-redux";
 import {getOrdersSelector} from "../../../store/selectors/ordersSelector";
-import OrderForm from "../../Forms/OrderFormDialog";
+import OrderForm from "../../Forms/OrderForm";
 import './style.css';
 
 const columns = [

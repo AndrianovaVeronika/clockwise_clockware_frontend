@@ -1,11 +1,10 @@
 import React, {useEffect, useState} from 'react';
 import './style.css';
-import {Box, Button, Step, StepLabel, Stepper, Typography} from "@mui/material";
+import {Box, Button, Paper, Step, StepLabel, Stepper} from "@mui/material";
 import CredentialsForm from "./CredentialsForm";
 import {addOrder, getCities, getClockTypes, getMasters, getOrders} from "../../../store/actions";
 import DateTimePick from "./DateTimePick";
 import MasterPick from "./MasterPick";
-import FormDialog from "../FormDialog";
 import ResultsReport from "./ResultsReport";
 import {useDispatch} from "react-redux";
 
@@ -115,45 +114,47 @@ const OrderForm = ({openButtonOnClickText}) => {
     }
 
     return (
-        <>
-            <FormDialog
-                openDialogButtonText={openButtonOnClickText}
-                dialogTitle='Введите данные чтобы заказать мастера'
-                additionalButtons={<ActiveButton/>}
-                cancelOnClick={() => setActiveStep(0)}
-                submitButtonParams={{
-                    onSubmit: onSubmit,
-                    submitButtonText: 'Заказать',
-                    show: activeStep === steps.length - 1
-                }}
-            >
-                <Box sx={{width: '100%'}}>
-                    <Stepper activeStep={activeStep}>
-                        {steps.map((label, index) => {
-                            const stepProps = {};
-                            const labelProps = {};
-                            return (
-                                <Step key={label} {...stepProps}>
-                                    <StepLabel {...labelProps}>{label}</StepLabel>
-                                </Step>
-                            );
-                        })}
-                    </Stepper>
-                    { //Steps body
-                        activeStep === steps.length ? (
-                                <Typography sx={{mt: 2, mb: 1}}>
-                                    All steps completed - you&apos;re finished
-                                </Typography>
-                            ) :
-                            (
-                                <div style={{height: '400px'}}>
-                                    <ActiveStep/>
-                                </div>
-                            )
-                    }
-                </Box>
-            </FormDialog>
-        </>
+        <Paper style={{
+            maxHeight: '600px',
+            maxWidth: '700px',
+            minHeight: '400px',
+            minWidth: '500px',
+            padding: '40px 30px',
+            margin: '10px auto',
+            flexDirection: 'column',
+        }}>
+            <Box sx={{
+                flexDirection: 'column',
+                height: '100%',
+                width: '100%',
+            }}>
+                <Stepper activeStep={activeStep}>
+                    {steps.map((label, index) => {
+                        const stepProps = {};
+                        const labelProps = {};
+                        return (
+                            <Step key={label} {...stepProps}>
+                                <StepLabel {...labelProps}>{label}</StepLabel>
+                            </Step>
+                        );
+                    })}
+                </Stepper>
+                <div style={{
+                    width: '100%',
+                    height: '300px',
+                    padding: '20px',
+                    alignItems: 'center',
+                    justifyContent: 'center'
+                }}>
+                    <ActiveStep/>
+                </div>
+                <div style={{flexDirection: 'row', justifyContent: 'flex-end'}}>
+                    <ActiveButton/>
+                    <Button onClick={() => setActiveStep(0)}>Очистить</Button>
+                    {activeStep === steps.length - 1 && <Button onClick={onSubmit}>Отправить</Button>}
+                </div>
+            </Box>
+        </Paper>
     )
 }
 

@@ -1,14 +1,15 @@
 import {useNavigate} from "react-router";
 import {useSelector} from "react-redux";
 import {useEffect} from "react";
-import {isAdminSelector} from "../store/selectors/authSelector";
+import {isAdminSelector, isUserLoadingSelector} from "../store/selectors/authSelector";
 
 const withRedirectIfNotAdmin = (Component) => (props) => {
     const isAdmin = useSelector(isAdminSelector);
+    const userLoading = useSelector(isUserLoadingSelector);
     const navigate = useNavigate();
 
     useEffect(() => {
-        if (!isAdmin){
+        if (!isAdmin && !userLoading){
             navigate('/admin/error');
         }
     }, [isAdmin]);

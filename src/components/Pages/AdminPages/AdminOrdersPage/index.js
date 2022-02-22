@@ -4,7 +4,6 @@ import OrdersTable from '../../../DataTables/OrdersTable';
 import {compose} from "redux";
 import withRedirectAfterLogout from "../../../../functions/withRedirectAfterLogout";
 import withSidebar from "../../../../functions/withSidebar";
-import OrderForm from "../../../Forms/OrderFormDialog";
 import withRedirectIfNotAdmin from "../../../../functions/withRedirectIfNotAdmin";
 
 const AdminOrdersPage = () => {
@@ -12,9 +11,6 @@ const AdminOrdersPage = () => {
         <>
             <div style={{marginTop: '50px', marginLeft: '50px'}}>
                 <OrdersTable/>
-            </div>
-            <div style={{marginTop: '50px', marginLeft: '50px'}}>
-                <OrderForm openButtonOnClickText={'Добавить'}/>
             </div>
         </>
     )

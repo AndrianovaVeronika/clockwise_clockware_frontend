@@ -7,6 +7,7 @@ import {useDispatch, useSelector} from "react-redux";
 import LogoutIcon from '@mui/icons-material/Logout';
 import {logOut} from "../../../store/actions/auth";
 import {isAdminSelector} from "../../../store/selectors/authSelector";
+import AddTaskIcon from '@mui/icons-material/AddTask';
 
 const Sidebar = () => {
     const dispatch = useDispatch();
@@ -26,6 +27,7 @@ const Sidebar = () => {
                           marginRight: '10px'
                       }}>
                     <MenuItem icon={<AccountBoxIcon/>} onClick={() => navigate('/profile')}>Profile</MenuItem>
+                    <MenuItem icon={<AddTaskIcon/>} onClick={() => navigate('/add/order')}>Order</MenuItem>
                     {isAdmin && <SubMenu title="Tables" icon={<BackupTableIcon/>}>
                         <MenuItem onClick={() => navigate('/admin/orders')}>Orders</MenuItem>
                         <MenuItem onClick={() => navigate('/admin/users')}>Users</MenuItem>
