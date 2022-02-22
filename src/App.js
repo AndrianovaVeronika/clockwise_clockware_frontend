@@ -17,9 +17,7 @@ function App() {
     const dispatch = useDispatch();
 
     useEffect(() => {
-        if (sessionStorage.getItem('TOKEN')) {
-            dispatch(verifyUserAccess());
-        }
+        dispatch(verifyUserAccess());
     }, [dispatch]);
 
     return (
