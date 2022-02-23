@@ -10,10 +10,8 @@ import withRedirectIfNotAdmin from "../../../../functions/withRedirectIfNotAdmin
 
 const AdminUsersPage = () => {
     return (
-        <>
-            <div style={{marginTop: '50px', marginLeft: '50px'}}>
-                <UsersTable/>
-            </div>
+        <div style={{marginTop: '100px', marginLeft: '50px'}}>
+            <UsersTable/>
             <div style={{width: '150px', marginTop: '50px', marginLeft: '50px'}}>
                 <FormDialog
                     openDialogButtonText={'Добавить'}
@@ -27,7 +25,7 @@ const AdminUsersPage = () => {
                     <AddUserForm/>
                 </FormDialog>
             </div>
-        </>
+        </div>
     )
 }
 

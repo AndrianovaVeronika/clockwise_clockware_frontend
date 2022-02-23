@@ -1,3 +1,14 @@
-div {
-    display: flex;
+body {
+    height: 100vh;
+    width: 100vw;
+    margin: 0;
+}
+
+#root {
+    height: inherit;
+}
+
+@keyframes spin {
+    from {transform:rotate(0deg);}
+    to {transform:rotate(360deg);}
 }

@@ -3,7 +3,6 @@ import {ErrorMessage, Field, Form, Formik} from "formik";
 import {Box, Button, Paper, TextField} from "@mui/material";
 import * as Yup from "yup";
 import {useDispatch} from "react-redux";
-import {Link as RouterLink} from "react-router-dom";
 import {signIn} from "../../../store/actions";
 import {useNavigate} from "react-router";
 
@@ -64,12 +63,8 @@ const SignInForm = () => {
                         )
                     }
                 </Formik>
-                <div style={{justifyContent: 'flex-end'}}>
-                    <Button
-                        {...{
-                            to: '/',
-                            component: RouterLink
-                        }}>Отмена</Button>
+                <div style={{display: 'flex', justifyContent: 'flex-end'}}>
+                    <Button onClick={() => navigate('/')}>Отмена</Button>
                     <Button
                         type='submit'
                         form='auth-form'

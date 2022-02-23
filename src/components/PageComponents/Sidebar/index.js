@@ -16,12 +16,11 @@ const Sidebar = () => {
 
     return (
         <>
-            <ProSidebar style={{marginLeft: '-10px', backgroundColor: '#1d1d1d'}}>
+            <ProSidebar style={{height: 'inherit', backgroundColor: '#1d1d1d'}}>
                 <Menu iconShape="square"
                       style={{
-                          height: 'auto',
-                          width: '250px',
-                          marginTop: '50px',
+                          width: '200px',
+                          marginTop: '100px',
                           backgroundColor: '#1d1d1d',
                           marginLeft: '10px',
                           marginRight: '10px'

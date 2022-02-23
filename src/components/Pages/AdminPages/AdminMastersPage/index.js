@@ -10,10 +10,8 @@ import withRedirectIfNotAdmin from "../../../../functions/withRedirectIfNotAdmin
 
 const AdminMastersPage = () => {
     return (
-        <>
-            <div style={{marginTop: '50px', marginLeft: '50px'}}>
-                <MastersTable/>
-            </div>
+        <div style={{marginTop: '100px', marginLeft: '50px'}}>
+            <MastersTable/>
             <div style={{width: '150px', marginTop: '50px', marginLeft: '50px'}}>
                 <FormDialog
                     openDialogButtonText={'Добавить'}
@@ -27,7 +25,7 @@ const AdminMastersPage = () => {
                     <AddMasterForm/>
                 </FormDialog>
             </div>
-        </>
+        </div>
     )
 }
 

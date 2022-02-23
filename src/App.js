@@ -1,18 +1,21 @@
+import * as React from 'react';
+import {useEffect, useState} from 'react';
 import './App.css';
 import {Route, Routes} from 'react-router-dom';
-import HomePage from "./components/Pages/HomePage";
-import ProfilePage from "./components/Pages/UserPages/ProfilePage";
-import AdminOrdersPage from "./components/Pages/AdminPages/AdminOrdersPage";
-import AdminMastersPage from "./components/Pages/AdminPages/AdminMastersPage";
-import AdminCitiesPage from "./components/Pages/AdminPages/AdminCitiesPage";
 import {useDispatch} from "react-redux";
-import {useEffect} from "react";
 import {verifyUserAccess} from "./store/actions";
-import AdminUsersPage from "./components/Pages/AdminPages/AdminUsersPage";
 import ErrorNotAdminPage from "./components/Pages/ErrorPages/ErrorAccessAdminDeniedPage";
 import SignInPage from "./components/Pages/AuthPages/SignInPage";
 import SignUpPage from "./components/Pages/AuthPages/SignUpPage";
-import AddOrderPage from "./components/Pages/UserPages/AddOrderPage";
+import Spinner from "./components/PageComponents/Spinner";
+
+const HomePage = React.lazy(() => import("./components/Pages/HomePage"));
+const ProfilePage = React.lazy(() => import("./components/Pages/UserPages/ProfilePage"));
+const AdminOrdersPage = React.lazy(() => import("./components/Pages/AdminPages/AdminOrdersPage"));
+const AdminMastersPage = React.lazy(() => import("./components/Pages/AdminPages/AdminMastersPage"));
+const AdminCitiesPage = React.lazy(() => import("./components/Pages/AdminPages/AdminCitiesPage"));
+const AdminUsersPage = React.lazy(() => import("./components/Pages/AdminPages/AdminUsersPage"));
+const AddOrderPage = React.lazy(() => import("./components/Pages/UserPages/AddOrderPage"));
 
 function App() {
     const dispatch = useDispatch();
@@ -21,19 +24,23 @@ function App() {
         dispatch(verifyUserAccess());
     }, [dispatch]);
 
+
     return (
-        <Routes>
-            <Route index element={<HomePage/>}/>
-            <Route path='/login' element={<SignInPage/>}/>
-            <Route path='/signup' element={<SignUpPage/>}/>
-            <Route path='/profile' element={<ProfilePage/>}/>
-            <Route path='/add/order' element={<AddOrderPage/>}/>
-            <Route path='/admin/orders' element={<AdminOrdersPage/>}/>
-            <Route path='/admin/users' element={<AdminUsersPage/>}/>
-            <Route path='/admin/masters' element={<AdminMastersPage/>}/>
-            <Route path='/admin/cities' element={<AdminCitiesPage/>}/>
-            <Route path='/admin/error' element={<ErrorNotAdminPage/>}/>
-        </Routes>
+        <>
+            <Routes>
+                <Route index element={<HomePage/>}/>
+                <Route path='/login' element={<SignInPage/>}/>
+                <Route path='/spinner' element={<Spinner/>}/>
+                <Route path='/signup' element={<SignUpPage/>}/>
+                <Route path='/profile' element={<ProfilePage/>}/>
+                <Route path='/add/order' element={<AddOrderPage/>}/>
+                <Route path='/admin/orders' element={<AdminOrdersPage/>}/>
+                <Route path='/admin/users' element={<AdminUsersPage/>}/>
+                <Route path='/admin/masters' element={<AdminMastersPage/>}/>
+                <Route path='/admin/cities' element={<AdminCitiesPage/>}/>
+                <Route path='/admin/error' element={<ErrorNotAdminPage/>}/>
+            </Routes>
+        </>
     );
 }
 

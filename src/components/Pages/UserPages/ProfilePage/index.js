@@ -5,7 +5,6 @@ import {useSelector} from "react-redux";
 import {getCurrentUserSelector} from "../../../../store/selectors/authSelector";
 import {Typography} from "@mui/material";
 import withRedirectAfterLogout from "../../../../functions/withRedirectAfterLogout";
-import OrderForm from "../../../Forms/OrderForm";
 import withSidebar from "../../../../functions/withSidebar";
 
 const ProfilePage = () => {
@@ -13,7 +12,7 @@ const ProfilePage = () => {
 
     return (
         <>
-            <div style={{flexDirection: 'column', marginLeft: '50px', marginTop: '50px'}}>
+            <div style={{display: 'flex', flexDirection: 'column', marginLeft: '50px', marginTop: '110px'}}>
                 <Typography>Username: {user.username}</Typography>
                 <Typography>Email: {user.email}</Typography>
                 <Typography>Roles: {user.roles && user.roles.join(', ')}</Typography>

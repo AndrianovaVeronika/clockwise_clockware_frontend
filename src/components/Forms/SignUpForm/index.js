@@ -4,7 +4,6 @@ import * as Yup from "yup";
 import {signUp} from "../../../store/actions";
 import {Box, Button, Paper, TextField} from "@mui/material";
 import {ErrorMessage, Field, Form, Formik} from "formik";
-import {Link as RouterLink} from "react-router-dom";
 import React from "react";
 
 const initialValues = {
@@ -74,12 +73,8 @@ const SignUpForm = () => {
                         )
                     }
                 </Formik>
-                <div style={{justifyContent: 'flex-end'}}>
-                    <Button
-                        {...{
-                            to: '/',
-                            component: RouterLink
-                        }}>Отмена</Button>
+                <div style={{display: 'flex', justifyContent: 'flex-end'}}>
+                    <Button onClick={() => navigate('/')}>Отмена</Button>
                     <Button
                         type='submit'
                         form='signup-form'

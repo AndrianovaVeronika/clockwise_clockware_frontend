@@ -9,7 +9,7 @@ import withRedirectIfNotAdmin from "../../../../functions/withRedirectIfNotAdmin
 const AdminOrdersPage = () => {
     return (
         <>
-            <div style={{marginTop: '50px', marginLeft: '50px'}}>
+            <div style={{marginTop: '100px', marginLeft: '50px'}}>
                 <OrdersTable/>
             </div>
         </>

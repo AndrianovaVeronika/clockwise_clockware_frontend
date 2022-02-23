@@ -1,18 +1,16 @@
 import * as React from 'react';
-import DataTable from "../DataTable";
-import {useEffect} from "react";
+import {useEffect} from 'react';
 import {getOrders} from "../../../store/actions";
 import {useDispatch, useSelector} from "react-redux";
 import {getOrdersSelector} from "../../../store/selectors/ordersSelector";
-import OrderForm from "../../Forms/OrderForm";
-import './style.css';
+import DataTable from "../DataTable";
 
 const columns = [
     {
         field: 'id', headerName: 'ID', width: 50
     },
     {
-        field: 'user', headerName: 'Имя', width: 150
+        field: 'username', headerName: 'Имя', width: 150
     },
     {
         field: 'email', headerName: 'Почта', width: 200,
@@ -41,32 +39,25 @@ const OrdersTable = () => {
         dispatch(getOrders());
     }, [dispatch])
 
-    const orders= useSelector(getOrdersSelector);
-
-    const getRows = () => {
-        const rows = [];
-        for (const order of orders) {
-            rows.push({
-                ...order,
-                user: order.user.username,
-                email: order.user.email,
-                clock_type: order.clock_type.name,
-                city: order.city.name,
-                master: order.master.name
-            });
+    const orders = useSelector(getOrdersSelector).map(order => {
+        return {
+            id: order.id,
+            username: order.user.username,
+            email: order.user.email,
+            clock_type: order.clock_type.name,
+            city: order.city.name,
+            date: order.date,
+            time: order.time,
+            master: order.master.name
         }
-        return rows;
-    }
-
-    const rows = getRows();
+    });
+    console.log(orders)
 
     return (
-        <>
-            <DataTable
-                columns={columns}
-                rows={rows}
-            />
-        </>
+        <DataTable
+            rows={orders}
+            columns={columns}
+        />
     );
 }
 

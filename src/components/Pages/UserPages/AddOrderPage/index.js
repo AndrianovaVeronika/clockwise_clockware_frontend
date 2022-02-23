@@ -7,7 +7,7 @@ import {compose} from "redux";
 const AddOrderPage = () => {
     return (
         <>
-            <div style={{flexDirection: 'column', marginLeft: '50px', marginTop: '50px'}}>
+            <div style={{marginLeft: '50px', marginTop: '100px'}}>
                 <OrderForm/>
             </div>
         </>

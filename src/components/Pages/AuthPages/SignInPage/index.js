@@ -4,12 +4,13 @@ import SignInForm from "../../../Forms/SignInForm";
 
 const SignInPage = () => {
     return (
-        <div style={{justifyContent: 'center', width: '100%', height: '100vh'}}>
+        <div style={{display: 'flex', justifyContent: 'center', height: 'inherit'}}>
             <div style={{
-                width: '100vh',
                 height: '100vh',
+                width: '100vh',
                 backgroundSize: 'contain',
                 backgroundImage: `url(${gearsBackgroundImage})`,
+                display: 'flex',
                 justifyContent: 'center',
                 alignItems: 'center'
             }}>

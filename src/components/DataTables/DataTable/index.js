@@ -4,7 +4,14 @@ import {DataGrid} from '@mui/x-data-grid';
 const DataTable = ({columns, rows, onRowClick, withCheckbox = true, ...rest}) => {
     return (
         <>
-            <div style={{height: '500px', width: '700px'}}>
+            <div style={{
+                width: '600px',
+                height: '400px',
+                border: '4px double black',
+                flexDirection: 'column',
+                alignItems: 'center',
+                display: 'block'
+            }}>
                 <DataGrid
                     rows={rows}
                     columns={columns}
