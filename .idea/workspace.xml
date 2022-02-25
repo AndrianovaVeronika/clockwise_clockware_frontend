@@ -1,29 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="47aa944b-1eed-4aaf-807f-af5d121fc908" name="Changes" comment="feat: add order page&#10;fix: add order form styles">
+    <list default="true" id="47aa944b-1eed-4aaf-807f-af5d121fc908" name="Changes" comment="feat: add lazy-loading, spinner&#10;fix: styles">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/DataTables/DataTable/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/DataTables/DataTable/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/DataTables/MastersTable/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/DataTables/MastersTable/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/DataTables/OrdersTable/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/DataTables/OrdersTable/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/DataTables/OrdersTable/style.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Forms/SignInForm/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Forms/SignInForm/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Forms/SignUpForm/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Forms/SignUpForm/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/PageComponents/Sidebar/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/PageComponents/Sidebar/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/PageComponents/Spinner/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/PageComponents/Spinner/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Pages/AdminPages/AdminCitiesPage/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Pages/AdminPages/AdminCitiesPage/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Pages/AdminPages/AdminMastersPage/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Pages/AdminPages/AdminMastersPage/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Pages/AdminPages/AdminOrdersPage/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Pages/AdminPages/AdminOrdersPage/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Pages/AdminPages/AdminUsersPage/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Pages/AdminPages/AdminUsersPage/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Pages/AuthPages/SignInPage/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Pages/AuthPages/SignInPage/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Pages/AuthPages/SignUpPage/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Pages/AuthPages/SignUpPage/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Pages/HomePage/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Pages/HomePage/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Forms/FormSelect/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Forms/FormSelect/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Forms/OrderForm/CredentialsForm.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Forms/AddOrderForm/CredentialsForm.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Forms/OrderForm/DateTimePick.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Forms/AddOrderForm/DateTimePick.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Forms/OrderForm/MasterPick.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Forms/AddOrderForm/MasterPick.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Forms/OrderForm/ResultsReport.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Forms/AddOrderForm/ResultsReport.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Forms/OrderForm/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Forms/AddOrderForm/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Forms/OrderForm/style.css" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/Pages/UserPages/AddOrderPage/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Pages/UserPages/AddOrderPage/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Pages/UserPages/ProfilePage/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Pages/UserPages/ProfilePage/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/functions/withSidebar.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/functions/withSidebar.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/index.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -164,14 +151,7 @@
       <workItem from="1645283986399" duration="8148000" />
       <workItem from="1645460186577" duration="19481000" />
       <workItem from="1645515894512" duration="35450000" />
-      <workItem from="1645608574715" duration="21374000" />
-    </task>
-    <task id="LOCAL-00001" summary="fix: rename Admin Orders Page to Admin Page&#10;feat: add page Admin Orders Page and Data Table component">
-      <created>1641420518743</created>
-      <option name="number" value="00001" />
-      <option name="presentableId" value="LOCAL-00001" />
-      <option name="project" value="LOCAL" />
-      <updated>1641420518743</updated>
+      <workItem from="1645608574715" duration="24379000" />
     </task>
     <task id="LOCAL-00002" summary="feat: initial redux store build">
       <created>1641507987528</created>
@@ -509,7 +489,14 @@
       <option name="project" value="LOCAL" />
       <updated>1645563145092</updated>
     </task>
-    <option name="localTasksCounter" value="50" />
+    <task id="LOCAL-00050" summary="feat: add lazy-loading, spinner&#10;fix: styles">
+      <created>1645640429970</created>
+      <option name="number" value="00050" />
+      <option name="presentableId" value="LOCAL-00050" />
+      <option name="project" value="LOCAL" />
+      <updated>1645640429971</updated>
+    </task>
+    <option name="localTasksCounter" value="51" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -528,7 +515,6 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="feat: add results report in order form dialog, city and master get by id func in store&#10;fix: dependencies" />
     <MESSAGE value="fix: dependencies" />
     <MESSAGE value="fix: .env" />
     <MESSAGE value="test" />
@@ -553,7 +539,8 @@
     <MESSAGE value="fix: styles" />
     <MESSAGE value="feat: log out, with redirect if not admin" />
     <MESSAGE value="feat: add order page&#10;fix: add order form styles" />
-    <option name="LAST_COMMIT_MESSAGE" value="feat: add order page&#10;fix: add order form styles" />
+    <MESSAGE value="feat: add lazy-loading, spinner&#10;fix: styles" />
+    <option name="LAST_COMMIT_MESSAGE" value="feat: add lazy-loading, spinner&#10;fix: styles" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

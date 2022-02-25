@@ -1,5 +1,5 @@
 import withRedirectAfterLogout from "../../../../functions/withRedirectAfterLogout";
-import OrderForm from "../../../Forms/OrderForm";
+import OrderForm from "../../../Forms/AddOrderForm";
 import withSidebar from "../../../../functions/withSidebar";
 import {withHeader} from "../../../../functions/withHeader";
 import {compose} from "redux";

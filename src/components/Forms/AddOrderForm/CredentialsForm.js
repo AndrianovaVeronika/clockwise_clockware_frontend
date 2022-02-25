@@ -43,7 +43,7 @@ const CredentialsForm = ({formId, submitAction}) => {
     }
 
     return (
-        <div style={{justifyItems: 'space-between'}}>
+        <div style={{margin: '20px'}}>
             <Formik
                 initialValues={initialValues}
                 onSubmit={onSubmit}
@@ -69,6 +69,7 @@ const CredentialsForm = ({formId, submitAction}) => {
                                 options={clockTypeOptions}
                                 required
                                 fullWidth
+                                style={{margin: '10px'}}
                             />
                             <FormSelect
                                 label='Город'
@@ -76,6 +77,7 @@ const CredentialsForm = ({formId, submitAction}) => {
                                 options={cityOptions}
                                 required
                                 fullWidth
+                                style={{margin: '10px'}}
                             />
                         </Form>
                     )

@@ -1,6 +1,5 @@
 import React, {useEffect, useState} from 'react';
-import './style.css';
-import {Box, Button, Paper, Step, StepLabel, Stepper} from "@mui/material";
+import {Button, Paper, Step, StepLabel, Stepper} from "@mui/material";
 import CredentialsForm from "./CredentialsForm";
 import {addOrder, getCities, getClockTypes, getMasters, getOrders} from "../../../store/actions";
 import DateTimePick from "./DateTimePick";
@@ -21,7 +20,7 @@ const steps = ['Подробности заказа', 'Дата и время', 
 const shiftTimeStart = 10;
 const shiftTimeEnd = 18;
 
-const OrderForm = ({openButtonOnClickText}) => {
+const OrderForm = () => {
     const dispatch = useDispatch();
 
     useEffect(() => {
@@ -115,45 +114,44 @@ const OrderForm = ({openButtonOnClickText}) => {
 
     return (
         <Paper style={{
-            maxHeight: '600px',
+            maxHeight: '400px',
             maxWidth: '700px',
-            minHeight: '400px',
+            minHeight: '300px',
             minWidth: '500px',
             padding: '40px 30px',
             margin: '10px auto',
             flexDirection: 'column',
         }}>
-            <Box sx={{
-                flexDirection: 'column',
-                height: '100%',
-                width: '100%',
+            <Stepper activeStep={activeStep} style={{height: '20%'}}>
+                {steps.map((label, index) => {
+                    const stepProps = {};
+                    const labelProps = {};
+                    return (
+                        <Step key={label} {...stepProps}>
+                            <StepLabel {...labelProps}>{label}</StepLabel>
+                        </Step>
+                    );
+                })}
+            </Stepper>
+            <div style={{
+                display: 'flex',
+                justifyContent: 'center',
+                alignItems: 'center',
+                marginTop: '30px'
             }}>
-                <Stepper activeStep={activeStep}>
-                    {steps.map((label, index) => {
-                        const stepProps = {};
-                        const labelProps = {};
-                        return (
-                            <Step key={label} {...stepProps}>
-                                <StepLabel {...labelProps}>{label}</StepLabel>
-                            </Step>
-                        );
-                    })}
-                </Stepper>
                 <div style={{
-                    width: '100%',
-                    height: '300px',
-                    padding: '20px',
-                    alignItems: 'center',
-                    justifyContent: 'center'
+                    display: 'flex',
+                    flexDirection: 'column',
+                    width: '60%',
                 }}>
                     <ActiveStep/>
+                    <div style={{display: 'flex', flexDirection: 'row', justifyContent: 'flex-end'}}>
+                        <ActiveButton/>
+                        <Button onClick={() => setActiveStep(0)}>Очистить</Button>
+                        {activeStep === steps.length - 1 && <Button onClick={onSubmit}>Отправить</Button>}
+                    </div>
                 </div>
-                <div style={{flexDirection: 'row', justifyContent: 'flex-end'}}>
-                    <ActiveButton/>
-                    <Button onClick={() => setActiveStep(0)}>Очистить</Button>
-                    {activeStep === steps.length - 1 && <Button onClick={onSubmit}>Отправить</Button>}
-                </div>
-            </Box>
+            </div>
         </Paper>
     )
 }

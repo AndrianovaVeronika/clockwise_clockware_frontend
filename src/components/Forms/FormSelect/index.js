@@ -3,10 +3,10 @@ import {ErrorMessage, Field} from 'formik'
 import {MenuItem, Select} from "@mui/material";
 
 const FormSelect = (props) => {
-    const {label, name, options, ...rest} = props
+    const {label, name, options, style, ...rest} = props
 
     return (
-        <div className='form-control'>
+        <div style={style}>
             <label htmlFor={name}>{label}</label>
             <Field as={Select} id={name} name={name} {...rest}>
                 {options.map(option => {
