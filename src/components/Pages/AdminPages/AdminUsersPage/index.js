@@ -2,7 +2,7 @@ import React from 'react';
 import {withHeader} from '../../../../functions/withHeader';
 import {compose} from "redux";
 import withRedirectAfterLogout from "../../../../functions/withRedirectAfterLogout";
-import FormDialog from "../../../Forms/FormDialog";
+import FormDialog from "../../../Dialogs/FormDialog";
 import UsersTable from "../../../DataTables/UsersTable";
 import withSidebar from "../../../../functions/withSidebar";
 import AddUserForm from "../../../Forms/AddUserForm";

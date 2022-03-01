@@ -5,6 +5,7 @@ import citiesReducer from "./citiesReducer";
 import clockTypesReducer from "./clockTypesReducer";
 import authReducer from "./authReducer";
 import usersReducer from "./usersReducer";
+import mailReducer from "./mailReducer";
 
 const rootReducer = combineReducers({
     orders: ordersReducer,
@@ -12,7 +13,8 @@ const rootReducer = combineReducers({
     cities: citiesReducer,
     clockTypes: clockTypesReducer,
     auth: authReducer,
-    users: usersReducer
+    users: usersReducer,
+    mails: mailReducer
 })
 
 export default rootReducer;

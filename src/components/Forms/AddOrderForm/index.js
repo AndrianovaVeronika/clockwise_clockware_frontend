@@ -1,11 +1,12 @@
 import React, {useEffect, useState} from 'react';
 import {Button, Paper, Step, StepLabel, Stepper} from "@mui/material";
 import CredentialsForm from "./CredentialsForm";
-import {addOrder, getCities, getClockTypes, getMasters, getOrders} from "../../../store/actions";
+import {addOrder, getCities, getClockTypes, getMasters, getOrders, sendMail} from "../../../store/actions";
 import DateTimePick from "./DateTimePick";
 import MasterPick from "./MasterPick";
 import ResultsReport from "./ResultsReport";
 import {useDispatch} from "react-redux";
+import store from "../../../store/store";
 
 const initialValues = {
     userId: '',
@@ -76,39 +77,10 @@ const OrderForm = () => {
                 return <MasterPick hours={hours} values={values} formId='form2' submitAction={onFormSubmit}/>
             }
             case 3 : {
-                return <ResultsReport values={values}/>
+                return <ResultsReport formId='form3' onFinalSubmit={onSubmit} values={values}/>
             }
             default:
                 return;
-        }
-    }
-
-    const ActiveButton = () => {
-        switch (activeStep) {
-            case 0: {
-                return <Button type='submit' form='form0'>Далее</Button>
-            }
-            case 1: {
-                return <>
-                    <Button onClick={handleBack}>Назад</Button>
-                    <Button type='submit' form='form1'>Далее</Button>
-                </>
-            }
-            case 2: {
-                return <>
-                    <Button onClick={handleBack}>Назад</Button>
-                    <Button type='submit' form='form2'>Далее</Button>
-                </>
-            }
-            case steps.length - 1: {
-                return <Button onClick={handleBack}>Назад</Button>
-            }
-            default: {
-                return <>
-                    <Button onClick={handleBack}>Назад</Button>
-                    <Button onClick={handleNext}>Далее</Button>
-                </>
-            }
         }
     }
 
@@ -146,9 +118,9 @@ const OrderForm = () => {
                 }}>
                     <ActiveStep/>
                     <div style={{display: 'flex', flexDirection: 'row', justifyContent: 'flex-end'}}>
-                        <ActiveButton/>
+                        {activeStep !== 0 && <Button onClick={handleBack}>Назад</Button>}
+                        <Button type='submit' form={'form' + activeStep}>Далее</Button>
                         <Button onClick={() => setActiveStep(0)}>Очистить</Button>
-                        {activeStep === steps.length - 1 && <Button onClick={onSubmit}>Отправить</Button>}
                     </div>
                 </div>
             </div>

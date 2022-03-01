@@ -1,6 +1,6 @@
 import React from 'react';
 import {withHeader} from '../../../../functions/withHeader';
-import FormDialog from "../../../Forms/FormDialog";
+import FormDialog from "../../../Dialogs/FormDialog";
 import CitiesTable from "../../../DataTables/CitiesTable";
 import AddCityForm from "../../../Forms/AddCityForm";
 import withRedirectAfterLogout from "../../../../functions/withRedirectAfterLogout";

@@ -2,7 +2,7 @@ import React from 'react';
 import {withHeader} from '../../../../functions/withHeader';
 import MastersTable from "../../../DataTables/MastersTable";
 import AddMasterForm from "../../../Forms/AddMasterForm";
-import FormDialog from "../../../Forms/FormDialog";
+import FormDialog from "../../../Dialogs/FormDialog";
 import {compose} from "redux";
 import withRedirectAfterLogout from "../../../../functions/withRedirectAfterLogout";
 import withSidebar from "../../../../functions/withSidebar";

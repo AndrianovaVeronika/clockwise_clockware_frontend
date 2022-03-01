@@ -98,7 +98,7 @@ const MasterPick = ({values, formId, submitAction, hours}) => {
         <>
             {rows.length < 1 ? <Typography>No masters available</Typography> :
                 <>
-                    <div style={{height: '80%', width: '100%'}}>
+                    <div style={{height: '250px', width: '350px'}}>
                         <DataGrid
                             rows={rows}
                             columns={columns}
