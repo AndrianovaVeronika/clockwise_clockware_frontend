@@ -1,7 +1,6 @@
 import initialState from "../initialState";
 import {createSlice} from "@reduxjs/toolkit";
-import {signIn, signUp, verifyUserAccess} from "../actions";
-import {logOut} from "../actions/auth";
+import {signIn, signUp, verifyUserAccess, logOut} from "../actions/auth";
 
 const {reducer} = createSlice({
     name: 'auth',
@@ -12,7 +11,7 @@ const {reducer} = createSlice({
     extraReducers(builder) {
         builder
             .addCase(signUp.fulfilled, (state, action) => {
-                console.log(action.payload.status === 201 ? 'user added (reducer)' : 'user reducer: error query status: ' + action.payload.status);
+                console.log(action.payload.message);
             })
             .addCase(signIn.fulfilled, (state, action) => {
                 state.auth.currentUser = action.payload;

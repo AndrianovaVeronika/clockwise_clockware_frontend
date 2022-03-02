@@ -5,12 +5,7 @@ import auth from "../constants/auth";
 export const signUp = createAsyncThunk(auth.SIGN_UP, async (newUser, thunkAPI) => {
     try {
         const response = await instance.post('/api/auth/signup', newUser);
-        if (response.status === 201){
-            return {status: 'signUp: new user added'};
-        }
-        else {
-            return {status: 'signUp: smth went wrong (new user havent been added)'};
-        }
+        return response.data;
     } catch (e) {
         console.log(e);
         console.log('signUp: Query screwed up with error');
@@ -31,7 +26,7 @@ export const signIn = createAsyncThunk(auth.SIGN_IN, async (user, thunkAPI) => {
 
 export const logOut = createAsyncThunk(auth.LOG_OUT, async (_, thunkAPI) => {
     try {
-        return {};
+        return {message: 'Are u sure u want to logout?'};
     } catch (e) {
         console.log(e);
         console.log('logOut: error');

@@ -1,7 +1,8 @@
 const orders = {
     GET_ORDERS: 'GET_ORDERS',
-    GET_OCCUPIED_HOURS: 'GET_OCCUPIED_HOURS',
-    ADD_ORDER: 'ADD_ORDER'
+    ADD_ORDER: 'ADD_ORDER',
+    UPDATE_ORDER: 'UPDATE_ORDER',
+    DELETE_ORDER: 'DELETE_ORDER',
 }
 
 export default orders;

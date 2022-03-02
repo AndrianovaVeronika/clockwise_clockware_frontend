@@ -3,7 +3,7 @@ import DataTable from "../DataTable";
 import {useDispatch, useSelector} from "react-redux";
 import {getMastersSelector} from "../../../store/selectors/mastersSelector";
 import Rating from '@mui/material/Rating';
-import {getMasters} from "../../../store/actions";
+import {getMasters} from "../../../store/actions/masters";
 
 function renderRating(params) {
     return <Rating readOnly value={params.value}/>;

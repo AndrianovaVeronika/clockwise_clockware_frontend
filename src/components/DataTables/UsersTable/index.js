@@ -1,7 +1,7 @@
 import * as React from 'react';
 import {useEffect} from 'react';
 import DataTable from "../DataTable";
-import {getUsers} from "../../../store/actions";
+import {getUsers} from "../../../store/actions/users";
 import {useDispatch, useSelector} from "react-redux";
 import {getUsersSelector} from "../../../store/selectors/usersSelector";
 

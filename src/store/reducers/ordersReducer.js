@@ -1,6 +1,6 @@
 import initialState from "../initialState";
 import {createSlice} from "@reduxjs/toolkit";
-import {getOrders, addOrder} from "../actions";
+import {getOrders, addOrder, updateOrder, deleteOrder} from "../actions/orders";
 
 const {reducer} = createSlice({
     name: 'orders',
@@ -14,7 +14,13 @@ const {reducer} = createSlice({
                 state.orders.ordersList = action.payload;
             })
             .addCase(addOrder.fulfilled, (state, action) => {
-                console.log(action.payload.status === 201 ? 'order added (reducer)' : 'order reducer: error query status: ' + action.payload.status);
+                console.log(action.payload.message);
+            })
+            .addCase(updateOrder.fulfilled, (state, action) => {
+                console.log(action.payload.message);
+            })
+            .addCase(deleteOrder.fulfilled, (state, action) => {
+                console.log(action.payload.message);
             })
     }
 })

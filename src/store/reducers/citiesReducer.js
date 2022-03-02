@@ -1,6 +1,6 @@
 import initialState from "../initialState";
 import {createSlice} from "@reduxjs/toolkit";
-import {getCities, addCity} from "../actions";
+import {getCities, addCity, updateCity, deleteCity} from "../actions/cities";
 
 const {reducer} = createSlice({
     name: 'cities',
@@ -13,11 +13,14 @@ const {reducer} = createSlice({
             .addCase(getCities.fulfilled, (state, action) => {
                 state.cities.citiesList = action.payload;
             })
-            // .addCase(getCityById.fulfilled, (state, action) => {
-            //     console.log(action.payload[0].name);
-            // })
             .addCase(addCity.fulfilled, (state, action) => {
-                console.log(action.payload.status === 201 ? 'city added (reducer)' : 'city reducer: error query status: ' + action.payload.status);
+                console.log(action.payload.message);
+            })
+            .addCase(updateCity.fulfilled, (state, action) => {
+                console.log(action.payload.message);
+            })
+            .addCase(deleteCity.fulfilled, (state, action) => {
+                console.log(action.payload.message);
             })
     }
 })

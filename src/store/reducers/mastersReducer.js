@@ -1,6 +1,6 @@
 import initialState from "../initialState";
 import {createSlice} from "@reduxjs/toolkit";
-import {getMasters, addMaster} from "../actions";
+import {getMasters, addMaster, updateMaster, deleteMaster} from "../actions/masters";
 
 const {reducer} = createSlice({
     name: 'masters',
@@ -14,7 +14,13 @@ const {reducer} = createSlice({
                 state.masters.mastersList = action.payload;
             })
             .addCase(addMaster.fulfilled, (state, action) => {
-                console.log(action.payload.status === 201 ? 'master added (reducer)' : 'master reducer: error query status: ' + action.payload.status);
+                console.log(action.payload.message);
+            })
+            .addCase(updateMaster.fulfilled, (state, action) => {
+                console.log(action.payload.message);
+            })
+            .addCase(deleteMaster.fulfilled, (state, action) => {
+                console.log(action.payload.message);
             })
     }
 })

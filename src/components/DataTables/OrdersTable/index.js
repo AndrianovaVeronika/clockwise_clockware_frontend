@@ -1,6 +1,6 @@
 import * as React from 'react';
 import {useEffect} from 'react';
-import {getOrders} from "../../../store/actions";
+import {getOrders} from "../../../store/actions/orders";
 import {useDispatch, useSelector} from "react-redux";
 import {getOrdersSelector} from "../../../store/selectors/ordersSelector";
 import DataTable from "../DataTable";

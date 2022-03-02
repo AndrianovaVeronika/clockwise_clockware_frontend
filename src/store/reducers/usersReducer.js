@@ -1,6 +1,6 @@
 import initialState from "../initialState";
 import {createSlice} from "@reduxjs/toolkit";
-import {getUsers} from "../actions";
+import {getUsers, deleteUser, updateUser} from "../actions/users";
 
 const {reducer} = createSlice({
     name: 'users',
@@ -12,6 +12,12 @@ const {reducer} = createSlice({
         builder
             .addCase(getUsers.fulfilled, (state, action) => {
                 state.users.usersList = action.payload;
+            })
+            .addCase(updateUser.fulfilled, (state, action) => {
+                console.log(action.payload.message);
+            })
+            .addCase(deleteUser.fulfilled, (state, action) => {
+                console.log(action.payload.message);
             })
     }
 })
