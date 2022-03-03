@@ -1,9 +1,9 @@
 import * as React from 'react';
-import {useEffect, useState} from 'react';
+import {useEffect} from 'react';
 import './App.css';
 import {Route, Routes} from 'react-router-dom';
 import {useDispatch} from "react-redux";
-import {verifyUserAccess} from "./store/actions";
+import {verifyUserAccess} from "./store/actions/auth";
 import ErrorNotAdminPage from "./components/Pages/ErrorPages/ErrorAccessAdminDeniedPage";
 import SignInPage from "./components/Pages/AuthPages/SignInPage";
 import SignUpPage from "./components/Pages/AuthPages/SignUpPage";

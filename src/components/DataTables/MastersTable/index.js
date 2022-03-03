@@ -1,9 +1,10 @@
-import React, {useEffect} from 'react';
+import React, {useEffect, useState} from 'react';
 import DataTable from "../DataTable";
 import {useDispatch, useSelector} from "react-redux";
 import {getMastersSelector} from "../../../store/selectors/mastersSelector";
 import Rating from '@mui/material/Rating';
-import {getMasters} from "../../../store/actions/masters";
+import {deleteMaster, getMasters, updateMaster} from "../../../store/actions/masters";
+import MasterForm from "../../Forms/MasterForm";
 
 function renderRating(params) {
     return <Rating readOnly value={params.value}/>;
@@ -30,7 +31,7 @@ const columns = [
     }
 ];
 
-const MastersTable = ({withCheckbox, onRowClick, ...rest}) => {
+const MastersTable = () => {
     const dispatch = useDispatch();
 
     useEffect(() => {
@@ -53,16 +54,15 @@ const MastersTable = ({withCheckbox, onRowClick, ...rest}) => {
 
     const rows = getRows();
 
-    console.log(rows)
-
     return (
         <>
             <DataTable
                 columns={columns}
                 rows={rows}
-                withCheckbox={withCheckbox}
-                onRowClick={onRowClick}
-                {...rest}
+                onRowsDelete={deleteMaster}
+                onUpdate={updateMaster}
+                formId='master-form'
+                AddForm={MasterForm}
             />
         </>
     );

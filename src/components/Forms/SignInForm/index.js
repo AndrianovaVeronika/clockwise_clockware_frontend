@@ -3,7 +3,7 @@ import {ErrorMessage, Field, Form, Formik} from "formik";
 import {Box, Button, Paper, TextField} from "@mui/material";
 import * as Yup from "yup";
 import {useDispatch} from "react-redux";
-import {signIn} from "../../../store/actions";
+import {signIn} from "../../../store/actions/auth";
 import {useNavigate} from "react-router";
 
 const initialValues = {

@@ -1,28 +1,34 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="47aa944b-1eed-4aaf-807f-af5d121fc908" name="Changes" comment="feat: model mail in store, action send mail, when add order form submitted">
+    <list default="true" id="47aa944b-1eed-4aaf-807f-af5d121fc908" name="Changes" comment="feat: delete &amp; update actions on models&#10;fix: actions">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/DataTables/CitiesTable/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/DataTables/CitiesTable/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/DataTables/DataTable/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/DataTables/DataTable/index.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/DataTables/MastersTable/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/DataTables/MastersTable/index.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/DataTables/OrdersTable/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/DataTables/OrdersTable/index.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/DataTables/UsersTable/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/DataTables/UsersTable/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/store/actions/auth.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/store/actions/auth.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Forms/AddCityForm/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Forms/CityForm/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Forms/AddMasterForm/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Forms/MasterForm/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Forms/AddOrderForm/CredentialsForm.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Forms/OrderForm/CredentialsForm.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Forms/AddOrderForm/DateTimePick.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Forms/OrderForm/DateTimePick.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Forms/AddOrderForm/MasterPick.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Forms/OrderForm/MasterPick.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Forms/AddOrderForm/ResultsReport.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Forms/OrderForm/ResultsReport.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Forms/AddOrderForm/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Forms/OrderForm/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Forms/AddUserForm/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Forms/UserForm/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Forms/SignInForm/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Forms/SignInForm/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Forms/SignUpForm/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Forms/SignUpForm/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Pages/AdminPages/AdminCitiesPage/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Pages/AdminPages/AdminCitiesPage/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Pages/AdminPages/AdminMastersPage/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Pages/AdminPages/AdminMastersPage/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Pages/AdminPages/AdminUsersPage/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Pages/AdminPages/AdminUsersPage/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Pages/UserPages/AddOrderPage/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Pages/UserPages/AddOrderPage/index.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/store/actions/cities.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/store/actions/cities.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/store/actions/index.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/store/actions/mail.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/store/actions/mail.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/store/actions/masters.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/store/actions/masters.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/store/actions/orders.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/store/actions/orders.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/store/actions/users.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/store/actions/users.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/store/constants/cities.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/store/constants/cities.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/store/constants/masters.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/store/constants/masters.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/store/constants/orders.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/store/constants/orders.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/store/constants/users.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/store/constants/users.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/store/reducers/authReducer.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/store/reducers/authReducer.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/store/reducers/citiesReducer.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/store/reducers/citiesReducer.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/store/reducers/mastersReducer.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/store/reducers/mastersReducer.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/store/reducers/ordersReducer.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/store/reducers/ordersReducer.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/store/reducers/usersReducer.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/store/reducers/usersReducer.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/store/reducers/clockTypesReducer.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/store/reducers/clockTypesReducer.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/store/reducers/mailReducer.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/store/reducers/mailReducer.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -168,14 +174,8 @@
       <workItem from="1645873165326" duration="5793000" />
       <workItem from="1646066784276" duration="2069000" />
       <workItem from="1646138771316" duration="16403000" />
-      <workItem from="1646212745114" duration="8130000" />
-    </task>
-    <task id="LOCAL-00004" summary="feat: add masters reducer&#10;fix: masters table requests store for masters list now">
-      <created>1641819165338</created>
-      <option name="number" value="00004" />
-      <option name="presentableId" value="LOCAL-00004" />
-      <option name="project" value="LOCAL" />
-      <updated>1641819165338</updated>
+      <workItem from="1646212745114" duration="8562000" />
+      <workItem from="1646307394723" duration="13504000" />
     </task>
     <task id="LOCAL-00005" summary="feat: add actions to add order and master to the store&#10;fix: rating display in&#10; masters table">
       <created>1641829128136</created>
@@ -513,7 +513,14 @@
       <option name="project" value="LOCAL" />
       <updated>1646169905236</updated>
     </task>
-    <option name="localTasksCounter" value="53" />
+    <task id="LOCAL-00053" summary="feat: delete &amp; update actions on models&#10;fix: actions">
+      <created>1646251047098</created>
+      <option name="number" value="00053" />
+      <option name="presentableId" value="LOCAL-00053" />
+      <option name="project" value="LOCAL" />
+      <updated>1646251047099</updated>
+    </task>
+    <option name="localTasksCounter" value="54" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -532,7 +539,6 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="fix: .env" />
     <MESSAGE value="test" />
     <MESSAGE value="fix: order form submit" />
     <MESSAGE value="fix: order form submit, formDialog" />
@@ -557,7 +563,8 @@
     <MESSAGE value="feat: add lazy-loading, spinner&#10;fix: styles" />
     <MESSAGE value="fix: styles" />
     <MESSAGE value="feat: model mail in store, action send mail, when add order form submitted" />
-    <option name="LAST_COMMIT_MESSAGE" value="feat: model mail in store, action send mail, when add order form submitted" />
+    <MESSAGE value="feat: delete &amp; update actions on models&#10;fix: actions" />
+    <option name="LAST_COMMIT_MESSAGE" value="feat: delete &amp; update actions on models&#10;fix: actions" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

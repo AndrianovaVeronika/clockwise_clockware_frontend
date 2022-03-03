@@ -21,9 +21,9 @@ export const addOrder = createAsyncThunk(orders.ADD_ORDER, async (newOrder, thun
     }
 });
 
-export const updateOrder = createAsyncThunk(orders.UPDATE_ORDER, async (orderId, thunkAPI) => {
+export const updateOrder = createAsyncThunk(orders.UPDATE_ORDER, async ({id, ...updateValue}, thunkAPI) => {
     try {
-        const response = await instance.put('api/orders/' + orderId);
+        const response = await instance.put('api/orders/' + id, updateValue);
         return response.data;
     } catch (e) {
         return thunkAPI.rejectWithValue(e);

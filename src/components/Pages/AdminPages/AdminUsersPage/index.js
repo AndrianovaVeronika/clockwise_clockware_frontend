@@ -5,8 +5,10 @@ import withRedirectAfterLogout from "../../../../functions/withRedirectAfterLogo
 import FormDialog from "../../../Dialogs/FormDialog";
 import UsersTable from "../../../DataTables/UsersTable";
 import withSidebar from "../../../../functions/withSidebar";
-import AddUserForm from "../../../Forms/AddUserForm";
+import AddUserForm from "../../../Forms/UserForm";
 import withRedirectIfNotAdmin from "../../../../functions/withRedirectIfNotAdmin";
+import {signUp} from "../../../../store/actions/auth";
+import {updateUser} from "../../../../store/actions/users";
 
 const AdminUsersPage = () => {
     return (
@@ -22,7 +24,7 @@ const AdminUsersPage = () => {
                         form: 'add-user-form'
                     }}
                 >
-                    <AddUserForm/>
+                    <AddUserForm submitAction={signUp}/>
                 </FormDialog>
             </div>
         </div>

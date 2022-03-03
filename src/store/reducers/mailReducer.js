@@ -1,6 +1,6 @@
 import initialState from "../initialState";
 import {createSlice} from "@reduxjs/toolkit";
-import {sendMail} from "../actions";
+import {sendMail} from "../actions/mail";
 
 const {reducer} = createSlice({
     name: 'mail',

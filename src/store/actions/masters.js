@@ -22,9 +22,9 @@ export const addMaster = createAsyncThunk(masters.ADD_MASTER, async (newMaster, 
     }
 });
 
-export const updateMaster = createAsyncThunk(masters.UPDATE_MASTER, async (masterId, thunkAPI) => {
+export const updateMaster = createAsyncThunk(masters.UPDATE_MASTER, async ({id, ...updateValue}, thunkAPI) => {
     try {
-        const response = await instance.put('api/masters/' + masterId);
+        const response = await instance.put('api/masters/' + id, updateValue);
         return response.data;
     } catch (e) {
         return thunkAPI.rejectWithValue(e);

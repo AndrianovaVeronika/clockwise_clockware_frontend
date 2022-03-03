@@ -13,9 +13,9 @@ export const getUsers = createAsyncThunk(users.GET_USERS, async (_, thunkAPI) =>
     }
 });
 
-export const updateUser = createAsyncThunk(users.UPDATE_USER, async (userId, thunkAPI) => {
+export const updateUser = createAsyncThunk(users.UPDATE_USER, async ({id, ...updateValue}, thunkAPI) => {
     try {
-        const response = await instance.put('api/users/' + userId);
+        const response = await instance.put('api/users/' + id, updateValue);
         return response.data;
     } catch (e) {
         return thunkAPI.rejectWithValue(e);

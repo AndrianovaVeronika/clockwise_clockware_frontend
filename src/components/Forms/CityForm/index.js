@@ -2,12 +2,12 @@ import React from 'react';
 import {ErrorMessage, Field, Form, Formik} from "formik";
 import {Paper, TextField} from "@mui/material";
 import * as Yup from "yup";
-import {addCity} from "../../../store/actions";
+import {addCity} from "../../../store/actions/cities";
 import {useDispatch} from "react-redux";
 
 const initialValues = {name: ''};
 
-const AddCityForm = () => {
+const AddCityForm = ({specifiedInitialValues, submitAction}) => {
     const dispatch = useDispatch();
 
     const paperStyle = {padding: '10px 10px', width: '90%', margin: '10px auto'}
@@ -17,17 +17,17 @@ const AddCityForm = () => {
     })
 
     const onSubmit = (values, props) => {
-        dispatch(addCity(values));
+        dispatch(submitAction(values));
         props.resetForm();
     }
 
     return (
         <>
             <Paper elevation={0} style={paperStyle}>
-                <Formik initialValues={initialValues} validationSchema={validationSchema} onSubmit={onSubmit}>
+                <Formik initialValues={specifiedInitialValues || initialValues} validationSchema={validationSchema} onSubmit={onSubmit}>
                     {
                         (props) => (
-                            <Form className='cityForm' id='add-city-form'>
+                            <Form className='cityForm' id='city-form'>
                                 <Field as={TextField}
                                        label='Name'
                                        name='name'

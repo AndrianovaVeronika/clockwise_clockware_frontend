@@ -2,7 +2,7 @@ import React from 'react';
 import {withHeader} from '../../../../functions/withHeader';
 import FormDialog from "../../../Dialogs/FormDialog";
 import CitiesTable from "../../../DataTables/CitiesTable";
-import AddCityForm from "../../../Forms/AddCityForm";
+import AddCityForm from "../../../Forms/CityForm";
 import withRedirectAfterLogout from "../../../../functions/withRedirectAfterLogout";
 import withSidebar from "../../../../functions/withSidebar";
 import withRedirectIfNotAdmin from "../../../../functions/withRedirectIfNotAdmin";
@@ -19,7 +19,7 @@ const AdminCitiesPage = () => {
                     submitButtonParams={{
                         submitButtonText: 'Добавить',
                         type: 'submit',
-                        form: 'add-city-form'
+                        form: 'city-form'
                     }}
                 >
                     <AddCityForm/>

@@ -1,27 +1,29 @@
 import React, {useEffect, useState} from 'react';
 import {Button, Paper, Step, StepLabel, Stepper} from "@mui/material";
 import CredentialsForm from "./CredentialsForm";
-import {addOrder, getCities, getClockTypes, getMasters, getOrders, sendMail} from "../../../store/actions";
+import {addOrder, getOrders} from "../../../store/actions/orders";
+import {getCities} from "../../../store/actions/cities";
+import {getClockTypes} from "../../../store/actions/clockTypes";
+import {getMasters} from "../../../store/actions/masters";
 import DateTimePick from "./DateTimePick";
 import MasterPick from "./MasterPick";
 import ResultsReport from "./ResultsReport";
 import {useDispatch} from "react-redux";
-import store from "../../../store/store";
-
-const initialValues = {
-    userId: '',
-    clockTypeId: '',
-    masterId: '',
-    cityId: '',
-    date: '',
-    time: '',
-}
 
 const steps = ['Подробности заказа', 'Дата и время', 'Мастер', 'Проверьте данные'];
 const shiftTimeStart = 10;
 const shiftTimeEnd = 18;
 
-const OrderForm = () => {
+const OrderForm = ({specifiedInitialValues}) => {
+    const initialValues = specifiedInitialValues || {
+        userId: '',
+        clockTypeId: '',
+        masterId: '',
+        cityId: '',
+        date: '',
+        time: '',
+    }
+
     const dispatch = useDispatch();
 
     useEffect(() => {
@@ -68,16 +70,38 @@ const OrderForm = () => {
     const ActiveStep = () => {
         switch (activeStep) {
             case 0 : {
-                return <CredentialsForm formId='form0' submitAction={onFormSubmit}/>
+                return <CredentialsForm
+                    formId='form0'
+                    submitAction={onFormSubmit}
+                    initialValues={{
+                        clockTypeId: initialValues.clockTypeId,
+                        cityId: initialValues.cityId
+                    }}
+                />
             }
             case 1 : {
-                return <DateTimePick hours={hours} formId='form1' submitAction={onFormSubmit}/>
+                return <DateTimePick
+                    hours={hours}
+                    formId='form1'
+                    submitAction={onFormSubmit}
+                    initialValues={{date: initialValues.date, time: initialValues.time}}
+                />
             }
             case 2 : {
-                return <MasterPick hours={hours} values={values} formId='form2' submitAction={onFormSubmit}/>
+                return <MasterPick
+                    hours={hours}
+                    values={values}
+                    formId='form2'
+                    submitAction={onFormSubmit}
+                    initialValues={{masterId: initialValues.masterId}}
+                />
             }
             case 3 : {
-                return <ResultsReport formId='form3' onFinalSubmit={onSubmit} values={values}/>
+                return <ResultsReport
+                    formId='form3'
+                    onFinalSubmit={onSubmit}
+                    values={values}
+                />
             }
             default:
                 return;

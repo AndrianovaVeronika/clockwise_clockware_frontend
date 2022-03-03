@@ -22,9 +22,9 @@ export const addCity = createAsyncThunk(cities.ADD_CITY, async (newCity, thunkAP
     }
 });
 
-export const updateCity = createAsyncThunk(cities.UPDATE_CITY, async (cityId, thunkAPI) => {
+export const updateCity = createAsyncThunk(cities.UPDATE_CITY, async ({id, ...updateValue}, thunkAPI) => {
     try {
-        const response = await instance.put('api/cities/' + cityId);
+        const response = await instance.put('api/cities/' + id, updateValue);
         return response.data;
     } catch (e) {
         return thunkAPI.rejectWithValue(e);

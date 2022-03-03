@@ -4,6 +4,7 @@ import {useEffect} from "react";
 import {getCities, deleteCity, updateCity} from "../../../store/actions/cities";
 import {useDispatch, useSelector} from "react-redux";
 import {getCitiesSelector} from "../../../store/selectors/citiesSelector";
+import CityForm from "../../Forms/CityForm";
 
 const columns = [
     {
@@ -14,7 +15,7 @@ const columns = [
     },
 ];
 
-const CitiesTable = ({withCheckbox, onRowClick}) => {
+const CitiesTable = () => {
     const dispatch = useDispatch();
 
     useEffect(() => {
@@ -28,8 +29,10 @@ const CitiesTable = ({withCheckbox, onRowClick}) => {
             <DataTable
                 columns={columns}
                 rows={rows}
-                withCheckbox={withCheckbox}
-                onRowClick={onRowClick}
+                onRowsDelete={deleteCity}
+                onUpdate={updateCity}
+                formId='city-form'
+                AddForm={CityForm}
             />
         </>
     );

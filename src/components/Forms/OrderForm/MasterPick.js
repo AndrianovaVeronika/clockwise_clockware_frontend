@@ -11,10 +11,6 @@ function renderRating(params) {
     return <Rating readOnly value={params.value}/>;
 };
 
-const initialValues = {
-    masterId: 1
-}
-
 const columns = [
     {
         field: 'id', headerName: 'ID', width: 50
@@ -31,7 +27,7 @@ const columns = [
     }
 ];
 
-const MasterPick = ({values, formId, submitAction, hours}) => {
+const MasterPick = ({values, formId, submitAction, hours, initialValues}) => {
     const [masterId, setMasterId] = useState(initialValues.masterId);
 
     const masters = useSelector(getMastersSelector).filter(master => {
@@ -104,10 +100,10 @@ const MasterPick = ({values, formId, submitAction, hours}) => {
                             columns={columns}
                             pageSize={5}
                             rowsPerPageOptions={[5]}
-                            onRowDoubleClick={onMasterSelect}
+                            onRowClick={onMasterSelect}
                         />
                     </div>
-                    <Formik initialValues={initialValues} onSubmit={submitAction}>
+                    <Formik initialValues={initialValues} onSubmit={() => submitAction({masterId: masterId})}>
                         {
                             (props) => (
                                 <Form id={formId}>

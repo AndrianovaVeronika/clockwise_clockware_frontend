@@ -1,6 +1,6 @@
 import initialState from "../initialState";
 import {createSlice} from "@reduxjs/toolkit";
-import {getClockTypes} from "../actions";
+import {getClockTypes} from "../actions/clockTypes";
 
 const {reducer} = createSlice({
     name: 'clockTypes',

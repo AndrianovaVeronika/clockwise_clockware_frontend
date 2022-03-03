@@ -6,12 +6,7 @@ import moment from "moment";
 import FormSelect from "../FormSelect";
 import {Form, Formik} from "formik";
 
-const initialValues = {
-    date: moment(),
-    time: ''
-}
-
-const DateTimePick = ({formId, submitAction, hours}) => {
+const DateTimePick = ({formId, submitAction, hours, initialValues}) => {
     const [date, setDate] = useState(initialValues.date);
 
     const onSubmit = (v, props) => {

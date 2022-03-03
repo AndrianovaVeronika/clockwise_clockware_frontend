@@ -1,16 +1,17 @@
 import * as React from 'react';
 import {useEffect} from 'react';
 import DataTable from "../DataTable";
-import {getUsers} from "../../../store/actions/users";
+import {deleteUser, getUsers, updateUser} from "../../../store/actions/users";
 import {useDispatch, useSelector} from "react-redux";
 import {getUsersSelector} from "../../../store/selectors/usersSelector";
+import UserForm from "../../Forms/UserForm";
 
 const columns = [
     {
         field: 'id', headerName: 'ID', width: 50
     },
     {
-        field: 'username', headerName: 'Имя', width: 150
+        field: 'username', headerName: 'Имя', width: 150,
     },
     {
         field: 'email', headerName: 'Почта', width: 200,
@@ -34,6 +35,10 @@ const UsersTable = () => {
             <DataTable
                 columns={columns}
                 rows={users}
+                onRowsDelete={deleteUser}
+                onUpdate={updateUser}
+                formId='user-form'
+                AddForm={UserForm}
             />
         </>
     );

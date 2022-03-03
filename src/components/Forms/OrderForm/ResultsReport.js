@@ -5,7 +5,7 @@ import {useDispatch, useSelector} from "react-redux";
 import {getMastersSelector} from "../../../store/selectors/mastersSelector";
 import {getCurrentUserSelector} from "../../../store/selectors/authSelector";
 import {getClockTypesSelector} from "../../../store/selectors/clockTypesSelector";
-import {sendMail} from "../../../store/actions";
+import {sendMail} from "../../../store/actions/mail";
 
 const ResultsReport = ({formId, onFinalSubmit, values}) => {
     const dispatch = useDispatch();

@@ -2,7 +2,8 @@ import React, {useEffect} from "react";
 import {ErrorMessage, Field, Form, Formik} from "formik";
 import {Paper, Rating, TextField, Typography} from "@mui/material";
 import * as Yup from 'yup';
-import {addMaster, getCities} from "../../../store/actions";
+import {addMaster} from "../../../store/actions/masters";
+import {getCities} from "../../../store/actions/cities";
 import {useDispatch, useSelector} from "react-redux";
 import FormSelect from "../FormSelect";
 import {getCitiesSelector} from "../../../store/selectors/citiesSelector";
@@ -12,7 +13,7 @@ const initialValues = {
     rating: 0,
 }
 
-const AddMasterForm = () => {
+const AddMasterForm = ({specifiedInitialValues}) => {
     const dispatch = useDispatch();
 
     const [citiesChosed, setCitiesChosed] = React.useState([]);
@@ -60,10 +61,10 @@ const AddMasterForm = () => {
     return (
         <>
             <Paper elevation={0} style={paperStyle}>
-                <Formik initialValues={initialValues} validationSchema={validationSchema} onSubmit={onSubmit}>
+                <Formik initialValues={specifiedInitialValues || initialValues} validationSchema={validationSchema} onSubmit={onSubmit}>
                     {
                         (props) => (
-                            <Form className='masterForm' id='add-master-form'>
+                            <Form className='masterForm' id='master-form'>
                                 <Field as={TextField}
                                        label='Name'
                                        name='name'

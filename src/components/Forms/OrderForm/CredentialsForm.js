@@ -6,17 +6,10 @@ import FormSelect from "../FormSelect";
 import {getClockTypesSelector} from "../../../store/selectors/clockTypesSelector";
 import {getCurrentUserSelector} from "../../../store/selectors/authSelector";
 
-const CredentialsForm = ({formId, submitAction}) => {
+const CredentialsForm = ({formId, submitAction, initialValues}) => {
     const incomeCities = useSelector(getCitiesSelector);
     const clockTypes = useSelector(getClockTypesSelector);
     const user = useSelector(getCurrentUserSelector);
-
-    const initialValues = {
-        // username: user.username,
-        // email: user.email,
-        clockTypeId: '',
-        cityId: '',
-    }
 
     const getCities = () => {
         const cities = [];
