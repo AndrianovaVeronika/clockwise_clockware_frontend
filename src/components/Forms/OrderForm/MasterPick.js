@@ -27,8 +27,12 @@ const columns = [
     }
 ];
 
-const MasterPick = ({values, formId, submitAction, hours, initialValues}) => {
-    const [masterId, setMasterId] = useState(initialValues.masterId);
+const initialValues = {
+    masterId: ''
+}
+
+const MasterPick = ({values, formId, submitAction, hours}) => {
+    const [masterId, setMasterId] = useState('');
 
     const masters = useSelector(getMastersSelector).filter(master => {
         for (const city of master.cities) {

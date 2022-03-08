@@ -2,7 +2,6 @@ import {ErrorMessage, Field, Form, Formik} from "formik";
 import {Paper, TextField} from "@mui/material";
 import React from "react";
 import * as Yup from "yup";
-import {signUp} from "../../../store/actions/auth";
 import {useDispatch} from "react-redux";
 
 const initialValues = {
@@ -10,7 +9,7 @@ const initialValues = {
     email: '',
     password: ''
 };
-const AddUserForm = ({specifiedInitialValues, submitAction}) => {
+const UserForm = ({specifiedInitialValues, submitAction}) => {
     const dispatch = useDispatch();
 
     const paperStyle = {padding: '10px 10px', width: '90%', margin: '10px auto'}
@@ -65,4 +64,4 @@ const AddUserForm = ({specifiedInitialValues, submitAction}) => {
     )
 }
 
-export default AddUserForm;
+export default UserForm;

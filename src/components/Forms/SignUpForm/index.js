@@ -2,7 +2,7 @@ import {useDispatch} from "react-redux";
 import {useNavigate} from "react-router";
 import * as Yup from "yup";
 import {signUp} from "../../../store/actions/auth";
-import {Box, Button, Paper, TextField} from "@mui/material";
+import {Box, Button, Dialog, DialogContent, Paper, TextField} from "@mui/material";
 import {ErrorMessage, Field, Form, Formik} from "formik";
 import React from "react";
 

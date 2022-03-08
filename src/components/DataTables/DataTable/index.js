@@ -1,61 +1,84 @@
 import * as React from 'react';
+import {useState} from 'react';
 import {DataGrid} from '@mui/x-data-grid';
-import {useState} from "react";
 import {IconButton} from "@mui/material";
 import DeleteIcon from '@mui/icons-material/Delete';
 import {useDispatch} from "react-redux";
+import EditIcon from '@mui/icons-material/Edit';
 import FormDialog from "../../Dialogs/FormDialog";
+import AddIcon from '@mui/icons-material/Add';
 
-const DataTable = ({columns, rows, onRowsDelete, onUpdate, formId, AddForm, ...rest}) => {
+const DataTable = ({columns, rows, onRowDelete, onRowUpdate, onRowAdd, formId, ModelForm, additionalFormDialogProps, ...rest}) => {
     const dispatch = useDispatch();
-    const [selectionModel, setSelectionModel] = useState([]);
-    const [rowToChange, setRowToChange] = useState({});
+    const [activeRow, setActiveRow] = useState({});
 
     const onDelete = () => {
-        for (const selectionModelElement of selectionModel) {
-            dispatch(onRowsDelete(selectionModelElement));
+        if (Object.keys(activeRow).length === 0){
+            console.log('Nothing to delete');
+            return;
         }
+        dispatch(onRowDelete(activeRow.id));
     }
 
     const onRowClick = ({row}) => {
-        setRowToChange(row);
+        console.log('row to change - data table', row);
+        setActiveRow(row);
     }
 
     return (
         <>
-            <div style={{
-                width: '600px',
-                height: '400px',
-                border: '4px double black',
-                flexDirection: 'row',
-                display: 'flex'
-            }}>
-                <DataGrid
-                    rows={rows}
-                    columns={columns}
-                    pageSize={5}
-                    rowsPerPageOptions={[5]}
-                    checkboxSelection
-                    onSelectionModelChange={(newSelectionModel) => {
-                        setSelectionModel(newSelectionModel);
-                    }}
-                    selectionModel={selectionModel}
-                    onRowClick={onRowClick}
-                    {...rest}
-                />
+            <div style={{width: '600px'}}>
+                <div style={{
+                    height: '400px',
+                    border: '4px double black',
+                    display: 'flex'
+                }}>
+                    <DataGrid
+                        rows={rows}
+                        columns={columns}
+                        pageSize={5}
+                        rowsPerPageOptions={[5]}
+                        onRowClick={onRowClick}
+                        {...rest}
+                    />
+                </div>
                 <IconButton onClick={onDelete} style={{width: '50px', height: '50px'}}>
                     <DeleteIcon/>
                 </IconButton>
                 <FormDialog
-                    openDialogButtonText={'Изменить'}
+                    OpenButton={(props) => {
+                        return <IconButton style={{width: '50px', height: '50px'}} {...props}>
+                            <EditIcon/>
+                        </IconButton>
+                    }}
                     dialogTitle={'Измените данные'}
                     submitButtonParams={{
-                        submitButtonText: 'Изменить',
+                        submitButtonText: 'Сохранить',
                         type: 'submit',
-                        form: {formId}
+                        form: formId
                     }}
+                    {...additionalFormDialogProps}
                 >
-                    <AddForm submitAction={onUpdate} specifiedInitialValues={rowToChange}/>
+                    <ModelForm submitAction={onRowUpdate} specifiedInitialValues={activeRow}/>
+                </FormDialog>
+                <FormDialog
+                    OpenButton={(props) => {
+                        return <IconButton
+                            style={{width: '50px', height: '50px'}}
+                            {...props}
+                        >
+                            <AddIcon/>
+                        </IconButton>
+                    }}
+                    dialogTitle={'Введите название города'}
+                    submitButtonParams={{
+                        submitButtonText: 'Добавить',
+                        type: 'submit',
+                        form: formId
+                    }}
+                    {...additionalFormDialogProps}
+                >
+                    <ModelForm submitAction={onRowAdd}/>
                 </FormDialog>
             </div>
         </>

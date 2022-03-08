@@ -19,7 +19,6 @@ const AddOrderPage = React.lazy(() => import("./components/Pages/UserPages/AddOr
 
 function App() {
     const dispatch = useDispatch();
-
     useEffect(() => {
         dispatch(verifyUserAccess());
     }, [dispatch]);

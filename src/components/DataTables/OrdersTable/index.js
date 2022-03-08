@@ -1,11 +1,9 @@
 import * as React from 'react';
 import {useEffect} from 'react';
-import {deleteOrder, getOrders, updateOrder} from "../../../store/actions/orders";
+import {addOrder, deleteOrder, getOrders, updateOrder} from "../../../store/actions/orders";
 import {useDispatch, useSelector} from "react-redux";
 import {getOrdersSelector} from "../../../store/selectors/ordersSelector";
 import DataTable from "../DataTable";
-import {updateCity} from "../../../store/actions/cities";
-import AddCityForm from "../../Forms/CityForm";
 import OrderForm from "../../Forms/OrderForm";
 
 const columns = [
@@ -60,10 +58,14 @@ const OrdersTable = () => {
         <DataTable
             rows={orders}
             columns={columns}
-            onRowsDelete={deleteOrder}
-            onUpdate={updateOrder}
+            onRowDelete={deleteOrder}
+            onRowUpdate={updateOrder}
+            onRowAdd={addOrder}
             formId='order-form'
-            AddForm={OrderForm}
+            ModelForm={OrderForm}
+            additionalFormDialogProps={{
+                hideDialogActions: true
+            }}
         />
     );
 }

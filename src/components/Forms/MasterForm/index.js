@@ -1,4 +1,4 @@
-import React, {useEffect} from "react";
+import React, {useEffect, useState} from "react";
 import {ErrorMessage, Field, Form, Formik} from "formik";
 import {Paper, Rating, TextField, Typography} from "@mui/material";
 import * as Yup from 'yup';
@@ -13,10 +13,10 @@ const initialValues = {
     rating: 0,
 }
 
-const AddMasterForm = ({specifiedInitialValues}) => {
+const MasterForm = ({specifiedInitialValues, submitAction}) => {
     const dispatch = useDispatch();
 
-    const [citiesChosed, setCitiesChosed] = React.useState([]);
+    const [citiesChosed, setCitiesChosed] = useState([]);
 
     const handleChange = (event) => {
         const {
@@ -54,7 +54,7 @@ const AddMasterForm = ({specifiedInitialValues}) => {
 
     const onSubmit = (values, props) => {
         console.log({...values, cities: citiesChosed});
-        dispatch(addMaster({...values, cities: citiesChosed}));
+        dispatch(submitAction({...values, cities: citiesChosed}));
         props.resetForm();
     }
 
@@ -99,4 +99,4 @@ const AddMasterForm = ({specifiedInitialValues}) => {
     );
 }
 
-export default AddMasterForm;
+export default MasterForm;

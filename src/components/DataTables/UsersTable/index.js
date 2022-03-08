@@ -1,9 +1,9 @@
-import * as React from 'react';
-import {useEffect} from 'react';
-import DataTable from "../DataTable";
-import {deleteUser, getUsers, updateUser} from "../../../store/actions/users";
+import React, {useEffect} from "react";
 import {useDispatch, useSelector} from "react-redux";
+import {deleteUser, getUsers, updateUser} from "../../../store/actions/users";
 import {getUsersSelector} from "../../../store/selectors/usersSelector";
+import DataTable from "../DataTable";
+import {signUp} from "../../../store/actions/auth";
 import UserForm from "../../Forms/UserForm";
 
 const columns = [
@@ -35,10 +35,11 @@ const UsersTable = () => {
             <DataTable
                 columns={columns}
                 rows={users}
-                onRowsDelete={deleteUser}
-                onUpdate={updateUser}
+                onRowDelete={deleteUser}
+                onRowUpdate={updateUser}
+                onRowAdd={signUp}
                 formId='user-form'
-                AddForm={UserForm}
+                ModelForm={UserForm}
             />
         </>
     );

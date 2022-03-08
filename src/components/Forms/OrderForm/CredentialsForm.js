@@ -5,18 +5,41 @@ import {Form, Formik} from "formik";
 import FormSelect from "../FormSelect";
 import {getClockTypesSelector} from "../../../store/selectors/clockTypesSelector";
 import {getCurrentUserSelector} from "../../../store/selectors/authSelector";
+import {getUsersSelector} from "../../../store/selectors/usersSelector";
 
 const CredentialsForm = ({formId, submitAction, initialValues}) => {
-    const incomeCities = useSelector(getCitiesSelector);
+    const cities = useSelector(getCitiesSelector);
     const clockTypes = useSelector(getClockTypesSelector);
     const user = useSelector(getCurrentUserSelector);
+    const users = useSelector(getUsersSelector);
+
+    const getInitValues = () => {
+        if (initialValues.userId === '') {
+            return {
+                ...initialValues,
+                userId: user.id
+            }
+        }
+
+        const v = {
+            cityId: cities.find(city => city.name === initialValues.cityId)?.id,
+            userId: users.find(user => user.username === initialValues.userId)?.id,
+            clockTypeId: clockTypes.find(clockType => clockType.name === initialValues.clockTypeId)?.id,
+        };
+        console.log('v', v)
+        return v;
+    }
+
+    const values = getInitValues();
+
+    console.log('credentials', values)
 
     const getCities = () => {
-        const cities = [];
-        for (const city of incomeCities) {
-            cities.push({key: city.id, value: city.name});
+        const elements = [];
+        for (const city of cities) {
+            elements.push({key: city.id, value: city.name});
         }
-        return cities;
+        return elements;
     }
 
     const getClockTypes = () => {
@@ -32,13 +55,13 @@ const CredentialsForm = ({formId, submitAction, initialValues}) => {
     const clockTypeOptions = getClockTypes();
 
     const onSubmit = (v, props) => {
-        submitAction({...v, userId: user.id});
+        submitAction({...v, userId: values.userId});
     }
 
     return (
         <div style={{margin: '20px'}}>
             <Formik
-                initialValues={initialValues}
+                initialValues={values}
                 onSubmit={onSubmit}
             >
                 {

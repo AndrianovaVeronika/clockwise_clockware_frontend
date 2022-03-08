@@ -2,12 +2,11 @@ import React from 'react';
 import {ErrorMessage, Field, Form, Formik} from "formik";
 import {Paper, TextField} from "@mui/material";
 import * as Yup from "yup";
-import {addCity} from "../../../store/actions/cities";
 import {useDispatch} from "react-redux";
 
 const initialValues = {name: ''};
 
-const AddCityForm = ({specifiedInitialValues, submitAction}) => {
+const CityForm = ({specifiedInitialValues, submitAction}) => {
     const dispatch = useDispatch();
 
     const paperStyle = {padding: '10px 10px', width: '90%', margin: '10px auto'}
@@ -45,4 +44,4 @@ const AddCityForm = ({specifiedInitialValues, submitAction}) => {
     )
 }
 
-export default AddCityForm;
+export default CityForm;

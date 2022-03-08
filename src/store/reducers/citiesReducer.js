@@ -14,13 +14,13 @@ const {reducer} = createSlice({
                 state.cities.citiesList = action.payload;
             })
             .addCase(addCity.fulfilled, (state, action) => {
-                console.log(action.payload.message);
+                console.log(action.payload);
             })
             .addCase(updateCity.fulfilled, (state, action) => {
-                console.log(action.payload.message);
+                console.log(action.payload);
             })
             .addCase(deleteCity.fulfilled, (state, action) => {
-                console.log(action.payload.message);
+                console.log(action.payload);
             })
     }
 })

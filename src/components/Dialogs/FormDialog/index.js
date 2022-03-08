@@ -5,9 +5,10 @@ import {Button, Dialog, DialogActions, DialogContent, DialogTitle} from '@mui/ma
 const FormDialog = ({
                         openDialogButtonText,
                         dialogTitle,
-                        additionalButtons,
                         submitButtonParams,
                         cancelOnClick,
+                        OpenButton,
+                        hideDialogActions = false,
                         children
                     }) => {
     const [open, setOpen] = useState(false);
@@ -32,20 +33,29 @@ const FormDialog = ({
         toggle();
     }
 
+    const OpenFormButton = () => {
+        if (OpenButton){
+            return <OpenButton onClick={toggle}/>;
+        }
+
+        const CustomizedButton = Button;
+        return <CustomizedButton style={{
+            height: '50px',
+            width: '120px',
+            margin: '10px',
+            borderRadius: '10px',
+            padding: '18px 36px',
+            fontSize: '16px',
+            backgroundColor: '#2b2b2b',
+            color: 'whitesmoke'
+        }} variant="outlined" onClick={toggle}>
+            {openDialogButtonText}
+        </CustomizedButton>
+    }
+
     return (
         <>
-            <Button style={{
-                height: '50px',
-                width: '120px',
-                margin: '10px',
-                borderRadius: '10px',
-                padding: '18px 36px',
-                fontSize: '16px',
-                backgroundColor: '#2b2b2b',
-                color: 'whitesmoke'
-            }} variant="outlined" onClick={toggle}>
-                {openDialogButtonText}
-            </Button>
+            {<OpenButton/> && <OpenFormButton/>}
             <Dialog open={open} onClose={toggle}>
                 <DialogTitle>
                     {dialogTitle}
@@ -53,15 +63,14 @@ const FormDialog = ({
                 <DialogContent>
                     {children}
                 </DialogContent>
-                <DialogActions>
-                    {additionalButtons}
+                {!hideDialogActions && <DialogActions>
                     <Button onClick={onCancelAction}>Отмена</Button>
                     {show && submitButtonParams &&
                     <Button
                         onClick={onSubmitAction}
                         {...params}
                     >{submitButtonText}</Button>}
-                </DialogActions>
+                </DialogActions>}
             </Dialog>
         </>
     );

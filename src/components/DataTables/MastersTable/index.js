@@ -1,9 +1,9 @@
-import React, {useEffect, useState} from 'react';
+import React, {useEffect} from 'react';
 import DataTable from "../DataTable";
 import {useDispatch, useSelector} from "react-redux";
 import {getMastersSelector} from "../../../store/selectors/mastersSelector";
 import Rating from '@mui/material/Rating';
-import {deleteMaster, getMasters, updateMaster} from "../../../store/actions/masters";
+import {addMaster, deleteMaster, getMasters, updateMaster} from "../../../store/actions/masters";
 import MasterForm from "../../Forms/MasterForm";
 
 function renderRating(params) {
@@ -27,7 +27,7 @@ const columns = [
     {
         field: 'cities',
         headerName: 'Работает в',
-        width: 150,
+        width: 290,
     }
 ];
 
@@ -59,10 +59,11 @@ const MastersTable = () => {
             <DataTable
                 columns={columns}
                 rows={rows}
-                onRowsDelete={deleteMaster}
-                onUpdate={updateMaster}
+                onRowDelete={deleteMaster}
+                onRowUpdate={updateMaster}
+                onRowAdd={addMaster}
                 formId='master-form'
-                AddForm={MasterForm}
+                ModelForm={MasterForm}
             />
         </>
     );

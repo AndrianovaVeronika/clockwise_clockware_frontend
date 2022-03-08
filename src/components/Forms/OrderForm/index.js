@@ -9,24 +9,32 @@ import DateTimePick from "./DateTimePick";
 import MasterPick from "./MasterPick";
 import ResultsReport from "./ResultsReport";
 import {useDispatch} from "react-redux";
+import {getUsers} from "../../../store/actions/users";
 
 const steps = ['Подробности заказа', 'Дата и время', 'Мастер', 'Проверьте данные'];
 const shiftTimeStart = 10;
 const shiftTimeEnd = 18;
 
-const OrderForm = ({specifiedInitialValues}) => {
-    const initialValues = specifiedInitialValues || {
+const OrderForm = ({specifiedInitialValues, submitAction}) => {
+    const initialValues = specifiedInitialValues? {
+        ...specifiedInitialValues,
+        userId: specifiedInitialValues.username,
+        clockTypeId: specifiedInitialValues.clock_type,
+        masterId: specifiedInitialValues.master,
+        cityId: specifiedInitialValues.city,
+    } : {
         userId: '',
         clockTypeId: '',
         masterId: '',
         cityId: '',
         date: '',
         time: '',
-    }
+    };
 
     const dispatch = useDispatch();
 
     useEffect(() => {
+        dispatch(getUsers());
         dispatch(getCities());
         dispatch(getMasters());
         dispatch(getClockTypes());
@@ -54,7 +62,7 @@ const OrderForm = ({specifiedInitialValues}) => {
 
     const onSubmit = () => {
         console.log('ON SUBMIT', values)
-        dispatch(addOrder(values));
+        dispatch(submitAction(values));
     }
 
     const [activeStep, setActiveStep] = useState(0);
@@ -74,6 +82,7 @@ const OrderForm = ({specifiedInitialValues}) => {
                     formId='form0'
                     submitAction={onFormSubmit}
                     initialValues={{
+                        userId: initialValues.userId,
                         clockTypeId: initialValues.clockTypeId,
                         cityId: initialValues.cityId
                     }}
@@ -93,7 +102,6 @@ const OrderForm = ({specifiedInitialValues}) => {
                     values={values}
                     formId='form2'
                     submitAction={onFormSubmit}
-                    initialValues={{masterId: initialValues.masterId}}
                 />
             }
             case 3 : {
