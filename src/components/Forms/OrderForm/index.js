@@ -1,7 +1,7 @@
 import React, {useEffect, useState} from 'react';
 import {Button, Paper, Step, StepLabel, Stepper} from "@mui/material";
 import CredentialsForm from "./CredentialsForm";
-import {addOrder, getOrders} from "../../../store/actions/orders";
+import {getOrders} from "../../../store/actions/orders";
 import {getCities} from "../../../store/actions/cities";
 import {getClockTypes} from "../../../store/actions/clockTypes";
 import {getMasters} from "../../../store/actions/masters";
@@ -117,15 +117,7 @@ const OrderForm = ({specifiedInitialValues, submitAction}) => {
     }
 
     return (
-        <Paper style={{
-            maxHeight: '400px',
-            maxWidth: '700px',
-            minHeight: '300px',
-            minWidth: '500px',
-            padding: '40px 30px',
-            margin: '10px auto',
-            flexDirection: 'column',
-        }}>
+        <>
             <Stepper activeStep={activeStep} style={{height: '20%'}}>
                 {steps.map((label, index) => {
                     const stepProps = {};
@@ -156,7 +148,7 @@ const OrderForm = ({specifiedInitialValues, submitAction}) => {
                     </div>
                 </div>
             </div>
-        </Paper>
+        </>
     )
 }
 

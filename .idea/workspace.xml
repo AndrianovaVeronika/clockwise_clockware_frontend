@@ -1,28 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="47aa944b-1eed-4aaf-807f-af5d121fc908" name="Changes" comment="feat: delete &amp; update on tables">
+    <list default="true" id="47aa944b-1eed-4aaf-807f-af5d121fc908" name="Changes" comment="fix: change data buttons in data table, order form, data table, admin pages">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/DataTables/CitiesTable/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/DataTables/CitiesTable/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/DataTables/DataTable/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/DataTables/DataTable/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/DataTables/MastersTable/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/DataTables/MastersTable/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/DataTables/OrdersTable/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/DataTables/OrdersTable/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/DataTables/UsersTable/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/DataTables/UsersTable/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Dialogs/FormDialog/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Dialogs/FormDialog/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Forms/CityForm/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Forms/CityForm/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Forms/MasterForm/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Forms/MasterForm/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Forms/OrderForm/CredentialsForm.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Forms/OrderForm/CredentialsForm.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Forms/OrderForm/MasterPick.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Forms/OrderForm/MasterPick.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/Forms/OrderForm/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Forms/OrderForm/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Forms/SignUpForm/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Forms/SignUpForm/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Forms/UserForm/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Forms/UserForm/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Pages/AdminPages/AdminCitiesPage/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Pages/AdminPages/AdminCitiesPage/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Pages/AdminPages/AdminMastersPage/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Pages/AdminPages/AdminMastersPage/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Pages/AdminPages/AdminUsersPage/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Pages/AdminPages/AdminUsersPage/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/store/actions/cities.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/store/actions/cities.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/store/actions/masters.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/store/actions/masters.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/store/reducers/citiesReducer.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/store/reducers/citiesReducer.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Pages/UserPages/AddOrderPage/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Pages/UserPages/AddOrderPage/index.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -171,14 +153,8 @@
       <workItem from="1646212745114" duration="8562000" />
       <workItem from="1646307394723" duration="14942000" />
       <workItem from="1646397843412" duration="14256000" />
-      <workItem from="1646676979121" duration="25316000" />
-    </task>
-    <task id="LOCAL-00006" summary="feat: add city model to store, add Stepper to Order form&#10;fix: decompose Order form component">
-      <created>1642017828946</created>
-      <option name="number" value="00006" />
-      <option name="presentableId" value="LOCAL-00006" />
-      <option name="project" value="LOCAL" />
-      <updated>1642017828946</updated>
+      <workItem from="1646676979121" duration="25705000" />
+      <workItem from="1647001544432" duration="4845000" />
     </task>
     <task id="LOCAL-00007" summary="fix: Order form, texts, Home page &amp; Amin page exports">
       <created>1642110078271</created>
@@ -516,7 +492,14 @@
       <option name="project" value="LOCAL" />
       <updated>1646342270797</updated>
     </task>
-    <option name="localTasksCounter" value="55" />
+    <task id="LOCAL-00055" summary="fix: change data buttons in data table, order form, data table, admin pages">
+      <created>1646773825756</created>
+      <option name="number" value="00055" />
+      <option name="presentableId" value="LOCAL-00055" />
+      <option name="project" value="LOCAL" />
+      <updated>1646773825757</updated>
+    </task>
+    <option name="localTasksCounter" value="56" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -535,7 +518,6 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="fix: order form submit" />
     <MESSAGE value="fix: order form submit, formDialog" />
     <MESSAGE value="fix: order form cancel" />
     <MESSAGE value="fix: date time pick&#10;feat: add extracting city and master by id" />
@@ -560,7 +542,8 @@
     <MESSAGE value="feat: model mail in store, action send mail, when add order form submitted" />
     <MESSAGE value="feat: delete &amp; update actions on models&#10;fix: actions" />
     <MESSAGE value="feat: delete &amp; update on tables" />
-    <option name="LAST_COMMIT_MESSAGE" value="feat: delete &amp; update on tables" />
+    <MESSAGE value="fix: change data buttons in data table, order form, data table, admin pages" />
+    <option name="LAST_COMMIT_MESSAGE" value="fix: change data buttons in data table, order form, data table, admin pages" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
