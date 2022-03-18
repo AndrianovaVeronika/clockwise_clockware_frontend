@@ -3,14 +3,12 @@ import 'react-pro-sidebar/dist/css/styles.css';
 import AccountBoxIcon from '@mui/icons-material/AccountBox';
 import BackupTableIcon from '@mui/icons-material/BackupTable';
 import {useNavigate} from "react-router";
-import {useDispatch, useSelector} from "react-redux";
+import {useSelector} from "react-redux";
 import LogoutIcon from '@mui/icons-material/Logout';
-import {logOut} from "../../../store/actions/auth";
 import {isAdminSelector} from "../../../store/selectors/authSelector";
 import AddTaskIcon from '@mui/icons-material/AddTask';
 
 const Sidebar = () => {
-    const dispatch = useDispatch();
     const navigate = useNavigate();
     const isAdmin = useSelector(isAdminSelector);
 
@@ -33,10 +31,7 @@ const Sidebar = () => {
                         <MenuItem onClick={() => navigate('/admin/masters')}>Masters</MenuItem>
                         <MenuItem onClick={() => navigate('/admin/cities')}>Cities</MenuItem>
                     </SubMenu>}
-                    <MenuItem icon={<LogoutIcon/>} onClick={() => {
-                        dispatch(logOut());
-                        navigate('/');
-                    }}>Log out</MenuItem>
+                    <MenuItem icon={<LogoutIcon/>} onClick={() => navigate('/logout')}>Log out</MenuItem>
                 </Menu>
             </ProSidebar>
         </>

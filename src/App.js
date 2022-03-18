@@ -8,6 +8,7 @@ import ErrorNotAdminPage from "./components/Pages/ErrorPages/ErrorAccessAdminDen
 import SignInPage from "./components/Pages/AuthPages/SignInPage";
 import SignUpPage from "./components/Pages/AuthPages/SignUpPage";
 import Spinner from "./components/PageComponents/Spinner";
+import LogoutAlertDialog from "./components/Dialogs/LogoutAlertDialog";
 
 const HomePage = React.lazy(() => import("./components/Pages/HomePage"));
 const ProfilePage = React.lazy(() => import("./components/Pages/UserPages/ProfilePage"));
@@ -23,7 +24,6 @@ function App() {
         dispatch(verifyUserAccess());
     }, [dispatch]);
 
-
     return (
         <>
             <Routes>
@@ -33,6 +33,7 @@ function App() {
                 <Route path='/signup' element={<SignUpPage/>}/>
                 <Route path='/profile' element={<ProfilePage/>}/>
                 <Route path='/add/order' element={<AddOrderPage/>}/>
+                <Route path='/logout' element={<LogoutAlertDialog/>}/>
                 <Route path='/admin/orders' element={<AdminOrdersPage/>}/>
                 <Route path='/admin/users' element={<AdminUsersPage/>}/>
                 <Route path='/admin/masters' element={<AdminMastersPage/>}/>

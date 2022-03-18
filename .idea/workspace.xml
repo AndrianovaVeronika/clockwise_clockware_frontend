@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="47aa944b-1eed-4aaf-807f-af5d121fc908" name="Changes" comment="fix: change data buttons in data table, order form, data table, admin pages">
+    <list default="true" id="47aa944b-1eed-4aaf-807f-af5d121fc908" name="Changes" comment="fix: order form">
+      <change afterPath="$PROJECT_DIR$/src/components/Dialogs/LogoutAlertDialog/index.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Forms/OrderForm/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Forms/OrderForm/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Pages/UserPages/AddOrderPage/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Pages/UserPages/AddOrderPage/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/PageComponents/Sidebar/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/PageComponents/Sidebar/index.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -154,14 +155,8 @@
       <workItem from="1646307394723" duration="14942000" />
       <workItem from="1646397843412" duration="14256000" />
       <workItem from="1646676979121" duration="25705000" />
-      <workItem from="1647001544432" duration="4845000" />
-    </task>
-    <task id="LOCAL-00007" summary="fix: Order form, texts, Home page &amp; Amin page exports">
-      <created>1642110078271</created>
-      <option name="number" value="00007" />
-      <option name="presentableId" value="LOCAL-00007" />
-      <option name="project" value="LOCAL" />
-      <updated>1642110078271</updated>
+      <workItem from="1647001544432" duration="5538000" />
+      <workItem from="1647600683538" duration="4721000" />
     </task>
     <task id="LOCAL-00008" summary="fix: Order form">
       <created>1642166004699</created>
@@ -499,7 +494,14 @@
       <option name="project" value="LOCAL" />
       <updated>1646773825757</updated>
     </task>
-    <option name="localTasksCounter" value="56" />
+    <task id="LOCAL-00056" summary="fix: order form">
+      <created>1647010319903</created>
+      <option name="number" value="00056" />
+      <option name="presentableId" value="LOCAL-00056" />
+      <option name="project" value="LOCAL" />
+      <updated>1647010319903</updated>
+    </task>
+    <option name="localTasksCounter" value="57" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -530,7 +532,6 @@
     <MESSAGE value="feat: add clockType model to store" />
     <MESSAGE value="fix: credentials form step" />
     <MESSAGE value="feat: hoc with redirect after logout, auth model&#10;fix: return statements in store when error catched" />
-    <MESSAGE value="fix: order form" />
     <MESSAGE value="fix: styles&#10;feat: with redirect if not Admin, sidebar" />
     <MESSAGE value="fix" />
     <MESSAGE value="fix: try fix dependencies" />
@@ -543,7 +544,8 @@
     <MESSAGE value="feat: delete &amp; update actions on models&#10;fix: actions" />
     <MESSAGE value="feat: delete &amp; update on tables" />
     <MESSAGE value="fix: change data buttons in data table, order form, data table, admin pages" />
-    <option name="LAST_COMMIT_MESSAGE" value="fix: change data buttons in data table, order form, data table, admin pages" />
+    <MESSAGE value="fix: order form" />
+    <option name="LAST_COMMIT_MESSAGE" value="fix: order form" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
