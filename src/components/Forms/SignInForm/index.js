@@ -29,12 +29,11 @@ const SignInForm = () => {
         <Box>
             <Paper
                 style={{
-                    maxHeight: '200px',
+                    maxHeight: '400px',
                     maxWidth: '400px',
                     minHeight: '100px',
                     minWidth: '200px',
-                    padding: '40px 30px',
-                    margin: '10px auto',
+                    padding: '30px',
                     flexDirection: 'column',
                 }}
             >
@@ -49,6 +48,7 @@ const SignInForm = () => {
                                        error={props.errors.name && props.touched.name}
                                        helperText={<ErrorMessage name='username'/>}
                                        required
+                                       style={{margin: '5px'}}
                                 />
                                 <Field as={TextField}
                                        label='Password'
@@ -58,6 +58,7 @@ const SignInForm = () => {
                                        error={props.errors.name && props.touched.name}
                                        helperText={<ErrorMessage name='password'/>}
                                        required
+                                       style={{margin: '5px'}}
                                 />
                             </Form>
                         )

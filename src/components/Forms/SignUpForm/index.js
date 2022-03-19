@@ -31,12 +31,12 @@ const SignUpForm = () => {
         <Box>
             <Paper
                 style={{
-                    maxHeight: '200px',
+                    display: 'flex',
+                    maxHeight: '400px',
                     maxWidth: '400px',
                     minHeight: '100px',
                     minWidth: '200px',
-                    padding: '40px 30px',
-                    margin: '10px auto',
+                    padding: '30px',
                     flexDirection: 'column',
                 }}
             >
@@ -51,6 +51,7 @@ const SignUpForm = () => {
                                        error={props.errors.name && props.touched.name}
                                        helperText={<ErrorMessage name='username'/>}
                                        required
+                                       style={{margin: '5px'}}
                                 />
                                 <Field as={TextField}
                                        label='Почта'
@@ -59,6 +60,7 @@ const SignUpForm = () => {
                                        helperText={<ErrorMessage name='email'/>}
                                        required
                                        fullWidth
+                                       style={{margin: '5px'}}
                                 />
                                 <Field as={TextField}
                                        label='Password'
@@ -68,6 +70,7 @@ const SignUpForm = () => {
                                        helperText={<ErrorMessage name='password'/>}
                                        required
                                        type="password"
+                                       style={{margin: '5px'}}
                                 />
                             </Form>
                         )

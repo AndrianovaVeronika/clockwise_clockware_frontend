@@ -1,11 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="47aa944b-1eed-4aaf-807f-af5d121fc908" name="Changes" comment="fix: order form">
-      <change afterPath="$PROJECT_DIR$/src/components/Dialogs/LogoutAlertDialog/index.js" afterDir="false" />
+    <list default="true" id="47aa944b-1eed-4aaf-807f-af5d121fc908" name="Changes" comment="feat: logout alert dialog">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/PageComponents/Sidebar/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/PageComponents/Sidebar/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Forms/SignInForm/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Forms/SignInForm/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Forms/SignUpForm/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Forms/SignUpForm/index.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -156,14 +155,9 @@
       <workItem from="1646397843412" duration="14256000" />
       <workItem from="1646676979121" duration="25705000" />
       <workItem from="1647001544432" duration="5538000" />
-      <workItem from="1647600683538" duration="4721000" />
-    </task>
-    <task id="LOCAL-00008" summary="fix: Order form">
-      <created>1642166004699</created>
-      <option name="number" value="00008" />
-      <option name="presentableId" value="LOCAL-00008" />
-      <option name="project" value="LOCAL" />
-      <updated>1642166004699</updated>
+      <workItem from="1647600683538" duration="5398000" />
+      <workItem from="1647622362346" duration="2612000" />
+      <workItem from="1647701012800" duration="3550000" />
     </task>
     <task id="LOCAL-00009" summary="fix: dependencies">
       <created>1642352631110</created>
@@ -501,7 +495,14 @@
       <option name="project" value="LOCAL" />
       <updated>1647010319903</updated>
     </task>
-    <option name="localTasksCounter" value="57" />
+    <task id="LOCAL-00057" summary="feat: logout alert dialog">
+      <created>1647608664725</created>
+      <option name="number" value="00057" />
+      <option name="presentableId" value="LOCAL-00057" />
+      <option name="project" value="LOCAL" />
+      <updated>1647608664725</updated>
+    </task>
+    <option name="localTasksCounter" value="58" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -520,7 +521,6 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="fix: order form submit, formDialog" />
     <MESSAGE value="fix: order form cancel" />
     <MESSAGE value="fix: date time pick&#10;feat: add extracting city and master by id" />
     <MESSAGE value="fix: form dialog cancel action" />
@@ -545,7 +545,8 @@
     <MESSAGE value="feat: delete &amp; update on tables" />
     <MESSAGE value="fix: change data buttons in data table, order form, data table, admin pages" />
     <MESSAGE value="fix: order form" />
-    <option name="LAST_COMMIT_MESSAGE" value="fix: order form" />
+    <MESSAGE value="feat: logout alert dialog" />
+    <option name="LAST_COMMIT_MESSAGE" value="feat: logout alert dialog" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
