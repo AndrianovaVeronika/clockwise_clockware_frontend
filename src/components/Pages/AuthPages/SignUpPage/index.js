@@ -14,7 +14,7 @@ const SignUpPage = () => {
                 justifyContent: 'center',
                 alignItems: 'center'
             }}>
-                <SignUpForm/>
+                <SignUpForm signup={true}/>
             </div>
         </div>
     )

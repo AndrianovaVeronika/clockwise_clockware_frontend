@@ -3,13 +3,13 @@ import {ErrorMessage, Field, Form, Formik} from "formik";
 import {Paper, TextField} from "@mui/material";
 import * as Yup from "yup";
 import {useDispatch} from "react-redux";
+import useStyles from "../styles";
 
 const initialValues = {name: ''};
 
 const CityForm = ({specifiedInitialValues, submitAction}) => {
     const dispatch = useDispatch();
-
-    const paperStyle = {padding: '10px 10px', width: '90%', margin: '10px auto'}
+    const styles = useStyles();
 
     const validationSchema = Yup.object().shape({
         name: Yup.string().min(3, 'Name is too short').required('Required'),
@@ -22,7 +22,7 @@ const CityForm = ({specifiedInitialValues, submitAction}) => {
 
     return (
         <>
-            <Paper elevation={0} style={paperStyle}>
+            <Paper elevation={0} className={styles.formPaper}>
                 <Formik initialValues={specifiedInitialValues || initialValues} validationSchema={validationSchema} onSubmit={onSubmit}>
                     {
                         (props) => (

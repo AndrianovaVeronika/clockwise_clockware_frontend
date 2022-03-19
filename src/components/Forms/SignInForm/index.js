@@ -5,6 +5,7 @@ import * as Yup from "yup";
 import {useDispatch} from "react-redux";
 import {signIn} from "../../../store/actions/auth";
 import {useNavigate} from "react-router";
+import useStyles from "../styles";
 
 const initialValues = {
     username: '',
@@ -14,6 +15,7 @@ const initialValues = {
 const SignInForm = () => {
     const dispatch = useDispatch();
     const navigate = useNavigate();
+    const styles = useStyles();
 
     const validationSchema = Yup.object().shape({
         username: Yup.string().min(3, 'Username is too short').required('Required'),
@@ -27,16 +29,7 @@ const SignInForm = () => {
 
     return (
         <Box>
-            <Paper
-                style={{
-                    maxHeight: '400px',
-                    maxWidth: '400px',
-                    minHeight: '100px',
-                    minWidth: '200px',
-                    padding: '30px',
-                    flexDirection: 'column',
-                }}
-            >
+            <Paper className={styles.authFormPaper}>
                 <Formik initialValues={initialValues} validationSchema={validationSchema} onSubmit={onSubmit}>
                     {
                         (props) => (
@@ -48,7 +41,7 @@ const SignInForm = () => {
                                        error={props.errors.name && props.touched.name}
                                        helperText={<ErrorMessage name='username'/>}
                                        required
-                                       style={{margin: '5px'}}
+                                       className={styles.formItem}
                                 />
                                 <Field as={TextField}
                                        label='Password'
@@ -58,13 +51,13 @@ const SignInForm = () => {
                                        error={props.errors.name && props.touched.name}
                                        helperText={<ErrorMessage name='password'/>}
                                        required
-                                       style={{margin: '5px'}}
+                                       className={styles.formItem}
                                 />
                             </Form>
                         )
                     }
                 </Formik>
-                <div style={{display: 'flex', justifyContent: 'flex-end'}}>
+                <div className={styles.authFormButtons}>
                     <Button onClick={() => navigate('/')}>Отмена</Button>
                     <Button
                         type='submit'

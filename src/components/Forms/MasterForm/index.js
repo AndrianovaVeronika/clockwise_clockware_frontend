@@ -7,6 +7,7 @@ import {getCities} from "../../../store/actions/cities";
 import {useDispatch, useSelector} from "react-redux";
 import FormSelect from "../FormSelect";
 import {getCitiesSelector} from "../../../store/selectors/citiesSelector";
+import useStyles from "../styles";
 
 const initialValues = {
     name: '',
@@ -15,6 +16,7 @@ const initialValues = {
 
 const MasterForm = ({specifiedInitialValues, submitAction}) => {
     const dispatch = useDispatch();
+    const styles = useStyles();
 
     const [citiesChosed, setCitiesChosed] = useState([]);
 
@@ -46,8 +48,6 @@ const MasterForm = ({specifiedInitialValues, submitAction}) => {
         dispatch(getCities());
     }, [dispatch])
 
-    const paperStyle = {padding: '10px 10px', width: '90%', margin: '10px auto'}
-
     const validationSchema = Yup.object().shape({
         name: Yup.string().min(3, 'Name is too short').required('Required'),
     })
@@ -60,7 +60,7 @@ const MasterForm = ({specifiedInitialValues, submitAction}) => {
 
     return (
         <>
-            <Paper elevation={0} style={paperStyle}>
+            <Paper elevation={0} className={styles.authFormButtons}>
                 <Formik initialValues={specifiedInitialValues || initialValues} validationSchema={validationSchema} onSubmit={onSubmit}>
                     {
                         (props) => (
@@ -72,6 +72,7 @@ const MasterForm = ({specifiedInitialValues, submitAction}) => {
                                        error={props.errors.name && props.touched.name}
                                        helperText={<ErrorMessage name='name'/>}
                                        required
+                                       className={styles.formItem}
                                 />
                                 <div>
                                     <Typography component="legend">Rating</Typography>
@@ -79,6 +80,7 @@ const MasterForm = ({specifiedInitialValues, submitAction}) => {
                                         name="rating"
                                         value={props.values.rating}
                                         onChange={({target}) => props.setFieldValue('rating', parseInt(target.value))}
+                                        className={styles.formItem}
                                     />
                                 </div>
                                 <FormSelect
@@ -89,6 +91,7 @@ const MasterForm = ({specifiedInitialValues, submitAction}) => {
                                     onChange={handleChange}
                                     multiple
                                     fullWidth
+                                    className={styles.formItem}
                                 />
                             </Form>
                         )

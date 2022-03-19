@@ -4,7 +4,7 @@ import {deleteUser, getUsers, updateUser} from "../../../store/actions/users";
 import {getUsersSelector} from "../../../store/selectors/usersSelector";
 import DataTable from "../DataTable";
 import {signUp} from "../../../store/actions/auth";
-import UserForm from "../../Forms/UserForm";
+import SignUpForm from "../../Forms/SignUpForm";
 
 const columns = [
     {
@@ -38,8 +38,8 @@ const UsersTable = () => {
                 onRowDelete={deleteUser}
                 onRowUpdate={updateUser}
                 onRowAdd={signUp}
-                formId='user-form'
-                ModelForm={UserForm}
+                formId='signup-form'
+                ModelForm={SignUpForm}
             />
         </>
     );

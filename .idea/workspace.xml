@@ -1,10 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="47aa944b-1eed-4aaf-807f-af5d121fc908" name="Changes" comment="feat: logout alert dialog">
+    <list default="true" id="47aa944b-1eed-4aaf-807f-af5d121fc908" name="Changes" comment="fix: styles">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/DataTables/UsersTable/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/DataTables/UsersTable/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Forms/CityForm/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Forms/CityForm/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Forms/MasterForm/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Forms/MasterForm/index.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/Forms/SignInForm/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Forms/SignInForm/index.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/Forms/SignUpForm/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Forms/SignUpForm/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Forms/UserForm/index.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Forms/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Forms/styles.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Pages/AuthPages/SignUpPage/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Pages/AuthPages/SignUpPage/index.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -157,14 +163,7 @@
       <workItem from="1647001544432" duration="5538000" />
       <workItem from="1647600683538" duration="5398000" />
       <workItem from="1647622362346" duration="2612000" />
-      <workItem from="1647701012800" duration="3550000" />
-    </task>
-    <task id="LOCAL-00009" summary="fix: dependencies">
-      <created>1642352631110</created>
-      <option name="number" value="00009" />
-      <option name="presentableId" value="LOCAL-00009" />
-      <option name="project" value="LOCAL" />
-      <updated>1642352631110</updated>
+      <workItem from="1647701012800" duration="7330000" />
     </task>
     <task id="LOCAL-00010" summary="fix: dependencies">
       <created>1642352911050</created>
@@ -502,7 +501,14 @@
       <option name="project" value="LOCAL" />
       <updated>1647608664725</updated>
     </task>
-    <option name="localTasksCounter" value="58" />
+    <task id="LOCAL-00058" summary="fix: styles">
+      <created>1647707909026</created>
+      <option name="number" value="00058" />
+      <option name="presentableId" value="LOCAL-00058" />
+      <option name="project" value="LOCAL" />
+      <updated>1647707909027</updated>
+    </task>
+    <option name="localTasksCounter" value="59" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -539,14 +545,14 @@
     <MESSAGE value="feat: log out, with redirect if not admin" />
     <MESSAGE value="feat: add order page&#10;fix: add order form styles" />
     <MESSAGE value="feat: add lazy-loading, spinner&#10;fix: styles" />
-    <MESSAGE value="fix: styles" />
     <MESSAGE value="feat: model mail in store, action send mail, when add order form submitted" />
     <MESSAGE value="feat: delete &amp; update actions on models&#10;fix: actions" />
     <MESSAGE value="feat: delete &amp; update on tables" />
     <MESSAGE value="fix: change data buttons in data table, order form, data table, admin pages" />
     <MESSAGE value="fix: order form" />
     <MESSAGE value="feat: logout alert dialog" />
-    <option name="LAST_COMMIT_MESSAGE" value="feat: logout alert dialog" />
+    <MESSAGE value="fix: styles" />
+    <option name="LAST_COMMIT_MESSAGE" value="fix: styles" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

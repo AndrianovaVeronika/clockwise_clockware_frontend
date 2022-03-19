@@ -2,9 +2,10 @@ import {useDispatch} from "react-redux";
 import {useNavigate} from "react-router";
 import * as Yup from "yup";
 import {signUp} from "../../../store/actions/auth";
-import {Box, Button, Dialog, DialogContent, Paper, TextField} from "@mui/material";
+import {Box, Button, Paper, TextField} from "@mui/material";
 import {ErrorMessage, Field, Form, Formik} from "formik";
 import React from "react";
+import useStyles from "../styles";
 
 const initialValues = {
     username: '',
@@ -12,9 +13,10 @@ const initialValues = {
     password: ''
 };
 
-const SignUpForm = () => {
+const SignUpForm = ({signup = false}) => {
     const dispatch = useDispatch();
     const navigate = useNavigate();
+    const styles = useStyles();
 
     const validationSchema = Yup.object().shape({
         username: Yup.string().min(3, 'Username is too short').required('Required'),
@@ -29,17 +31,7 @@ const SignUpForm = () => {
 
     return (
         <Box>
-            <Paper
-                style={{
-                    display: 'flex',
-                    maxHeight: '400px',
-                    maxWidth: '400px',
-                    minHeight: '100px',
-                    minWidth: '200px',
-                    padding: '30px',
-                    flexDirection: 'column',
-                }}
-            >
+            <Paper elevation={signup? 3 : 0} className={signup ? styles.authFormPaper : styles.formPaper}>
                 <Formik initialValues={initialValues} validationSchema={validationSchema} onSubmit={onSubmit}>
                     {
                         (props) => (
@@ -51,7 +43,7 @@ const SignUpForm = () => {
                                        error={props.errors.name && props.touched.name}
                                        helperText={<ErrorMessage name='username'/>}
                                        required
-                                       style={{margin: '5px'}}
+                                       className={styles.formItem}
                                 />
                                 <Field as={TextField}
                                        label='Почта'
@@ -60,7 +52,7 @@ const SignUpForm = () => {
                                        helperText={<ErrorMessage name='email'/>}
                                        required
                                        fullWidth
-                                       style={{margin: '5px'}}
+                                       className={styles.formItem}
                                 />
                                 <Field as={TextField}
                                        label='Password'
@@ -70,19 +62,19 @@ const SignUpForm = () => {
                                        helperText={<ErrorMessage name='password'/>}
                                        required
                                        type="password"
-                                       style={{margin: '5px'}}
+                                       className={styles.formItem}
                                 />
                             </Form>
                         )
                     }
                 </Formik>
-                <div style={{display: 'flex', justifyContent: 'flex-end'}}>
+                {signup && <div className={styles.authFormButtons}>
                     <Button onClick={() => navigate('/')}>Отмена</Button>
                     <Button
                         type='submit'
                         form='signup-form'
                     >Отправить</Button>
-                </div>
+                </div>}
             </Paper>
         </Box>
     )
