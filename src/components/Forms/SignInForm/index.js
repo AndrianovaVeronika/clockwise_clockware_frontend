@@ -5,7 +5,7 @@ import * as Yup from "yup";
 import {useDispatch} from "react-redux";
 import {signIn} from "../../../store/actions/auth";
 import {useNavigate} from "react-router";
-import useStyles from "../styles";
+import {FormField, useStyles} from "../styles";
 
 const initialValues = {
     username: '',
@@ -29,21 +29,20 @@ const SignInForm = () => {
 
     return (
         <Box>
-            <Paper className={styles.authFormPaper}>
+            <Paper className={styles.formPaper}>
                 <Formik initialValues={initialValues} validationSchema={validationSchema} onSubmit={onSubmit}>
                     {
                         (props) => (
                             <Form id='auth-form'>
-                                <Field as={TextField}
+                                <FormField as={TextField}
                                        label='Username'
                                        name='username'
                                        fullWidth
                                        error={props.errors.name && props.touched.name}
                                        helperText={<ErrorMessage name='username'/>}
                                        required
-                                       className={styles.formItem}
                                 />
-                                <Field as={TextField}
+                                <FormField as={TextField}
                                        label='Password'
                                        name='password'
                                        type='password'
@@ -51,7 +50,6 @@ const SignInForm = () => {
                                        error={props.errors.name && props.touched.name}
                                        helperText={<ErrorMessage name='password'/>}
                                        required
-                                       className={styles.formItem}
                                 />
                             </Form>
                         )

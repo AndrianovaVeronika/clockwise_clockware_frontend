@@ -1,6 +1,7 @@
 import React from 'react';
 import gearsBackgroundImage from '../../../../static/gears-background-image.jpg';
 import SignUpForm from "../../../Forms/SignUpForm";
+import {signUp} from "../../../../store/actions/auth";
 
 const SignUpPage = () => {
     return (
@@ -14,7 +15,7 @@ const SignUpPage = () => {
                 justifyContent: 'center',
                 alignItems: 'center'
             }}>
-                <SignUpForm signup={true}/>
+                <SignUpForm submitAction={signUp} signup={true}/>
             </div>
         </div>
     )

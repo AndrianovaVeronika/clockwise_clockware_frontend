@@ -1,27 +1,21 @@
 import {makeStyles} from "@mui/styles";
+import {Field} from "formik";
 
-const useStyles = makeStyles({
+export const useStyles = makeStyles({
     formPaper: {
-        padding: '10px 10px',
-        width: '90%',
-        margin: '10px auto'
-    },
-    authFormPaper: {
         display: 'flex',
-        maxHeight: '400px',
-        maxWidth: '400px',
-        minHeight: '100px',
-        minWidth: '200px',
-        padding: '30px',
         flexDirection: 'column',
+        maxWidth: '400px',
+        minHeight: '150px',
+        minWidth: '250px',
+        padding: '30px',
     },
     authFormButtons: {
         display: 'flex',
         justifyContent: 'flex-end'
-    },
-    formItem: {
-        margin: '5px'
     }
 });
 
-export default useStyles;
+export const FormField = (props) => (
+    <Field sx={{margin: '5px'}} {...props}/>
+);

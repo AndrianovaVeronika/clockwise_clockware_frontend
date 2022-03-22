@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from 'react';
-import {Button, Paper, Step, StepLabel, Stepper} from "@mui/material";
+import {Button, Step, StepLabel, Stepper} from "@mui/material";
 import CredentialsForm from "./CredentialsForm";
 import {getOrders} from "../../../store/actions/orders";
 import {getCities} from "../../../store/actions/cities";

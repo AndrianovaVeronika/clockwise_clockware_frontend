@@ -1,6 +1,7 @@
 import * as React from 'react';
 import {useState} from 'react';
-import {Button, Dialog, DialogActions, DialogContent, DialogTitle} from '@mui/material';
+import {Button, Dialog, DialogActions, DialogContent, DialogTitle, IconButton} from '@mui/material';
+import CloseIcon from '@mui/icons-material/Close';
 
 const FormDialog = ({
                         openDialogButtonText,
@@ -34,7 +35,7 @@ const FormDialog = ({
     }
 
     const OpenFormButton = () => {
-        if (OpenButton){
+        if (OpenButton) {
             return <OpenButton onClick={toggle}/>;
         }
 
@@ -57,20 +58,25 @@ const FormDialog = ({
         <>
             {<OpenButton/> && <OpenFormButton/>}
             <Dialog open={open} onClose={toggle}>
+                <div style={{display: 'flex', justifyContent: 'flex-end'}}>
+                    <IconButton onClick={onCancelAction}><CloseIcon/></IconButton>
+                </div>
                 <DialogTitle>
                     {dialogTitle}
                 </DialogTitle>
                 <DialogContent>
                     {children}
                 </DialogContent>
-                {!hideDialogActions && <DialogActions>
-                    <Button onClick={onCancelAction}>Отмена</Button>
-                    {show && submitButtonParams &&
-                    <Button
-                        onClick={onSubmitAction}
-                        {...params}
-                    >{submitButtonText}</Button>}
-                </DialogActions>}
+                <DialogActions>
+                    {!hideDialogActions && show && submitButtonParams &&
+                    <>
+                        <Button
+                            onClick={onSubmitAction}
+                            {...params}
+                        >{submitButtonText}</Button>
+                    </>
+                    }
+                </DialogActions>
             </Dialog>
         </>
     );

@@ -5,7 +5,7 @@ import {signUp} from "../../../store/actions/auth";
 import {Box, Button, Paper, TextField} from "@mui/material";
 import {ErrorMessage, Field, Form, Formik} from "formik";
 import React from "react";
-import useStyles from "../styles";
+import {useStyles, FormField} from "../styles";
 
 const initialValues = {
     username: '',
@@ -13,7 +13,7 @@ const initialValues = {
     password: ''
 };
 
-const SignUpForm = ({signup = false}) => {
+const SignUpForm = ({submitAction, specifiedInitialValues, signup = false}) => {
     const dispatch = useDispatch();
     const navigate = useNavigate();
     const styles = useStyles();
@@ -25,36 +25,34 @@ const SignUpForm = ({signup = false}) => {
     })
 
     const onSubmit = async (values, props) => {
-        await dispatch(signUp(values));
+        await dispatch(submitAction(values));
         navigate('/login');
     }
 
     return (
         <Box>
-            <Paper elevation={signup? 3 : 0} className={signup ? styles.authFormPaper : styles.formPaper}>
-                <Formik initialValues={initialValues} validationSchema={validationSchema} onSubmit={onSubmit}>
+            <Paper elevation={signup? 3 : 0} className={styles.formPaper}>
+                <Formik initialValues={specifiedInitialValues || initialValues} validationSchema={validationSchema} onSubmit={onSubmit}>
                     {
                         (props) => (
                             <Form id='signup-form'>
-                                <Field as={TextField}
+                                <FormField as={TextField}
                                        label='Username'
                                        name='username'
                                        fullWidth
                                        error={props.errors.name && props.touched.name}
                                        helperText={<ErrorMessage name='username'/>}
                                        required
-                                       className={styles.formItem}
                                 />
-                                <Field as={TextField}
+                                <FormField as={TextField}
                                        label='Почта'
                                        name='email'
                                        error={props.errors.email && props.touched.email}
                                        helperText={<ErrorMessage name='email'/>}
                                        required
                                        fullWidth
-                                       className={styles.formItem}
                                 />
-                                <Field as={TextField}
+                                <FormField as={TextField}
                                        label='Password'
                                        name='password'
                                        fullWidth
@@ -62,14 +60,13 @@ const SignUpForm = ({signup = false}) => {
                                        helperText={<ErrorMessage name='password'/>}
                                        required
                                        type="password"
-                                       className={styles.formItem}
                                 />
                             </Form>
                         )
                     }
                 </Formik>
                 {signup && <div className={styles.authFormButtons}>
-                    <Button onClick={() => navigate('/')}>Отмена</Button>
+                    <Button onClick={() => signup? navigate('/') : navigate('/admin/users')}>Отмена</Button>
                     <Button
                         type='submit'
                         form='signup-form'

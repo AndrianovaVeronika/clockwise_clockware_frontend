@@ -9,6 +9,7 @@ import SignInPage from "./components/Pages/AuthPages/SignInPage";
 import SignUpPage from "./components/Pages/AuthPages/SignUpPage";
 import Spinner from "./components/PageComponents/Spinner";
 import LogoutAlertDialog from "./components/Dialogs/LogoutAlertDialog";
+import {makeStyles} from "@mui/styles";
 
 const HomePage = React.lazy(() => import("./components/Pages/HomePage"));
 const ProfilePage = React.lazy(() => import("./components/Pages/UserPages/ProfilePage"));
@@ -17,6 +18,12 @@ const AdminMastersPage = React.lazy(() => import("./components/Pages/AdminPages/
 const AdminCitiesPage = React.lazy(() => import("./components/Pages/AdminPages/AdminCitiesPage"));
 const AdminUsersPage = React.lazy(() => import("./components/Pages/AdminPages/AdminUsersPage"));
 const AddOrderPage = React.lazy(() => import("./components/Pages/UserPages/AddOrderPage"));
+
+// const styles = makeStyles({
+//     Button: {
+//
+//     }
+// })
 
 function App() {
     const dispatch = useDispatch();

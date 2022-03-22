@@ -7,7 +7,7 @@ import {getCities} from "../../../store/actions/cities";
 import {useDispatch, useSelector} from "react-redux";
 import FormSelect from "../FormSelect";
 import {getCitiesSelector} from "../../../store/selectors/citiesSelector";
-import useStyles from "../styles";
+import {FormField, useStyles} from "../styles";
 
 const initialValues = {
     name: '',
@@ -65,14 +65,13 @@ const MasterForm = ({specifiedInitialValues, submitAction}) => {
                     {
                         (props) => (
                             <Form className='masterForm' id='master-form'>
-                                <Field as={TextField}
+                                <FormField as={TextField}
                                        label='Name'
                                        name='name'
                                        fullWidth
                                        error={props.errors.name && props.touched.name}
                                        helperText={<ErrorMessage name='name'/>}
                                        required
-                                       className={styles.formItem}
                                 />
                                 <div>
                                     <Typography component="legend">Rating</Typography>
@@ -80,7 +79,6 @@ const MasterForm = ({specifiedInitialValues, submitAction}) => {
                                         name="rating"
                                         value={props.values.rating}
                                         onChange={({target}) => props.setFieldValue('rating', parseInt(target.value))}
-                                        className={styles.formItem}
                                     />
                                 </div>
                                 <FormSelect
@@ -91,7 +89,6 @@ const MasterForm = ({specifiedInitialValues, submitAction}) => {
                                     onChange={handleChange}
                                     multiple
                                     fullWidth
-                                    className={styles.formItem}
                                 />
                             </Form>
                         )
