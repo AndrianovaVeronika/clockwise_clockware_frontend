@@ -19,12 +19,6 @@ const AdminCitiesPage = React.lazy(() => import("./components/Pages/AdminPages/A
 const AdminUsersPage = React.lazy(() => import("./components/Pages/AdminPages/AdminUsersPage"));
 const AddOrderPage = React.lazy(() => import("./components/Pages/UserPages/AddOrderPage"));
 
-// const styles = makeStyles({
-//     Button: {
-//
-//     }
-// })
-
 function App() {
     const dispatch = useDispatch();
     useEffect(() => {
