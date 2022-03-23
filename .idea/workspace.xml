@@ -1,17 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="47aa944b-1eed-4aaf-807f-af5d121fc908" name="Changes" comment="delete: user form&#10;fix: styles, signup form&#10;feat: forms/styles">
+    <list default="true" id="47aa944b-1eed-4aaf-807f-af5d121fc908" name="Changes" comment="fix: styles">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Dialogs/FormDialog/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Dialogs/FormDialog/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/DataTables/DataTable/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/DataTables/DataTable/index.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/Forms/CityForm/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Forms/CityForm/index.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/Forms/MasterForm/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Forms/MasterForm/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Forms/OrderForm/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Forms/OrderForm/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Forms/SignInForm/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Forms/SignInForm/index.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/Forms/SignUpForm/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Forms/SignUpForm/index.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/Forms/styles.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Forms/styles.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Pages/AuthPages/SignUpPage/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Pages/AuthPages/SignUpPage/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/PageComponents/Sidebar/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/PageComponents/Sidebar/index.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -165,14 +162,8 @@
       <workItem from="1647600683538" duration="5398000" />
       <workItem from="1647622362346" duration="2612000" />
       <workItem from="1647701012800" duration="7430000" />
-      <workItem from="1647849386269" duration="14735000" />
-    </task>
-    <task id="LOCAL-00011" summary="fix: dependencies">
-      <created>1642361805309</created>
-      <option name="number" value="00011" />
-      <option name="presentableId" value="LOCAL-00011" />
-      <option name="project" value="LOCAL" />
-      <updated>1642361805309</updated>
+      <workItem from="1647849386269" duration="14963000" />
+      <workItem from="1648033162961" duration="8162000" />
     </task>
     <task id="LOCAL-00012" summary="fix: .env initial">
       <created>1642363110113</created>
@@ -510,7 +501,14 @@
       <option name="project" value="LOCAL" />
       <updated>1647717730188</updated>
     </task>
-    <option name="localTasksCounter" value="60" />
+    <task id="LOCAL-00060" summary="fix: styles">
+      <created>1647987601234</created>
+      <option name="number" value="00060" />
+      <option name="presentableId" value="LOCAL-00060" />
+      <option name="project" value="LOCAL" />
+      <updated>1647987601235</updated>
+    </task>
+    <option name="localTasksCounter" value="61" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -551,10 +549,10 @@
     <MESSAGE value="fix: change data buttons in data table, order form, data table, admin pages" />
     <MESSAGE value="fix: order form" />
     <MESSAGE value="feat: logout alert dialog" />
-    <MESSAGE value="fix: styles" />
     <MESSAGE value="delete: user form&#10;fix: styles, signup form" />
     <MESSAGE value="delete: user form&#10;fix: styles, signup form&#10;feat: forms/styles" />
-    <option name="LAST_COMMIT_MESSAGE" value="delete: user form&#10;fix: styles, signup form&#10;feat: forms/styles" />
+    <MESSAGE value="fix: styles" />
+    <option name="LAST_COMMIT_MESSAGE" value="fix: styles" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

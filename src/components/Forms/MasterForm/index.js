@@ -1,8 +1,7 @@
 import React, {useEffect, useState} from "react";
-import {ErrorMessage, Field, Form, Formik} from "formik";
+import {ErrorMessage, Form, Formik} from "formik";
 import {Paper, Rating, TextField, Typography} from "@mui/material";
 import * as Yup from 'yup';
-import {addMaster} from "../../../store/actions/masters";
 import {getCities} from "../../../store/actions/cities";
 import {useDispatch, useSelector} from "react-redux";
 import FormSelect from "../FormSelect";
@@ -60,20 +59,24 @@ const MasterForm = ({specifiedInitialValues, submitAction}) => {
 
     return (
         <>
-            <Paper elevation={0} className={styles.authFormButtons}>
-                <Formik initialValues={specifiedInitialValues || initialValues} validationSchema={validationSchema} onSubmit={onSubmit}>
+            <Paper elevation={0} className={styles.formPaper}>
+                <Formik initialValues={specifiedInitialValues || initialValues} validationSchema={validationSchema}
+                        onSubmit={onSubmit}>
                     {
                         (props) => (
-                            <Form className='masterForm' id='master-form'>
+                            <Form id='master-form'>
                                 <FormField as={TextField}
-                                       label='Name'
-                                       name='name'
-                                       fullWidth
-                                       error={props.errors.name && props.touched.name}
-                                       helperText={<ErrorMessage name='name'/>}
-                                       required
+                                           label='Name'
+                                           name='name'
+                                           fullWidth
+                                           error={props.errors.name && props.touched.name}
+                                           helperText={<ErrorMessage name='name'/>}
+                                           required
+                                           style={{margin: '5px'}}
                                 />
-                                <div>
+                                <div
+                                    style={{margin: '5px'}}
+                                >
                                     <Typography component="legend">Rating</Typography>
                                     <Rating
                                         name="rating"
@@ -89,6 +92,7 @@ const MasterForm = ({specifiedInitialValues, submitAction}) => {
                                     onChange={handleChange}
                                     multiple
                                     fullWidth
+                                    style={{margin: '5px'}}
                                 />
                             </Form>
                         )

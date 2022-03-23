@@ -7,10 +7,16 @@ import {useSelector} from "react-redux";
 import LogoutIcon from '@mui/icons-material/Logout';
 import {isAdminSelector} from "../../../store/selectors/authSelector";
 import AddTaskIcon from '@mui/icons-material/AddTask';
+import {useEffect, useState} from "react";
 
 const Sidebar = () => {
     const navigate = useNavigate();
+    const [isLoading, setLoading] = useState(true);
     const isAdmin = useSelector(isAdminSelector);
+
+    useEffect(() => {
+        setLoading(!isLoading);
+    }, []);
 
     return (
         <>

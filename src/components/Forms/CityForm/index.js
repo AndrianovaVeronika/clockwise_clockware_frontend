@@ -26,7 +26,7 @@ const CityForm = ({specifiedInitialValues, submitAction}) => {
                 <Formik initialValues={specifiedInitialValues || initialValues} validationSchema={validationSchema} onSubmit={onSubmit}>
                     {
                         (props) => (
-                            <Form className='cityForm' id='city-form'>
+                            <Form id='city-form'>
                                 <Field as={TextField}
                                        label='Name'
                                        name='name'

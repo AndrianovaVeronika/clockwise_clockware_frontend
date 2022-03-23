@@ -70,7 +70,7 @@ const DataTable = ({columns, rows, onRowDelete, onRowUpdate, onRowAdd, formId, M
                             <AddIcon/>
                         </IconButton>
                     }}
-                    dialogTitle={'Введите название города'}
+                    dialogTitle={'Введите данные'}
                     submitButtonParams={{
                         submitButtonText: 'Добавить',
                         type: 'submit',
