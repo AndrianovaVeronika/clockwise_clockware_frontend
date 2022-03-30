@@ -10,6 +10,7 @@ const withRedirectAfterLogout = (Component) => (props) => {
 
     useEffect(() => {
         if (!isAuth && !userLoading){
+            console.log('navigated')
             navigate('/login');
         }
     }, [isAuth, userLoading]);

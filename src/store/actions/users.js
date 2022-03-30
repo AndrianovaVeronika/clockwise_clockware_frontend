@@ -15,7 +15,12 @@ export const getUsers = createAsyncThunk(users.GET_USERS, async (_, thunkAPI) =>
 
 export const updateUser = createAsyncThunk(users.UPDATE_USER, async ({id, ...updateValue}, thunkAPI) => {
     try {
-        const response = await instance.put('api/users/' + id, updateValue);
+        const accessToken = sessionStorage.getItem('TOKEN');
+        const response = await instance.put('api/users/' + id, updateValue, {
+            headers: {
+                'x-access-token': accessToken
+            }
+        });
         return response.data;
     } catch (e) {
         return thunkAPI.rejectWithValue(e);
@@ -24,7 +29,12 @@ export const updateUser = createAsyncThunk(users.UPDATE_USER, async ({id, ...upd
 
 export const deleteUser = createAsyncThunk(users.DELETE_USER, async (userId, thunkAPI) => {
     try {
-        const response = await instance.delete('api/users/' + userId);
+        const accessToken = sessionStorage.getItem('TOKEN');
+        const response = await instance.delete('api/users/' + userId, {
+            headers: {
+                'x-access-token': accessToken
+            }
+        });
         return response.data;
     } catch (e) {
         return thunkAPI.rejectWithValue(e);

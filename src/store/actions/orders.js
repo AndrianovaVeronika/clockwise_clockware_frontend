@@ -14,7 +14,12 @@ export const getOrders = createAsyncThunk(orders.GET_ORDERS, async (_, thunkAPI)
 
 export const addOrder = createAsyncThunk(orders.ADD_ORDER, async (newOrder, thunkAPI) => {
     try {
-        const response = await instance.post('/api/orders', newOrder);
+        const accessToken = sessionStorage.getItem('TOKEN');
+        const response = await instance.post('/api/orders', newOrder, {
+            headers: {
+                'x-access-token': accessToken
+            }
+        });
         return response.data;
     } catch (e) {
         return thunkAPI.rejectWithValue(e);
@@ -23,7 +28,12 @@ export const addOrder = createAsyncThunk(orders.ADD_ORDER, async (newOrder, thun
 
 export const updateOrder = createAsyncThunk(orders.UPDATE_ORDER, async ({id, ...updateValue}, thunkAPI) => {
     try {
-        const response = await instance.put('api/orders/' + id, updateValue);
+        const accessToken = sessionStorage.getItem('TOKEN');
+        const response = await instance.put('api/orders/' + id, updateValue, {
+            headers: {
+                'x-access-token': accessToken
+            }
+        });
         return response.data;
     } catch (e) {
         return thunkAPI.rejectWithValue(e);
@@ -32,7 +42,12 @@ export const updateOrder = createAsyncThunk(orders.UPDATE_ORDER, async ({id, ...
 
 export const deleteOrder = createAsyncThunk(orders.DELETE_ORDER, async (orderId, thunkAPI) => {
     try {
-        const response = await instance.delete('api/orders/' + orderId);
+        const accessToken = sessionStorage.getItem('TOKEN');
+        const response = await instance.delete('api/orders/' + orderId, {
+            headers: {
+                'x-access-token': accessToken
+            }
+        });
         return response.data;
     } catch (e) {
         return thunkAPI.rejectWithValue(e);

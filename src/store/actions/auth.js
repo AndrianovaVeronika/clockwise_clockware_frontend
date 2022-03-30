@@ -48,19 +48,3 @@ export const verifyUserAccess = createAsyncThunk(auth.VERIFY_USER_ACCESS, async 
         return thunkAPI.rejectWithValue(e);
     }
 });
-
-// export const verifyAdminAccess = createAsyncThunk(auth.VERIFY_ADMIN_ACCESS, async (_, thunkAPI) => {
-//     try {
-//         const accessToken = sessionStorage.getItem('TOKEN');
-//         const response = await instance.get('/api/test/admin', {
-//             headers: {
-//                 'x-access-token': accessToken
-//             }
-//         });
-//         return response.data;
-//     } catch (e) {
-//         console.log(e);
-//         console.log('verifyUserAccess: Query screwed up with error');
-//         return thunkAPI.rejectWithValue(e);
-//     }
-// });

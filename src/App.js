@@ -9,7 +9,6 @@ import SignInPage from "./components/Pages/AuthPages/SignInPage";
 import SignUpPage from "./components/Pages/AuthPages/SignUpPage";
 import Spinner from "./components/PageComponents/Spinner";
 import LogoutAlertDialog from "./components/Dialogs/LogoutAlertDialog";
-import {makeStyles} from "@mui/styles";
 
 const HomePage = React.lazy(() => import("./components/Pages/HomePage"));
 const ProfilePage = React.lazy(() => import("./components/Pages/UserPages/ProfilePage"));

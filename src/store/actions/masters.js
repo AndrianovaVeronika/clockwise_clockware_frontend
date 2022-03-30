@@ -1,7 +1,6 @@
 import {createAsyncThunk} from "@reduxjs/toolkit";
 import masters from '../constants/masters';
 import instance from "../middleware/api";
-import cities from "../constants/cities";
 
 export const getMasters = createAsyncThunk(masters.GET_MASTERS, async (_, thunkAPI) => {
     try {
@@ -15,7 +14,12 @@ export const getMasters = createAsyncThunk(masters.GET_MASTERS, async (_, thunkA
 
 export const addMaster = createAsyncThunk(masters.ADD_MASTER, async (newMaster, thunkAPI) => {
     try {
-        const response = await instance.post('/api/masters', newMaster);
+        const accessToken = sessionStorage.getItem('TOKEN');
+        const response = await instance.post('/api/masters', newMaster, {
+            headers: {
+                'x-access-token': accessToken
+            }
+        });
         return response.data;
     } catch (e) {
         return thunkAPI.rejectWithValue(e);
@@ -24,8 +28,12 @@ export const addMaster = createAsyncThunk(masters.ADD_MASTER, async (newMaster, 
 
 export const updateMaster = createAsyncThunk(masters.UPDATE_MASTER, async ({id, ...updateValue}, thunkAPI) => {
     try {
-        console.log('updating master', id, updateValue)
-        const response = await instance.put('api/masters/' + id, updateValue);
+        const accessToken = sessionStorage.getItem('TOKEN');
+        const response = await instance.put('api/masters/' + id, updateValue, {
+            headers: {
+                'x-access-token': accessToken
+            }
+        });
         return response.data;
     } catch (e) {
         return thunkAPI.rejectWithValue(e);
@@ -34,7 +42,12 @@ export const updateMaster = createAsyncThunk(masters.UPDATE_MASTER, async ({id, 
 
 export const deleteMaster = createAsyncThunk(masters.DELETE_MASTER, async (masterId, thunkAPI) => {
     try {
-        const response = await instance.delete('api/masters/' + masterId);
+        const accessToken = sessionStorage.getItem('TOKEN');
+        const response = await instance.delete('api/masters/' + masterId, {
+            headers: {
+                'x-access-token': accessToken
+            }
+        });
         return response.data;
     } catch (e) {
         return thunkAPI.rejectWithValue(e);

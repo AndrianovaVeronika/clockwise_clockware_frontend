@@ -28,12 +28,12 @@ const OrderForm = ({specifiedInitialValues, submitAction}) => {
         masterId: '',
         cityId: '',
         date: '',
-        time: '',
+        time: ''
     };
 
     const dispatch = useDispatch();
 
-    useEffect(() => {
+    useEffect( () => {
         dispatch(getUsers());
         dispatch(getCities());
         dispatch(getMasters());
@@ -61,7 +61,7 @@ const OrderForm = ({specifiedInitialValues, submitAction}) => {
     }
 
     const onSubmit = () => {
-        console.log('ON SUBMIT', values)
+        console.log('ON SUBMIT', values);
         dispatch(submitAction(values));
     }
 

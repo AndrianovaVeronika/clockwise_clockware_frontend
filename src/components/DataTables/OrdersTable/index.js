@@ -52,7 +52,6 @@ const OrdersTable = () => {
             master: order.master.name
         }
     });
-    console.log(orders)
 
     return (
         <DataTable

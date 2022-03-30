@@ -39,9 +39,6 @@ const {reducer} = createSlice({
                 state.auth.currentUser = {};
                 state.auth.isAdmin = false;
             })
-            // .addCase(verifyAdminAccess.fulfilled, (state, action) => {
-            //     //...
-            // })
     }
 })
 
