@@ -3,23 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="47aa944b-1eed-4aaf-807f-af5d121fc908" name="Changes" comment="fix: styles">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/DataTables/OrdersTable/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/DataTables/OrdersTable/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Forms/OrderForm/ResultsReport.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Forms/OrderForm/ResultsReport.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Forms/OrderForm/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Forms/OrderForm/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Pages/HomePage/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Pages/HomePage/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/functions/withRedirectAfterLogout.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/functions/withRedirectAfterLogout.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/static/texts.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/static/texts.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/store/actions/auth.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/store/actions/auth.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/store/actions/cities.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/store/actions/cities.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/store/actions/mail.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/store/actions/masters.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/store/actions/masters.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/store/actions/orders.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/store/actions/orders.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/store/actions/users.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/store/actions/users.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/store/constants/mail.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/store/reducers/authReducer.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/store/reducers/authReducer.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/store/reducers/mailReducer.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/store/reducers/rootReducer.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/store/reducers/rootReducer.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -178,14 +161,7 @@
       <workItem from="1648114316968" duration="17793000" />
       <workItem from="1648402779481" duration="676000" />
       <workItem from="1648473404944" duration="7321000" />
-      <workItem from="1648634020209" duration="5396000" />
-    </task>
-    <task id="LOCAL-00014" summary="feat: add cities table, cities admin page &amp; cities form">
-      <created>1643888426031</created>
-      <option name="number" value="00014" />
-      <option name="presentableId" value="LOCAL-00014" />
-      <option name="project" value="LOCAL" />
-      <updated>1643888426031</updated>
+      <workItem from="1648634020209" duration="6125000" />
     </task>
     <task id="LOCAL-00015" summary="fix: orders table">
       <created>1643888986085</created>
@@ -523,7 +499,14 @@
       <option name="project" value="LOCAL" />
       <updated>1648048280932</updated>
     </task>
-    <option name="localTasksCounter" value="63" />
+    <task id="LOCAL-00063" summary="fix: styles">
+      <created>1648656997542</created>
+      <option name="number" value="00063" />
+      <option name="presentableId" value="LOCAL-00063" />
+      <option name="project" value="LOCAL" />
+      <updated>1648656997542</updated>
+    </task>
+    <option name="localTasksCounter" value="64" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
