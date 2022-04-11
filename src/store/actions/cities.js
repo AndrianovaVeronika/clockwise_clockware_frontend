@@ -15,12 +15,7 @@ export const getCities = createAsyncThunk(cities.GET_CITIES, async (_, thunkAPI)
 
 export const addCity = createAsyncThunk(cities.ADD_CITY, async (newCity, thunkAPI) => {
     try {
-        const accessToken = sessionStorage.getItem('TOKEN');
-        const response = await instance.post('/api/cities', newCity, {
-            headers: {
-                'x-access-token': accessToken
-            }
-        });
+        const response = await instance.post('/api/cities', newCity);
         return response.data;
     } catch (e) {
         return thunkAPI.rejectWithValue(e);
@@ -29,12 +24,7 @@ export const addCity = createAsyncThunk(cities.ADD_CITY, async (newCity, thunkAP
 
 export const updateCity = createAsyncThunk(cities.UPDATE_CITY, async ({id, ...updateValue}, thunkAPI) => {
     try {
-        const accessToken = sessionStorage.getItem('TOKEN');
-        const response = await instance.put('api/cities/' + id, updateValue, {
-            headers: {
-                'x-access-token': accessToken
-            }
-        });
+        const response = await instance.put('api/cities/' + id, updateValue);
         return response.data;
     } catch (e) {
         return thunkAPI.rejectWithValue(e);
@@ -43,12 +33,7 @@ export const updateCity = createAsyncThunk(cities.UPDATE_CITY, async ({id, ...up
 
 export const deleteCity = createAsyncThunk(cities.DELETE_CITY, async (cityId, thunkAPI) => {
     try {
-        const accessToken = sessionStorage.getItem('TOKEN');
-        const response = await instance.delete('api/cities/' + cityId, {
-            headers: {
-                'x-access-token': accessToken
-            }
-        });
+        const response = await instance.delete('api/cities/' + cityId);
         return response.data;
     } catch (e) {
         return thunkAPI.rejectWithValue(e);

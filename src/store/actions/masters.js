@@ -14,12 +14,7 @@ export const getMasters = createAsyncThunk(masters.GET_MASTERS, async (_, thunkA
 
 export const addMaster = createAsyncThunk(masters.ADD_MASTER, async (newMaster, thunkAPI) => {
     try {
-        const accessToken = sessionStorage.getItem('TOKEN');
-        const response = await instance.post('/api/masters', newMaster, {
-            headers: {
-                'x-access-token': accessToken
-            }
-        });
+        const response = await instance.post('/api/masters', newMaster);
         return response.data;
     } catch (e) {
         return thunkAPI.rejectWithValue(e);
@@ -28,12 +23,7 @@ export const addMaster = createAsyncThunk(masters.ADD_MASTER, async (newMaster, 
 
 export const updateMaster = createAsyncThunk(masters.UPDATE_MASTER, async ({id, ...updateValue}, thunkAPI) => {
     try {
-        const accessToken = sessionStorage.getItem('TOKEN');
-        const response = await instance.put('api/masters/' + id, updateValue, {
-            headers: {
-                'x-access-token': accessToken
-            }
-        });
+        const response = await instance.put('api/masters/' + id, updateValue);
         return response.data;
     } catch (e) {
         return thunkAPI.rejectWithValue(e);
@@ -42,12 +32,7 @@ export const updateMaster = createAsyncThunk(masters.UPDATE_MASTER, async ({id, 
 
 export const deleteMaster = createAsyncThunk(masters.DELETE_MASTER, async (masterId, thunkAPI) => {
     try {
-        const accessToken = sessionStorage.getItem('TOKEN');
-        const response = await instance.delete('api/masters/' + masterId, {
-            headers: {
-                'x-access-token': accessToken
-            }
-        });
+        const response = await instance.delete('api/masters/' + masterId);
         return response.data;
     } catch (e) {
         return thunkAPI.rejectWithValue(e);

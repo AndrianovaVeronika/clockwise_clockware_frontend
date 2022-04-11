@@ -1,8 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="47aa944b-1eed-4aaf-807f-af5d121fc908" name="Changes" comment="fix: styles">
+    <list default="true" id="47aa944b-1eed-4aaf-807f-af5d121fc908" name="Changes" comment="fix: vehicle.png">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Forms/OrderForm/CredentialsForm.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Forms/OrderForm/CredentialsForm.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Forms/OrderForm/DateTimePick.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Forms/OrderForm/DateTimePick.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Forms/OrderForm/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Forms/OrderForm/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/store/actions/auth.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/store/actions/auth.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/store/actions/cities.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/store/actions/cities.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/store/actions/masters.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/store/actions/masters.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/store/actions/orders.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/store/actions/orders.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/store/actions/users.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/store/actions/users.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/store/middleware/api.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/store/middleware/api.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -162,20 +171,9 @@
       <workItem from="1648402779481" duration="676000" />
       <workItem from="1648473404944" duration="7321000" />
       <workItem from="1648634020209" duration="6125000" />
-    </task>
-    <task id="LOCAL-00015" summary="fix: orders table">
-      <created>1643888986085</created>
-      <option name="number" value="00015" />
-      <option name="presentableId" value="LOCAL-00015" />
-      <option name="project" value="LOCAL" />
-      <updated>1643888986085</updated>
-    </task>
-    <task id="LOCAL-00016" summary="fix: dependencies">
-      <created>1643889861099</created>
-      <option name="number" value="00016" />
-      <option name="presentableId" value="LOCAL-00016" />
-      <option name="project" value="LOCAL" />
-      <updated>1643889861099</updated>
+      <workItem from="1649016812739" duration="836000" />
+      <workItem from="1649098774227" duration="752000" />
+      <workItem from="1649416058191" duration="10714000" />
     </task>
     <task id="LOCAL-00017" summary="fix: dependencies">
       <created>1643890706465</created>
@@ -506,7 +504,21 @@
       <option name="project" value="LOCAL" />
       <updated>1648656997542</updated>
     </task>
-    <option name="localTasksCounter" value="64" />
+    <task id="LOCAL-00064" summary="fix: styles">
+      <created>1649017006170</created>
+      <option name="number" value="00064" />
+      <option name="presentableId" value="LOCAL-00064" />
+      <option name="project" value="LOCAL" />
+      <updated>1649017006170</updated>
+    </task>
+    <task id="LOCAL-00065" summary="fix: vehicle.png">
+      <created>1649017032509</created>
+      <option name="number" value="00065" />
+      <option name="presentableId" value="LOCAL-00065" />
+      <option name="project" value="LOCAL" />
+      <updated>1649017032509</updated>
+    </task>
+    <option name="localTasksCounter" value="66" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -525,7 +537,6 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="fix: form dialog cancel action" />
     <MESSAGE value="fix: imports, exports" />
     <MESSAGE value="fix: useEffect &amp; dispatch problem" />
     <MESSAGE value="delete: get occupied hours&#10;feat: add select cities in add master form" />
@@ -550,7 +561,8 @@
     <MESSAGE value="delete: user form&#10;fix: styles, signup form" />
     <MESSAGE value="delete: user form&#10;fix: styles, signup form&#10;feat: forms/styles" />
     <MESSAGE value="fix: styles" />
-    <option name="LAST_COMMIT_MESSAGE" value="fix: styles" />
+    <MESSAGE value="fix: vehicle.png" />
+    <option name="LAST_COMMIT_MESSAGE" value="fix: vehicle.png" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

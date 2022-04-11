@@ -19,20 +19,20 @@ const CredentialsForm = ({formId, submitAction, initialValues}) => {
                 ...initialValues,
                 userId: user.id
             }
+        } else if (!isNaN(initialValues.userId)
+            && !isNaN(initialValues.clockTypeId)
+            && !isNaN(initialValues.cityId)) {
+            return initialValues;
         }
-
-        const v = {
+        const newValues = {
             cityId: cities.find(city => city.name === initialValues.cityId)?.id,
             userId: users.find(user => user.username === initialValues.userId)?.id,
             clockTypeId: clockTypes.find(clockType => clockType.name === initialValues.clockTypeId)?.id,
         };
-        console.log('v', v)
-        return v;
+        return newValues;
     }
 
     const values = getInitValues();
-
-    console.log('credentials', values)
 
     const getCities = () => {
         const elements = [];

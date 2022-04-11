@@ -36,12 +36,7 @@ export const logOut = createAsyncThunk(auth.LOG_OUT, async (_, thunkAPI) => {
 
 export const verifyUserAccess = createAsyncThunk(auth.VERIFY_USER_ACCESS, async (_, thunkAPI) => {
     try {
-        const accessToken = sessionStorage.getItem('TOKEN');
-        const response = await instance.get('/api/test/user', {
-            headers: {
-                'x-access-token': accessToken
-            }
-        });
+        const response = await instance.get('/api/test/user');
         return response.data;
     } catch (e) {
         console.log('verifyUserAccess: Query screwed up with error', e);

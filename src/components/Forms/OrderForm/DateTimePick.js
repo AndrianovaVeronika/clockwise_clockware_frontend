@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React, {useEffect, useState} from "react";
 import {TextField} from "@mui/material";
 import {DesktopDatePicker, LocalizationProvider} from "@mui/lab";
 import AdapterDateFns from '@mui/lab/AdapterDateFns';
@@ -6,7 +6,7 @@ import moment from "moment";
 import FormSelect from "../FormSelect";
 import {Form, Formik} from "formik";
 
-const DateTimePick = ({formId, submitAction, hours, initialValues}) => {
+const DateTimePick = ({formId, submitAction, hours, minDate, initialValues}) => {
     const [date, setDate] = useState(initialValues.date);
 
     const onSubmit = (v, props) => {
@@ -23,7 +23,7 @@ const DateTimePick = ({formId, submitAction, hours, initialValues}) => {
                                 <DesktopDatePicker
                                     name="date"
                                     label="Дата"
-                                    minDate={new Date()}
+                                    minDate={minDate}
                                     value={date}
                                     onChange={(value) => setDate(value)}
                                     renderInput={(params) => <TextField style={{margin: '10px'}}

@@ -16,7 +16,7 @@ const shiftTimeStart = 10;
 const shiftTimeEnd = 18;
 
 const OrderForm = ({specifiedInitialValues, submitAction}) => {
-    const initialValues = specifiedInitialValues? {
+    const initialValues = specifiedInitialValues ? {
         ...specifiedInitialValues,
         userId: specifiedInitialValues.username,
         clockTypeId: specifiedInitialValues.clock_type,
@@ -33,7 +33,7 @@ const OrderForm = ({specifiedInitialValues, submitAction}) => {
 
     const dispatch = useDispatch();
 
-    useEffect( () => {
+    useEffect(() => {
         dispatch(getUsers());
         dispatch(getCities());
         dispatch(getMasters());
@@ -52,7 +52,15 @@ const OrderForm = ({specifiedInitialValues, submitAction}) => {
         return hours;
     }
 
+    //returns tomorrow date
+    const getTomorrowDate = () => {
+        const date = new Date();
+        date.setDate(date.getDate() + 1);
+        return date;
+    }
+
     const hours = getHours();
+    const minOrderDay = getTomorrowDate();
 
     const onFormSubmit = (v, props) => {
         console.log('ON FORM SUBMIT', v)
@@ -75,17 +83,18 @@ const OrderForm = ({specifiedInitialValues, submitAction}) => {
         setActiveStep((prevActiveStep) => prevActiveStep - 1);
     };
 
+    const handleClean = () => {
+        setValues(initialValues);
+        setActiveStep(0);
+    }
+
     const ActiveStep = () => {
         switch (activeStep) {
             case 0 : {
                 return <CredentialsForm
                     formId='form0'
                     submitAction={onFormSubmit}
-                    initialValues={{
-                        userId: initialValues.userId,
-                        clockTypeId: initialValues.clockTypeId,
-                        cityId: initialValues.cityId
-                    }}
+                    initialValues={values}
                 />
             }
             case 1 : {
@@ -93,7 +102,8 @@ const OrderForm = ({specifiedInitialValues, submitAction}) => {
                     hours={hours}
                     formId='form1'
                     submitAction={onFormSubmit}
-                    initialValues={{date: initialValues.date, time: initialValues.time}}
+                    minDate={minOrderDay}
+                    initialValues={{date: values.date, time: values.time}}
                 />
             }
             case 2 : {
@@ -144,7 +154,7 @@ const OrderForm = ({specifiedInitialValues, submitAction}) => {
                     <div style={{display: 'flex', flexDirection: 'row', justifyContent: 'flex-end'}}>
                         {activeStep !== 0 && <Button onClick={handleBack}>Назад</Button>}
                         <Button type='submit' form={'form' + activeStep}>Далее</Button>
-                        <Button onClick={() => setActiveStep(0)}>Очистить</Button>
+                        <Button onClick={handleClean}>Очистить</Button>
                     </div>
                 </div>
             </div>
