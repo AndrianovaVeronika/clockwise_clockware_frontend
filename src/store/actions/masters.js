@@ -4,7 +4,7 @@ import instance from "../middleware/api";
 
 export const getMasters = createAsyncThunk(masters.GET_MASTERS, async (_, thunkAPI) => {
     try {
-        const response = await instance.get('/api/masters');
+        const response = await instance.get('/masters');
         return response.data || {};
     } catch (e) {
         console.log('getMasters: Query screwed up with error');
@@ -14,7 +14,7 @@ export const getMasters = createAsyncThunk(masters.GET_MASTERS, async (_, thunkA
 
 export const addMaster = createAsyncThunk(masters.ADD_MASTER, async (newMaster, thunkAPI) => {
     try {
-        const response = await instance.post('/api/masters', newMaster);
+        const response = await instance.post('/masters', newMaster);
         return response.data;
     } catch (e) {
         return thunkAPI.rejectWithValue(e);
@@ -23,7 +23,7 @@ export const addMaster = createAsyncThunk(masters.ADD_MASTER, async (newMaster, 
 
 export const updateMaster = createAsyncThunk(masters.UPDATE_MASTER, async ({id, ...updateValue}, thunkAPI) => {
     try {
-        const response = await instance.put('api/masters/' + id, updateValue);
+        const response = await instance.put('/masters/' + id, updateValue);
         return response.data;
     } catch (e) {
         return thunkAPI.rejectWithValue(e);
@@ -32,7 +32,7 @@ export const updateMaster = createAsyncThunk(masters.UPDATE_MASTER, async ({id, 
 
 export const deleteMaster = createAsyncThunk(masters.DELETE_MASTER, async (masterId, thunkAPI) => {
     try {
-        const response = await instance.delete('api/masters/' + masterId);
+        const response = await instance.delete('/masters/' + masterId);
         return response.data;
     } catch (e) {
         return thunkAPI.rejectWithValue(e);

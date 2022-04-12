@@ -4,7 +4,7 @@ import users from "../constants/users";
 
 export const getUsers = createAsyncThunk(users.GET_USERS, async (_, thunkAPI) => {
     try {
-        const response = await instance.get('/api/users');
+        const response = await instance.get('/users');
         return response.data || {};
     } catch (e) {
         console.log(e);
@@ -15,7 +15,7 @@ export const getUsers = createAsyncThunk(users.GET_USERS, async (_, thunkAPI) =>
 
 export const updateUser = createAsyncThunk(users.UPDATE_USER, async ({id, ...updateValue}, thunkAPI) => {
     try {
-        const response = await instance.put('api/users/' + id, updateValue);
+        const response = await instance.put('/users/' + id, updateValue);
         return response.data;
     } catch (e) {
         return thunkAPI.rejectWithValue(e);
@@ -24,7 +24,7 @@ export const updateUser = createAsyncThunk(users.UPDATE_USER, async ({id, ...upd
 
 export const deleteUser = createAsyncThunk(users.DELETE_USER, async (userId, thunkAPI) => {
     try {
-        const response = await instance.delete('api/users/' + userId);
+        const response = await instance.delete('/users/' + userId);
         return response.data;
     } catch (e) {
         return thunkAPI.rejectWithValue(e);

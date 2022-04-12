@@ -4,7 +4,7 @@ import instance from "../middleware/api";
 
 export const getOrders = createAsyncThunk(orders.GET_ORDERS, async (_, thunkAPI) => {
     try {
-        const response = await instance.get('/api/orders');
+        const response = await instance.get('/orders');
         return response.data || {};
     } catch (e) {
         console.log(e);
@@ -14,7 +14,7 @@ export const getOrders = createAsyncThunk(orders.GET_ORDERS, async (_, thunkAPI)
 
 export const addOrder = createAsyncThunk(orders.ADD_ORDER, async (newOrder, thunkAPI) => {
     try {
-        const response = await instance.post('/api/orders', newOrder);
+        const response = await instance.post('/orders', newOrder);
         return response.data;
     } catch (e) {
         return thunkAPI.rejectWithValue(e);
@@ -23,7 +23,7 @@ export const addOrder = createAsyncThunk(orders.ADD_ORDER, async (newOrder, thun
 
 export const updateOrder = createAsyncThunk(orders.UPDATE_ORDER, async ({id, ...updateValue}, thunkAPI) => {
     try {
-        const response = await instance.put('api/orders/' + id, updateValue);
+        const response = await instance.put('/orders/' + id, updateValue);
         return response.data;
     } catch (e) {
         return thunkAPI.rejectWithValue(e);
@@ -32,7 +32,7 @@ export const updateOrder = createAsyncThunk(orders.UPDATE_ORDER, async ({id, ...
 
 export const deleteOrder = createAsyncThunk(orders.DELETE_ORDER, async (orderId, thunkAPI) => {
     try {
-        const response = await instance.delete('api/orders/' + orderId);
+        const response = await instance.delete('/orders/' + orderId);
         return response.data;
     } catch (e) {
         return thunkAPI.rejectWithValue(e);

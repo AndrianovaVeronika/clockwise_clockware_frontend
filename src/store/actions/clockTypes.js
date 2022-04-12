@@ -4,7 +4,7 @@ import clockTypes from "../constants/clockTypes";
 
 export const getClockTypes = createAsyncThunk(clockTypes.GET_CLOCK_TYPES, async (_, thunkAPI) => {
     try {
-        const response = await instance.get('/api/clock_types');
+        const response = await instance.get('/clocktypes');
         return response.data || {};
     } catch (e) {
         console.log(e);

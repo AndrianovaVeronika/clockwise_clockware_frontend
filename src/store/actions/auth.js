@@ -4,7 +4,7 @@ import auth from "../constants/auth";
 
 export const signUp = createAsyncThunk(auth.SIGN_UP, async (newUser, thunkAPI) => {
     try {
-        const response = await instance.post('/api/auth/signup', newUser);
+        const response = await instance.post('/auth/signup', newUser);
         return response.data;
     } catch (e) {
         console.log(e);
@@ -15,7 +15,7 @@ export const signUp = createAsyncThunk(auth.SIGN_UP, async (newUser, thunkAPI) =
 
 export const signIn = createAsyncThunk(auth.SIGN_IN, async (user, thunkAPI) => {
     try {
-        const response = await instance.post('/api/auth/signin', user);
+        const response = await instance.post('/auth/signin', user);
         return response.data;
     } catch (e) {
         console.log(e);
@@ -36,7 +36,7 @@ export const logOut = createAsyncThunk(auth.LOG_OUT, async (_, thunkAPI) => {
 
 export const verifyUserAccess = createAsyncThunk(auth.VERIFY_USER_ACCESS, async (_, thunkAPI) => {
     try {
-        const response = await instance.get('/api/test/user');
+        const response = await instance.get('/auth/check');
         return response.data;
     } catch (e) {
         console.log('verifyUserAccess: Query screwed up with error', e);
