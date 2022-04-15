@@ -1,40 +1,13 @@
 import {createAsyncThunk} from "@reduxjs/toolkit";
 import orders from '../constants/orders';
-import instance from "../middleware/api";
+import createApi from "../middleware/createApi";
 
-export const getOrders = createAsyncThunk(orders.GET_ORDERS, async (_, thunkAPI) => {
-    try {
-        const response = await instance.get('/orders');
-        return response.data || {};
-    } catch (e) {
-        console.log(e);
-        return thunkAPI.rejectWithValue(e);
-    }
-});
+const api = createApi('orders');
 
-export const addOrder = createAsyncThunk(orders.ADD_ORDER, async (newOrder, thunkAPI) => {
-    try {
-        const response = await instance.post('/orders', newOrder);
-        return response.data;
-    } catch (e) {
-        return thunkAPI.rejectWithValue(e);
-    }
-});
+export const getOrders = createAsyncThunk(orders.GET_ORDERS, api.GET);
 
-export const updateOrder = createAsyncThunk(orders.UPDATE_ORDER, async ({id, ...updateValue}, thunkAPI) => {
-    try {
-        const response = await instance.put('/orders/' + id, updateValue);
-        return response.data;
-    } catch (e) {
-        return thunkAPI.rejectWithValue(e);
-    }
-});
+export const addOrder = createAsyncThunk(orders.ADD_ORDER, api.POST);
 
-export const deleteOrder = createAsyncThunk(orders.DELETE_ORDER, async (orderId, thunkAPI) => {
-    try {
-        const response = await instance.delete('/orders/' + orderId);
-        return response.data;
-    } catch (e) {
-        return thunkAPI.rejectWithValue(e);
-    }
-});
+export const updateOrder = createAsyncThunk(orders.UPDATE_ORDER, api.PUT);
+
+export const deleteOrder = createAsyncThunk(orders.DELETE_ORDER, api.DELETE);

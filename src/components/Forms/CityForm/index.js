@@ -15,9 +15,10 @@ const CityForm = ({specifiedInitialValues, submitAction}) => {
         name: Yup.string().min(3, 'Name is too short').required('Required'),
     })
 
-    const onSubmit = (values, props) => {
+    const onSubmit = (values, e) => {
         dispatch(submitAction(values));
-        props.resetForm();
+        e.resetForm();
+        e.preventDefault();
     }
 
     return (

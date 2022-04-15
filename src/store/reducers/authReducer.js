@@ -38,6 +38,7 @@ const {reducer} = createSlice({
                 state.auth.isAuth = false;
                 state.auth.currentUser = {};
                 state.auth.isAdmin = false;
+                console.log('rejected')
             })
     }
 })

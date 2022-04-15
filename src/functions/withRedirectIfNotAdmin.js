@@ -10,6 +10,7 @@ const withRedirectIfNotAdmin = (Component) => (props) => {
 
     useEffect(() => {
         if (!isAdmin && !userLoading){
+            console.log('admin? ' + isAdmin + ' loading? ' + userLoading)
             navigate('/admin/error');
         }
     }, [isAdmin]);

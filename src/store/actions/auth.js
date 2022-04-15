@@ -1,45 +1,13 @@
 import {createAsyncThunk} from "@reduxjs/toolkit";
-import instance from "../middleware/api";
 import auth from "../constants/auth";
+import createApi from "../middleware/createApi";
 
-export const signUp = createAsyncThunk(auth.SIGN_UP, async (newUser, thunkAPI) => {
-    try {
-        const response = await instance.post('/auth/signup', newUser);
-        return response.data;
-    } catch (e) {
-        console.log(e);
-        console.log('signUp: Query screwed up with error');
-        return thunkAPI.rejectWithValue(e);
-    }
-});
+export const signUp = createAsyncThunk(auth.SIGN_UP, createApi('auth/signup').POST);
 
-export const signIn = createAsyncThunk(auth.SIGN_IN, async (user, thunkAPI) => {
-    try {
-        const response = await instance.post('/auth/signin', user);
-        return response.data;
-    } catch (e) {
-        console.log(e);
-        console.log('signIn: Query screwed up with error');
-        return thunkAPI.rejectWithValue(e);
-    }
-});
+export const signIn = createAsyncThunk(auth.SIGN_IN, createApi('auth/signin').POST);
 
-export const logOut = createAsyncThunk(auth.LOG_OUT, async (_, thunkAPI) => {
-    try {
-        return {message: 'Are u sure u want to logout?'};
-    } catch (e) {
-        console.log(e);
-        console.log('logOut: error');
-        return thunkAPI.rejectWithValue(e);
-    }
-});
+export const verifyUserAccess = createAsyncThunk(auth.VERIFY_USER_ACCESS, createApi('auth/check').GET);
 
-export const verifyUserAccess = createAsyncThunk(auth.VERIFY_USER_ACCESS, async (_, thunkAPI) => {
-    try {
-        const response = await instance.get('/auth/check');
-        return response.data;
-    } catch (e) {
-        console.log('verifyUserAccess: Query screwed up with error', e);
-        return thunkAPI.rejectWithValue(e);
-    }
+export const logOut = createAsyncThunk(auth.LOG_OUT, async () => {
+    return {message: 'Are u sure u want to logout?'};
 });
