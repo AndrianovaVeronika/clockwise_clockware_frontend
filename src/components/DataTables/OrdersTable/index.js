@@ -17,7 +17,7 @@ const columns = [
         field: 'email', headerName: 'Почта', width: 200,
     },
     {
-        field: 'clock_type', headerName: 'Тип часов', width: 80,
+        field: 'clockType', headerName: 'Тип часов', width: 80,
     },
     {
         field: 'city', headerName: 'Город', width: 80,
@@ -40,18 +40,7 @@ const OrdersTable = () => {
         dispatch(getOrders());
     }, [dispatch])
 
-    const orders = useSelector(getOrdersSelector).map(order => {
-        return {
-            id: order.id,
-            username: order.user.username,
-            email: order.user.email,
-            clock_type: order.clock_type.name,
-            city: order.city.name,
-            date: order.date,
-            time: order.time,
-            master: order.master.name
-        }
-    });
+    const orders = useSelector(getOrdersSelector);
 
     return (
         <DataTable

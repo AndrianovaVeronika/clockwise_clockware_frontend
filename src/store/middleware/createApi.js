@@ -1,4 +1,5 @@
 import instance from "./instance";
+import {logOut} from "../actions/auth";
 
 export default (modelName) => {
     return {
@@ -22,9 +23,9 @@ export default (modelName) => {
                 return thunkAPI.rejectWithValue(e);
             }
         },
-        PUT: async ({instanceId, ...updateValue}, thunkAPI) => {
+        PUT: async ({id, ...updateValues}, thunkAPI) => {
             try {
-                const response = await instance.put('/' + modelName + '/' + instanceId, updateValue);
+                const response = await instance.put('/' + modelName + '/' + id, updateValues);
                 return response.data;
             } catch (e) {
                 console.log('!!!!Query screwed up with error!!!!');

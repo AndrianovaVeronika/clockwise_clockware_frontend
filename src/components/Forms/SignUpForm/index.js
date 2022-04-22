@@ -2,9 +2,9 @@ import {useDispatch} from "react-redux";
 import {useNavigate} from "react-router";
 import * as Yup from "yup";
 import {Box, Button, Paper, TextField} from "@mui/material";
-import {ErrorMessage, Field, Form, Formik} from "formik";
+import {ErrorMessage, Form, Formik} from "formik";
 import React from "react";
-import {useStyles, FormField} from "../styles";
+import {FormField, useStyles} from "../styles";
 
 const initialValues = {
     username: '',
@@ -24,48 +24,51 @@ const SignUpForm = ({submitAction, specifiedInitialValues, signup = false}) => {
     })
 
     const onSubmit = async (values, props) => {
-        await dispatch(submitAction(values));
-        navigate('/login');
+        dispatch(submitAction(specifiedInitialValues ? {id: specifiedInitialValues.id, ...values} : values));
+        if (signup) {
+            navigate('/login');
+        }
     }
 
     return (
         <Box>
-            <Paper elevation={signup? 3 : 0} className={styles.formPaper}>
-                <Formik initialValues={specifiedInitialValues || initialValues} validationSchema={validationSchema} onSubmit={onSubmit}>
+            <Paper elevation={signup ? 3 : 0} className={styles.formPaper}>
+                <Formik initialValues={specifiedInitialValues || initialValues} validationSchema={validationSchema}
+                        onSubmit={onSubmit}>
                     {
                         (props) => (
                             <Form id='signup-form'>
                                 <FormField as={TextField}
-                                       label='Username'
-                                       name='username'
-                                       fullWidth
-                                       error={props.errors.name && props.touched.name}
-                                       helperText={<ErrorMessage name='username'/>}
-                                       required
+                                           label='Username'
+                                           name='username'
+                                           fullWidth
+                                           error={props.errors.name && props.touched.name}
+                                           helperText={<ErrorMessage name='username'/>}
+                                           required
                                 />
                                 <FormField as={TextField}
-                                       label='Почта'
-                                       name='email'
-                                       error={props.errors.email && props.touched.email}
-                                       helperText={<ErrorMessage name='email'/>}
-                                       required
-                                       fullWidth
+                                           label='Почта'
+                                           name='email'
+                                           error={props.errors.email && props.touched.email}
+                                           helperText={<ErrorMessage name='email'/>}
+                                           required
+                                           fullWidth
                                 />
                                 <FormField as={TextField}
-                                       label='Password'
-                                       name='password'
-                                       fullWidth
-                                       error={props.errors.name && props.touched.name}
-                                       helperText={<ErrorMessage name='password'/>}
-                                       required
-                                       type="password"
+                                           label='Password'
+                                           name='password'
+                                           fullWidth
+                                           error={props.errors.name && props.touched.name}
+                                           helperText={<ErrorMessage name='password'/>}
+                                           required
+                                           type="password"
                                 />
                             </Form>
                         )
                     }
                 </Formik>
                 {signup && <div className={styles.authFormButtons}>
-                    <Button onClick={() => signup? navigate('/') : navigate('/admin/users')}>Отмена</Button>
+                    <Button onClick={() => signup ? navigate('/') : navigate('/admin/users')}>Отмена</Button>
                     <Button
                         type='submit'
                         form='signup-form'

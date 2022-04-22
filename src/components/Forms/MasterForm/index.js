@@ -17,12 +17,10 @@ const MasterForm = ({specifiedInitialValues, submitAction}) => {
     const dispatch = useDispatch();
     const styles = useStyles();
 
-    const [citiesChosed, setCitiesChosed] = useState([]);
+    const [citiesChosed, setCitiesChosed] = useState(specifiedInitialValues?.cities?.split(', ') || []);
 
     const handleChange = (event) => {
-        const {
-            target: {value},
-        } = event;
+        const { target: {value} } = event;
         setCitiesChosed(
             // On autofill we get a stringified value.
             typeof value === 'string' ? value.split(',') : value,
@@ -30,9 +28,9 @@ const MasterForm = ({specifiedInitialValues, submitAction}) => {
     };
 
     const incomeCities = useSelector(getCitiesSelector);
+    console.log('income: '+incomeCities)
 
     const getCityOptions = () => {
-        console.log('INCOME CITIES', incomeCities);
         const cities = [];
         for (const city of incomeCities) {
             cities.push({key: city.name, value: city.name});
@@ -53,7 +51,7 @@ const MasterForm = ({specifiedInitialValues, submitAction}) => {
 
     const onSubmit = (values, props) => {
         console.log({...values, cities: citiesChosed});
-        dispatch(submitAction({...values, cities: citiesChosed}));
+        dispatch(submitAction(specifiedInitialValues? {id: specifiedInitialValues.id, ...values, cities: citiesChosed} : {...values, cities: citiesChosed}));
         props.resetForm();
     }
 

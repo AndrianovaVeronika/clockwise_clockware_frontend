@@ -15,16 +15,15 @@ const CityForm = ({specifiedInitialValues, submitAction}) => {
         name: Yup.string().min(3, 'Name is too short').required('Required'),
     })
 
-    const onSubmit = (values, e) => {
-        dispatch(submitAction(values));
-        e.resetForm();
-        e.preventDefault();
+    const onSubmit = (values, props) => {
+        dispatch(submitAction(specifiedInitialValues? {id: specifiedInitialValues.id, ...values} : values));
     }
 
     return (
         <>
             <Paper elevation={0} className={styles.formPaper}>
-                <Formik initialValues={specifiedInitialValues || initialValues} validationSchema={validationSchema} onSubmit={onSubmit}>
+                <Formik initialValues={specifiedInitialValues || initialValues} validationSchema={validationSchema}
+                        onSubmit={onSubmit}>
                     {
                         (props) => (
                             <Form id='city-form'>

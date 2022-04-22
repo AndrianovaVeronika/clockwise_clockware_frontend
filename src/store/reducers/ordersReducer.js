@@ -12,6 +12,7 @@ const {reducer} = createSlice({
         builder
             .addCase(getOrders.fulfilled, (state, action) => {
                 state.orders.ordersList = action.payload;
+                console.log(action.payload)
             })
             .addCase(addOrder.fulfilled, (state, action) => {
                 console.log(action.payload.message);

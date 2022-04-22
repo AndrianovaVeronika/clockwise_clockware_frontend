@@ -5,7 +5,8 @@ export const useStyles = makeStyles({
     formPaper: {
         display: 'flex',
         flexDirection: 'column',
-        padding: '30px'
+        padding: '30px',
+        maxWidth: '500px'
     },
     authFormButtons: {
         display: 'flex',
