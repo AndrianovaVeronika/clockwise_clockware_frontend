@@ -13,13 +13,13 @@ const ResultsReport = ({formId, onFinalSubmit, values}) => {
     const user = useSelector(getCurrentUserSelector);
 
     const orderData = {
-        username: 'Имя: ' + user.username? user.username: '',
-        email: 'Почта: ' + user.email? user.email: '',
+        username: 'Имя: ' + user?.username? user.username: '',
+        email: 'Почта: ' + user?.email? user.email: '',
         clockType: 'Тип часов: ' + clockType[0]? clockType[0].name: '',
         master: 'Мастер: ' + master[0]? master[0].name: '',
         city: 'Город: ' + city[0]? city[0].name: '',
-        date: 'Дата: ' + values.date? values.date: '',
-        time: 'Время: ' + values.time? values.time: ''
+        date: 'Дата: ' + values?.date? values.date: '',
+        time: 'Время: ' + values?.time? values.time: ''
     }
 
     const getReport = () => {

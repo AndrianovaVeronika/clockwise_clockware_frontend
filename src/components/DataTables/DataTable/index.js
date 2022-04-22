@@ -59,7 +59,7 @@ const DataTable = ({columns, rows, onRowDelete, onRowUpdate, onRowAdd, formId, M
                     }}
                     {...additionalFormDialogProps}
                 >
-                    <ModelForm submitAction={onRowUpdate} specifiedInitialValues={activeRow}/>
+                    <ModelForm submitAction={onRowUpdate} specifiedInitialValues={activeRow} isDialog={true}/>
                 </FormDialog>
                 <FormDialog
                     OpenButton={(props) => {
@@ -78,7 +78,7 @@ const DataTable = ({columns, rows, onRowDelete, onRowUpdate, onRowAdd, formId, M
                     }}
                     {...additionalFormDialogProps}
                 >
-                    <ModelForm submitAction={onRowAdd}/>
+                    <ModelForm submitAction={onRowAdd} isDialog={true}/>
                 </FormDialog>
             </div>
         </>

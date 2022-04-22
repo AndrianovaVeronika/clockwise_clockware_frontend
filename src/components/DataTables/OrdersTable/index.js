@@ -51,9 +51,6 @@ const OrdersTable = () => {
             onRowAdd={addOrder}
             formId='order-form'
             ModelForm={OrderForm}
-            additionalFormDialogProps={{
-                hideDialogActions: true
-            }}
         />
     );
 }

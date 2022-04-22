@@ -1,19 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="47aa944b-1eed-4aaf-807f-af5d121fc908" name="Changes" comment="feat: createApi">
+    <list default="true" id="47aa944b-1eed-4aaf-807f-af5d121fc908" name="Changes" comment="fix: createApi, forms">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/DataTables/DataTable/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/DataTables/DataTable/index.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/DataTables/OrdersTable/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/DataTables/OrdersTable/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/DataTables/UsersTable/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/DataTables/UsersTable/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Dialogs/FormDialog/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Dialogs/FormDialog/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Forms/CityForm/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Forms/CityForm/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Forms/MasterForm/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Forms/MasterForm/index.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/Forms/OrderForm/ResultsReport.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Forms/OrderForm/ResultsReport.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/Forms/OrderForm/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Forms/OrderForm/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Forms/SignUpForm/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Forms/SignUpForm/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Forms/styles.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Forms/styles.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/store/middleware/createApi.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/store/middleware/createApi.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/store/reducers/ordersReducer.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/store/reducers/ordersReducer.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -182,14 +175,7 @@
       <workItem from="1650276705446" duration="1858000" />
       <workItem from="1650460357370" duration="7147000" />
       <workItem from="1650549878384" duration="6570000" />
-      <workItem from="1650630645956" duration="3172000" />
-    </task>
-    <task id="LOCAL-00020" summary="fix: dependencies">
-      <created>1643913662117</created>
-      <option name="number" value="00020" />
-      <option name="presentableId" value="LOCAL-00020" />
-      <option name="project" value="LOCAL" />
-      <updated>1643913662117</updated>
+      <workItem from="1650630645956" duration="10842000" />
     </task>
     <task id="LOCAL-00021" summary="fix: .env">
       <created>1644005034584</created>
@@ -527,7 +513,14 @@
       <option name="project" value="LOCAL" />
       <updated>1650040566266</updated>
     </task>
-    <option name="localTasksCounter" value="69" />
+    <task id="LOCAL-00069" summary="fix: createApi, forms">
+      <created>1650633961682</created>
+      <option name="number" value="00069" />
+      <option name="presentableId" value="LOCAL-00069" />
+      <option name="project" value="LOCAL" />
+      <updated>1650633961682</updated>
+    </task>
+    <option name="localTasksCounter" value="70" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -546,7 +539,6 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="fix: add master form" />
     <MESSAGE value="fix: add master form, masters table, orders table" />
     <MESSAGE value="feat: add clockType model to store" />
     <MESSAGE value="fix: credentials form step" />
@@ -571,7 +563,8 @@
     <MESSAGE value="fix: axios send access token with all requests using instance, order form (clicking &quot;clean&quot; sets all data to initial not regarding step, data that can be chosen starts with tomorrow date)" />
     <MESSAGE value="fix: store queries" />
     <MESSAGE value="feat: createApi" />
-    <option name="LAST_COMMIT_MESSAGE" value="feat: createApi" />
+    <MESSAGE value="fix: createApi, forms" />
+    <option name="LAST_COMMIT_MESSAGE" value="fix: createApi, forms" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

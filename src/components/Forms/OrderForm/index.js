@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from 'react';
-import {Button, Step, StepLabel, Stepper} from "@mui/material";
+import {Button, IconButton, Step, StepLabel, Stepper} from "@mui/material";
 import CredentialsForm from "./CredentialsForm";
 import {getOrders} from "../../../store/actions/orders";
 import {getCities} from "../../../store/actions/cities";
@@ -8,6 +8,8 @@ import {getMasters} from "../../../store/actions/masters";
 import DateTimePick from "./DateTimePick";
 import MasterPick from "./MasterPick";
 import ResultsReport from "./ResultsReport";
+import ArrowBackIosNewRoundedIcon from '@mui/icons-material/ArrowBackIosNewRounded';
+import ArrowForwardIosRoundedIcon from '@mui/icons-material/ArrowForwardIosRounded';
 import {useDispatch} from "react-redux";
 import {getUsers} from "../../../store/actions/users";
 
@@ -15,7 +17,7 @@ const steps = ['Подробности заказа', 'Дата и время', 
 const shiftTimeStart = 10;
 const shiftTimeEnd = 18;
 
-const OrderForm = ({specifiedInitialValues, submitAction}) => {
+const OrderForm = ({specifiedInitialValues, submitAction, isDialog}) => {
     const initialValues = specifiedInitialValues ? {
         ...specifiedInitialValues,
         userId: specifiedInitialValues.username,
@@ -68,9 +70,13 @@ const OrderForm = ({specifiedInitialValues, submitAction}) => {
         handleNext();
     }
 
-    const onSubmit = () => {
+    const onSubmit = (e) => {
         console.log('ON SUBMIT', values);
-        dispatch(submitAction(values));
+        dispatch(submitAction(specifiedInitialValues ? {id: specifiedInitialValues.id, ...values} : values));
+        e.preventDefault();
+        if (!isDialog) {
+            e.resetForm();
+        }
     }
 
     const [activeStep, setActiveStep] = useState(0);
@@ -116,7 +122,7 @@ const OrderForm = ({specifiedInitialValues, submitAction}) => {
             }
             case 3 : {
                 return <ResultsReport
-                    formId='form3'
+                    formId='order-form'
                     onFinalSubmit={onSubmit}
                     values={values}
                 />
@@ -151,10 +157,11 @@ const OrderForm = ({specifiedInitialValues, submitAction}) => {
                     width: '60%',
                 }}>
                     <ActiveStep/>
-                    <div style={{display: 'flex', flexDirection: 'row', justifyContent: 'flex-end'}}>
-                        {activeStep !== 0 && <Button onClick={handleBack}>Назад</Button>}
-                        <Button type='submit' form={'form' + activeStep}>Далее</Button>
-                        <Button onClick={handleClean}>Очистить</Button>
+                    <div style={{display: 'flex', flexDirection: 'row', justifyContent: 'space-between'}}>
+                        <IconButton disabled={activeStep === 0}
+                                    onClick={handleBack}><ArrowBackIosNewRoundedIcon/></IconButton>
+                        <IconButton disabled={activeStep === steps.length - 1} type='submit' form={'form' + activeStep}><ArrowForwardIosRoundedIcon/></IconButton>
+                        {!isDialog && <Button type='submit' form='order-form'>Отправить</Button>}
                     </div>
                 </div>
             </div>
