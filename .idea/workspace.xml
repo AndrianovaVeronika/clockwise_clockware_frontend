@@ -1,11 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="47aa944b-1eed-4aaf-807f-af5d121fc908" name="Changes" comment="fix: createApi, forms">
+    <list default="true" id="47aa944b-1eed-4aaf-807f-af5d121fc908" name="Changes" comment="fix: rerendering page after submit order form">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/DataTables/DataTable/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/DataTables/DataTable/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/DataTables/OrdersTable/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/DataTables/OrdersTable/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Forms/OrderForm/ResultsReport.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Forms/OrderForm/ResultsReport.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Forms/OrderForm/MasterPick.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Forms/OrderForm/MasterPick.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/Forms/OrderForm/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Forms/OrderForm/index.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -175,14 +173,8 @@
       <workItem from="1650276705446" duration="1858000" />
       <workItem from="1650460357370" duration="7147000" />
       <workItem from="1650549878384" duration="6570000" />
-      <workItem from="1650630645956" duration="10842000" />
-    </task>
-    <task id="LOCAL-00021" summary="fix: .env">
-      <created>1644005034584</created>
-      <option name="number" value="00021" />
-      <option name="presentableId" value="LOCAL-00021" />
-      <option name="project" value="LOCAL" />
-      <updated>1644005034584</updated>
+      <workItem from="1650630645956" duration="12352000" />
+      <workItem from="1650834381308" duration="1121000" />
     </task>
     <task id="LOCAL-00022" summary="fix: .env">
       <created>1644005200636</created>
@@ -520,7 +512,14 @@
       <option name="project" value="LOCAL" />
       <updated>1650633961682</updated>
     </task>
-    <option name="localTasksCounter" value="70" />
+    <task id="LOCAL-00070" summary="fix: rerendering page after submit order form">
+      <created>1650642692723</created>
+      <option name="number" value="00070" />
+      <option name="presentableId" value="LOCAL-00070" />
+      <option name="project" value="LOCAL" />
+      <updated>1650642692723</updated>
+    </task>
+    <option name="localTasksCounter" value="71" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -539,7 +538,6 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="fix: add master form, masters table, orders table" />
     <MESSAGE value="feat: add clockType model to store" />
     <MESSAGE value="fix: credentials form step" />
     <MESSAGE value="feat: hoc with redirect after logout, auth model&#10;fix: return statements in store when error catched" />
@@ -564,7 +562,8 @@
     <MESSAGE value="fix: store queries" />
     <MESSAGE value="feat: createApi" />
     <MESSAGE value="fix: createApi, forms" />
-    <option name="LAST_COMMIT_MESSAGE" value="fix: createApi, forms" />
+    <MESSAGE value="fix: rerendering page after submit order form" />
+    <option name="LAST_COMMIT_MESSAGE" value="fix: rerendering page after submit order form" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

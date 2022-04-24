@@ -9,7 +9,7 @@ import {Field, Form, Formik} from "formik";
 
 function renderRating(params) {
     return <Rating readOnly value={params.value}/>;
-};
+}
 
 const columns = [
     {

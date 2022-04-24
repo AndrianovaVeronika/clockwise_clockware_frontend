@@ -75,7 +75,7 @@ const OrderForm = ({specifiedInitialValues, submitAction, isDialog}) => {
         dispatch(submitAction(specifiedInitialValues ? {id: specifiedInitialValues.id, ...values} : values));
         e.preventDefault();
         if (!isDialog) {
-            e.resetForm();
+            handleClean();
         }
     }
 
