@@ -1,10 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="47aa944b-1eed-4aaf-807f-af5d121fc908" name="Changes" comment="fix: rerendering page after submit order form">
+    <list default="true" id="47aa944b-1eed-4aaf-807f-af5d121fc908" name="Changes" comment="fix: order form">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/Forms/OrderForm/MasterPick.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Forms/OrderForm/MasterPick.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Forms/OrderForm/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Forms/OrderForm/index.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -174,14 +173,8 @@
       <workItem from="1650460357370" duration="7147000" />
       <workItem from="1650549878384" duration="6570000" />
       <workItem from="1650630645956" duration="12352000" />
-      <workItem from="1650834381308" duration="1121000" />
-    </task>
-    <task id="LOCAL-00022" summary="fix: .env">
-      <created>1644005200636</created>
-      <option name="number" value="00022" />
-      <option name="presentableId" value="LOCAL-00022" />
-      <option name="project" value="LOCAL" />
-      <updated>1644005200636</updated>
+      <workItem from="1650834381308" duration="1715000" />
+      <workItem from="1650898350991" duration="17372000" />
     </task>
     <task id="LOCAL-00023" summary="fix: .env">
       <created>1644005313950</created>
@@ -519,7 +512,14 @@
       <option name="project" value="LOCAL" />
       <updated>1650642692723</updated>
     </task>
-    <option name="localTasksCounter" value="71" />
+    <task id="LOCAL-00071" summary="fix: order form">
+      <created>1650835719058</created>
+      <option name="number" value="00071" />
+      <option name="presentableId" value="LOCAL-00071" />
+      <option name="project" value="LOCAL" />
+      <updated>1650835719058</updated>
+    </task>
+    <option name="localTasksCounter" value="72" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -552,7 +552,6 @@
     <MESSAGE value="feat: delete &amp; update actions on models&#10;fix: actions" />
     <MESSAGE value="feat: delete &amp; update on tables" />
     <MESSAGE value="fix: change data buttons in data table, order form, data table, admin pages" />
-    <MESSAGE value="fix: order form" />
     <MESSAGE value="feat: logout alert dialog" />
     <MESSAGE value="delete: user form&#10;fix: styles, signup form" />
     <MESSAGE value="delete: user form&#10;fix: styles, signup form&#10;feat: forms/styles" />
@@ -563,7 +562,8 @@
     <MESSAGE value="feat: createApi" />
     <MESSAGE value="fix: createApi, forms" />
     <MESSAGE value="fix: rerendering page after submit order form" />
-    <option name="LAST_COMMIT_MESSAGE" value="fix: rerendering page after submit order form" />
+    <MESSAGE value="fix: order form" />
+    <option name="LAST_COMMIT_MESSAGE" value="fix: order form" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

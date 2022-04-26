@@ -6,6 +6,7 @@ import {getOrdersSelector} from "../../../store/selectors/ordersSelector";
 import {TextField, Typography} from "@mui/material";
 import {DataGrid} from "@mui/x-data-grid";
 import {Field, Form, Formik} from "formik";
+import {getCitiesSelector} from "../../../store/selectors/citiesSelector";
 
 function renderRating(params) {
     return <Rating readOnly value={params.value}/>;
@@ -31,7 +32,7 @@ const initialValues = {
     masterId: ''
 }
 
-const MasterPick = ({values, formId, submitAction, hours}) => {
+const MasterPick = ({values, formId, submitAction}) => {
     const [masterId, setMasterId] = useState('');
 
     const masters = useSelector(getMastersSelector).filter(master => {
@@ -41,51 +42,74 @@ const MasterPick = ({values, formId, submitAction, hours}) => {
             }
         }
     });
-    
+
     const orders = useSelector(getOrdersSelector);
+
+    const cityName = useSelector(getCitiesSelector).filter(city => city.id === values.cityId)[0].name;
 
     //returns repairing time for clock type
     const getRepairingHours = (type) => {
         switch (type) {
-            case 'small': return 1;
-            case 'average': return 2;
-            case 'big': return 3;
-            default: return 0;
+            case 'small':
+                return 1;
+            case 'average':
+                return 2;
+            case 'big':
+                return 3;
+            default:
+                return 0;
         }
     }
 
+    //check if new order interogates with existing one
+    const ifOrdersInterogates = (newOrderStartTime, newOrderRepairingTime, existingOrderStartTime, existingOrderRepairingTime) => {
+        const existingOrderStartTimeInNum = parseInt(existingOrderStartTime.split(':')[0]);
+        const newOrderStartTimeInNum = parseInt(newOrderStartTime.split(':')[0]);
+        console.log(newOrderStartTimeInNum + '?=' + existingOrderStartTimeInNum)
+        console.log('+' + newOrderRepairingTime + ' / ' + '+' + existingOrderRepairingTime)
+        if (newOrderStartTimeInNum < existingOrderStartTimeInNum) {
+            console.log(newOrderStartTimeInNum + '<' + existingOrderStartTimeInNum)
+            if ((newOrderStartTimeInNum + newOrderRepairingTime) < existingOrderStartTimeInNum) {
+                console.log((newOrderStartTimeInNum + newOrderRepairingTime) + '<' + existingOrderStartTimeInNum)
+                console.log('good, not interogates')
+                return false;
+            }
+            console.log((newOrderStartTimeInNum + newOrderRepairingTime) +'!<'+ existingOrderStartTimeInNum)
+        } else {
+            console.log(newOrderStartTimeInNum + '>' + existingOrderStartTimeInNum)
+            if (existingOrderStartTimeInNum + existingOrderRepairingTime < newOrderStartTimeInNum) {
+                console.log(newOrderStartTimeInNum + '>' + (existingOrderStartTimeInNum + existingOrderRepairingTime))
+                console.log('good, not interogates')
+                return false;
+            }
+            console.log(existingOrderStartTimeInNum + existingOrderRepairingTime +'!<'+ newOrderStartTimeInNum)
+        }
+        return true;
+    }
+
     const getAvailableMasters = () => {
+        console.log('ORDERS')
+        console.log(orders)
+        const busyMasters = [];
         for (const order of orders) {
-            if (values.cityId !== order.cityId
-                || values.date !== order.date){
+            if (cityName !== order.city
+                || values.date !== order.date) {
+                console.log(cityName + '?=' + order.city)
+                console.log(values.date + '?=' + order.date)
+                console.log('skipping...')
                 continue;
             }
 
-            //get array of reserved hours on this day
-            const unavailableHours = [];
-            const repairingHours = getRepairingHours(order.clock_type.name);
-            let numOfReservedHours = repairingHours;
-            for (const hour of hours) {
-                if (hour === order.time || numOfReservedHours !== repairingHours){
-                    unavailableHours.push(hour);
-                    numOfReservedHours--;
-                    if (numOfReservedHours === 0) break;
-                }
-            }
-
-            //if chosed time is unavailable delete master from the list
-            if (unavailableHours.includes(values.time)) {
-                for (let i = 0; i < masters.length; i++) {
-                    if (masters[i].id === order.masterId) {
-                        masters.splice(i, 1);
-                        i--;
-                        break;
-                    }
-                }
+            //if chosed time interogates with existing order time add master to busy masters list
+            if (ifOrdersInterogates(values.time, values.clockTypeId, order.time, getRepairingHours(order.clockType))) {
+                busyMasters.push(order.master);
             }
         }
 
-        return masters;
+        const resultingMasters = masters.filter(({name}) => !busyMasters.includes(name));
+        console.log('Available masters: ')
+        console.log(resultingMasters)
+        return resultingMasters;
     };
 
     const rows = getAvailableMasters();
