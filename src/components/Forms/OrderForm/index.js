@@ -21,7 +21,7 @@ const OrderForm = ({specifiedInitialValues, submitAction, isDialog}) => {
     const initialValues = specifiedInitialValues ? {
         ...specifiedInitialValues,
         userId: specifiedInitialValues.username,
-        clockTypeId: specifiedInitialValues.clock_type,
+        clockTypeId: specifiedInitialValues.clockType,
         masterId: specifiedInitialValues.master,
         cityId: specifiedInitialValues.city,
     } : {
@@ -161,7 +161,7 @@ const OrderForm = ({specifiedInitialValues, submitAction, isDialog}) => {
                         <IconButton disabled={activeStep === 0}
                                     onClick={handleBack}><ArrowBackIosNewRoundedIcon/></IconButton>
                         <IconButton disabled={activeStep === steps.length - 1} type='submit' form={'form' + activeStep}><ArrowForwardIosRoundedIcon/></IconButton>
-                        {!isDialog && <Button type='submit' form='order-form'>Отправить</Button>}
+                        {!isDialog && activeStep - 1 === steps.length && <Button type='submit' form='order-form'>Отправить</Button>}
                     </div>
                 </div>
             </div>

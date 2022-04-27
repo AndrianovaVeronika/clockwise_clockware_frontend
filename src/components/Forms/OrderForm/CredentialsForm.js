@@ -12,24 +12,26 @@ const CredentialsForm = ({formId, submitAction, initialValues}) => {
     const clockTypes = useSelector(getClockTypesSelector);
     const user = useSelector(getCurrentUserSelector);
     const users = useSelector(getUsersSelector);
+    console.log('INITIAL VALUES')
+    console.log(initialValues)
 
     const getInitValues = () => {
-        if (initialValues.userId === '') {
+        if (initialValues?.userId === '') {
             return {
                 ...initialValues,
                 userId: user.id
             }
-        } else if (!isNaN(initialValues.userId)
-            && !isNaN(initialValues.clockTypeId)
-            && !isNaN(initialValues.cityId)) {
+        } else if (!isNaN(initialValues?.userId)
+            && !isNaN(initialValues?.clockTypeId)
+            && !isNaN(initialValues?.cityId)) {
             return initialValues;
         }
-        const newValues = {
-            cityId: cities.find(city => city.name === initialValues.cityId)?.id,
-            userId: users.find(user => user.username === initialValues.userId)?.id,
-            clockTypeId: clockTypes.find(clockType => clockType.name === initialValues.clockTypeId)?.id,
+        console.log(clockTypes)
+        return {
+            cityId: cities.find(city => city.name === initialValues.city)?.id,
+            userId: users.find(user => user.username === initialValues.username)?.id,
+            clockTypeId: clockTypes.find(clockType => clockType.name === initialValues.clockType)?.id,
         };
-        return newValues;
     }
 
     const values = getInitValues();

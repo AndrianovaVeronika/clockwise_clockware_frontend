@@ -1,9 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="47aa944b-1eed-4aaf-807f-af5d121fc908" name="Changes" comment="fix: order form">
+    <list default="true" id="47aa944b-1eed-4aaf-807f-af5d121fc908" name="Changes" comment="fix: master pick check func">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Forms/OrderForm/MasterPick.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Forms/OrderForm/MasterPick.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Dialogs/FormDialog/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Dialogs/FormDialog/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Forms/OrderForm/CredentialsForm.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Forms/OrderForm/CredentialsForm.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Forms/OrderForm/DateTimePick.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Forms/OrderForm/DateTimePick.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Forms/OrderForm/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Forms/OrderForm/index.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -174,14 +177,7 @@
       <workItem from="1650549878384" duration="6570000" />
       <workItem from="1650630645956" duration="12352000" />
       <workItem from="1650834381308" duration="1715000" />
-      <workItem from="1650898350991" duration="17372000" />
-    </task>
-    <task id="LOCAL-00023" summary="fix: .env">
-      <created>1644005313950</created>
-      <option name="number" value="00023" />
-      <option name="presentableId" value="LOCAL-00023" />
-      <option name="project" value="LOCAL" />
-      <updated>1644005313950</updated>
+      <workItem from="1650898350991" duration="42691000" />
     </task>
     <task id="LOCAL-00024" summary="fix: .env">
       <created>1644080850943</created>
@@ -519,7 +515,14 @@
       <option name="project" value="LOCAL" />
       <updated>1650835719058</updated>
     </task>
-    <option name="localTasksCounter" value="72" />
+    <task id="LOCAL-00072" summary="fix: master pick check func">
+      <created>1650967263284</created>
+      <option name="number" value="00072" />
+      <option name="presentableId" value="LOCAL-00072" />
+      <option name="project" value="LOCAL" />
+      <updated>1650967263285</updated>
+    </task>
+    <option name="localTasksCounter" value="73" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -538,7 +541,6 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="feat: add clockType model to store" />
     <MESSAGE value="fix: credentials form step" />
     <MESSAGE value="feat: hoc with redirect after logout, auth model&#10;fix: return statements in store when error catched" />
     <MESSAGE value="fix: styles&#10;feat: with redirect if not Admin, sidebar" />
@@ -563,7 +565,8 @@
     <MESSAGE value="fix: createApi, forms" />
     <MESSAGE value="fix: rerendering page after submit order form" />
     <MESSAGE value="fix: order form" />
-    <option name="LAST_COMMIT_MESSAGE" value="fix: order form" />
+    <MESSAGE value="fix: master pick check func" />
+    <option name="LAST_COMMIT_MESSAGE" value="fix: master pick check func" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

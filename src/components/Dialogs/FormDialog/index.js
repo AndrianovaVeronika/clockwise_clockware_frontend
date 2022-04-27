@@ -18,7 +18,7 @@ const FormDialog = ({
         setOpen(!open);
     };
 
-    const {onSubmit, submitButtonText, show = true, ...params} = submitButtonParams;
+    const {onSubmit, submitButtonText, show = true, form, ...params} = submitButtonParams;
 
     const onSubmitAction = () => {
         if (onSubmit) {

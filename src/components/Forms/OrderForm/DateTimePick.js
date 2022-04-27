@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from "react";
+import React, {useState} from "react";
 import {TextField} from "@mui/material";
 import {DesktopDatePicker, LocalizationProvider} from "@mui/lab";
 import AdapterDateFns from '@mui/lab/AdapterDateFns';
@@ -9,8 +9,16 @@ import {Form, Formik} from "formik";
 const DateTimePick = ({formId, submitAction, hours, minDate, initialValues}) => {
     const [date, setDate] = useState(initialValues.date);
 
+    const isDateValid = () => {
+        const minDate = new Date();
+        const incomeDate = new Date(date);
+        return incomeDate > minDate;
+    }
+
     const onSubmit = (v, props) => {
-        submitAction({...v, date: moment(date).format('YYYY-MM-DD')});
+        if (isDateValid()) {
+            submitAction({...v, date: moment(date).format('YYYY-MM-DD')});
+        }
     }
 
     return (
