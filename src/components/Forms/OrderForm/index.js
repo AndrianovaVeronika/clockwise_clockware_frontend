@@ -8,16 +8,17 @@ import {getMasters} from "../../../store/actions/masters";
 import DateTimePick from "./DateTimePick";
 import MasterPick from "./MasterPick";
 import ResultsReport from "./ResultsReport";
-import ArrowBackIosNewRoundedIcon from '@mui/icons-material/ArrowBackIosNewRounded';
-import ArrowForwardIosRoundedIcon from '@mui/icons-material/ArrowForwardIosRounded';
 import {useDispatch} from "react-redux";
 import {getUsers} from "../../../store/actions/users";
+import ArrowForwardIosRoundedIcon from '@mui/icons-material/ArrowForwardIosRounded';
+import ArrowBackIosRoundedIcon from '@mui/icons-material/ArrowBackIosRounded';
 
 const steps = ['Подробности заказа', 'Дата и время', 'Мастер', 'Проверьте данные'];
 const shiftTimeStart = 10;
 const shiftTimeEnd = 18;
 
-const OrderForm = ({specifiedInitialValues, submitAction, isDialog}) => {
+const OrderForm = ({specifiedInitialValues, submitAction, isDialog, closeOnSubmit}) => {
+    console.log('form rerender')
     const initialValues = specifiedInitialValues ? {
         ...specifiedInitialValues,
         userId: specifiedInitialValues.username,
@@ -76,6 +77,8 @@ const OrderForm = ({specifiedInitialValues, submitAction, isDialog}) => {
         e.preventDefault();
         if (!isDialog) {
             handleClean();
+        } else {
+            closeOnSubmit();
         }
     }
 
@@ -158,10 +161,18 @@ const OrderForm = ({specifiedInitialValues, submitAction, isDialog}) => {
                 }}>
                     <ActiveStep/>
                     <div style={{display: 'flex', flexDirection: 'row', justifyContent: 'space-between'}}>
-                        <IconButton disabled={activeStep === 0}
-                                    onClick={handleBack}><ArrowBackIosNewRoundedIcon/></IconButton>
-                        <IconButton disabled={activeStep === steps.length - 1} type='submit' form={'form' + activeStep}><ArrowForwardIosRoundedIcon/></IconButton>
-                        {!isDialog && activeStep - 1 === steps.length && <Button type='submit' form='order-form'>Отправить</Button>}
+                        <IconButton disabled={activeStep === 0} onClick={handleBack}>
+                            <ArrowBackIosRoundedIcon/>
+                        </IconButton>
+                        <IconButton
+                            disabled={activeStep === steps.length - 1}
+                            type='submit'
+                            form={'form' + activeStep}
+                        >
+                            <ArrowForwardIosRoundedIcon/>
+                        </IconButton>
+                        {activeStep === steps.length - 1 &&
+                        <Button type='submit' form='order-form'>Отправить</Button>}
                     </div>
                 </div>
             </div>

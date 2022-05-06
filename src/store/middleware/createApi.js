@@ -8,8 +8,6 @@ export default (modelName) => {
                 const response = await instance.get('/' + modelName);
                 return response.data || {};
             } catch (e) {
-                console.log('!!!!Query screwed up with error!!!!');
-                console.log('!!!!Error: ', e);
                 return thunkAPI.rejectWithValue(e);
             }
         },
@@ -18,8 +16,6 @@ export default (modelName) => {
                 const response = await instance.post('/' + modelName, newInstance);
                 return response.data;
             } catch (e) {
-                console.log('!!!!Query screwed up with error!!!!');
-                console.log('!!!!Error: ', e);
                 return thunkAPI.rejectWithValue(e);
             }
         },
@@ -28,8 +24,6 @@ export default (modelName) => {
                 const response = await instance.put('/' + modelName + '/' + id, updateValues);
                 return response.data;
             } catch (e) {
-                console.log('!!!!Query screwed up with error!!!!');
-                console.log('!!!!Error: ', e);
                 return thunkAPI.rejectWithValue(e);
             }
         },
@@ -38,8 +32,6 @@ export default (modelName) => {
                 const response = await instance.delete('/' + modelName + '/' + instanceId);
                 return response.data;
             } catch (e) {
-                console.log('!!!!Query screwed up with error!!!!');
-                console.log('!!!!Error: ', e);
                 return thunkAPI.rejectWithValue(e);
             }
         }

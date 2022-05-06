@@ -7,6 +7,7 @@ import withSidebar from "../../../../functions/withSidebar";
 import withRedirectIfNotAdmin from "../../../../functions/withRedirectIfNotAdmin";
 
 const AdminOrdersPage = () => {
+    console.log('orders page rerender')
     return (
         <>
             <div style={{marginTop: '100px', marginLeft: '50px'}}>

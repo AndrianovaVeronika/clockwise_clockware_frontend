@@ -4,7 +4,7 @@ import {addOrder, deleteOrder, getOrders, updateOrder} from "../../../store/acti
 import {useDispatch, useSelector} from "react-redux";
 import {getOrdersSelector} from "../../../store/selectors/ordersSelector";
 import DataTable from "../DataTable";
-import OrderForm from "../../Forms/OrderForm";
+import OrderFormDialog from "../../Dialogs/OrderFormDialog";
 
 const columns = [
     {
@@ -34,11 +34,12 @@ const columns = [
 ];
 
 const OrdersTable = () => {
+    console.log('orders table rerender')
     const dispatch = useDispatch();
 
     useEffect(() => {
         dispatch(getOrders());
-    }, [dispatch])
+    }, [dispatch]);
 
     const orders = useSelector(getOrdersSelector);
 
@@ -50,9 +51,9 @@ const OrdersTable = () => {
             onRowUpdate={updateOrder}
             onRowAdd={addOrder}
             formId='order-form'
-            ModelForm={OrderForm}
+            ModelDialog={OrderFormDialog}
         />
     );
 }
 
-export default OrdersTable;
+export default React.memo(OrdersTable);

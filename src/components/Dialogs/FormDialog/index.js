@@ -1,7 +1,7 @@
 import * as React from 'react';
 import {useState} from 'react';
-import {Button, Dialog, DialogActions, DialogContent, DialogTitle, IconButton} from '@mui/material';
-import CloseIcon from '@mui/icons-material/Close';
+import {Button, Dialog, DialogActions, DialogContent, DialogTitle} from '@mui/material';
+import CloseButton from "../../Forms/FormSelect/CloseButton";
 
 const FormDialog = ({
                         openDialogButtonText,
@@ -57,11 +57,9 @@ const FormDialog = ({
 
     return (
         <>
-            {<OpenButton/> && <OpenFormButton/>}
+            {<OpenFormButton/>}
             <Dialog open={open} onClose={toggle}>
-                <div style={{display: 'flex', justifyContent: 'flex-end'}}>
-                    <IconButton onClick={onCancelAction}><CloseIcon/></IconButton>
-                </div>
+                <CloseButton onCancel={onCancelAction}/>
                 <DialogTitle>
                     {dialogTitle}
                 </DialogTitle>
