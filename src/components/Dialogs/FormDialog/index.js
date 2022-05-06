@@ -25,7 +25,6 @@ const FormDialog = ({
             onSubmit();
         }
         toggle();
-        console.log('form toggled off')
     }
 
     const onCancelAction = () => {

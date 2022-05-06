@@ -65,38 +65,23 @@ const MasterPick = ({values, formId, submitAction}) => {
     const ifOrdersInterogates = (newOrderStartTime, newOrderRepairingTime, existingOrderStartTime, existingOrderRepairingTime) => {
         const existingOrderStartTimeInNum = parseInt(existingOrderStartTime.split(':')[0]);
         const newOrderStartTimeInNum = parseInt(newOrderStartTime.split(':')[0]);
-        console.log(newOrderStartTimeInNum + '?=' + existingOrderStartTimeInNum)
-        console.log('+' + newOrderRepairingTime + ' / ' + '+' + existingOrderRepairingTime)
         if (newOrderStartTimeInNum < existingOrderStartTimeInNum) {
-            console.log(newOrderStartTimeInNum + '<' + existingOrderStartTimeInNum)
             if ((newOrderStartTimeInNum + newOrderRepairingTime) < existingOrderStartTimeInNum) {
-                console.log((newOrderStartTimeInNum + newOrderRepairingTime) + '<' + existingOrderStartTimeInNum)
-                console.log('good, not interogates')
                 return false;
             }
-            console.log((newOrderStartTimeInNum + newOrderRepairingTime) +'!<'+ existingOrderStartTimeInNum)
         } else {
-            console.log(newOrderStartTimeInNum + '>' + existingOrderStartTimeInNum)
             if (existingOrderStartTimeInNum + existingOrderRepairingTime < newOrderStartTimeInNum) {
-                console.log(newOrderStartTimeInNum + '>' + (existingOrderStartTimeInNum + existingOrderRepairingTime))
-                console.log('good, not interogates')
                 return false;
             }
-            console.log(existingOrderStartTimeInNum + existingOrderRepairingTime +'!<'+ newOrderStartTimeInNum)
         }
         return true;
     }
 
     const getAvailableMasters = () => {
-        console.log('ORDERS')
-        console.log(orders)
         const busyMasters = [];
         for (const order of orders) {
             if (cityName !== order.city
                 || values.date !== order.date) {
-                console.log(cityName + '?=' + order.city)
-                console.log(values.date + '?=' + order.date)
-                console.log('skipping...')
                 continue;
             }
 
@@ -106,10 +91,7 @@ const MasterPick = ({values, formId, submitAction}) => {
             }
         }
 
-        const resultingMasters = masters.filter(({name}) => !busyMasters.includes(name));
-        console.log('Available masters: ')
-        console.log(resultingMasters)
-        return resultingMasters;
+        return masters.filter(({name}) => !busyMasters.includes(name));
     };
 
     const rows = getAvailableMasters();

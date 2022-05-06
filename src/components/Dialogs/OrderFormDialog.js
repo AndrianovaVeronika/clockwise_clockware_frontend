@@ -4,7 +4,6 @@ import CloseButton from "../Forms/FormSelect/CloseButton";
 import OrderForm from "../Forms/OrderForm";
 
 const OrderFormDialog = (props) => {
-    console.log('dialog rerender');
     const [open, setOpen] = useState(false);
 
     const handleOpen = () => {

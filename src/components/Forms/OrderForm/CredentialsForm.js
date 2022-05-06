@@ -12,8 +12,6 @@ const CredentialsForm = ({formId, submitAction, initialValues}) => {
     const clockTypes = useSelector(getClockTypesSelector);
     const user = useSelector(getCurrentUserSelector);
     const users = useSelector(getUsersSelector);
-    console.log('INITIAL VALUES')
-    console.log(initialValues)
 
     const getInitValues = () => {
         if (initialValues?.userId === '') {
@@ -26,7 +24,6 @@ const CredentialsForm = ({formId, submitAction, initialValues}) => {
             && !isNaN(initialValues?.cityId)) {
             return initialValues;
         }
-        console.log(clockTypes)
         return {
             cityId: cities.find(city => city.name === initialValues.city)?.id,
             userId: users.find(user => user.username === initialValues.username)?.id,

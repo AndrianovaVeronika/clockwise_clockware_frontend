@@ -30,8 +30,6 @@ const UsersTable = () => {
 
     const users = useSelector(getUsersSelector);
 
-    console.log(users)
-
     return (
         <>
             <DataTable

@@ -18,7 +18,6 @@ const shiftTimeStart = 10;
 const shiftTimeEnd = 18;
 
 const OrderForm = ({specifiedInitialValues, submitAction, isDialog, closeOnSubmit}) => {
-    console.log('form rerender')
     const initialValues = specifiedInitialValues ? {
         ...specifiedInitialValues,
         userId: specifiedInitialValues.username,

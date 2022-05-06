@@ -34,7 +34,6 @@ const columns = [
 ];
 
 const OrdersTable = () => {
-    console.log('orders table rerender')
     const dispatch = useDispatch();
 
     useEffect(() => {

@@ -28,14 +28,12 @@ const MasterForm = ({specifiedInitialValues, submitAction}) => {
     };
 
     const incomeCities = useSelector(getCitiesSelector);
-    console.log('income: '+incomeCities)
 
     const getCityOptions = () => {
         const cities = [];
         for (const city of incomeCities) {
             cities.push({key: city.name, value: city.name});
         }
-        console.log('RESULT CITIES', cities);
         return cities;
     }
 

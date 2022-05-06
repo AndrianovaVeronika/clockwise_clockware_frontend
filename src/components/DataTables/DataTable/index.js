@@ -20,7 +20,6 @@ const DataTable = ({
                        additionalFormDialogProps,
                        ...rest
                    }) => {
-    console.log('datatable rerender')
     const dispatch = useDispatch();
     const [activeRow, setActiveRow] = useState({});
 
@@ -160,6 +159,5 @@ export default React.memo(DataTable, (prevProps, nextProps) => {
         }
     }
 
-    console.log(equality)
     return equality;
 });
