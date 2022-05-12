@@ -1,19 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="47aa944b-1eed-4aaf-807f-af5d121fc908" name="Changes" comment="feat: OrderFormDialog.js&#10;fix: DataTable.js">
+    <list default="true" id="47aa944b-1eed-4aaf-807f-af5d121fc908" name="Changes" comment="fix: unnecessary logs">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/DataTables/DataTable/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/DataTables/DataTable/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/DataTables/OrdersTable/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/DataTables/OrdersTable/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/DataTables/UsersTable/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/DataTables/UsersTable/index.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/Dialogs/FormDialog/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Dialogs/FormDialog/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Dialogs/OrderFormDialog.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Dialogs/OrderFormDialog.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Forms/MasterForm/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Forms/MasterForm/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Forms/OrderForm/CredentialsForm.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Forms/OrderForm/CredentialsForm.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Forms/OrderForm/MasterPick.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Forms/OrderForm/MasterPick.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Forms/OrderForm/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Forms/OrderForm/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Pages/AdminPages/AdminOrdersPage/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Pages/AdminPages/AdminOrdersPage/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/functions/withRedirectAfterLogout.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/functions/withRedirectAfterLogout.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/functions/withRedirectIfNotAdmin.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/functions/withRedirectIfNotAdmin.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Forms/CityForm/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Forms/CityForm/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/store/reducers/citiesReducer.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/store/reducers/citiesReducer.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -188,14 +181,11 @@
       <workItem from="1651057391461" duration="5277000" />
       <workItem from="1651143740023" duration="9877000" />
       <workItem from="1651693190250" duration="22678000" />
-      <workItem from="1651840143696" duration="16287000" />
-    </task>
-    <task id="LOCAL-00025" summary="test">
-      <created>1644082834741</created>
-      <option name="number" value="00025" />
-      <option name="presentableId" value="LOCAL-00025" />
-      <option name="project" value="LOCAL" />
-      <updated>1644082834741</updated>
+      <workItem from="1651840143696" duration="17092000" />
+      <workItem from="1651946993717" duration="2986000" />
+      <workItem from="1652211837394" duration="5276000" />
+      <workItem from="1652261790937" duration="18129000" />
+      <workItem from="1652359547785" duration="16622000" />
     </task>
     <task id="LOCAL-00026" summary="test">
       <created>1644152283093</created>
@@ -533,7 +523,14 @@
       <option name="project" value="LOCAL" />
       <updated>1651870418382</updated>
     </task>
-    <option name="localTasksCounter" value="74" />
+    <task id="LOCAL-00074" summary="fix: unnecessary logs">
+      <created>1651870827848</created>
+      <option name="number" value="00074" />
+      <option name="presentableId" value="LOCAL-00074" />
+      <option name="project" value="LOCAL" />
+      <updated>1651870827848</updated>
+    </task>
+    <option name="localTasksCounter" value="75" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -552,7 +549,6 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="feat: hoc with redirect after logout, auth model&#10;fix: return statements in store when error catched" />
     <MESSAGE value="fix: styles&#10;feat: with redirect if not Admin, sidebar" />
     <MESSAGE value="fix" />
     <MESSAGE value="fix: try fix dependencies" />
@@ -577,7 +573,8 @@
     <MESSAGE value="fix: order form" />
     <MESSAGE value="fix: master pick check func" />
     <MESSAGE value="feat: OrderFormDialog.js&#10;fix: DataTable.js" />
-    <option name="LAST_COMMIT_MESSAGE" value="feat: OrderFormDialog.js&#10;fix: DataTable.js" />
+    <MESSAGE value="fix: unnecessary logs" />
+    <option name="LAST_COMMIT_MESSAGE" value="fix: unnecessary logs" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

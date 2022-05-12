@@ -9,7 +9,6 @@ const FormDialog = ({
                         submitButtonParams,
                         cancelOnClick,
                         OpenButton,
-                        hideDialogActions = false,
                         children
                     }) => {
     const [open, setOpen] = useState(false);
@@ -18,7 +17,7 @@ const FormDialog = ({
         setOpen(!open);
     };
 
-    const {onSubmit, submitButtonText, show = true, form, ...params} = submitButtonParams;
+    const {onSubmit, submitButtonText, ...params} = submitButtonParams;
 
     const onSubmitAction = () => {
         if (onSubmit) {
@@ -39,8 +38,7 @@ const FormDialog = ({
             return <OpenButton onClick={toggle}/>;
         }
 
-        const CustomizedButton = Button;
-        return <CustomizedButton style={{
+        return <Button style={{
             height: '50px',
             width: '120px',
             margin: '10px',
@@ -51,7 +49,7 @@ const FormDialog = ({
             color: 'whitesmoke'
         }} variant="outlined" onClick={toggle}>
             {openDialogButtonText}
-        </CustomizedButton>
+        </Button>
     }
 
     return (
@@ -66,14 +64,11 @@ const FormDialog = ({
                     {children}
                 </DialogContent>
                 <DialogActions>
-                    {!hideDialogActions && show && submitButtonParams &&
-                    <>
-                        <Button
-                            onClick={onSubmitAction}
-                            {...params}
-                        >{submitButtonText}</Button>
-                    </>
-                    }
+                    <Button
+                        type='submit'
+                        onClick={onSubmitAction}
+                        {...params}
+                    >{submitButtonText}</Button>
                 </DialogActions>
             </Dialog>
         </>

@@ -57,7 +57,6 @@ const DataTable = ({
                 dialogTitle={'Измените данные'}
                 submitButtonParams={{
                     submitButtonText: 'Сохранить',
-                    type: 'submit',
                     form: formId
                 }}
                 {...additionalFormDialogProps}

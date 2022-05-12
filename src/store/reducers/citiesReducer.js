@@ -1,6 +1,6 @@
 import initialState from "../initialState";
-import {createSlice} from "@reduxjs/toolkit";
-import {getCities, addCity, updateCity, deleteCity} from "../actions/cities";
+import {createSlice, current} from "@reduxjs/toolkit";
+import {addCity, deleteCity, getCities, updateCity} from "../actions/cities";
 
 const {reducer} = createSlice({
     name: 'cities',
@@ -14,13 +14,16 @@ const {reducer} = createSlice({
                 state.cities.citiesList = action.payload;
             })
             .addCase(addCity.fulfilled, (state, action) => {
+                state.cities.citiesList.push(action.payload);
                 console.log(action.payload);
             })
             .addCase(updateCity.fulfilled, (state, action) => {
-                console.log(action.payload);
+                const citiesList = current(state.cities.citiesList);
+                state.cities.citiesList = citiesList.map(city => city.id === parseInt(action.payload.id) ? action.payload : city);
             })
             .addCase(deleteCity.fulfilled, (state, action) => {
-                console.log(action.payload);
+                const citiesList = current(state.cities.citiesList);
+                state.cities.citiesList = citiesList.filter(city => city.id !== parseInt(action.payload.id));
             })
     }
 })
