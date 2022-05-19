@@ -1,8 +1,8 @@
 import {createAsyncThunk} from "@reduxjs/toolkit";
 import orders from '../constants/orders';
-import createApi from "../middleware/createApi";
+import {createActionApi} from "../middleware/createApi";
 
-const api = createApi('orders');
+const api = createActionApi('orders');
 
 export const getOrders = createAsyncThunk(orders.GET_ORDERS, api.GET);
 

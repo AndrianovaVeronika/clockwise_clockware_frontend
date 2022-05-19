@@ -1,5 +1,5 @@
 import initialState from "../initialState";
-import {createSlice} from "@reduxjs/toolkit";
+import {createSlice, current} from "@reduxjs/toolkit";
 import {signIn, signUp, verifyUserAccess, logOut} from "../actions/auth";
 
 const {reducer} = createSlice({
@@ -10,9 +10,6 @@ const {reducer} = createSlice({
     },
     extraReducers(builder) {
         builder
-            .addCase(signUp.fulfilled, (state, action) => {
-                console.log(action.payload.message);
-            })
             .addCase(signIn.fulfilled, (state, action) => {
                 state.auth.currentUser = action.payload;
                 state.auth.isAuth = true;
@@ -23,7 +20,6 @@ const {reducer} = createSlice({
                 state.auth.isAuth = false;
                 state.auth.isAdmin = false;
                 sessionStorage.clear();
-                console.log('cleared');
             })
             .addCase(verifyUserAccess.fulfilled, (state, action) => {
                 state.auth.userLoading = false;
@@ -38,8 +34,7 @@ const {reducer} = createSlice({
                 state.auth.isAuth = false;
                 state.auth.currentUser = {};
                 state.auth.isAdmin = false;
-                console.log(action.payload);
-            })
+            });
     }
 })
 

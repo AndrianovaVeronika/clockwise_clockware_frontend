@@ -1,6 +1,8 @@
 import initialState from "../initialState";
-import {createSlice} from "@reduxjs/toolkit";
-import {getMasters, addMaster, updateMaster, deleteMaster} from "../actions/masters";
+import {createSlice, current} from "@reduxjs/toolkit";
+import {addMaster, deleteMaster, getMasters, updateMaster} from "../actions/masters";
+import {createReducerApi} from "../middleware/createApi";
+const api = createReducerApi('masters');
 
 const {reducer} = createSlice({
     name: 'masters',
@@ -10,18 +12,10 @@ const {reducer} = createSlice({
     },
     extraReducers(builder) {
         builder
-            .addCase(getMasters.fulfilled, (state, action) => {
-                state.masters.mastersList = action.payload;
-            })
-            .addCase(addMaster.fulfilled, (state, action) => {
-                console.log(action.payload.message);
-            })
-            .addCase(updateMaster.fulfilled, (state, action) => {
-                console.log(action.payload.message);
-            })
-            .addCase(deleteMaster.fulfilled, (state, action) => {
-                console.log(action.payload.message);
-            })
+            .addCase(getMasters.fulfilled, api.GET)
+            .addCase(addMaster.fulfilled, api.ADD)
+            .addCase(updateMaster.fulfilled, api.UPDATE)
+            .addCase(deleteMaster.fulfilled, api.DELETE);
     }
 })
 

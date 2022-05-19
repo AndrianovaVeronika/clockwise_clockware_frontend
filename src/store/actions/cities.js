@@ -1,8 +1,8 @@
 import {createAsyncThunk} from "@reduxjs/toolkit";
 import cities from "../constants/cities";
-import createApi from "../middleware/createApi";
+import {createActionApi} from "../middleware/createApi";
 
-const api = createApi('cities');
+const api = createActionApi('cities');
 
 export const getCities = createAsyncThunk(cities.GET_CITIES, api.GET);
 

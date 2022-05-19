@@ -1,9 +1,8 @@
 import {createAsyncThunk} from "@reduxjs/toolkit";
-import instance from "../middleware/instance";
 import users from "../constants/users";
-import createApi from "../middleware/createApi";
+import {createActionApi} from "../middleware/createApi";
 
-const api = createApi('users');
+const api = createActionApi('users');
 
 export const getUsers = createAsyncThunk(users.GET_USERS, api.GET);
 

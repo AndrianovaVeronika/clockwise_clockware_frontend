@@ -7,14 +7,12 @@ const initialState = {
     },
     users: {
         usersList: [],
-        rolesList: []
     },
     orders: {
         ordersList: [],
     },
     masters: {
         mastersList: [],
-        availableMasters: []
     },
     cities: {
         citiesList: [],
