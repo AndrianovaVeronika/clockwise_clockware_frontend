@@ -65,13 +65,11 @@ const OrderForm = ({specifiedInitialValues, submitAction, isDialog, closeOnSubmi
     const minOrderDay = getTomorrowDate();
 
     const onFormSubmit = (v, props) => {
-        console.log('ON FORM SUBMIT', v)
         setValues({...values, ...v});
         handleNext();
     }
 
     const onSubmit = (e) => {
-        console.log('ON SUBMIT', values);
         dispatch(submitAction(specifiedInitialValues ? {id: specifiedInitialValues.id, ...values} : values));
         e.preventDefault();
         if (!isDialog) {
@@ -102,7 +100,7 @@ const OrderForm = ({specifiedInitialValues, submitAction, isDialog, closeOnSubmi
                 return <CredentialsForm
                     formId='form0'
                     submitAction={onFormSubmit}
-                    initialValues={values}
+                    specifiedInitialValues={values}
                 />
             }
             case 1 : {

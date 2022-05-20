@@ -7,28 +7,25 @@ import {getClockTypesSelector} from "../../../store/selectors/clockTypesSelector
 import {getCurrentUserSelector} from "../../../store/selectors/authSelector";
 import {getUsersSelector} from "../../../store/selectors/usersSelector";
 
-const CredentialsForm = ({formId, submitAction, initialValues}) => {
+const CredentialsForm = ({formId, submitAction, specifiedInitialValues}) => {
     const cities = useSelector(getCitiesSelector);
     const clockTypes = useSelector(getClockTypesSelector);
     const user = useSelector(getCurrentUserSelector);
     const users = useSelector(getUsersSelector);
 
     const getInitValues = () => {
-        if (initialValues?.userId === '') {
+        if (specifiedInitialValues.userId === '') {
             return {
-                ...initialValues,
-                userId: user.id
+                userId: user.id,
+                cityId: '',
+                clockTypeId: ''
             }
-        } else if (!isNaN(initialValues?.userId)
-            && !isNaN(initialValues?.clockTypeId)
-            && !isNaN(initialValues?.cityId)) {
-            return initialValues;
         }
         return {
-            cityId: cities.find(city => city.name === initialValues.city)?.id,
-            userId: users.find(user => user.username === initialValues.username)?.id,
-            clockTypeId: clockTypes.find(clockType => clockType.name === initialValues.clockType)?.id,
-        };
+            cityId: cities.find(city => city.name === specifiedInitialValues.city)?.id,
+            userId: users.find(user => user.username === specifiedInitialValues.username)?.id,
+            clockTypeId: clockTypes.find(clockType => clockType.name === specifiedInitialValues.clockType)?.id,
+        }
     }
 
     const values = getInitValues();
@@ -59,46 +56,45 @@ const CredentialsForm = ({formId, submitAction, initialValues}) => {
 
     return (
         <div style={{margin: '20px'}}>
+            {values.userId && (values.cityId || values.cityId === '') && (values.clockTypeId || values.clockTypeId === '') &&
             <Formik
                 initialValues={values}
                 onSubmit={onSubmit}
-            >
-                {
-                    (props) => (
-                        <Form id={formId}>
-                            {/*<Field as={TextField}*/}
-                            {/*       label='Имя'*/}
-                            {/*       name='username'*/}
-                            {/*       fullWidth*/}
-                            {/*       disabled*/}
-                            {/*/>*/}
-                            {/*<Field as={TextField}*/}
-                            {/*       label='Почта'*/}
-                            {/*       name='email'*/}
-                            {/*       fullWidth*/}
-                            {/*       disabled*/}
-                            {/*/>*/}
-                            <FormSelect
-                                label='Размер часов'
-                                name='clockTypeId'
-                                options={clockTypeOptions}
-                                required
-                                fullWidth
-                                style={{margin: '10px'}}
-                            />
-                            <FormSelect
-                                label='Город'
-                                name='cityId'
-                                options={cityOptions}
-                                required
-                                fullWidth
-                                style={{margin: '10px'}}
-                            />
-                        </Form>
-                    )
-                }
-            </Formik>
-        </div>
+            >{
+                (props) => (
+                    <Form id={formId}>
+                        {/*<Field as={TextField}*/}
+                        {/*       label='Имя'*/}
+                        {/*       name='username'*/}
+                        {/*       fullWidth*/}
+                        {/*       disabled*/}
+                        {/*/>*/}
+                        {/*<Field as={TextField}*/}
+                        {/*       label='Почта'*/}
+                        {/*       name='email'*/}
+                        {/*       fullWidth*/}
+                        {/*       disabled*/}
+                        {/*/>*/}
+                        <FormSelect
+                            label='Размер часов'
+                            name='clockTypeId'
+                            options={clockTypeOptions}
+                            required
+                            fullWidth
+                            style={{margin: '10px'}}
+                        />
+                        <FormSelect
+                            label='Город'
+                            name='cityId'
+                            options={cityOptions}
+                            required
+                            fullWidth
+                            style={{margin: '10px'}}
+                        />
+                    </Form>
+                )
+            }</Formik>
+            }</div>
     )
 }
 

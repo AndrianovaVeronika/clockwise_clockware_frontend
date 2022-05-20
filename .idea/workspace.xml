@@ -1,22 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="47aa944b-1eed-4aaf-807f-af5d121fc908" name="Changes" comment="fix: cities reducer change state when added/changed/deleted">
+    <list default="true" id="47aa944b-1eed-4aaf-807f-af5d121fc908" name="Changes" comment="feat: create api for reducers&#10;fix: reducers, actions">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/store/actions/auth.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/store/actions/auth.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/store/actions/cities.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/store/actions/cities.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/store/actions/clockTypes.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/store/actions/clockTypes.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/store/actions/masters.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/store/actions/masters.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/store/actions/orders.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/store/actions/orders.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/store/actions/users.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/store/actions/users.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/store/initialState.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/store/initialState.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/store/middleware/createApi.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/store/middleware/createApi.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/store/reducers/authReducer.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/store/reducers/authReducer.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/store/reducers/citiesReducer.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/store/reducers/citiesReducer.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/store/reducers/clockTypesReducer.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/store/reducers/clockTypesReducer.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/store/reducers/mastersReducer.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/store/reducers/mastersReducer.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/store/reducers/ordersReducer.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/store/reducers/ordersReducer.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/store/reducers/usersReducer.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/store/reducers/usersReducer.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Forms/OrderForm/CredentialsForm.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Forms/OrderForm/CredentialsForm.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Forms/OrderForm/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Forms/OrderForm/index.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -198,14 +186,8 @@
       <workItem from="1652359547785" duration="16917000" />
       <workItem from="1652422990049" duration="588000" />
       <workItem from="1652429926513" duration="4418000" />
-      <workItem from="1652968715652" duration="16161000" />
-    </task>
-    <task id="LOCAL-00027" summary="fix: order form submit, formDialog">
-      <created>1644247744789</created>
-      <option name="number" value="00027" />
-      <option name="presentableId" value="LOCAL-00027" />
-      <option name="project" value="LOCAL" />
-      <updated>1644247744789</updated>
+      <workItem from="1652968715652" duration="16717000" />
+      <workItem from="1653047296167" duration="11858000" />
     </task>
     <task id="LOCAL-00028" summary="fix: order form cancel">
       <created>1644248232441</created>
@@ -543,7 +525,14 @@
       <option name="project" value="LOCAL" />
       <updated>1652396672258</updated>
     </task>
-    <option name="localTasksCounter" value="76" />
+    <task id="LOCAL-00076" summary="feat: create api for reducers&#10;fix: reducers, actions">
+      <created>1653000987210</created>
+      <option name="number" value="00076" />
+      <option name="presentableId" value="LOCAL-00076" />
+      <option name="project" value="LOCAL" />
+      <updated>1653000987210</updated>
+    </task>
+    <option name="localTasksCounter" value="77" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -562,7 +551,6 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="fix" />
     <MESSAGE value="fix: try fix dependencies" />
     <MESSAGE value="fix: try" />
     <MESSAGE value="feat: log out, with redirect if not admin" />
@@ -587,7 +575,8 @@
     <MESSAGE value="feat: OrderFormDialog.js&#10;fix: DataTable.js" />
     <MESSAGE value="fix: unnecessary logs" />
     <MESSAGE value="fix: cities reducer change state when added/changed/deleted" />
-    <option name="LAST_COMMIT_MESSAGE" value="fix: cities reducer change state when added/changed/deleted" />
+    <MESSAGE value="feat: create api for reducers&#10;fix: reducers, actions" />
+    <option name="LAST_COMMIT_MESSAGE" value="feat: create api for reducers&#10;fix: reducers, actions" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
