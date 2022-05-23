@@ -1,10 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="47aa944b-1eed-4aaf-807f-af5d121fc908" name="Changes" comment="feat: create api for reducers&#10;fix: reducers, actions">
+    <list default="true" id="47aa944b-1eed-4aaf-807f-af5d121fc908" name="Changes" comment="fix: order form">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/Forms/OrderForm/CredentialsForm.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Forms/OrderForm/CredentialsForm.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Forms/OrderForm/MasterPick.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Forms/OrderForm/MasterPick.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/Forms/OrderForm/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Forms/OrderForm/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/store/middleware/createApi.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/store/middleware/createApi.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/store/middleware/instance.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/store/middleware/instance.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/store/reducers/authReducer.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/store/reducers/authReducer.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -187,14 +191,8 @@
       <workItem from="1652422990049" duration="588000" />
       <workItem from="1652429926513" duration="4418000" />
       <workItem from="1652968715652" duration="16717000" />
-      <workItem from="1653047296167" duration="11858000" />
-    </task>
-    <task id="LOCAL-00028" summary="fix: order form cancel">
-      <created>1644248232441</created>
-      <option name="number" value="00028" />
-      <option name="presentableId" value="LOCAL-00028" />
-      <option name="project" value="LOCAL" />
-      <updated>1644248232441</updated>
+      <workItem from="1653047296167" duration="12380000" />
+      <workItem from="1653299053532" duration="17965000" />
     </task>
     <task id="LOCAL-00029" summary="fix: date time pick&#10;feat: add extracting city and master by id">
       <created>1644260953427</created>
@@ -532,7 +530,14 @@
       <option name="project" value="LOCAL" />
       <updated>1653000987210</updated>
     </task>
-    <option name="localTasksCounter" value="77" />
+    <task id="LOCAL-00077" summary="fix: order form">
+      <created>1653087986662</created>
+      <option name="number" value="00077" />
+      <option name="presentableId" value="LOCAL-00077" />
+      <option name="project" value="LOCAL" />
+      <updated>1653087986663</updated>
+    </task>
+    <option name="localTasksCounter" value="78" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -570,13 +575,13 @@
     <MESSAGE value="feat: createApi" />
     <MESSAGE value="fix: createApi, forms" />
     <MESSAGE value="fix: rerendering page after submit order form" />
-    <MESSAGE value="fix: order form" />
     <MESSAGE value="fix: master pick check func" />
     <MESSAGE value="feat: OrderFormDialog.js&#10;fix: DataTable.js" />
     <MESSAGE value="fix: unnecessary logs" />
     <MESSAGE value="fix: cities reducer change state when added/changed/deleted" />
     <MESSAGE value="feat: create api for reducers&#10;fix: reducers, actions" />
-    <option name="LAST_COMMIT_MESSAGE" value="feat: create api for reducers&#10;fix: reducers, actions" />
+    <MESSAGE value="fix: order form" />
+    <option name="LAST_COMMIT_MESSAGE" value="fix: order form" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

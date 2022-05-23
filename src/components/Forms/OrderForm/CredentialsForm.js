@@ -6,6 +6,7 @@ import FormSelect from "../FormSelect";
 import {getClockTypesSelector} from "../../../store/selectors/clockTypesSelector";
 import {getCurrentUserSelector} from "../../../store/selectors/authSelector";
 import {getUsersSelector} from "../../../store/selectors/usersSelector";
+import {isNumber} from "lodash";
 
 const CredentialsForm = ({formId, submitAction, specifiedInitialValues}) => {
     const cities = useSelector(getCitiesSelector);
@@ -20,6 +21,10 @@ const CredentialsForm = ({formId, submitAction, specifiedInitialValues}) => {
                 cityId: '',
                 clockTypeId: ''
             }
+        } else if (isNumber(specifiedInitialValues.userId)
+            && isNumber(specifiedInitialValues.cityId)
+            && isNumber(specifiedInitialValues.clockTypeId)) {
+            return specifiedInitialValues;
         }
         return {
             cityId: cities.find(city => city.name === specifiedInitialValues.city)?.id,
@@ -60,41 +65,39 @@ const CredentialsForm = ({formId, submitAction, specifiedInitialValues}) => {
             <Formik
                 initialValues={values}
                 onSubmit={onSubmit}
-            >{
-                (props) => (
-                    <Form id={formId}>
-                        {/*<Field as={TextField}*/}
-                        {/*       label='Имя'*/}
-                        {/*       name='username'*/}
-                        {/*       fullWidth*/}
-                        {/*       disabled*/}
-                        {/*/>*/}
-                        {/*<Field as={TextField}*/}
-                        {/*       label='Почта'*/}
-                        {/*       name='email'*/}
-                        {/*       fullWidth*/}
-                        {/*       disabled*/}
-                        {/*/>*/}
-                        <FormSelect
-                            label='Размер часов'
-                            name='clockTypeId'
-                            options={clockTypeOptions}
-                            required
-                            fullWidth
-                            style={{margin: '10px'}}
-                        />
-                        <FormSelect
-                            label='Город'
-                            name='cityId'
-                            options={cityOptions}
-                            required
-                            fullWidth
-                            style={{margin: '10px'}}
-                        />
-                    </Form>
-                )
-            }</Formik>
-            }</div>
+            >{(props) => (
+                <Form id={formId}>
+                    {/*<Field as={TextField}*/}
+                    {/*       label='Имя'*/}
+                    {/*       name='username'*/}
+                    {/*       fullWidth*/}
+                    {/*       disabled*/}
+                    {/*/>*/}
+                    {/*<Field as={TextField}*/}
+                    {/*       label='Почта'*/}
+                    {/*       name='email'*/}
+                    {/*       fullWidth*/}
+                    {/*       disabled*/}
+                    {/*/>*/}
+                    <FormSelect
+                        label='Размер часов'
+                        name='clockTypeId'
+                        options={clockTypeOptions}
+                        required
+                        fullWidth
+                        style={{margin: '10px'}}
+                    />
+                    <FormSelect
+                        label='Город'
+                        name='cityId'
+                        options={cityOptions}
+                        required
+                        fullWidth
+                        style={{margin: '10px'}}
+                    />
+                </Form>)}
+            </Formik>}
+        </div>
     )
 }
 

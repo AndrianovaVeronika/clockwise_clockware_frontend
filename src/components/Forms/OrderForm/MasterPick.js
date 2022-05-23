@@ -7,6 +7,7 @@ import {TextField, Typography} from "@mui/material";
 import {DataGrid} from "@mui/x-data-grid";
 import {Field, Form, Formik} from "formik";
 import {getCitiesSelector} from "../../../store/selectors/citiesSelector";
+import {isNumber} from "lodash";
 
 function renderRating(params) {
     return <Rating readOnly value={params.value}/>;
@@ -33,7 +34,7 @@ const initialValues = {
 }
 
 const MasterPick = ({values, formId, submitAction}) => {
-    const [masterId, setMasterId] = useState('');
+    const [masterId, setMasterId] = useState(values.masterId);
 
     const masters = useSelector(getMastersSelector).filter(master => {
         for (const city of master.cities) {
@@ -100,6 +101,12 @@ const MasterPick = ({values, formId, submitAction}) => {
         setMasterId(e.row.id);
     }
 
+    const validatedSubmit = () => {
+        if (isNumber(masterId) && rows.filter(row => row.id === masterId).length > 0) {
+            submitAction({masterId: masterId});
+        }
+    }
+
     return (
         <>
             {rows.length < 1 ? <Typography>No masters available</Typography> :
@@ -113,7 +120,8 @@ const MasterPick = ({values, formId, submitAction}) => {
                             onRowClick={onMasterSelect}
                         />
                     </div>
-                    <Formik initialValues={initialValues} onSubmit={() => submitAction({masterId: masterId})}>
+                    <Formik initialValues={isNumber(values.masterId) ? {masterId: 21} : initialValues}
+                            onSubmit={validatedSubmit}>
                         {
                             (props) => (
                                 <Form id={formId}>

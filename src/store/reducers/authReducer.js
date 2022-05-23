@@ -13,6 +13,10 @@ const {reducer} = createSlice({
             .addCase(signIn.fulfilled, (state, action) => {
                 state.auth.currentUser = action.payload;
                 state.auth.isAuth = true;
+                state.auth.currentUser = action.payload;
+                if (action.payload.roles.includes('ROLE_ADMIN')){
+                    state.auth.isAdmin = true;
+                }
                 sessionStorage.setItem("TOKEN", action.payload.accessToken);
             })
             .addCase(logOut.fulfilled, (state, action) => {
