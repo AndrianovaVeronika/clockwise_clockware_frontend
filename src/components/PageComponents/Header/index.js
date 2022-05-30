@@ -39,28 +39,28 @@ export default function Header() {
                             }}
                             color='inherit'
                             className='menu-button'
-                        >Главная</Button>
+                        >Home</Button>
                         {!isAuth && <Button
                             onClick={() => {
                                 navigate('/login');
                             }}
                             color='inherit'
                             className='menu-button'
-                        >Войти</Button>}
+                        >Sign in</Button>}
                         {!isAuth && <Button
                             onClick={() => {
                                 navigate('/signup');
                             }}
                             color='inherit'
                             className='menu-button'
-                        >Регистрация</Button>}
+                        >Sign up</Button>}
                         {isAuth && <Button
                             onClick={() => {
                                 navigate('/profile');
                             }}
                             color='inherit'
                             className='menu-button'
-                        >Кабинет</Button>}
+                        >Profile</Button>}
                     </div>
                 </Toolbar>
             </AppBar>

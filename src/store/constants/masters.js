@@ -4,6 +4,7 @@ const masters = {
     ADD_MASTER: 'ADD_MASTER',
     UPDATE_MASTER: 'UPDATE_MASTER',
     DELETE_MASTER: 'DELETE_MASTER',
-}
+    GET_AVAILABLE_MASTERS: 'GET_AVAILABLE_MASTERS'
+};
 
 export default masters;

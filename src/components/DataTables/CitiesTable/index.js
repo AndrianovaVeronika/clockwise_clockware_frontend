@@ -11,7 +11,7 @@ const columns = [
         field: 'id', headerName: 'ID', width: 50
     },
     {
-        field: 'name', headerName: 'Название', width: 100
+        field: 'name', headerName: 'Name', width: 100
     },
 ];
 

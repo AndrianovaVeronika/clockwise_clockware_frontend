@@ -80,7 +80,7 @@ const CredentialsForm = ({formId, submitAction, specifiedInitialValues}) => {
                     {/*       disabled*/}
                     {/*/>*/}
                     <FormSelect
-                        label='Размер часов'
+                        label='Clock size'
                         name='clockTypeId'
                         options={clockTypeOptions}
                         required
@@ -88,7 +88,7 @@ const CredentialsForm = ({formId, submitAction, specifiedInitialValues}) => {
                         style={{margin: '10px'}}
                     />
                     <FormSelect
-                        label='Город'
+                        label='City'
                         name='cityId'
                         options={cityOptions}
                         required

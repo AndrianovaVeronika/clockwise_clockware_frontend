@@ -47,7 +47,7 @@ const SignUpForm = ({submitAction, specifiedInitialValues, signup = false}) => {
                                            required
                                 />
                                 <FormField as={TextField}
-                                           label='Почта'
+                                           label='Mail'
                                            name='email'
                                            error={props.errors.email && props.touched.email}
                                            helperText={<ErrorMessage name='email'/>}
@@ -68,11 +68,11 @@ const SignUpForm = ({submitAction, specifiedInitialValues, signup = false}) => {
                     }
                 </Formik>
                 {signup && <div className={styles.authFormButtons}>
-                    <Button onClick={() => signup ? navigate('/') : navigate('/admin/users')}>Отмена</Button>
+                    <Button onClick={() => signup ? navigate('/') : navigate('/admin/users')}>Cancel</Button>
                     <Button
                         type='submit'
                         form='signup-form'
-                    >Отправить</Button>
+                    >Submit</Button>
                 </div>}
             </Paper>
         </Box>

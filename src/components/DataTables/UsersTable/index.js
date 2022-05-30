@@ -11,13 +11,13 @@ const columns = [
         field: 'id', headerName: 'ID', width: 50
     },
     {
-        field: 'username', headerName: 'Имя', width: 150,
+        field: 'username', headerName: 'Name', width: 150,
     },
     {
-        field: 'email', headerName: 'Почта', width: 200,
+        field: 'email', headerName: 'Mail', width: 200,
     },
     {
-        field: 'password', headerName: 'Пароль', width: 300,
+        field: 'password', headerName: 'Password', width: 300,
     },
 ];
 

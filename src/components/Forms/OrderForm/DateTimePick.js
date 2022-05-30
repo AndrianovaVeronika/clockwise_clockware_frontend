@@ -6,8 +6,8 @@ import moment from "moment";
 import FormSelect from "../FormSelect";
 import {Form, Formik} from "formik";
 
-const DateTimePick = ({formId, submitAction, hours, minDate, initialValues}) => {
-    const [date, setDate] = useState(initialValues.date);
+const DateTimePick = ({formId, submitAction, hours, minDate, values}) => {
+    const [date, setDate] = useState(values.date);
 
     const isDateValid = () => {
         const minDate = new Date();
@@ -17,20 +17,21 @@ const DateTimePick = ({formId, submitAction, hours, minDate, initialValues}) => 
 
     const onSubmit = (v, props) => {
         if (isDateValid()) {
-            submitAction({...v, date: moment(date).format('YYYY-MM-DD')});
+            const dateFormated = moment(date).format('YYYY-MM-DD');
+            submitAction({time: v.time, date: dateFormated});
         }
     }
 
     return (
         <div style={{margin: '20px'}}>
-            <Formik initialValues={initialValues} onSubmit={onSubmit}>
+            <Formik initialValues={values} onSubmit={onSubmit}>
                 {
                     (props) => (
                         <Form id={formId}>
                             <LocalizationProvider dateAdapter={AdapterDateFns}>
                                 <DesktopDatePicker
                                     name="date"
-                                    label="Дата"
+                                    label="Date"
                                     minDate={minDate}
                                     value={date}
                                     onChange={(value) => setDate(value)}
@@ -39,7 +40,7 @@ const DateTimePick = ({formId, submitAction, hours, minDate, initialValues}) => 
                                 />
                             </LocalizationProvider>
                             <FormSelect
-                                label='Время'
+                                label='Time'
                                 name='time'
                                 options={hours.map(hour => {
                                     return {'key': hour, 'value': hour};

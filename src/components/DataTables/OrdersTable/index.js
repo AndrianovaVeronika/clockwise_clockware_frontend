@@ -11,25 +11,25 @@ const columns = [
         field: 'id', headerName: 'ID', width: 50
     },
     {
-        field: 'username', headerName: 'Имя', width: 150
+        field: 'username', headerName: 'Name', width: 150
     },
     {
-        field: 'email', headerName: 'Почта', width: 200,
+        field: 'email', headerName: 'Mail', width: 200,
     },
     {
-        field: 'clockType', headerName: 'Тип часов', width: 80,
+        field: 'clockType', headerName: 'Clock size', width: 80,
     },
     {
-        field: 'city', headerName: 'Город', width: 80,
+        field: 'city', headerName: 'City', width: 80,
     },
     {
-        field: 'date', headerName: 'Дата', width: 200,
+        field: 'date', headerName: 'Date', width: 200,
     },
     {
-        field: 'time', headerName: 'Время', width: 150,
+        field: 'time', headerName: 'Time', width: 150,
     },
     {
-        field: 'master', headerName: 'Мастер', width: 90,
+        field: 'master', headerName: 'Master', width: 90,
     },
 ];
 

@@ -56,11 +56,11 @@ const SignInForm = () => {
                     }
                 </Formik>
                 <div className={styles.authFormButtons}>
-                    <Button onClick={() => navigate('/')}>Отмена</Button>
+                    <Button onClick={() => navigate('/')}>Cancel</Button>
                     <Button
                         type='submit'
                         form='auth-form'
-                    >Войти</Button>
+                    >Sign in</Button>
                 </div>
             </Paper>
         </Box>

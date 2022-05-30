@@ -17,11 +17,11 @@ const MasterForm = ({specifiedInitialValues, submitAction}) => {
     const dispatch = useDispatch();
     const styles = useStyles();
 
-    const [citiesChosed, setCitiesChosed] = useState(specifiedInitialValues?.cities?.split(', ') || []);
+    const [citiesChosen, setCitiesChosen] = useState(specifiedInitialValues?.cities?.split(', ') || []);
 
     const handleChange = (event) => {
         const { target: {value} } = event;
-        setCitiesChosed(
+        setCitiesChosen(
             // On autofill we get a stringified value.
             typeof value === 'string' ? value.split(',') : value,
         );
@@ -48,8 +48,7 @@ const MasterForm = ({specifiedInitialValues, submitAction}) => {
     })
 
     const onSubmit = (values, props) => {
-        console.log({...values, cities: citiesChosed});
-        dispatch(submitAction(specifiedInitialValues? {id: specifiedInitialValues.id, ...values, cities: citiesChosed} : {...values, cities: citiesChosed}));
+        dispatch(submitAction(specifiedInitialValues? {id: specifiedInitialValues.id, ...values, cities: citiesChosen} : {...values, cities: citiesChosen}));
         props.resetForm();
     }
 
@@ -81,10 +80,10 @@ const MasterForm = ({specifiedInitialValues, submitAction}) => {
                                     />
                                 </div>
                                 <FormSelect
-                                    label='Города'
+                                    label='Cities'
                                     name='cities'
                                     options={cityOptions}
-                                    value={citiesChosed}
+                                    value={citiesChosen}
                                     onChange={handleChange}
                                     multiple
                                     fullWidth

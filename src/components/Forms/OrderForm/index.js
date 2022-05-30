@@ -1,10 +1,9 @@
 import React, {useEffect, useState} from 'react';
 import {Button, IconButton, Step, StepLabel, Stepper} from "@mui/material";
 import CredentialsForm from "./CredentialsForm";
-import {getOrders} from "../../../store/actions/orders";
 import {getCities} from "../../../store/actions/cities";
 import {getClockTypes} from "../../../store/actions/clockTypes";
-import {getMasters} from "../../../store/actions/masters";
+import {getAvailableMasters, getMasters} from "../../../store/actions/masters";
 import DateTimePick from "./DateTimePick";
 import MasterPick from "./MasterPick";
 import ResultsReport from "./ResultsReport";
@@ -12,8 +11,9 @@ import {useDispatch, useSelector} from "react-redux";
 import {getUsers} from "../../../store/actions/users";
 import ArrowForwardIosRoundedIcon from '@mui/icons-material/ArrowForwardIosRounded';
 import ArrowBackIosRoundedIcon from '@mui/icons-material/ArrowBackIosRounded';
+import {isAdminSelector} from "../../../store/selectors/authSelector";
 
-const steps = ['Подробности заказа', 'Дата и время', 'Мастер', 'Проверьте данные'];
+const steps = ['Credentials', 'Date & Time', 'Master', 'Check all'];
 const shiftTimeStart = 10;
 const shiftTimeEnd = 18;
 
@@ -34,13 +34,15 @@ const OrderForm = ({specifiedInitialValues, submitAction, isDialog, closeOnSubmi
     };
 
     const dispatch = useDispatch();
+    const isAdmin = useSelector(isAdminSelector);
 
     useEffect(() => {
-        dispatch(getUsers());
+        if (isAdmin) {
+            dispatch(getUsers());
+        }
         dispatch(getCities());
         dispatch(getMasters());
         dispatch(getClockTypes());
-        dispatch(getOrders());
     }, [dispatch]);
 
     const [values, setValues] = useState(initialValues);
@@ -109,10 +111,11 @@ const OrderForm = ({specifiedInitialValues, submitAction, isDialog, closeOnSubmi
                     formId='form1'
                     submitAction={onFormSubmit}
                     minDate={minOrderDay}
-                    initialValues={{date: values.date, time: values.time}}
+                    values={values}
                 />
             }
             case 2 : {
+                dispatch(getAvailableMasters(values));
                 return <MasterPick
                     hours={hours}
                     values={values}
@@ -169,7 +172,7 @@ const OrderForm = ({specifiedInitialValues, submitAction, isDialog, closeOnSubmi
                             <ArrowForwardIosRoundedIcon/>
                         </IconButton>
                         {activeStep === steps.length - 1 &&
-                        <Button type='submit' form='order-form'>Отправить</Button>}
+                        <Button type='submit' form='order-form'>Submit</Button>}
                     </div>
                 </div>
             </div>

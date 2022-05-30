@@ -15,18 +15,18 @@ const columns = [
         field: 'id', headerName: 'ID', width: 50
     },
     {
-        field: 'name', headerName: 'Имя', width: 100
+        field: 'name', headerName: 'Name', width: 100
     },
     {
         field: 'rating',
-        headerName: 'Рейтинг',
+        headerName: 'Rating',
         width: 150,
         renderCell: renderRating,
         type: 'number',
     },
     {
         field: 'cities',
-        headerName: 'Работает в',
+        headerName: 'Cities',
         width: 290,
     }
 ];
@@ -38,27 +38,18 @@ const MastersTable = () => {
         dispatch(getMasters());
     }, [dispatch])
 
-    const masters = useSelector(getMastersSelector);
-
-    const getRows = () => {
-        const rows = [];
-        for (const master of masters) {
-            const cities = [];
-            for (const city of master.cities) {
-                cities.push(city.name);
-            }
-            rows.push({...master, cities: cities.join(', ')});
+    const masters = useSelector(getMastersSelector).map(master => {
+        return {
+            ...master,
+            cities: master.cities.join(', ')
         }
-        return rows;
-    }
-
-    const rows = getRows();
+    });
 
     return (
         <>
             <DataTable
                 columns={columns}
-                rows={rows}
+                rows={masters}
                 onRowDelete={deleteMaster}
                 onRowUpdate={updateMaster}
                 onRowAdd={addMaster}
