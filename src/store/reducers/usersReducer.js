@@ -1,7 +1,9 @@
 import initialState from "../initialState";
-import {createSlice, current} from "@reduxjs/toolkit";
-import {deleteUser, getUsers, updateUser} from "../actions/users";
+import {createSlice} from "@reduxjs/toolkit";
+import {addUser, deleteUser, getUsers, updateUser} from "../actions/users";
 import {signUp} from "../actions/auth";
+import {createReducerApi} from "../middleware/createApi";
+const api = createReducerApi('users');
 
 const {reducer} = createSlice({
     name: 'users',
@@ -11,20 +13,11 @@ const {reducer} = createSlice({
     },
     extraReducers(builder) {
         builder
-            .addCase(signUp.fulfilled, (state, action) => {
-                state.users.usersList.push(action.payload);
-            })
-            .addCase(getUsers.fulfilled, (state, action) => {
-                state.users.usersList = action.payload;
-            })
-            .addCase(updateUser.fulfilled, (state, action) => {
-                const usersList = current(state.users.usersList);
-                state.users.usersList = usersList.map(user => user.id === parseInt(action.payload.id) ? action.payload : user);
-            })
-            .addCase(deleteUser.fulfilled, (state, action) => {
-                const usersList = current(state.users.usersList);
-                state.users.usersList = usersList.filter(user => user.id !== parseInt(action.payload.id));
-            })
+            .addCase(signUp.fulfilled, api.ADD)
+            .addCase(addUser.fulfilled, api.ADD)
+            .addCase(getUsers.fulfilled, api.GET)
+            .addCase(updateUser.fulfilled, api.UPDATE)
+            .addCase(deleteUser.fulfilled, api.DELETE)
     }
 })
 

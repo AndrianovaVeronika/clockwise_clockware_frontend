@@ -29,6 +29,7 @@ export const createActionApi = (modelName) => {
         },
         PUT: async ({id, ...updateValues}, thunkAPI) => {
             try {
+                console.log(updateValues)
                 const response = await instance.put('/' + modelName + '/' + id, updateValues, {
                     headers: {
                         'x-access-token': sessionStorage.getItem('TOKEN')
@@ -60,12 +61,15 @@ export const createReducerApi = (modelName) => {
             state[modelName][modelName + 'List'] = action.payload;
         },
         ADD: (state, action) => {
-            state[modelName][modelName + 'List'].push(action.payload);
+            const [newObj, isCreated] = action.payload;
+            if (isCreated) {
+                state[modelName][modelName + 'List'].push(newObj);
+            }
         },
         UPDATE: (state, action) => {
             const list = current(state[modelName][modelName + 'List']);
             state[modelName][modelName + 'List'] = list.map(instance => instance.id === parseInt(action.payload.id) ? action.payload : instance);
-            },
+        },
         DELETE: (state, action) => {
             const list = current(state[modelName][modelName + 'List']);
             state[modelName][modelName + 'List'] = list.filter(instance => instance.id !== parseInt(action.payload.id));

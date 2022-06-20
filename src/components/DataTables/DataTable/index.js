@@ -32,7 +32,6 @@ const DataTable = ({
     }
 
     const onRowClick = ({row}) => {
-        console.log('row to change - data table', row);
         setActiveRow(row);
     }
 

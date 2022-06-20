@@ -19,8 +19,8 @@ const SignUpForm = ({submitAction, specifiedInitialValues, signup = false}) => {
 
     const validationSchema = Yup.object().shape({
         username: Yup.string().min(3, 'Username is too short').required('Required'),
-        password: Yup.string().min(8, 'Password is too short').required('Required'),
-        email: Yup.string().email('email is not valid')
+        password: Yup.string().min(8, 'Password is too short'),
+        email: Yup.string().email('email is not valid').required('Required')
     })
 
     const onSubmit = async (values, props) => {

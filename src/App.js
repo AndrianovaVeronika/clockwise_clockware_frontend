@@ -41,7 +41,6 @@ function App() {
                 <Route path='/admin/masters' element={<AdminMastersPage/>}/>
                 <Route path='/admin/cities' element={<AdminCitiesPage/>}/>
                 <Route path='/admin/error' element={<ErrorNotAdminPage/>}/>
-                <Route path='/test' element={<OrderFormDialog OpenButton={Button} submitAction={console.log}/>}/>
             </Routes>
         </>
     );

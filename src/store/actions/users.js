@@ -4,6 +4,8 @@ import {createActionApi} from "../middleware/createApi";
 
 const api = createActionApi('users');
 
+export const addUser = createAsyncThunk(users.ADD_USER, api.POST);
+
 export const getUsers = createAsyncThunk(users.GET_USERS, api.GET);
 
 export const updateUser = createAsyncThunk(users.UPDATE_USER, api.PUT);

@@ -16,7 +16,6 @@ const CityForm = ({specifiedInitialValues, submitAction}) => {
     })
 
     const onSubmit = (values, props) => {
-        console.log('onSubmitCityForm: ' + specifiedInitialValues? {id: specifiedInitialValues?.id, ...values} : values)
         dispatch(submitAction(specifiedInitialValues? {id: specifiedInitialValues?.id, ...values} : values));
     }
 
