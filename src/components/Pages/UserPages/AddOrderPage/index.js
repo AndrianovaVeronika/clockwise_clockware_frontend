@@ -4,26 +4,21 @@ import withSidebar from "../../../../functions/withSidebar";
 import {withHeader} from "../../../../functions/withHeader";
 import {compose} from "redux";
 import {addOrder} from "../../../../store/actions/orders";
-import {Paper} from "@mui/material";
+import {Box, Paper} from "@mui/material";
+import Page from "../../../../styles/Page";
+import useStyles from "../../../../styles/useStyles";
 
 const AddOrderPage = () => {
+    const classes = useStyles();
+
     return (
-        <div style={{marginLeft: '50px', marginTop: '100px'}}>
-            <Paper
-                style={{
-                    marginLeft: '50px',
-                    marginTop: '150px',
-                    maxHeight: '400px',
-                    maxWidth: '700px',
-                    minHeight: '300px',
-                    minWidth: '500px',
-                    padding: '40px 30px',
-                    margin: '10px auto',
-                    flexDirection: 'column',
-                }}>
-                <OrderForm submitAction={addOrder}/>
-            </Paper>
-        </div>
+        <Page>
+            <Box className={classes.profileContent}>
+                <Paper className={classes.orderFormPaper}>
+                    <OrderForm submitAction={addOrder}/>
+                </Paper>
+            </Box>
+        </Page>
     )
 }
 

@@ -1,17 +1,30 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="47aa944b-1eed-4aaf-807f-af5d121fc908" name="Changes" comment="fix: labels in different languages bug, all logic about retrieving available masters removed, order form dispatch users only if current user is admin&#10;feat: masters-&gt;availableMasters in redux store state + selector + get available masters action">
-      <change afterPath="$PROJECT_DIR$/src/components/Forms/UserForm/index.js" afterDir="false" />
+    <list default="true" id="47aa944b-1eed-4aaf-807f-af5d121fc908" name="Changes" comment="fix: unnecessary">
+      <change afterPath="$PROJECT_DIR$/src/styles/Page/index.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/styles/theme.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/styles/useStyles.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/App.css" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/DataTables/DataTable/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/DataTables/DataTable/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/DataTables/UsersTable/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/DataTables/UsersTable/index.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/Forms/CityForm/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Forms/CityForm/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Forms/MasterForm/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Forms/MasterForm/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Forms/SignInForm/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Forms/SignInForm/index.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/Forms/SignUpForm/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Forms/SignUpForm/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/store/actions/users.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/store/actions/users.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/store/constants/users.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/store/constants/users.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/store/middleware/createApi.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/store/middleware/createApi.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/store/reducers/usersReducer.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/store/reducers/usersReducer.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Forms/UserForm/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Forms/UserForm/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Forms/styles.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/PageComponents/Header/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/PageComponents/Header/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/PageComponents/Sidebar/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/PageComponents/Sidebar/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Pages/AuthPages/SignInPage/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Pages/AuthPages/SignInPage/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Pages/AuthPages/SignUpPage/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Pages/AuthPages/SignUpPage/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Pages/HomePage/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Pages/HomePage/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Pages/UserPages/AddOrderPage/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Pages/UserPages/AddOrderPage/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Pages/UserPages/ProfilePage/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Pages/UserPages/ProfilePage/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/functions/withHeader.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/functions/withHeader.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/index.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -60,11 +73,11 @@
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\ClockwiseClockware\clockwise_clockware_frontend\src\styles" />
+      <recent name="D:\ClockwiseClockware\clockwise_clockware_frontend\src" />
       <recent name="D:\ClockwiseClockware\clockwise_clockware_frontend\src\store\middleware" />
       <recent name="D:\ClockwiseClockware\clockwise_clockware_frontend\src\components\Dialogs" />
       <recent name="D:\ClockwiseClockware\clockwise_clockware_frontend\src\components\Forms" />
-      <recent name="D:\ClockwiseClockware\clockwise_clockware_frontend\src\components\Pages\UserPages" />
-      <recent name="D:\ClockwiseClockware\clockwise_clockware_frontend\src\components\Pages\ErrorPages" />
     </key>
   </component>
   <component name="RunManager" selected="npm.start">
@@ -205,14 +218,10 @@
       <workItem from="1655375870072" duration="1426000" />
       <workItem from="1655565034946" duration="3566000" />
       <workItem from="1655658140359" duration="5128000" />
-      <workItem from="1655735141417" duration="950000" />
-    </task>
-    <task id="LOCAL-00031" summary="fix: imports, exports">
-      <created>1644266118070</created>
-      <option name="number" value="00031" />
-      <option name="presentableId" value="LOCAL-00031" />
-      <option name="project" value="LOCAL" />
-      <updated>1644266118070</updated>
+      <workItem from="1655735141417" duration="6079000" />
+      <workItem from="1655835682600" duration="12556000" />
+      <workItem from="1655894038993" duration="32065000" />
+      <workItem from="1655972914683" duration="19160000" />
     </task>
     <task id="LOCAL-00032" summary="fix: useEffect &amp; dispatch problem">
       <created>1644266317739</created>
@@ -550,7 +559,14 @@
       <option name="project" value="LOCAL" />
       <updated>1653871892855</updated>
     </task>
-    <option name="localTasksCounter" value="80" />
+    <task id="LOCAL-00080" summary="fix: unnecessary">
+      <created>1655736212339</created>
+      <option name="number" value="00080" />
+      <option name="presentableId" value="LOCAL-00080" />
+      <option name="project" value="LOCAL" />
+      <updated>1655736212339</updated>
+    </task>
+    <option name="localTasksCounter" value="81" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -569,7 +585,6 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="feat: log out, with redirect if not admin" />
     <MESSAGE value="feat: add order page&#10;fix: add order form styles" />
     <MESSAGE value="feat: add lazy-loading, spinner&#10;fix: styles" />
     <MESSAGE value="feat: model mail in store, action send mail, when add order form submitted" />
@@ -594,7 +609,8 @@
     <MESSAGE value="fix: order form" />
     <MESSAGE value="fix: redux store instance, createApi, OrderForm" />
     <MESSAGE value="fix: labels in different languages bug, all logic about retrieving available masters removed, order form dispatch users only if current user is admin&#10;feat: masters-&gt;availableMasters in redux store state + selector + get available masters action" />
-    <option name="LAST_COMMIT_MESSAGE" value="fix: labels in different languages bug, all logic about retrieving available masters removed, order form dispatch users only if current user is admin&#10;feat: masters-&gt;availableMasters in redux store state + selector + get available masters action" />
+    <MESSAGE value="fix: unnecessary" />
+    <option name="LAST_COMMIT_MESSAGE" value="fix: unnecessary" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

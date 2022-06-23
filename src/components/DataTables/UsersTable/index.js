@@ -38,7 +38,7 @@ const UsersTable = () => {
                 onRowDelete={deleteUser}
                 onRowUpdate={updateUser}
                 onRowAdd={signUp}
-                formId='signup-form'
+                formId='user-form'
                 ModelForm={SignUpForm}
             />
         </>

@@ -6,7 +6,7 @@ import {getCities} from "../../../store/actions/cities";
 import {useDispatch, useSelector} from "react-redux";
 import FormSelect from "../FormSelect";
 import {getCitiesSelector} from "../../../store/selectors/citiesSelector";
-import {FormField, useStyles} from "../styles";
+import useStyles from "../../../styles/useStyles";
 
 const initialValues = {
     name: '',
@@ -20,7 +20,7 @@ const MasterForm = ({specifiedInitialValues, submitAction}) => {
     const [citiesChosen, setCitiesChosen] = useState(specifiedInitialValues?.cities?.split(', ') || []);
 
     const handleChange = (event) => {
-        const { target: {value} } = event;
+        const {target: {value}} = event;
         setCitiesChosen(
             // On autofill we get a stringified value.
             typeof value === 'string' ? value.split(',') : value,
@@ -48,7 +48,10 @@ const MasterForm = ({specifiedInitialValues, submitAction}) => {
     })
 
     const onSubmit = (values, props) => {
-        dispatch(submitAction(specifiedInitialValues? {id: specifiedInitialValues.id, ...values, cities: citiesChosen} : {...values, cities: citiesChosen}));
+        dispatch(submitAction(specifiedInitialValues ? {
+            id: specifiedInitialValues.id, ...values,
+            cities: citiesChosen
+        } : {...values, cities: citiesChosen}));
         props.resetForm();
     }
 
@@ -60,14 +63,14 @@ const MasterForm = ({specifiedInitialValues, submitAction}) => {
                     {
                         (props) => (
                             <Form id='master-form'>
-                                <FormField as={TextField}
-                                           label='Name'
-                                           name='name'
-                                           fullWidth
-                                           error={props.errors.name && props.touched.name}
-                                           helperText={<ErrorMessage name='name'/>}
-                                           required
-                                           style={{margin: '5px'}}
+                                <TextField
+                                    label='Name'
+                                    name='name'
+                                    fullWidth
+                                    error={props.errors.name && props.touched.name}
+                                    helperText={<ErrorMessage name='name'/>}
+                                    required
+                                    style={{margin: '5px'}}
                                 />
                                 <div
                                     style={{margin: '5px'}}

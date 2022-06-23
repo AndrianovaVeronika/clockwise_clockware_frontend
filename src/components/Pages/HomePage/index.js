@@ -1,22 +1,29 @@
 import React from 'react';
-import {homePageText} from "../../../static/texts";
-import vehicle from '../../../static/vehicle.png';
 import {compose} from "redux";
 import {withHeader} from "../../../functions/withHeader";
+import {Box, Container, Typography} from "@mui/material";
+import useStyles from "../../../styles/useStyles";
+import {homePageText} from "../../../static/texts";
+import Page from "../../../styles/Page";
+import {Link} from "@mui/icons-material";
+import {useNavigate} from "react-router";
 
 const HomePage = () => {
+    const classes = useStyles();
+    const navigate = useNavigate();
+
     return (
-        <div style={{height: 'inherit', width: 'inherit', display: 'flex', alignItems: 'center', flexDirection: 'column'}}>
-            <div style={{width: '70%', display: 'flex', marginTop: '130px'}}>
-                <div className='text'>{homePageText}</div>
-                <div style={{
-                    height: '450px',
-                    width: '450px',
-                    backgroundSize: 'cover',
-                    backgroundImage: `url(${vehicle})`
-                }}/>
-            </div>
-        </div>
+        <Page>
+            <Container fixed className={classes.homePageContent}>
+                <Box className={classes.homePageText}>
+                    <Typography>{homePageText}</Typography>
+                    <Link onClick={() => navigate('/order')}/>
+                </Box>
+                <Box className={classes.homePageImageContainer}>
+                    <Box className={classes.homePageImage}/>
+                </Box>
+            </Container>
+        </Page>
     )
 }
 

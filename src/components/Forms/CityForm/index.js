@@ -3,7 +3,7 @@ import {ErrorMessage, Field, Form, Formik} from "formik";
 import {Paper, TextField} from "@mui/material";
 import * as Yup from "yup";
 import {useDispatch} from "react-redux";
-import {useStyles} from "../styles";
+import useStyles from "../../../styles/useStyles";
 
 const initialValues = {name: ''};
 

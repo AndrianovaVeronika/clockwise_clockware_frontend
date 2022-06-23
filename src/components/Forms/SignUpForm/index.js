@@ -2,78 +2,82 @@ import {useDispatch} from "react-redux";
 import {useNavigate} from "react-router";
 import * as Yup from "yup";
 import {Box, Button, Paper, TextField} from "@mui/material";
-import {ErrorMessage, Form, Formik} from "formik";
+import {ErrorMessage, Form, Formik, Field} from "formik";
 import React from "react";
-import {FormField, useStyles} from "../styles";
+import useStyles from "../../../styles/useStyles";
+import {signUp} from "../../../store/actions/auth";
 
 const initialValues = {
-    username: '',
-    email: '',
-    password: ''
+    username: "",
+    email: "",
+    password: ""
 };
 
-const SignUpForm = ({submitAction, specifiedInitialValues, signup = false}) => {
+const SignUpForm = () => {
     const dispatch = useDispatch();
     const navigate = useNavigate();
-    const styles = useStyles();
+    const classes = useStyles();
 
     const validationSchema = Yup.object().shape({
         username: Yup.string().min(3, 'Username is too short').required('Required'),
-        password: Yup.string().min(8, 'Password is too short'),
-        email: Yup.string().email('email is not valid').required('Required')
-    })
+        email: Yup.string().email('Email is not valid').required('Required'),
+        password: Yup.string().min(8, 'Password is too short').required('Required'),
+    });
 
     const onSubmit = async (values, props) => {
-        dispatch(submitAction(specifiedInitialValues ? {id: specifiedInitialValues.id, ...values} : values));
-        if (signup) {
-            navigate('/login');
-        }
-    }
+        dispatch(signUp(values));
+        navigate('/login');
+    };
 
     return (
         <Box>
-            <Paper elevation={signup ? 3 : 0} className={styles.formPaper}>
-                <Formik initialValues={specifiedInitialValues || initialValues} validationSchema={validationSchema}
+            <Paper elevation={3} className={classes.formPaper}>
+                <Formik initialValues={initialValues}
+                        validationSchema={validationSchema}
+                        validateOnChange
                         onSubmit={onSubmit}>
                     {
                         (props) => (
                             <Form id='signup-form'>
-                                <FormField as={TextField}
-                                           label='Username'
-                                           name='username'
-                                           fullWidth
-                                           error={props.errors.name && props.touched.name}
-                                           helperText={<ErrorMessage name='username'/>}
-                                           required
+                                <Field as={TextField}
+                                    label='Username'
+                                    name='username'
+                                    className={classes.formItem}
+                                    error={props.errors.username && props.touched.username}
+                                    helperText={<ErrorMessage name='username'/>}
+                                    fullWidth
+                                    required
                                 />
-                                <FormField as={TextField}
-                                           label='Mail'
-                                           name='email'
-                                           error={props.errors.email && props.touched.email}
-                                           helperText={<ErrorMessage name='email'/>}
-                                           required
-                                           fullWidth
+                                <Field as={TextField}
+                                    label='Email'
+                                    name='email'
+                                    className={classes.formItem}
+                                    error={props.errors.email && props.touched.email}
+                                    helperText={<ErrorMessage name='email'/>}
+                                    fullWidth
+                                    required
                                 />
-                                <FormField as={TextField}
-                                           label='Password'
-                                           name='password'
-                                           fullWidth
-                                           error={props.errors.name && props.touched.name}
-                                           helperText={<ErrorMessage name='password'/>}
-                                           required
-                                           type="password"
+                                <Field as={TextField}
+                                    label='Password'
+                                    name='password'
+                                    type="password"
+                                    className={classes.formItem}
+                                    error={props.errors.password && props.touched.password}
+                                    helperText={<ErrorMessage name='password'/>}
+                                    fullWidth
+                                    required
                                 />
                             </Form>
                         )
                     }
                 </Formik>
-                {signup && <div className={styles.authFormButtons}>
-                    <Button onClick={() => signup ? navigate('/') : navigate('/admin/users')}>Cancel</Button>
+                <div className={classes.authFormButtons}>
+                    <Button onClick={() => navigate('/')}>Cancel</Button>
                     <Button
                         type='submit'
                         form='signup-form'
                     >Submit</Button>
-                </div>}
+                </div>
             </Paper>
         </Box>
     )

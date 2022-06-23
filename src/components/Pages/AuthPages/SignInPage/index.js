@@ -1,22 +1,17 @@
 import React from 'react';
-import gearsBackgroundImage from '../../../../static/gears-background-image.jpg';
 import SignInForm from "../../../Forms/SignInForm";
+import {Box} from "@mui/material";
+import useStyles from "../../../../styles/useStyles";
 
 const SignInPage = () => {
+    const classes = useStyles();
+
     return (
-        <div style={{display: 'flex', justifyContent: 'center', height: 'inherit'}}>
-            <div style={{
-                height: '100vh',
-                width: '100vh',
-                backgroundSize: 'contain',
-                backgroundImage: `url(${gearsBackgroundImage})`,
-                display: 'flex',
-                justifyContent: 'center',
-                alignItems: 'center'
-            }}>
+        <Box className={classes.authPageOutContainer}>
+            <Box className={classes.authPageContent}>
                 <SignInForm/>
-            </div>
-        </div>
+            </Box>
+        </Box>
     )
 }
 

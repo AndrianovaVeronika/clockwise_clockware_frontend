@@ -1,65 +1,68 @@
 import React from 'react';
-import {ErrorMessage, Field, Form, Formik} from "formik";
+import {ErrorMessage, Form, Formik, Field} from "formik";
 import {Box, Button, Paper, TextField} from "@mui/material";
 import * as Yup from "yup";
 import {useDispatch} from "react-redux";
 import {signIn} from "../../../store/actions/auth";
 import {useNavigate} from "react-router";
-import {FormField, useStyles} from "../styles";
+import useStyles from "../../../styles/useStyles";
 
 const initialValues = {
-    username: '',
+    email: '',
     password: ''
 };
 
 const SignInForm = () => {
     const dispatch = useDispatch();
     const navigate = useNavigate();
-    const styles = useStyles();
+    const classes = useStyles();
 
     const validationSchema = Yup.object().shape({
-        username: Yup.string().min(3, 'Username is too short').required('Required'),
+        email: Yup.string().email('Email is not valid').required('Required'),
         password: Yup.string().min(8, 'Password is too short').required('Required')
-    })
+    });
 
     const onSubmit = async (values, props) => {
-        await dispatch(signIn(values));
+        console.log('im on submit')
+        dispatch(signIn(values));
         navigate('/profile');
     }
 
     return (
         <Box>
-            <Paper className={styles.formPaper}>
+            <Paper className={classes.formPaper}>
                 <Formik initialValues={initialValues} validationSchema={validationSchema} onSubmit={onSubmit}>
                     {
                         (props) => (
-                            <Form id='auth-form'>
-                                <FormField as={TextField}
-                                       label='Username'
-                                       name='username'
-                                       fullWidth
-                                       error={props.errors.name && props.touched.name}
-                                       helperText={<ErrorMessage name='username'/>}
-                                       required
+                            <Form id='signin-form'>
+                                <Field as={TextField}
+                                    label='Email'
+                                    name='email'
+                                    className={classes.formItem}
+                                    fullWidth
+                                    error={props.errors.email && props.touched.email}
+                                    helperText={<ErrorMessage name='email'/>}
+                                    required
                                 />
-                                <FormField as={TextField}
-                                       label='Password'
-                                       name='password'
-                                       type='password'
-                                       fullWidth
-                                       error={props.errors.name && props.touched.name}
-                                       helperText={<ErrorMessage name='password'/>}
-                                       required
+                                <Field as={TextField}
+                                    label='Password'
+                                    name='password'
+                                    className={classes.formItem}
+                                    type='password'
+                                    fullWidth
+                                    error={props.errors.password && props.touched.password}
+                                    helperText={<ErrorMessage name='password'/>}
+                                    required
                                 />
                             </Form>
                         )
                     }
                 </Formik>
-                <div className={styles.authFormButtons}>
+                <div className={classes.authFormButtons}>
                     <Button onClick={() => navigate('/')}>Cancel</Button>
                     <Button
                         type='submit'
-                        form='auth-form'
+                        form='signin-form'
                     >Sign in</Button>
                 </div>
             </Paper>
