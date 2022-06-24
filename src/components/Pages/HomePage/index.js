@@ -1,11 +1,10 @@
 import React from 'react';
 import {compose} from "redux";
 import {withHeader} from "../../../functions/withHeader";
-import {Box, Container, Typography} from "@mui/material";
+import {Box, Container, Typography, Link} from "@mui/material";
 import useStyles from "../../../styles/useStyles";
 import {homePageText} from "../../../static/texts";
 import Page from "../../../styles/Page";
-import {Link} from "@mui/icons-material";
 import {useNavigate} from "react-router";
 
 const HomePage = () => {
@@ -17,7 +16,7 @@ const HomePage = () => {
             <Container fixed className={classes.homePageContent}>
                 <Box className={classes.homePageText}>
                     <Typography>{homePageText}</Typography>
-                    <Link onClick={() => navigate('/order')}/>
+                    <Link className={classes.link} onClick={() => navigate('/add/order')}>Place order now</Link>
                 </Box>
                 <Box className={classes.homePageImageContainer}>
                     <Box className={classes.homePageImage}/>

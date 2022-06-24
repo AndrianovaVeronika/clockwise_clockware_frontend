@@ -5,14 +5,19 @@ import {compose} from "redux";
 import withRedirectAfterLogout from "../../../../functions/withRedirectAfterLogout";
 import withSidebar from "../../../../functions/withSidebar";
 import withRedirectIfNotAdmin from "../../../../functions/withRedirectIfNotAdmin";
+import useStyles from "../../../../styles/useStyles";
+import Page from "../../../../styles/Page";
+import {Box} from "@mui/material";
 
 const AdminOrdersPage = () => {
+    const classes = useStyles();
+
     return (
-        <>
-            <div style={{marginTop: '100px', marginLeft: '50px'}}>
+        <Page>
+            <Box className={classes.profileContent}>
                 <OrdersTable/>
-            </div>
-        </>
+            </Box>
+        </Page>
     )
 }
 

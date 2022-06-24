@@ -5,12 +5,19 @@ import withRedirectAfterLogout from "../../../../functions/withRedirectAfterLogo
 import withSidebar from "../../../../functions/withSidebar";
 import withRedirectIfNotAdmin from "../../../../functions/withRedirectIfNotAdmin";
 import {compose} from "redux";
+import useStyles from "../../../../styles/useStyles";
+import Page from "../../../../styles/Page";
+import {Box} from "@mui/material";
 
 const AdminCitiesPage = () => {
+    const classes = useStyles();
+
     return (
-        <div style={{marginTop: '100px', marginLeft: '50px'}}>
-            <CitiesTable/>
-        </div>
+        <Page>
+            <Box className={classes.profileContent}>
+                <CitiesTable/>
+            </Box>
+        </Page>
     )
 }
 

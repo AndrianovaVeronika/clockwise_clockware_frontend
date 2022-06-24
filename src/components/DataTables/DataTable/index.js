@@ -7,6 +7,7 @@ import {useDispatch} from "react-redux";
 import EditIcon from '@mui/icons-material/Edit';
 import FormDialog from "../../Dialogs/FormDialog";
 import AddIcon from '@mui/icons-material/Add';
+import useStyles from "../../../styles/useStyles";
 
 const DataTable = ({
                        columns,
@@ -22,6 +23,7 @@ const DataTable = ({
                    }) => {
     const dispatch = useDispatch();
     const [activeRow, setActiveRow] = useState({});
+    const classes = useStyles();
 
     const onDelete = () => {
         if (Object.keys(activeRow).length === 0) {
@@ -36,7 +38,7 @@ const DataTable = ({
     }
 
     const OpenIconButton = ({Icon, ...props}) => {
-        return <IconButton style={{width: '50px', height: '50px'}} {...props}>
+        return <IconButton className={classes.iconButton} {...props}>
             <Icon/>
         </IconButton>
     }

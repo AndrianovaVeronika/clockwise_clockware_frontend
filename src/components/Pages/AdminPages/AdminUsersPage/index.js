@@ -5,12 +5,19 @@ import withRedirectAfterLogout from "../../../../functions/withRedirectAfterLogo
 import UsersTable from "../../../DataTables/UsersTable";
 import withSidebar from "../../../../functions/withSidebar";
 import withRedirectIfNotAdmin from "../../../../functions/withRedirectIfNotAdmin";
+import Page from "../../../../styles/Page";
+import {Box} from "@mui/material";
+import useStyles from "../../../../styles/useStyles";
 
 const AdminUsersPage = () => {
+    const classes = useStyles();
+
     return (
-        <div style={{marginTop: '100px', marginLeft: '50px'}}>
-            <UsersTable/>
-        </div>
+        <Page>
+            <Box className={classes.profileContent}>
+                <UsersTable/>
+            </Box>
+        </Page>
     )
 }
 

@@ -9,3 +9,5 @@ export const isAuthUserSelector = createSelector((state) => state.auth, (state) 
 export const isUserLoadingSelector = createSelector((state) => state.auth, (state) => state.auth.userLoading);
 
 export const isAdminSelector = createSelector((state) => state.auth, (state) => state.auth.isAdmin);
+
+export const getOrderUserSelector = createSelector((state) => state.auth, (state) => state.auth.orderUser);

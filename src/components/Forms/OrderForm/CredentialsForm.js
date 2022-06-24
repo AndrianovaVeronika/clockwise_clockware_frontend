@@ -4,36 +4,19 @@ import {getCitiesSelector} from "../../../store/selectors/citiesSelector";
 import {Form, Formik} from "formik";
 import FormSelect from "../FormSelect";
 import {getClockTypesSelector} from "../../../store/selectors/clockTypesSelector";
-import {getCurrentUserSelector} from "../../../store/selectors/authSelector";
-import {getUsersSelector} from "../../../store/selectors/usersSelector";
-import {isNumber} from "lodash";
+import {getOrderUserSelector} from "../../../store/selectors/authSelector";
+import * as Yup from "yup";
 
-const CredentialsForm = ({formId, submitAction, specifiedInitialValues}) => {
+const CredentialsForm = ({formId, submitAction, values}) => {
     const cities = useSelector(getCitiesSelector);
     const clockTypes = useSelector(getClockTypesSelector);
-    const user = useSelector(getCurrentUserSelector);
-    const users = useSelector(getUsersSelector);
+    const user = useSelector(getOrderUserSelector);
 
-    const getInitValues = () => {
-        if (specifiedInitialValues.userId === '') {
-            return {
-                userId: user.id,
-                cityId: '',
-                clockTypeId: ''
-            }
-        } else if (isNumber(specifiedInitialValues.userId)
-            && isNumber(specifiedInitialValues.cityId)
-            && isNumber(specifiedInitialValues.clockTypeId)) {
-            return specifiedInitialValues;
-        }
-        return {
-            cityId: cities.find(city => city.name === specifiedInitialValues.city)?.id,
-            userId: users.find(user => user.username === specifiedInitialValues.username)?.id,
-            clockTypeId: clockTypes.find(clockType => clockType.name === specifiedInitialValues.clockType)?.id,
-        }
+    const initialValues = values ? {...values, userId: user.id} : {
+        userId: user.id,
+        cityId: '',
+        clockTypeId: ''
     }
-
-    const values = getInitValues();
 
     const getCities = () => {
         const elements = [];
@@ -52,33 +35,19 @@ const CredentialsForm = ({formId, submitAction, specifiedInitialValues}) => {
     }
 
     const cityOptions = getCities();
-
     const clockTypeOptions = getClockTypes();
 
     const onSubmit = (v, props) => {
-        submitAction({...v, userId: values.userId});
+        submitAction({...v, userId: initialValues.userId});
     }
 
     return (
         <div style={{margin: '20px'}}>
-            {values.userId && (values.cityId || values.cityId === '') && (values.clockTypeId || values.clockTypeId === '') &&
             <Formik
-                initialValues={values}
+                initialValues={initialValues}
                 onSubmit={onSubmit}
             >{(props) => (
                 <Form id={formId}>
-                    {/*<Field as={TextField}*/}
-                    {/*       label='Имя'*/}
-                    {/*       name='username'*/}
-                    {/*       fullWidth*/}
-                    {/*       disabled*/}
-                    {/*/>*/}
-                    {/*<Field as={TextField}*/}
-                    {/*       label='Почта'*/}
-                    {/*       name='email'*/}
-                    {/*       fullWidth*/}
-                    {/*       disabled*/}
-                    {/*/>*/}
                     <FormSelect
                         label='Clock size'
                         name='clockTypeId'
@@ -96,7 +65,7 @@ const CredentialsForm = ({formId, submitAction, specifiedInitialValues}) => {
                         style={{margin: '10px'}}
                     />
                 </Form>)}
-            </Formik>}
+            </Formik>
         </div>
     )
 }

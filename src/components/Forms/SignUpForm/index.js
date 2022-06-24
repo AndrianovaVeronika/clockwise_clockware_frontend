@@ -30,11 +30,10 @@ const SignUpForm = () => {
     };
 
     return (
-        <Box>
+        <>
             <Paper elevation={3} className={classes.formPaper}>
                 <Formik initialValues={initialValues}
                         validationSchema={validationSchema}
-                        validateOnChange
                         onSubmit={onSubmit}>
                     {
                         (props) => (
@@ -79,7 +78,7 @@ const SignUpForm = () => {
                     >Submit</Button>
                 </div>
             </Paper>
-        </Box>
+        </>
     )
 }
 

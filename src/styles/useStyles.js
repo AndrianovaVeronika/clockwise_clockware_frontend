@@ -38,6 +38,9 @@ export const useStyles = makeStyles((theme) => ({
         padding: '25px',
         width: '55%'
     },
+    link: {
+        fontSize: '20px'
+    },
     homePageImageContainer: {
         width: '45%',
         height: '100%',
@@ -84,6 +87,8 @@ export const useStyles = makeStyles((theme) => ({
     formItem: {
         margin: '5px!important'
     },
+    //user order form
+
     //sidebar
     sidebar: {
         height: '100%',
@@ -100,10 +105,40 @@ export const useStyles = makeStyles((theme) => ({
     },
     //order page
     orderFormPaper: {
-        height: '350px',
+        height: '400px',
         width: '500px',
         padding: '40px 30px',
         flexDirection: 'column',
+    },
+    stepper: {
+        height: '20%'
+    },
+    orderFormOutsideContainer: {
+        display: 'flex',
+        justifyContent: 'center',
+        alignItems: 'center',
+        flexGrow: 1,
+        padding: '30px',
+    },
+    orderFormInsideContainer: {
+        display: 'flex',
+        flexDirection: 'column',
+        width: '100%',
+        height: '100%'
+    },
+    orderFormButtons: {
+        display: 'flex',
+        flexDirection: 'row',
+        justifyContent: 'space-between'
+    },
+    masterPick: {
+        width: '425px',
+        height: '250px'
+    },
+    //data table
+    iconButton: {
+        width: '50px',
+        height: '50px'
     }
 }));
 

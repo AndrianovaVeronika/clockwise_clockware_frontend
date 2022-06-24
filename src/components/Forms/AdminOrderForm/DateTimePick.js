@@ -4,18 +4,10 @@ import {DesktopDatePicker, LocalizationProvider} from "@mui/lab";
 import AdapterDateFns from '@mui/lab/AdapterDateFns';
 import moment from "moment";
 import FormSelect from "../FormSelect";
-import {Field, Form, Formik} from "formik";
-import useStyles from "../../../styles/useStyles";
+import {Form, Formik} from "formik";
 
-const getTomorrow = () => {
-    const today = new Date();
-    return today.setDate(today.getDate() + 1);
-}
-const tomorrow = getTomorrow();
-
-const DateTimePick = ({formId, submitAction, hours, values}) => {
-    const [date, setDate] = useState(values.date || tomorrow);
-    const classes = useStyles();
+const DateTimePick = ({formId, submitAction, hours, minDate, values}) => {
+    const [date, setDate] = useState(values.date);
 
     const isDateValid = () => {
         const minDate = new Date();
@@ -37,30 +29,25 @@ const DateTimePick = ({formId, submitAction, hours, values}) => {
                     (props) => (
                         <Form id={formId}>
                             <LocalizationProvider dateAdapter={AdapterDateFns}>
-                                <Field as={DesktopDatePicker}
-                                       name="date"
-                                       label="Date"
-                                       minDate={tomorrow}
-                                       value={date}
-                                       onChange={(value) => setDate(value)}
-                                       error={props.errors.date && props.touched.date}
-                                       renderInput={(params) =>
-                                           <TextField
-                                               className={classes.formItem}
-                                               fullWidth
-                                               {...params}
-                                           />}
+                                <DesktopDatePicker
+                                    name="date"
+                                    label="Date"
+                                    minDate={minDate}
+                                    value={date}
+                                    onChange={(value) => setDate(value)}
+                                    renderInput={(params) => <TextField style={{margin: '10px'}}
+                                                                        fullWidth {...params}/>}
                                 />
                             </LocalizationProvider>
                             <FormSelect
                                 label='Time'
                                 name='time'
-                                className={classes.formItem}
                                 options={hours.map(hour => {
                                     return {'key': hour, 'value': hour};
                                 })}
                                 fullWidth
                                 required
+                                style={{margin: '10px'}}
                             />
                         </Form>
                     )

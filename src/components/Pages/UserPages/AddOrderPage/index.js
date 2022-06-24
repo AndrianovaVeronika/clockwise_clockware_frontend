@@ -1,4 +1,3 @@
-import withRedirectAfterLogout from "../../../../functions/withRedirectAfterLogout";
 import OrderForm from "../../../Forms/OrderForm";
 import withSidebar from "../../../../functions/withSidebar";
 import {withHeader} from "../../../../functions/withHeader";
@@ -22,4 +21,4 @@ const AddOrderPage = () => {
     )
 }
 
-export default compose(withHeader, withSidebar, withRedirectAfterLogout)(AddOrderPage);
+export default compose(withHeader, withSidebar)(AddOrderPage);

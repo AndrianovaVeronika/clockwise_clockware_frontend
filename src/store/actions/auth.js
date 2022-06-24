@@ -11,3 +11,5 @@ export const verifyUserAccess = createAsyncThunk(auth.VERIFY_USER_ACCESS, create
 export const logOut = createAsyncThunk(auth.LOG_OUT, async () => {
     return {message: 'Are u sure u want to logout?'};
 });
+
+export const findUserOrCreate = createAsyncThunk(auth.FIND_USER_OR_CREATE, createActionApi('find_or_create_user').POST);

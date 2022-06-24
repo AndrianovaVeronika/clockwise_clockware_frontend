@@ -17,11 +17,13 @@ export const createActionApi = (modelName) => {
         },
         POST: async (newInstance, thunkAPI) => {
             try {
+                console.log(newInstance)
                 const response = await instance.post('/' + modelName, newInstance, {
                     headers: {
                         'x-access-token': sessionStorage.getItem('TOKEN')
                     }
                 });
+                console.log(response.data)
                 return response.data;
             } catch (err) {
                 return thunkAPI.rejectWithValue(err);

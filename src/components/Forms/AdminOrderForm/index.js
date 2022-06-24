@@ -8,37 +8,47 @@ import DateTimePick from "./DateTimePick";
 import MasterPick from "./MasterPick";
 import ResultsReport from "./ResultsReport";
 import {useDispatch, useSelector} from "react-redux";
+import {getUsers} from "../../../store/actions/users";
 import ArrowForwardIosRoundedIcon from '@mui/icons-material/ArrowForwardIosRounded';
 import ArrowBackIosRoundedIcon from '@mui/icons-material/ArrowBackIosRounded';
-import {getOrderUserSelector} from "../../../store/selectors/authSelector";
-import LoginOrSignup from "./LoginOrSignup";
-import useStyles from "../../../styles/useStyles";
-import {addOrder} from "../../../store/actions/orders";
-import {findUserOrCreate} from "../../../store/actions/auth";
+import {isAdminSelector, isAuthUserSelector} from "../../../store/selectors/authSelector";
+import SignInForm from "../SignInForm";
+import SignUpForm from "../SignUpForm";
 
-const initialValues = {
-    userId: '',
-    clockTypeId: '',
-    masterId: '',
-    cityId: '',
-    date: '',
-    time: ''
-};
-
-const steps = ['User data', 'Credentials', 'Date & Time', 'Master', 'Check all'];
+const steps = ['Credentials', 'Date & Time', 'Master', 'Check all'];
 const shiftTimeStart = 10;
 const shiftTimeEnd = 18;
 
-const OrderForm = () => {
+const OrderForm = ({specifiedInitialValues, submitAction, isDialog, closeOnSubmit}) => {
+    const initialValues = specifiedInitialValues ? {
+        ...specifiedInitialValues,
+        userId: specifiedInitialValues.username,
+        clockTypeId: specifiedInitialValues.clockType,
+        masterId: specifiedInitialValues.master,
+        cityId: specifiedInitialValues.city,
+    } : {
+        userId: '',
+        clockTypeId: '',
+        masterId: '',
+        cityId: '',
+        date: '',
+        time: ''
+    };
+
     const dispatch = useDispatch();
-    const classes = useStyles();
-    const [values, setValues] = useState(initialValues);
+    const isAdmin = useSelector(isAdminSelector);
+    const isAuth = useSelector(isAuthUserSelector);
 
     useEffect(() => {
+        if (isAdmin) {
+            dispatch(getUsers());
+        }
         dispatch(getCities());
         dispatch(getMasters());
         dispatch(getClockTypes());
     }, [dispatch]);
+
+    const [values, setValues] = useState(initialValues);
 
     // returns all hours available within a day
     const getHours = () => {
@@ -60,20 +70,18 @@ const OrderForm = () => {
     const minOrderDay = getTomorrowDate();
 
     const onFormSubmit = (v, props) => {
-        console.log(v)
         setValues({...values, ...v});
         handleNext();
     }
 
-    const onLoginSubmit = (values, props) => {
-        dispatch(findUserOrCreate(values));
-        handleNext();
-    };
-
     const onSubmit = (e) => {
-        dispatch(addOrder(values));
+        dispatch(submitAction(specifiedInitialValues ? {id: specifiedInitialValues.id, ...values} : values));
         e.preventDefault();
-        handleClean();
+        if (!isDialog) {
+            handleClean();
+        } else {
+            closeOnSubmit();
+        }
     }
 
     const [activeStep, setActiveStep] = useState(0);
@@ -94,22 +102,19 @@ const OrderForm = () => {
     const ActiveStep = () => {
         switch (activeStep) {
             case 0 : {
-                return <LoginOrSignup
-                    formId='form0'
-                    onSubmit={onLoginSubmit}
-                />
+                return <SignUpForm/>
             }
             case 1 : {
                 return <CredentialsForm
-                    formId='form1'
+                    formId='form0'
                     submitAction={onFormSubmit}
-                    values={values}
+                    specifiedInitialValues={values}
                 />
             }
             case 2 : {
                 return <DateTimePick
                     hours={hours}
-                    formId='form2'
+                    formId='form1'
                     submitAction={onFormSubmit}
                     minDate={minOrderDay}
                     values={values}
@@ -120,7 +125,7 @@ const OrderForm = () => {
                 return <MasterPick
                     hours={hours}
                     values={values}
-                    formId='form3'
+                    formId='form2'
                     submitAction={onFormSubmit}
                 />
             }
@@ -138,7 +143,7 @@ const OrderForm = () => {
 
     return (
         <>
-            <Stepper activeStep={activeStep} className={classes.stepper}>
+            <Stepper activeStep={activeStep} style={{height: '20%'}}>
                 {steps.map((label, index) => {
                     const stepProps = {};
                     const labelProps = {};
@@ -149,10 +154,19 @@ const OrderForm = () => {
                     );
                 })}
             </Stepper>
-            <div className={classes.orderFormOutsideContainer}>
-                <div className={classes.orderFormInsideContainer}>
+            <div style={{
+                display: 'flex',
+                justifyContent: 'center',
+                alignItems: 'center',
+                marginTop: '30px'
+            }}>
+                <div style={{
+                    display: 'flex',
+                    flexDirection: 'column',
+                    width: '60%',
+                }}>
                     <ActiveStep/>
-                    <div className={classes.orderFormButtons}>
+                    <div style={{display: 'flex', flexDirection: 'row', justifyContent: 'space-between'}}>
                         <IconButton disabled={activeStep === 0} onClick={handleBack}>
                             <ArrowBackIosRoundedIcon/>
                         </IconButton>
