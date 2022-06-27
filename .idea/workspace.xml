@@ -1,34 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="47aa944b-1eed-4aaf-807f-af5d121fc908" name="Changes" comment="feat: all styles in useStyles.js;&#10;user form;&#10;styled component Page;&#10;theme.js;&#10;fix: styles">
-      <change afterPath="$PROJECT_DIR$/src/components/Forms/AdminOrderForm/CredentialsForm.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/Forms/AdminOrderForm/DateTimePick.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/Forms/AdminOrderForm/MasterPick.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/Forms/AdminOrderForm/index.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/Forms/OrderForm/LoginOrSignup.js" afterDir="false" />
+    <list default="true" id="47aa944b-1eed-4aaf-807f-af5d121fc908" name="Changes" comment="fix: styles">
+      <change afterPath="$PROJECT_DIR$/src/static/constants.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/DataTables/DataTable/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/DataTables/DataTable/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Forms/OrderForm/CredentialsForm.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Forms/OrderForm/CredentialsForm.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Forms/OrderForm/DateTimePick.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Forms/OrderForm/DateTimePick.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Forms/OrderForm/MasterPick.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Forms/OrderForm/MasterPick.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Dialogs/OrderFormDialog.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Dialogs/OrderFormDialog/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Forms/AdminOrderForm/CredentialsForm.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Forms/AdminOrderForm/DateTimePick.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Forms/AdminOrderForm/MasterPick.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Forms/AdminOrderForm/index.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Forms/OrderForm/LoginOrSignup.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Forms/OrderForm/LoginOrSignup.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/Forms/OrderForm/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Forms/OrderForm/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Forms/SignUpForm/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Forms/SignUpForm/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/PageComponents/Sidebar/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/PageComponents/Sidebar/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Pages/AdminPages/AdminCitiesPage/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Pages/AdminPages/AdminCitiesPage/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Pages/AdminPages/AdminMastersPage/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Pages/AdminPages/AdminMastersPage/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Pages/AdminPages/AdminOrdersPage/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Pages/AdminPages/AdminOrdersPage/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Pages/AdminPages/AdminUsersPage/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Pages/AdminPages/AdminUsersPage/index.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/Pages/HomePage/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Pages/HomePage/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Pages/UserPages/AddOrderPage/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Pages/UserPages/AddOrderPage/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/functions/withHeader.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/functions/withHeader.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Pages/UserPages/AddOrderPage/index.js" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/store/actions/auth.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/store/actions/auth.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/store/constants/auth.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/store/constants/auth.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/store/initialState.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/store/initialState.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/store/middleware/createApi.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/store/middleware/createApi.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/store/reducers/authReducer.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/store/reducers/authReducer.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/store/selectors/authSelector.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/store/selectors/authSelector.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/styles/useStyles.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/styles/useStyles.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -81,11 +70,11 @@
       <recent name="D:\ClockwiseClockware\clockwise_clockware_frontend\src\components\Forms" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\ClockwiseClockware\clockwise_clockware_frontend\src\components\Dialogs\OrderFormDialog" />
       <recent name="D:\ClockwiseClockware\clockwise_clockware_frontend\src\styles" />
       <recent name="D:\ClockwiseClockware\clockwise_clockware_frontend\src" />
       <recent name="D:\ClockwiseClockware\clockwise_clockware_frontend\src\store\middleware" />
       <recent name="D:\ClockwiseClockware\clockwise_clockware_frontend\src\components\Dialogs" />
-      <recent name="D:\ClockwiseClockware\clockwise_clockware_frontend\src\components\Forms" />
     </key>
   </component>
   <component name="RunManager" selected="npm.start">
@@ -229,14 +218,8 @@
       <workItem from="1655735141417" duration="6079000" />
       <workItem from="1655835682600" duration="12556000" />
       <workItem from="1655894038993" duration="32065000" />
-      <workItem from="1655972914683" duration="48891000" />
-    </task>
-    <task id="LOCAL-00033" summary="delete: get occupied hours&#10;feat: add select cities in add master form">
-      <created>1644511855041</created>
-      <option name="number" value="00033" />
-      <option name="presentableId" value="LOCAL-00033" />
-      <option name="project" value="LOCAL" />
-      <updated>1644511855041</updated>
+      <workItem from="1655972914683" duration="50105000" />
+      <workItem from="1656348423186" duration="6265000" />
     </task>
     <task id="LOCAL-00034" summary="fix: add master form">
       <created>1644516547480</created>
@@ -574,7 +557,14 @@
       <option name="project" value="LOCAL" />
       <updated>1656022211878</updated>
     </task>
-    <option name="localTasksCounter" value="82" />
+    <task id="LOCAL-00082" summary="fix: styles">
+      <created>1656064643155</created>
+      <option name="number" value="00082" />
+      <option name="presentableId" value="LOCAL-00082" />
+      <option name="project" value="LOCAL" />
+      <updated>1656064643155</updated>
+    </task>
+    <option name="localTasksCounter" value="83" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -601,7 +591,6 @@
     <MESSAGE value="feat: logout alert dialog" />
     <MESSAGE value="delete: user form&#10;fix: styles, signup form" />
     <MESSAGE value="delete: user form&#10;fix: styles, signup form&#10;feat: forms/styles" />
-    <MESSAGE value="fix: styles" />
     <MESSAGE value="fix: vehicle.png" />
     <MESSAGE value="fix: axios send access token with all requests using instance, order form (clicking &quot;clean&quot; sets all data to initial not regarding step, data that can be chosen starts with tomorrow date)" />
     <MESSAGE value="fix: store queries" />
@@ -618,7 +607,8 @@
     <MESSAGE value="fix: labels in different languages bug, all logic about retrieving available masters removed, order form dispatch users only if current user is admin&#10;feat: masters-&gt;availableMasters in redux store state + selector + get available masters action" />
     <MESSAGE value="fix: unnecessary" />
     <MESSAGE value="feat: all styles in useStyles.js;&#10;user form;&#10;styled component Page;&#10;theme.js;&#10;fix: styles" />
-    <option name="LAST_COMMIT_MESSAGE" value="feat: all styles in useStyles.js;&#10;user form;&#10;styled component Page;&#10;theme.js;&#10;fix: styles" />
+    <MESSAGE value="fix: styles" />
+    <option name="LAST_COMMIT_MESSAGE" value="fix: styles" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

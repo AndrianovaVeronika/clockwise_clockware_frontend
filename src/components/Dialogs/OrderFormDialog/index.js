@@ -1,7 +1,7 @@
 import React, {useState} from "react";
 import {Dialog, DialogContent, DialogTitle} from "@mui/material";
-import CloseButton from "../Forms/FormSelect/CloseButton";
-import OrderForm from "../Forms/OrderForm";
+import CloseButton from "../../Forms/FormSelect/CloseButton";
+import OrderForm from "../../Forms/OrderForm";
 
 const OrderFormDialog = (props) => {
     const [open, setOpen] = useState(false);

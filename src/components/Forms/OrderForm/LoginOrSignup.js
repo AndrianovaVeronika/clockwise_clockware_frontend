@@ -6,18 +6,15 @@ import * as Yup from "yup";
 import {useSelector} from "react-redux";
 import {getOrderUserSelector} from "../../../store/selectors/authSelector";
 
-
 const LoginOrSignup = ({formId, onSubmit}) => {
     const orderUser = useSelector(getOrderUserSelector);
-
-    const initialValues = {
-        username: orderUser.username || "",
-        email: orderUser.email || "",
-        password: orderUser.password || ""
-    };
-
     const classes = useStyles();
 
+    const initialValues = {
+        username: orderUser.username || '',
+        email: orderUser.email || '',
+        password: orderUser.password || ''
+    };
     const validationSchema = Yup.object().shape({
         username: Yup.string().min(3, 'Username is too short').required('Required'),
         email: Yup.string().email('Email is not valid').required('Required'),
@@ -46,16 +43,6 @@ const LoginOrSignup = ({formId, onSubmit}) => {
                                className={classes.formItem}
                                error={props.errors.email && props.touched.email}
                                helperText={<ErrorMessage name='email'/>}
-                               fullWidth
-                               required
-                        />
-                        <Field as={TextField}
-                               label='Password'
-                               name='password'
-                               type="password"
-                               className={classes.formItem}
-                               error={props.errors.password && props.touched.password}
-                               helperText={<ErrorMessage name='password'/>}
                                fullWidth
                                required
                         />

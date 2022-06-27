@@ -15,7 +15,6 @@ const AdminOrdersPage = React.lazy(() => import("./components/Pages/AdminPages/A
 const AdminMastersPage = React.lazy(() => import("./components/Pages/AdminPages/AdminMastersPage"));
 const AdminCitiesPage = React.lazy(() => import("./components/Pages/AdminPages/AdminCitiesPage"));
 const AdminUsersPage = React.lazy(() => import("./components/Pages/AdminPages/AdminUsersPage"));
-const AddOrderPage = React.lazy(() => import("./components/Pages/UserPages/AddOrderPage"));
 
 function App() {
     const dispatch = useDispatch();
@@ -31,7 +30,6 @@ function App() {
                 <Route path='/spinner' element={<Spinner/>}/>
                 <Route path='/signup' element={<SignUpPage/>}/>
                 <Route path='/profile' element={<ProfilePage/>}/>
-                <Route path='/add/order' element={<AddOrderPage/>}/>
                 <Route path='/logout' element={<LogoutAlertDialog/>}/>
                 <Route path='/admin/orders' element={<AdminOrdersPage/>}/>
                 <Route path='/admin/users' element={<AdminUsersPage/>}/>

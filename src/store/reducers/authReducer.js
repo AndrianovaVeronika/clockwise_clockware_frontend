@@ -19,15 +19,6 @@ const {reducer} = createSlice({
                 }
                 sessionStorage.setItem("TOKEN", action.payload.accessToken);
             })
-            .addCase(findUserOrCreate.fulfilled, (state, action) => {
-                const [user, isCreated] = action.payload;
-                if (isCreated) {
-                    console.log('user has been created')
-                } else {
-                    console.log('user has been found')
-                }
-                state.auth.orderUser = user;
-            })
             .addCase(logOut.fulfilled, (state, action) => {
                 state.auth.currentUser = {};
                 state.auth.isAuth = false;

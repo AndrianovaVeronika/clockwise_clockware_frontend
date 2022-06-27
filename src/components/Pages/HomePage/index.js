@@ -6,6 +6,7 @@ import useStyles from "../../../styles/useStyles";
 import {homePageText} from "../../../static/texts";
 import Page from "../../../styles/Page";
 import {useNavigate} from "react-router";
+import OrderForm from "../../Forms/OrderForm";
 
 const HomePage = () => {
     const classes = useStyles();
@@ -16,7 +17,7 @@ const HomePage = () => {
             <Container fixed className={classes.homePageContent}>
                 <Box className={classes.homePageText}>
                     <Typography>{homePageText}</Typography>
-                    <Link className={classes.link} onClick={() => navigate('/add/order')}>Place order now</Link>
+                    <OrderForm/>
                 </Box>
                 <Box className={classes.homePageImageContainer}>
                     <Box className={classes.homePageImage}/>

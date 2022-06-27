@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from 'react';
-import {Button, IconButton, Step, StepLabel, Stepper} from "@mui/material";
+import {Box, Button, IconButton, Paper, Step, StepLabel, Stepper} from "@mui/material";
 import CredentialsForm from "./CredentialsForm";
 import {getCities} from "../../../store/actions/cities";
 import {getClockTypes} from "../../../store/actions/clockTypes";
@@ -7,17 +7,17 @@ import {getAvailableMasters, getMasters} from "../../../store/actions/masters";
 import DateTimePick from "./DateTimePick";
 import MasterPick from "./MasterPick";
 import ResultsReport from "./ResultsReport";
-import {useDispatch, useSelector} from "react-redux";
+import {useDispatch} from "react-redux";
 import ArrowForwardIosRoundedIcon from '@mui/icons-material/ArrowForwardIosRounded';
 import ArrowBackIosRoundedIcon from '@mui/icons-material/ArrowBackIosRounded';
-import {getOrderUserSelector} from "../../../store/selectors/authSelector";
 import LoginOrSignup from "./LoginOrSignup";
 import useStyles from "../../../styles/useStyles";
 import {addOrder} from "../../../store/actions/orders";
-import {findUserOrCreate} from "../../../store/actions/auth";
+import {shiftTimeEnd, shiftTimeStart} from "../../../static/constants"
 
 const initialValues = {
-    userId: '',
+    username: '',
+    email: '',
     clockTypeId: '',
     masterId: '',
     cityId: '',
@@ -25,14 +25,11 @@ const initialValues = {
     time: ''
 };
 
-const steps = ['User data', 'Credentials', 'Date & Time', 'Master', 'Check all'];
-const shiftTimeStart = 10;
-const shiftTimeEnd = 18;
-
 const OrderForm = () => {
     const dispatch = useDispatch();
     const classes = useStyles();
     const [values, setValues] = useState(initialValues);
+    const steps = ['User data', 'Credentials', 'Date & Time', 'Master', 'Check all'];
 
     useEffect(() => {
         dispatch(getCities());
@@ -60,15 +57,9 @@ const OrderForm = () => {
     const minOrderDay = getTomorrowDate();
 
     const onFormSubmit = (v, props) => {
-        console.log(v)
         setValues({...values, ...v});
         handleNext();
     }
-
-    const onLoginSubmit = (values, props) => {
-        dispatch(findUserOrCreate(values));
-        handleNext();
-    };
 
     const onSubmit = (e) => {
         dispatch(addOrder(values));
@@ -96,7 +87,7 @@ const OrderForm = () => {
             case 0 : {
                 return <LoginOrSignup
                     formId='form0'
-                    onSubmit={onLoginSubmit}
+                    onSubmit={onFormSubmit}
                 />
             }
             case 1 : {
@@ -137,38 +128,40 @@ const OrderForm = () => {
     }
 
     return (
-        <>
-            <Stepper activeStep={activeStep} className={classes.stepper}>
-                {steps.map((label, index) => {
-                    const stepProps = {};
-                    const labelProps = {};
-                    return (
-                        <Step key={label} {...stepProps}>
-                            <StepLabel {...labelProps}>{label}</StepLabel>
-                        </Step>
-                    );
-                })}
-            </Stepper>
-            <div className={classes.orderFormOutsideContainer}>
-                <div className={classes.orderFormInsideContainer}>
-                    <ActiveStep/>
-                    <div className={classes.orderFormButtons}>
-                        <IconButton disabled={activeStep === 0} onClick={handleBack}>
-                            <ArrowBackIosRoundedIcon/>
-                        </IconButton>
-                        <IconButton
-                            disabled={activeStep === steps.length - 1}
-                            type='submit'
-                            form={'form' + activeStep}
-                        >
-                            <ArrowForwardIosRoundedIcon/>
-                        </IconButton>
-                        {activeStep === steps.length - 1 &&
-                        <Button type='submit' form='order-form'>Submit</Button>}
+        <Box className={classes.profileContent}>
+            <Paper className={classes.orderFormPaper}>
+                <Stepper activeStep={activeStep} className={classes.stepper}>
+                    {steps.map((label, index) => {
+                        const stepProps = {};
+                        const labelProps = {};
+                        return (
+                            <Step key={label} {...stepProps}>
+                                <StepLabel {...labelProps}>{label}</StepLabel>
+                            </Step>
+                        );
+                    })}
+                </Stepper>
+                <div className={classes.orderFormOutsideContainer}>
+                    <div className={classes.orderFormInsideContainer}>
+                        <ActiveStep/>
+                        <div className={classes.orderFormButtons}>
+                            <IconButton disabled={activeStep === 0} onClick={handleBack}>
+                                <ArrowBackIosRoundedIcon/>
+                            </IconButton>
+                            <IconButton
+                                disabled={activeStep === steps.length - 1}
+                                type='submit'
+                                form={'form' + activeStep}
+                            >
+                                <ArrowForwardIosRoundedIcon/>
+                            </IconButton>
+                            {activeStep === steps.length - 1 &&
+                            <Button type='submit' form='order-form'>Submit</Button>}
+                        </div>
                     </div>
                 </div>
-            </div>
-        </>
+            </Paper>
+        </Box>
     )
 }
 
