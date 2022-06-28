@@ -8,6 +8,7 @@ import EditIcon from '@mui/icons-material/Edit';
 import FormDialog from "../../Dialogs/FormDialog";
 import AddIcon from '@mui/icons-material/Add';
 import useStyles from "../../../styles/useStyles";
+import _ from 'lodash';
 
 const DataTable = ({
                        columns,
@@ -87,11 +88,7 @@ const DataTable = ({
 
     return (
         <>
-            <div style={{
-                height: '400px',
-                border: '4px double black',
-                display: 'flex'
-            }}>
+            <div className={classes.dataTable}>
                 <DataGrid
                     rows={rows}
                     columns={columns}
@@ -101,8 +98,10 @@ const DataTable = ({
                     {...rest}
                 />
             </div>
-            <DeleteDialog/>
-            <EditDialog/>
+            {!_.isEmpty(activeRow) && <>
+                <DeleteDialog/>
+                <EditDialog/>
+            </>}
             <AddDialog/>
         </>
     );

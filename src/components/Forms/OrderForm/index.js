@@ -151,15 +151,14 @@ const OrderForm = () => {
                             <IconButton disabled={activeStep === 0} onClick={handleBack}>
                                 <ArrowBackIosRoundedIcon/>
                             </IconButton>
-                            <IconButton
-                                disabled={activeStep === steps.length - 1}
-                                type='submit'
-                                form={'form' + activeStep}
-                            >
-                                <ArrowForwardIosRoundedIcon/>
-                            </IconButton>
-                            {activeStep === steps.length - 1 &&
-                            <Button type='submit' form='order-form'>Submit</Button>}
+                            {(activeStep === steps.length - 1) ?
+                                <Button type='submit' form='order-form'>Submit</Button>
+                                : <IconButton
+                                    type='submit'
+                                    form={'form' + activeStep}
+                                >
+                                    <ArrowForwardIosRoundedIcon/>
+                                </IconButton>}
                         </div>
                     </div>
                 </div>

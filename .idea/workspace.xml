@@ -1,15 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="47aa944b-1eed-4aaf-807f-af5d121fc908" name="Changes" comment="fix: home page">
+    <list default="true" id="47aa944b-1eed-4aaf-807f-af5d121fc908" name="Changes" comment="fix: styles, get available masters not necessary requests error">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Forms/OrderForm/CredentialsForm.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Forms/OrderForm/CredentialsForm.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Forms/OrderForm/DateTimePick.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Forms/OrderForm/DateTimePick.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Forms/OrderForm/LoginOrSignup.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Forms/OrderForm/LoginOrSignup.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Forms/OrderForm/ResultsReport.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Forms/OrderForm/ResultsReport.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/DataTables/DataTable/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/DataTables/DataTable/index.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/Forms/OrderForm/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Forms/OrderForm/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Pages/HomePage/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Pages/HomePage/index.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/styles/useStyles.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/styles/useStyles.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -214,14 +209,7 @@
       <workItem from="1655972914683" duration="50105000" />
       <workItem from="1656348423186" duration="6936000" />
       <workItem from="1656393212108" duration="6000" />
-      <workItem from="1656415493749" duration="19223000" />
-    </task>
-    <task id="LOCAL-00036" summary="feat: add clockType model to store">
-      <created>1644598746231</created>
-      <option name="number" value="00036" />
-      <option name="presentableId" value="LOCAL-00036" />
-      <option name="project" value="LOCAL" />
-      <updated>1644598746231</updated>
+      <workItem from="1656415493749" duration="22066000" />
     </task>
     <task id="LOCAL-00037" summary="fix: credentials form step">
       <created>1644833609101</created>
@@ -559,7 +547,14 @@
       <option name="project" value="LOCAL" />
       <updated>1656427886617</updated>
     </task>
-    <option name="localTasksCounter" value="85" />
+    <task id="LOCAL-00085" summary="fix: styles, get available masters not necessary requests error">
+      <created>1656453148594</created>
+      <option name="number" value="00085" />
+      <option name="presentableId" value="LOCAL-00085" />
+      <option name="project" value="LOCAL" />
+      <updated>1656453148594</updated>
+    </task>
+    <option name="localTasksCounter" value="86" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -578,7 +573,6 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="feat: delete &amp; update on tables" />
     <MESSAGE value="fix: change data buttons in data table, order form, data table, admin pages" />
     <MESSAGE value="feat: logout alert dialog" />
     <MESSAGE value="delete: user form&#10;fix: styles, signup form" />
@@ -603,7 +597,8 @@
     <MESSAGE value="feat: constants&#10;fix: fixed sized tables error, order form values, Home page," />
     <MESSAGE value="fix: login page only shows to not authorized users" />
     <MESSAGE value="fix: home page" />
-    <option name="LAST_COMMIT_MESSAGE" value="fix: home page" />
+    <MESSAGE value="fix: styles, get available masters not necessary requests error" />
+    <option name="LAST_COMMIT_MESSAGE" value="fix: styles, get available masters not necessary requests error" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

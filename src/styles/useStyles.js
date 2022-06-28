@@ -134,6 +134,11 @@ export const useStyles = makeStyles((theme) => ({
         height: '250px'
     },
     //data table
+    dataTable: {
+        height: '400px',
+        border: '4px double black',
+        display: 'flex'
+    },
     iconButton: {
         width: '50px',
         height: '50px'
