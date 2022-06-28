@@ -1,6 +1,6 @@
 import initialState from "../initialState";
 import {createSlice} from "@reduxjs/toolkit";
-import {findUserOrCreate, logOut, signIn, verifyUserAccess} from "../actions/auth";
+import {logOut, signIn, verifyUserAccess} from "../actions/auth";
 
 const {reducer} = createSlice({
     name: 'auth',
@@ -33,12 +33,14 @@ const {reducer} = createSlice({
                 if (action.payload.roles.includes('ROLE_ADMIN')) {
                     state.auth.isAdmin = true;
                 }
+                console.log('signed in')
             })
             .addCase(verifyUserAccess.rejected, (state, action) => {
                 state.auth.userLoading = false;
                 state.auth.isAuth = false;
                 state.auth.currentUser = {};
                 state.auth.isAdmin = false;
+                console.log('rejected')
             });
     }
 })
