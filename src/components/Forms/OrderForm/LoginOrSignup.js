@@ -12,13 +12,11 @@ const LoginOrSignup = ({formId, onSubmit}) => {
 
     const initialValues = {
         username: orderUser.username || '',
-        email: orderUser.email || '',
-        password: orderUser.password || ''
+        email: orderUser.email || ''
     };
     const validationSchema = Yup.object().shape({
         username: Yup.string().min(3, 'Username is too short').required('Required'),
-        email: Yup.string().email('Email is not valid').required('Required'),
-        password: Yup.string().min(8, 'Password is too short').required('Required'),
+        email: Yup.string().email('Email is not valid').required('Required')
     });
 
     return (

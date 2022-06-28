@@ -87,8 +87,6 @@ export const useStyles = makeStyles((theme) => ({
     formItem: {
         margin: '5px!important'
     },
-    //user order form
-
     //sidebar
     sidebar: {
         height: '100%',

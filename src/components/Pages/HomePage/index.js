@@ -1,7 +1,7 @@
-import React from 'react';
+import React, {useEffect, useState} from 'react';
 import {compose} from "redux";
 import {withHeader} from "../../../functions/withHeader";
-import {Box, Container, Typography, Link} from "@mui/material";
+import {Box, Container, Link, Typography} from "@mui/material";
 import useStyles from "../../../styles/useStyles";
 import {homePageText} from "../../../static/texts";
 import Page from "../../../styles/Page";
@@ -10,18 +10,27 @@ import OrderForm from "../../Forms/OrderForm";
 
 const HomePage = () => {
     const classes = useStyles();
-    const navigate = useNavigate();
+    const [isOrderLinkPressed, setOrderLinkPressed] = useState(false);
+
+    const onOrderLinkPressed = () => {
+        setOrderLinkPressed(true);
+    }
+
+    useEffect(() => {
+        setOrderLinkPressed(false);
+    }, []);
 
     return (
         <Page>
             <Container fixed className={classes.homePageContent}>
                 <Box className={classes.homePageText}>
                     <Typography>{homePageText}</Typography>
-                    <OrderForm/>
+                    {!isOrderLinkPressed && <Link onClick={onOrderLinkPressed}>Order now</Link>}
                 </Box>
                 <Box className={classes.homePageImageContainer}>
                     <Box className={classes.homePageImage}/>
                 </Box>
+                {isOrderLinkPressed && <OrderForm/>}
             </Container>
         </Page>
     )

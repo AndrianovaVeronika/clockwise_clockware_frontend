@@ -5,7 +5,6 @@ import {Form, Formik} from "formik";
 import FormSelect from "../FormSelect";
 import {getClockTypesSelector} from "../../../store/selectors/clockTypesSelector";
 import {getOrderUserSelector} from "../../../store/selectors/authSelector";
-import * as Yup from "yup";
 
 const CredentialsForm = ({formId, submitAction, values}) => {
     const cities = useSelector(getCitiesSelector);
@@ -42,31 +41,29 @@ const CredentialsForm = ({formId, submitAction, values}) => {
     }
 
     return (
-        <div style={{margin: '20px'}}>
-            <Formik
-                initialValues={initialValues}
-                onSubmit={onSubmit}
-            >{(props) => (
-                <Form id={formId}>
-                    <FormSelect
-                        label='Clock size'
-                        name='clockTypeId'
-                        options={clockTypeOptions}
-                        required
-                        fullWidth
-                        style={{margin: '10px'}}
-                    />
-                    <FormSelect
-                        label='City'
-                        name='cityId'
-                        options={cityOptions}
-                        required
-                        fullWidth
-                        style={{margin: '10px'}}
-                    />
-                </Form>)}
-            </Formik>
-        </div>
+        <Formik
+            initialValues={initialValues}
+            onSubmit={onSubmit}
+        >{(props) => (
+            <Form id={formId}>
+                <FormSelect
+                    label='Clock size'
+                    name='clockTypeId'
+                    options={clockTypeOptions}
+                    required
+                    fullWidth
+                    style={{margin: '10px'}}
+                />
+                <FormSelect
+                    label='City'
+                    name='cityId'
+                    options={cityOptions}
+                    required
+                    fullWidth
+                    style={{margin: '10px'}}
+                />
+            </Form>)}
+        </Formik>
     )
 }
 

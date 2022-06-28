@@ -31,42 +31,40 @@ const DateTimePick = ({formId, submitAction, hours, values}) => {
     }
 
     return (
-        <div style={{margin: '20px'}}>
-            <Formik initialValues={values} onSubmit={onSubmit}>
-                {
-                    (props) => (
-                        <Form id={formId}>
-                            <LocalizationProvider dateAdapter={AdapterDateFns}>
-                                <Field as={DesktopDatePicker}
-                                       name="date"
-                                       label="Date"
-                                       minDate={tomorrow}
-                                       value={date}
-                                       onChange={(value) => setDate(value)}
-                                       error={props.errors.date && props.touched.date}
-                                       renderInput={(params) =>
-                                           <TextField
-                                               className={classes.formItem}
-                                               fullWidth
-                                               {...params}
-                                           />}
-                                />
-                            </LocalizationProvider>
-                            <FormSelect
-                                label='Time'
-                                name='time'
-                                className={classes.formItem}
-                                options={hours.map(hour => {
-                                    return {'key': hour, 'value': hour};
-                                })}
-                                fullWidth
-                                required
+        <Formik initialValues={values} onSubmit={onSubmit}>
+            {
+                (props) => (
+                    <Form id={formId}>
+                        <LocalizationProvider dateAdapter={AdapterDateFns}>
+                            <Field as={DesktopDatePicker}
+                                   name="date"
+                                   label="Date"
+                                   minDate={tomorrow}
+                                   value={date}
+                                   onChange={(value) => setDate(value)}
+                                   error={props.errors.date && props.touched.date}
+                                   renderInput={(params) =>
+                                       <TextField
+                                           className={classes.formItem}
+                                           fullWidth
+                                           {...params}
+                                       />}
                             />
-                        </Form>
-                    )
-                }
-            </Formik>
-        </div>
+                        </LocalizationProvider>
+                        <FormSelect
+                            label='Time'
+                            name='time'
+                            className={classes.formItem}
+                            options={hours.map(hour => {
+                                return {'key': hour, 'value': hour};
+                            })}
+                            fullWidth
+                            required
+                        />
+                    </Form>
+                )
+            }
+        </Formik>
     )
 }
 

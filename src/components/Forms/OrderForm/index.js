@@ -57,8 +57,8 @@ const OrderForm = () => {
     const minOrderDay = getTomorrowDate();
 
     const onFormSubmit = (v, props) => {
-        setValues({...values, ...v});
         handleNext();
+        setValues({...values, ...v});
     }
 
     const onSubmit = (e) => {
@@ -70,7 +70,12 @@ const OrderForm = () => {
     const [activeStep, setActiveStep] = useState(0);
 
     const handleNext = () => {
-        setActiveStep((prevActiveStep) => prevActiveStep + 1);
+        setActiveStep((prevActiveStep) => {
+            if (prevActiveStep === 2) {
+                dispatch(getAvailableMasters(values));
+            }
+            return prevActiveStep + 1;
+        });
     };
 
     const handleBack = () => {
@@ -107,9 +112,7 @@ const OrderForm = () => {
                 />
             }
             case 3 : {
-                dispatch(getAvailableMasters(values));
                 return <MasterPick
-                    hours={hours}
                     values={values}
                     formId='form3'
                     submitAction={onFormSubmit}

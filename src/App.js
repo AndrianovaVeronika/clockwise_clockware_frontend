@@ -24,7 +24,7 @@ function App() {
 
     return (
         <>
-            <Routes>
+             <Routes>
                 <Route index element={<HomePage/>}/>
                 <Route path='/login' element={<SignInPage/>}/>
                 <Route path='/spinner' element={<Spinner/>}/>
