@@ -11,7 +11,7 @@ const initialValues = {
     password: ''
 };
 
-const SignUpForm = ({submitAction, specifiedInitialValues}) => {
+const UserForm = ({submitAction, specifiedInitialValues}) => {
     const dispatch = useDispatch();
     const classes = useStyles();
 
@@ -69,4 +69,4 @@ const SignUpForm = ({submitAction, specifiedInitialValues}) => {
     )
 }
 
-export default SignUpForm;
+export default UserForm;

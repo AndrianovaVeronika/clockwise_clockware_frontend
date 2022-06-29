@@ -25,7 +25,6 @@ const Sidebar = () => {
         <ProSidebar className={classes.sidebar}>
             <Menu iconShape="square" className={classes.sidebarMenu}>
                 {isAuth && <MenuItem icon={<AccountBoxIcon/>} onClick={() => navigate('/profile')}>Profile</MenuItem>}
-                <MenuItem icon={<AddTaskIcon/>} onClick={() => navigate('/add/order')}>Order</MenuItem>
                 {isAdmin && <SubMenu title="Tables" icon={<BackupTableIcon/>}>
                     <MenuItem onClick={() => navigate('/admin/orders')}>Orders</MenuItem>
                     <MenuItem onClick={() => navigate('/admin/users')}>Users</MenuItem>
