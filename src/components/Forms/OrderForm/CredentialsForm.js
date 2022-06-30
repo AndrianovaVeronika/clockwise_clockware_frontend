@@ -4,15 +4,12 @@ import {getCitiesSelector} from "../../../store/selectors/citiesSelector";
 import {Form, Formik} from "formik";
 import FormSelect from "../FormSelect";
 import {getClockTypesSelector} from "../../../store/selectors/clockTypesSelector";
-import {getOrderUserSelector} from "../../../store/selectors/authSelector";
 
 const CredentialsForm = ({formId, submitAction, values}) => {
     const cities = useSelector(getCitiesSelector);
     const clockTypes = useSelector(getClockTypesSelector);
-    const user = useSelector(getOrderUserSelector);
 
-    const initialValues = values ? {...values, userId: user.id} : {
-        userId: user.id,
+    const initialValues = values ? values : {
         cityId: '',
         clockTypeId: ''
     }

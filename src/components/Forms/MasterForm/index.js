@@ -10,12 +10,12 @@ import useStyles from "../../../styles/useStyles";
 
 const initialValues = {
     name: '',
-    rating: 0,
+    rating: 0
 }
 
 const MasterForm = ({specifiedInitialValues, submitAction}) => {
     const dispatch = useDispatch();
-    const styles = useStyles();
+    const classes = useStyles();
 
     const [citiesChosen, setCitiesChosen] = useState(specifiedInitialValues?.cities?.split(', ') || []);
 
@@ -57,7 +57,7 @@ const MasterForm = ({specifiedInitialValues, submitAction}) => {
 
     return (
         <>
-            <Paper elevation={0} className={styles.formPaper}>
+            <Paper elevation={0} className={classes.formPaper}>
                 <Formik initialValues={specifiedInitialValues || initialValues} validationSchema={validationSchema}
                         onSubmit={onSubmit}>
                     {
@@ -70,10 +70,10 @@ const MasterForm = ({specifiedInitialValues, submitAction}) => {
                                     error={props.errors.name && props.touched.name}
                                     helperText={<ErrorMessage name='name'/>}
                                     required
-                                    style={{margin: '5px'}}
+                                    className={classes.formItem}
                                 />
                                 <div
-                                    style={{margin: '5px'}}
+                                    className={classes.formItem}
                                 >
                                     <Typography component="legend">Rating</Typography>
                                     <Rating
@@ -90,7 +90,7 @@ const MasterForm = ({specifiedInitialValues, submitAction}) => {
                                     onChange={handleChange}
                                     multiple
                                     fullWidth
-                                    style={{margin: '5px'}}
+                                    className={classes.formItem}
                                 />
                             </Form>
                         )

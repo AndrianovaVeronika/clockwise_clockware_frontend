@@ -47,14 +47,14 @@ const OrderForm = () => {
     }
 
     //returns tomorrow date
-    const getTomorrowDate = () => {
-        const date = new Date();
-        date.setDate(date.getDate() + 1);
-        return date;
-    }
+    // const getTomorrowDate = () => {
+    //     const date = new Date();
+    //     date.setDate(date.getDate() + 1);
+    //     return date;
+    // }
 
     const hours = getHours();
-    const minOrderDay = getTomorrowDate();
+    // const minOrderDay = getTomorrowDate();
 
     const onFormSubmit = (v, props) => {
         handleNext();
@@ -107,7 +107,6 @@ const OrderForm = () => {
                     hours={hours}
                     formId='form2'
                     submitAction={onFormSubmit}
-                    minDate={minOrderDay}
                     values={values}
                 />
             }
