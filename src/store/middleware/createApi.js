@@ -60,10 +60,7 @@ export const createReducerApi = (modelName) => {
             state[modelName][modelName + 'List'] = action.payload;
         },
         ADD: (state, action) => {
-            const [newObj, isCreated] = action.payload;
-            if (isCreated) {
-                state[modelName][modelName + 'List'].push(newObj);
-            }
+            state[modelName][modelName + 'List'].push(action.payload);
         },
         UPDATE: (state, action) => {
             const list = current(state[modelName][modelName + 'List']);

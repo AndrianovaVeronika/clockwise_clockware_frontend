@@ -1,11 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="47aa944b-1eed-4aaf-807f-af5d121fc908" name="Changes" comment="fix: buttons order form, delete &amp; edit dialogs">
+    <list default="true" id="47aa944b-1eed-4aaf-807f-af5d121fc908" name="Changes" comment="fix: User form">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/DataTables/UsersTable/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/DataTables/UsersTable/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Forms/UserForm/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Forms/UserForm/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/PageComponents/Sidebar/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/PageComponents/Sidebar/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/store/middleware/createApi.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/store/middleware/createApi.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -210,14 +208,8 @@
       <workItem from="1656348423186" duration="6936000" />
       <workItem from="1656393212108" duration="6000" />
       <workItem from="1656415493749" duration="22366000" />
-      <workItem from="1656509004707" duration="5826000" />
-    </task>
-    <task id="LOCAL-00038" summary="feat: hoc with redirect after logout, auth model&#10;fix: return statements in store when error catched">
-      <created>1645131646987</created>
-      <option name="number" value="00038" />
-      <option name="presentableId" value="LOCAL-00038" />
-      <option name="project" value="LOCAL" />
-      <updated>1645131646987</updated>
+      <workItem from="1656509004707" duration="7902000" />
+      <workItem from="1656570860843" duration="1705000" />
     </task>
     <task id="LOCAL-00039" summary="fix: order form">
       <created>1645219022683</created>
@@ -555,7 +547,14 @@
       <option name="project" value="LOCAL" />
       <updated>1656457075053</updated>
     </task>
-    <option name="localTasksCounter" value="87" />
+    <task id="LOCAL-00087" summary="fix: User form">
+      <created>1656530513593</created>
+      <option name="number" value="00087" />
+      <option name="presentableId" value="LOCAL-00087" />
+      <option name="project" value="LOCAL" />
+      <updated>1656530513593</updated>
+    </task>
+    <option name="localTasksCounter" value="88" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -574,7 +573,6 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="feat: logout alert dialog" />
     <MESSAGE value="delete: user form&#10;fix: styles, signup form" />
     <MESSAGE value="delete: user form&#10;fix: styles, signup form&#10;feat: forms/styles" />
     <MESSAGE value="fix: vehicle.png" />
@@ -599,7 +597,8 @@
     <MESSAGE value="fix: home page" />
     <MESSAGE value="fix: styles, get available masters not necessary requests error" />
     <MESSAGE value="fix: buttons order form, delete &amp; edit dialogs" />
-    <option name="LAST_COMMIT_MESSAGE" value="fix: buttons order form, delete &amp; edit dialogs" />
+    <MESSAGE value="fix: User form" />
+    <option name="LAST_COMMIT_MESSAGE" value="fix: User form" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
