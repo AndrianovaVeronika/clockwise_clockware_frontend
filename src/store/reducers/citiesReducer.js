@@ -1,7 +1,7 @@
 import initialState from "../initialState";
 import {createSlice, current} from "@reduxjs/toolkit";
 import {addCity, deleteCity, getCities, updateCity} from "../actions/cities";
-import {createReducerApi} from "../middleware/createApi";
+import createReducerApi from "../middleware/createReducerApi";
 const api = createReducerApi('cities');
 
 const {reducer} = createSlice({

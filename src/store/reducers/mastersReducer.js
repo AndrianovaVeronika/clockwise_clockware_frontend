@@ -1,7 +1,7 @@
 import initialState from "../initialState";
 import {createSlice, current} from "@reduxjs/toolkit";
 import {addMaster, deleteMaster, getAvailableMasters, getMasters, updateMaster} from "../actions/masters";
-import {createReducerApi} from "../middleware/createApi";
+import createReducerApi from "../middleware/createReducerApi";
 
 const api = createReducerApi('masters');
 

@@ -6,6 +6,7 @@ import moment from "moment";
 import FormSelect from "../FormSelect";
 import {Field, Form, Formik} from "formik";
 import useStyles from "../../../styles/useStyles";
+import {shiftTimeEnd, shiftTimeStart} from "../../../static/constants";
 
 const getTomorrow = () => {
     const today = new Date();
@@ -13,7 +14,17 @@ const getTomorrow = () => {
 }
 const tomorrow = getTomorrow();
 
-const DateTimePick = ({formId, submitAction, hours, values}) => {
+// returns all hours available within a day
+const getHours = () => {
+    const hours = [];
+    for (let i = shiftTimeStart; i <= shiftTimeEnd; i++) {
+        hours.push(i + ':00:00');
+    }
+    return hours;
+}
+const hours = getHours();
+
+const DateTimePick = ({formId, submitAction, values}) => {
     const [date, setDate] = useState(values.date || tomorrow);
     const classes = useStyles();
 

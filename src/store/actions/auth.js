@@ -1,6 +1,6 @@
 import {createAsyncThunk} from "@reduxjs/toolkit";
 import auth from "../constants/auth";
-import {createActionApi} from "../middleware/createApi";
+import createActionApi from "../middleware/createActionApi";
 
 export const signUp = createAsyncThunk(auth.SIGN_UP, createActionApi('auth/signup').POST);
 

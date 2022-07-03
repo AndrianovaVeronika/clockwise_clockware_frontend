@@ -13,7 +13,6 @@ import ArrowBackIosRoundedIcon from '@mui/icons-material/ArrowBackIosRounded';
 import LoginOrSignup from "./LoginOrSignup";
 import useStyles from "../../../styles/useStyles";
 import {addOrder} from "../../../store/actions/orders";
-import {shiftTimeEnd, shiftTimeStart} from "../../../static/constants"
 
 const initialValues = {
     username: '',
@@ -36,25 +35,6 @@ const OrderForm = () => {
         dispatch(getMasters());
         dispatch(getClockTypes());
     }, [dispatch]);
-
-    // returns all hours available within a day
-    const getHours = () => {
-        const hours = [];
-        for (let i = shiftTimeStart; i <= shiftTimeEnd; i++) {
-            hours.push(i + ':00:00');
-        }
-        return hours;
-    }
-
-    //returns tomorrow date
-    // const getTomorrowDate = () => {
-    //     const date = new Date();
-    //     date.setDate(date.getDate() + 1);
-    //     return date;
-    // }
-
-    const hours = getHours();
-    // const minOrderDay = getTomorrowDate();
 
     const onFormSubmit = (v, props) => {
         handleNext();
@@ -104,7 +84,6 @@ const OrderForm = () => {
             }
             case 2 : {
                 return <DateTimePick
-                    hours={hours}
                     formId='form2'
                     submitAction={onFormSubmit}
                     values={values}

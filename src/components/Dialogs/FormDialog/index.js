@@ -1,7 +1,7 @@
 import * as React from 'react';
 import {useState} from 'react';
 import {Button, Dialog, DialogActions, DialogContent, DialogTitle} from '@mui/material';
-import CloseButton from "../../Forms/FormSelect/CloseButton";
+import CloseButton from "../../Forms/CloseButton";
 
 const FormDialog = ({
                         openDialogButtonText,

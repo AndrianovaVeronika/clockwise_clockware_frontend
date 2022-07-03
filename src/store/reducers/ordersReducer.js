@@ -1,7 +1,7 @@
 import initialState from "../initialState";
 import {createSlice} from "@reduxjs/toolkit";
 import {getOrders, addOrder, updateOrder, deleteOrder} from "../actions/orders";
-import {createReducerApi} from "../middleware/createApi";
+import createReducerApi from "../middleware/createReducerApi";
 const api = createReducerApi('orders');
 
 const {reducer} = createSlice({

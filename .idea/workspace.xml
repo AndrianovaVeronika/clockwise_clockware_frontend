@@ -1,9 +1,35 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="47aa944b-1eed-4aaf-807f-af5d121fc908" name="Changes" comment="fix: User form">
+    <list default="true" id="47aa944b-1eed-4aaf-807f-af5d121fc908" name="Changes" comment="feat: order success alert dialog">
+      <change afterPath="$PROJECT_DIR$/src/components/Dialogs/OrderFormDialog/FirstStep.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/Dialogs/OrderFormDialog/SecondStep.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/store/middleware/createReducerApi.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/store/middleware/createApi.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/store/middleware/createApi.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Dialogs/FormDialog/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Dialogs/FormDialog/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Dialogs/OrderFormDialog/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Dialogs/OrderFormDialog/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Forms/FormSelect/CloseButton.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Forms/CloseButton/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Forms/OrderForm/DateTimePick.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Forms/OrderForm/DateTimePick.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Forms/OrderForm/LoginOrSignup.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Forms/OrderForm/LoginOrSignup.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Forms/OrderForm/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Forms/OrderForm/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/store/actions/auth.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/store/actions/auth.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/store/actions/cities.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/store/actions/cities.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/store/actions/clockTypes.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/store/actions/clockTypes.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/store/actions/masters.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/store/actions/masters.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/store/actions/orders.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/store/actions/orders.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/store/actions/users.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/store/actions/users.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/store/constants/auth.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/store/constants/auth.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/store/constants/users.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/store/constants/users.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/store/initialState.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/store/initialState.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/store/middleware/createApi.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/store/middleware/createActionApi.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/store/reducers/authReducer.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/store/reducers/authReducer.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/store/reducers/citiesReducer.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/store/reducers/citiesReducer.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/store/reducers/clockTypesReducer.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/store/reducers/clockTypesReducer.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/store/reducers/mastersReducer.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/store/reducers/mastersReducer.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/store/reducers/ordersReducer.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/store/reducers/ordersReducer.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/store/reducers/usersReducer.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/store/reducers/usersReducer.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/store/selectors/authSelector.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/store/selectors/authSelector.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/store/selectors/usersSelector.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/store/selectors/usersSelector.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -56,11 +82,11 @@
       <recent name="D:\ClockwiseClockware\clockwise_clockware_frontend\src\components\Forms" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\ClockwiseClockware\clockwise_clockware_frontend\src\components\Forms\CloseButton" />
       <recent name="D:\ClockwiseClockware\clockwise_clockware_frontend\src\components\Dialogs\OrderFormDialog" />
       <recent name="D:\ClockwiseClockware\clockwise_clockware_frontend\src\styles" />
       <recent name="D:\ClockwiseClockware\clockwise_clockware_frontend\src" />
       <recent name="D:\ClockwiseClockware\clockwise_clockware_frontend\src\store\middleware" />
-      <recent name="D:\ClockwiseClockware\clockwise_clockware_frontend\src\components\Dialogs" />
     </key>
   </component>
   <component name="RunManager" selected="npm.start">
@@ -209,21 +235,8 @@
       <workItem from="1656393212108" duration="6000" />
       <workItem from="1656415493749" duration="22366000" />
       <workItem from="1656509004707" duration="7902000" />
-      <workItem from="1656570860843" duration="1705000" />
-    </task>
-    <task id="LOCAL-00039" summary="fix: order form">
-      <created>1645219022683</created>
-      <option name="number" value="00039" />
-      <option name="presentableId" value="LOCAL-00039" />
-      <option name="project" value="LOCAL" />
-      <updated>1645219022683</updated>
-    </task>
-    <task id="LOCAL-00040" summary="fix: styles&#10;feat: with redirect if not Admin, sidebar">
-      <created>1645516309414</created>
-      <option name="number" value="00040" />
-      <option name="presentableId" value="LOCAL-00040" />
-      <option name="project" value="LOCAL" />
-      <updated>1645516309414</updated>
+      <workItem from="1656570860843" duration="10197000" />
+      <workItem from="1656848166836" duration="19438000" />
     </task>
     <task id="LOCAL-00041" summary="fix">
       <created>1645519708415</created>
@@ -554,7 +567,21 @@
       <option name="project" value="LOCAL" />
       <updated>1656530513593</updated>
     </task>
-    <option name="localTasksCounter" value="88" />
+    <task id="LOCAL-00088" summary="fix: reducer error">
+      <created>1656573822874</created>
+      <option name="number" value="00088" />
+      <option name="presentableId" value="LOCAL-00088" />
+      <option name="project" value="LOCAL" />
+      <updated>1656573822874</updated>
+    </task>
+    <task id="LOCAL-00089" summary="feat: order success alert dialog">
+      <created>1656590319665</created>
+      <option name="number" value="00089" />
+      <option name="presentableId" value="LOCAL-00089" />
+      <option name="project" value="LOCAL" />
+      <updated>1656590319665</updated>
+    </task>
+    <option name="localTasksCounter" value="90" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -573,8 +600,6 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="delete: user form&#10;fix: styles, signup form" />
-    <MESSAGE value="delete: user form&#10;fix: styles, signup form&#10;feat: forms/styles" />
     <MESSAGE value="fix: vehicle.png" />
     <MESSAGE value="fix: axios send access token with all requests using instance, order form (clicking &quot;clean&quot; sets all data to initial not regarding step, data that can be chosen starts with tomorrow date)" />
     <MESSAGE value="fix: store queries" />
@@ -598,7 +623,9 @@
     <MESSAGE value="fix: styles, get available masters not necessary requests error" />
     <MESSAGE value="fix: buttons order form, delete &amp; edit dialogs" />
     <MESSAGE value="fix: User form" />
-    <option name="LAST_COMMIT_MESSAGE" value="fix: User form" />
+    <MESSAGE value="fix: reducer error" />
+    <MESSAGE value="feat: order success alert dialog" />
+    <option name="LAST_COMMIT_MESSAGE" value="feat: order success alert dialog" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

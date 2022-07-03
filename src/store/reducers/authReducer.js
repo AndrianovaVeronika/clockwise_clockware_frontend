@@ -12,7 +12,6 @@ const {reducer} = createSlice({
         builder
             .addCase(signIn.fulfilled, (state, action) => {
                 state.auth.currentUser = action.payload;
-                state.auth.orderUser = action.payload;
                 state.auth.isAuth = true;
                 if (action.payload.roles.includes('ROLE_ADMIN')) {
                     state.auth.isAdmin = true;
@@ -29,7 +28,6 @@ const {reducer} = createSlice({
                 state.auth.userLoading = false;
                 state.auth.isAuth = true;
                 state.auth.currentUser = action.payload;
-                state.auth.orderUser = action.payload;
                 if (action.payload.roles.includes('ROLE_ADMIN')) {
                     state.auth.isAdmin = true;
                 }

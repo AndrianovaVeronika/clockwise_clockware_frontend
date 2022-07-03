@@ -1,6 +1,6 @@
 import {createAsyncThunk} from "@reduxjs/toolkit";
 import masters from '../constants/masters';
-import {createActionApi} from "../middleware/createApi";
+import createActionApi from "../middleware/createActionApi";
 import instance from "../middleware/instance";
 
 const api = createActionApi('masters');

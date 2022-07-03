@@ -1,7 +1,6 @@
 const initialState = {
     auth: {
         currentUser: {},
-        orderUser: {},
         isAuth: false,
         userLoading: true,
         isAdmin: false
@@ -11,6 +10,7 @@ const initialState = {
     },
     orders: {
         ordersList: [],
+        orderUser: {},
     },
     masters: {
         mastersList: [],

@@ -1,7 +1,7 @@
 import initialState from "../initialState";
 import {createSlice} from "@reduxjs/toolkit";
 import {getClockTypes} from "../actions/clockTypes";
-import {createReducerApi} from "../middleware/createApi";
+import createReducerApi from "../middleware/createReducerApi";
 import clockTypes from "../constants/clockTypes";
 const api = createReducerApi('clockTypes');
 

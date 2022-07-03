@@ -4,15 +4,15 @@ import React from "react";
 import useStyles from "../../../styles/useStyles";
 import * as Yup from "yup";
 import {useSelector} from "react-redux";
-import {getOrderUserSelector} from "../../../store/selectors/authSelector";
+import {getCurrentUserSelector} from "../../../store/selectors/authSelector";
 
 const LoginOrSignup = ({formId, onSubmit}) => {
-    const orderUser = useSelector(getOrderUserSelector);
+    const currentUser = useSelector(getCurrentUserSelector);
     const classes = useStyles();
 
     const initialValues = {
-        username: orderUser.username || '',
-        email: orderUser.email || ''
+        username: currentUser.username || '',
+        email: currentUser.email || ''
     };
     const validationSchema = Yup.object().shape({
         username: Yup.string().min(3, 'Username is too short').required('Required'),

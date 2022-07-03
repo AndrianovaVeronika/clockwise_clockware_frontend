@@ -1,6 +1,6 @@
 import {createAsyncThunk} from "@reduxjs/toolkit";
 import cities from "../constants/cities";
-import {createActionApi} from "../middleware/createApi";
+import createActionApi from "../middleware/createActionApi";
 
 const api = createActionApi('cities');
 
