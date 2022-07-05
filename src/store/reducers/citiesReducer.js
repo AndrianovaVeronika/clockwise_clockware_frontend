@@ -1,7 +1,8 @@
 import initialState from "../initialState";
-import {createSlice, current} from "@reduxjs/toolkit";
+import {createSlice} from "@reduxjs/toolkit";
 import {addCity, deleteCity, getCities, updateCity} from "../actions/cities";
 import createReducerApi from "../middleware/createReducerApi";
+
 const api = createReducerApi('cities');
 
 const {reducer} = createSlice({
@@ -15,7 +16,10 @@ const {reducer} = createSlice({
             .addCase(getCities.fulfilled, api.GET)
             .addCase(addCity.fulfilled, api.ADD)
             .addCase(updateCity.fulfilled, api.UPDATE)
-            .addCase(deleteCity.fulfilled, api.DELETE);
+            .addCase(deleteCity.fulfilled, api.DELETE)
+            .addDefaultCase((state, action) => {
+                return state;
+            })
     }
 })
 

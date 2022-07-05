@@ -20,7 +20,10 @@ const {reducer} = createSlice({
             .addCase(deleteUser.fulfilled, api.DELETE)
             .addCase(getUserById.fulfilled, (state, action) =>{
                 state.users.orderUser = action.payload;
-            });
+            })
+            .addDefaultCase((state, action) => {
+                return state;
+            })
     }
 })
 

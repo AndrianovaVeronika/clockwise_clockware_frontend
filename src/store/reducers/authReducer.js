@@ -31,15 +31,16 @@ const {reducer} = createSlice({
                 if (action.payload.roles.includes('ROLE_ADMIN')) {
                     state.auth.isAdmin = true;
                 }
-                console.log('signed in')
             })
             .addCase(verifyUserAccess.rejected, (state, action) => {
                 state.auth.userLoading = false;
                 state.auth.isAuth = false;
                 state.auth.currentUser = {};
                 state.auth.isAdmin = false;
-                console.log('rejected')
-            });
+            })
+            .addDefaultCase((state, action) => {
+                return state;
+            })
     }
 })
 

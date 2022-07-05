@@ -142,6 +142,14 @@ export const useStyles = makeStyles((theme) => ({
     iconButton: {
         width: '50px',
         height: '50px'
+    },
+    //admin order form
+    adminOrderForm: {
+        display: 'flex'
+    },
+    adminOrderFormSide: {
+        width: '50%',
+        padding: '10px',
     }
 }));
 

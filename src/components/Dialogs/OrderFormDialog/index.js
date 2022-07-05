@@ -3,12 +3,14 @@ import {Button, Dialog, DialogActions, DialogContent, DialogTitle} from "@mui/ma
 import CloseButton from "../../Forms/CloseButton";
 import {useDispatch} from "react-redux";
 import {getCities} from "../../../store/actions/cities";
-import {getMasters} from "../../../store/actions/masters";
 import {getClockTypes} from "../../../store/actions/clockTypes";
 import useStyles from "../../../styles/useStyles";
-import FirstStep from "./FirstStep";
+import AdminOrderForm from "./AdminOrderForm";
 
 const OrderFormDialog = ({OpenButton, specifiedInitialValues, submitAction}) => {
+    console.log('initial values specified')
+    console.log(specifiedInitialValues)
+
     //dialog
     const [open, setOpen] = useState(false);
     const handleOpen = () => {
@@ -23,7 +25,6 @@ const OrderFormDialog = ({OpenButton, specifiedInitialValues, submitAction}) => 
 
     useEffect(() => {
         dispatch(getCities());
-        dispatch(getMasters());
         dispatch(getClockTypes());
     }, [dispatch]);
 
@@ -31,43 +32,7 @@ const OrderFormDialog = ({OpenButton, specifiedInitialValues, submitAction}) => 
 
     const onSubmit = (values, props) => {
         dispatch(submitAction(values));
-        props.preventDefault();
     }
-
-    // //steps
-    // const [activeStep, setActiveStep] = useState(0);
-    // const handleNext = () => {
-    //     setActiveStep((prevActiveStep) => {
-    //         if (prevActiveStep === 2) {
-    //             dispatch(getAvailableMasters(values));
-    //         }
-    //         return prevActiveStep + 1;
-    //     });
-    // };
-    // const handleBack = () => {
-    //     setActiveStep((prevActiveStep) => prevActiveStep - 1);
-    // };
-    //
-    // const ActiveStep = () => {
-    //     switch (activeStep) {
-    //         case 0 : {
-    //             return <FirstStep
-    //                 formId='form0'
-    //                 submitAction={onFormSubmit}
-    //                 values={values}
-    //             />
-    //         }
-    //         case 1 : {
-    //             return <SecondStep
-    //                 formId='form2'
-    //                 submitAction={onFormSubmit}
-    //                 values={values}
-    //             />
-    //         }
-    //         default:
-    //             return;
-    //     }
-    // }
 
     return (
         <>
@@ -76,7 +41,7 @@ const OrderFormDialog = ({OpenButton, specifiedInitialValues, submitAction}) => 
                 <CloseButton onCancel={handleClose}/>
                 <DialogTitle>Введите данные</DialogTitle>
                 <DialogContent>
-                    <FirstStep onSubmit={onSubmit} specifiedInitialValues={specifiedInitialValues}/>
+                    <AdminOrderForm onSubmit={onSubmit} specifiedInitialValues={specifiedInitialValues}/>
                 </DialogContent>
                 <DialogActions>
                     <Button type='submit' form='order-form'>Submit</Button>

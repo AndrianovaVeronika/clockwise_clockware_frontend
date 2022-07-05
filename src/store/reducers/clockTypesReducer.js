@@ -13,7 +13,10 @@ const {reducer} = createSlice({
     },
     extraReducers(builder) {
         builder
-            .addCase(getClockTypes.fulfilled, api.GET);
+            .addCase(getClockTypes.fulfilled, api.GET)
+            .addDefaultCase((state, action) => {
+                return state;
+            })
     }
 })
 

@@ -3,7 +3,6 @@ import {useEffect} from 'react';
 import {useDispatch} from "react-redux";
 import {Route, Routes} from 'react-router-dom';
 import {verifyUserAccess} from "./store/actions/auth";
-import ErrorNotAdminPage from "./components/Pages/ErrorPages/ErrorAccessAdminDeniedPage";
 import SignInPage from "./components/Pages/AuthPages/SignInPage";
 import SignUpPage from "./components/Pages/AuthPages/SignUpPage";
 import Spinner from "./components/PageComponents/Spinner";
@@ -16,6 +15,7 @@ const AdminOrdersPage = React.lazy(() => import("./components/Pages/AdminPages/A
 const AdminMastersPage = React.lazy(() => import("./components/Pages/AdminPages/AdminMastersPage"));
 const AdminCitiesPage = React.lazy(() => import("./components/Pages/AdminPages/AdminCitiesPage"));
 const AdminUsersPage = React.lazy(() => import("./components/Pages/AdminPages/AdminUsersPage"));
+const ErrorAccessAdminDeniedPage = React.lazy(() => import("./components/Pages/ErrorPages/ErrorAccessAdminDeniedPage"));
 
 function App() {
     const dispatch = useDispatch();
@@ -37,7 +37,7 @@ function App() {
                 <Route path='/admin/users' element={<AdminUsersPage/>}/>
                 <Route path='/admin/masters' element={<AdminMastersPage/>}/>
                 <Route path='/admin/cities' element={<AdminCitiesPage/>}/>
-                <Route path='/admin/error' element={<ErrorNotAdminPage/>}/>
+                <Route path='/admin/error' element={<ErrorAccessAdminDeniedPage/>}/>
             </Routes>
         </>
     );

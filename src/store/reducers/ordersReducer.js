@@ -16,7 +16,10 @@ const {reducer} = createSlice({
             .addCase(addOrder.fulfilled, api.ADD)
             .addCase(updateOrder.fulfilled, api.UPDATE)
             .addCase(deleteOrder.fulfilled, api.DELETE)
-            .addCase(getOrders.rejected, api.REJECTED);
+            .addCase(getOrders.rejected, api.REJECTED)
+            .addDefaultCase((state, action) => {
+                return state;
+            })
     }
 })
 

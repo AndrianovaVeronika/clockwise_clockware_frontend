@@ -18,9 +18,11 @@ const initialState = {
     },
     cities: {
         citiesList: [],
+        cityFoundById: {}
     },
     clockTypes: {
         clockTypesList: [],
+        clockTypeFoundById: {}
     }
 };
 
