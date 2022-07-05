@@ -6,6 +6,8 @@ const api = createActionApi('cities');
 
 export const getCities = createAsyncThunk(cities.GET_CITIES, api.GET);
 
+export const getCityById = createAsyncThunk(cities.GET_CITY_BY_ID, api.GET_BY_ID);
+
 export const addCity = createAsyncThunk(cities.ADD_CITY, api.POST);
 
 export const updateCity = createAsyncThunk(cities.UPDATE_CITY, api.PUT);

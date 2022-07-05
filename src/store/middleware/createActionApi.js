@@ -14,6 +14,18 @@ export default (modelName) => {
                 return thunkAPI.rejectWithValue(err);
             }
         },
+        GET_BY_ID: async (id, thunkAPI) => {
+            try {
+                const response = await instance.get('/' + modelName + '/' + id, {
+                    headers: {
+                        'x-access-token': sessionStorage.getItem('TOKEN')
+                    }
+                });
+                return response.data || {};
+            } catch (err) {
+                return thunkAPI.rejectWithValue(err);
+            }
+        },
         POST: async (newInstance, thunkAPI) => {
             try {
                 const response = await instance.post('/' + modelName, newInstance, {

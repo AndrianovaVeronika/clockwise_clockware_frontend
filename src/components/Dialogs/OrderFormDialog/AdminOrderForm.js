@@ -43,6 +43,14 @@ const getHours = () => {
 }
 const hours = getHours();
 
+const getIdByName = (name, list) => {
+    for (const listElement of list) {
+        if (listElement.name === name) {
+            return listElement.id;
+        }
+    }
+};
+
 const AdminOrderForm = ({onSubmit, specifiedInitialValues}) => {
     const classes = useStyles();
     const dispatch = useDispatch();
@@ -91,11 +99,11 @@ const AdminOrderForm = ({onSubmit, specifiedInitialValues}) => {
 
     return (
         <Formik
-            initialValues={{
+            initialValues={specifiedInitialValues ? {
                 ...specifiedInitialValues,
-                // clockTypeId: ,
-                // cityId:
-            } || initialValues}
+                cityId: getIdByName(specifiedInitialValues.city, cities),
+                clockTypeId: getIdByName(specifiedInitialValues.clockType, clockTypes)
+            } : initialValues}
             onSubmit={validatedOnSubmit}
             validationSchema={validationSchema}
         >{(props) => (

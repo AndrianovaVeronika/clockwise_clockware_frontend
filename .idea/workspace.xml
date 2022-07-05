@@ -1,25 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="47aa944b-1eed-4aaf-807f-af5d121fc908" name="Changes" comment="feat: get user by id, order form&#10;fix: create reducer api">
+    <list default="true" id="47aa944b-1eed-4aaf-807f-af5d121fc908" name="Changes" comment="feat: admin order form">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Dialogs/OrderFormDialog/FirstStep.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Dialogs/OrderFormDialog/AdminOrderForm.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Dialogs/OrderFormDialog/SecondStep.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Dialogs/OrderFormDialog/AvailableMastersSelector.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Dialogs/OrderFormDialog/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Dialogs/OrderFormDialog/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Forms/FormSelect/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Forms/FormSelect/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/store/actions/masters.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/store/actions/masters.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/store/constants/cities.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/store/constants/cities.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/store/constants/clockTypes.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/store/constants/clockTypes.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Dialogs/OrderFormDialog/AdminOrderForm.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Dialogs/OrderFormDialog/AdminOrderForm.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/store/actions/cities.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/store/actions/cities.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/store/initialState.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/store/initialState.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/store/reducers/authReducer.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/store/reducers/authReducer.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/store/middleware/createActionApi.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/store/middleware/createActionApi.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/store/middleware/createReducerApi.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/store/middleware/createReducerApi.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/store/reducers/citiesReducer.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/store/reducers/citiesReducer.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/store/reducers/clockTypesReducer.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/store/reducers/clockTypesReducer.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/store/reducers/mastersReducer.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/store/reducers/mastersReducer.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/store/reducers/ordersReducer.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/store/reducers/ordersReducer.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/store/reducers/usersReducer.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/store/reducers/usersReducer.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/store/selectors/mastersSelector.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/store/selectors/mastersSelector.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/styles/useStyles.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/styles/useStyles.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/store/selectors/citiesSelector.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/store/selectors/citiesSelector.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -227,14 +217,7 @@
       <workItem from="1656509004707" duration="7902000" />
       <workItem from="1656570860843" duration="10197000" />
       <workItem from="1656848166836" duration="20386000" />
-      <workItem from="1656933464408" duration="25373000" />
-    </task>
-    <task id="LOCAL-00042" summary="fix">
-      <created>1645520124116</created>
-      <option name="number" value="00042" />
-      <option name="presentableId" value="LOCAL-00042" />
-      <option name="project" value="LOCAL" />
-      <updated>1645520124116</updated>
+      <workItem from="1656933464408" duration="26608000" />
     </task>
     <task id="LOCAL-00043" summary="fix: try">
       <created>1645520214891</created>
@@ -572,7 +555,14 @@
       <option name="project" value="LOCAL" />
       <updated>1656889562413</updated>
     </task>
-    <option name="localTasksCounter" value="91" />
+    <task id="LOCAL-00091" summary="feat: admin order form">
+      <created>1656992151536</created>
+      <option name="number" value="00091" />
+      <option name="presentableId" value="LOCAL-00091" />
+      <option name="project" value="LOCAL" />
+      <updated>1656992151536</updated>
+    </task>
+    <option name="localTasksCounter" value="92" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -591,7 +581,6 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="fix: axios send access token with all requests using instance, order form (clicking &quot;clean&quot; sets all data to initial not regarding step, data that can be chosen starts with tomorrow date)" />
     <MESSAGE value="fix: store queries" />
     <MESSAGE value="feat: createApi" />
     <MESSAGE value="fix: createApi, forms" />
@@ -616,7 +605,8 @@
     <MESSAGE value="fix: reducer error" />
     <MESSAGE value="feat: order success alert dialog" />
     <MESSAGE value="feat: get user by id, order form&#10;fix: create reducer api" />
-    <option name="LAST_COMMIT_MESSAGE" value="feat: get user by id, order form&#10;fix: create reducer api" />
+    <MESSAGE value="feat: admin order form" />
+    <option name="LAST_COMMIT_MESSAGE" value="feat: admin order form" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

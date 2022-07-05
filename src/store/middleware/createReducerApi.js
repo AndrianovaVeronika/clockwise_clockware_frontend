@@ -5,6 +5,9 @@ export default (modelName) => {
         GET: (state, action) => {
             state[modelName][modelName + 'List'] = action.payload;
         },
+        GET_BY_ID: (state, action) => {
+            state[modelName]['foundById'] = action.payload;
+        },
         ADD: (state, action) => {
             state[modelName][modelName + 'List'].push(action.payload);
         },
