@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from "react";
-import {ErrorMessage, Form, Formik} from "formik";
+import {ErrorMessage, Field, Form, Formik} from "formik";
 import {Paper, Rating, TextField, Typography} from "@mui/material";
 import * as Yup from 'yup';
 import {getCities} from "../../../store/actions/cities";
@@ -10,12 +10,15 @@ import useStyles from "../../../styles/useStyles";
 
 const initialValues = {
     name: '',
-    rating: 0
+    rating: 0,
+    cities: []
 }
 
 const MasterForm = ({specifiedInitialValues, submitAction}) => {
     const dispatch = useDispatch();
     const classes = useStyles();
+
+    console.log(specifiedInitialValues)
 
     const [citiesChosen, setCitiesChosen] = useState(specifiedInitialValues?.cities?.split(', ') || []);
 
@@ -49,7 +52,8 @@ const MasterForm = ({specifiedInitialValues, submitAction}) => {
 
     const onSubmit = (values, props) => {
         dispatch(submitAction(specifiedInitialValues ? {
-            id: specifiedInitialValues.id, ...values,
+            id: specifiedInitialValues.id,
+            ...values,
             cities: citiesChosen
         } : {...values, cities: citiesChosen}));
         props.resetForm();
@@ -58,19 +62,21 @@ const MasterForm = ({specifiedInitialValues, submitAction}) => {
     return (
         <>
             <Paper elevation={0} className={classes.formPaper}>
-                <Formik initialValues={specifiedInitialValues || initialValues} validationSchema={validationSchema}
+                <Formik initialValues={specifiedInitialValues || initialValues}
+                        validationSchema={validationSchema}
                         onSubmit={onSubmit}>
                     {
                         (props) => (
                             <Form id='master-form'>
-                                <TextField
-                                    label='Name'
-                                    name='name'
-                                    fullWidth
-                                    error={props.errors.name && props.touched.name}
-                                    helperText={<ErrorMessage name='name'/>}
-                                    required
-                                    className={classes.formItem}
+                                <Field as={TextField}
+                                       label='Name'
+                                       name='name'
+                                       fullWidth
+                                       error={props.errors.name && props.touched.name}
+                                       helperText={<ErrorMessage name='name'/>}
+                                       required
+                                       className={classes.formItem}
+                                       onClick={() => console.log(props.values)}
                                 />
                                 <div
                                     className={classes.formItem}

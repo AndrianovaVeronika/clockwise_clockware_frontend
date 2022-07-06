@@ -3,13 +3,10 @@
   <component name="ChangeListManager">
     <list default="true" id="47aa944b-1eed-4aaf-807f-af5d121fc908" name="Changes" comment="feat: admin order form">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Dialogs/OrderFormDialog/AdminOrderForm.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Dialogs/OrderFormDialog/AdminOrderForm.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/store/actions/cities.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/store/actions/cities.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/store/initialState.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/store/initialState.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/store/middleware/createActionApi.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/store/middleware/createActionApi.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/store/middleware/createReducerApi.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/store/middleware/createReducerApi.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/store/reducers/citiesReducer.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/store/reducers/citiesReducer.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/store/selectors/citiesSelector.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/store/selectors/citiesSelector.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Dialogs/FormDialog/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Dialogs/FormDialog/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Dialogs/OrderFormDialog/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Dialogs/OrderFormDialog/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Forms/MasterForm/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Forms/MasterForm/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Pages/HomePage/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Pages/HomePage/index.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -218,6 +215,8 @@
       <workItem from="1656570860843" duration="10197000" />
       <workItem from="1656848166836" duration="20386000" />
       <workItem from="1656933464408" duration="26608000" />
+      <workItem from="1657046102165" duration="8894000" />
+      <workItem from="1657144326139" duration="2323000" />
     </task>
     <task id="LOCAL-00043" summary="fix: try">
       <created>1645520214891</created>

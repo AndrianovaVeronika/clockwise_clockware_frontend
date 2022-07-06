@@ -8,9 +8,6 @@ import useStyles from "../../../styles/useStyles";
 import AdminOrderForm from "./AdminOrderForm";
 
 const OrderFormDialog = ({OpenButton, specifiedInitialValues, submitAction}) => {
-    console.log('initial values specified')
-    console.log(specifiedInitialValues)
-
     //dialog
     const [open, setOpen] = useState(false);
     const handleOpen = () => {

@@ -17,14 +17,14 @@ const FormDialog = ({
         setOpen(!open);
     };
 
-    const {onSubmit, submitButtonText, ...params} = submitButtonParams;
+    const {submitButtonText, ...params} = submitButtonParams;
 
-    const onSubmitAction = () => {
-        if (onSubmit) {
-            onSubmit();
-        }
-        toggle();
-    }
+    // const onSubmitAction = () => {
+    //     if (onSubmit) {
+    //         onSubmit();
+    //     }
+    //     toggle();
+    // }
 
     const onCancelAction = () => {
         if (cancelOnClick) {
@@ -66,7 +66,7 @@ const FormDialog = ({
                 <DialogActions>
                     <Button
                         type='submit'
-                        onClick={onSubmitAction}
+                        // onClick={onSubmitAction}
                         {...params}
                     >{submitButtonText}</Button>
                 </DialogActions>
