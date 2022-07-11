@@ -6,6 +6,7 @@ import {addOrder, updateOrder} from "../actions/orders";
 import {signIn, signUp} from "../actions/auth";
 import {addMaster, updateMaster} from "../actions/masters";
 import {addUser, updateUser} from "../actions/users";
+import {cleanErrors} from "../actions/errors";
 
 const {reducer} = createSlice({
     name: 'errors',
@@ -23,6 +24,9 @@ const {reducer} = createSlice({
             .addCase(updateMaster.rejected, createRejectionAction('masters'))
             .addCase(addUser.rejected, createRejectionAction('users'))
             .addCase(updateUser.rejected, createRejectionAction('users'))
+            .addCase(cleanErrors.fulfilled, (state, action) => {
+                state.errors[action.payload] = [];
+            })
             .addDefaultCase((state, action) => {
                 return state;
             })

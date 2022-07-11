@@ -88,7 +88,6 @@ const AdminOrderForm = ({submitAction, specifiedInitialValues, formId}) => {
 
     const MastersController = () => {
         const {values} = useFormikContext();
-        const dispatch = useDispatch();
         useEffect(() => {
             if (values.clockTypeId && values.cityId && values.date && values.time) {
                 dispatch(getAvailableMasters(getValuesWithValidatedDate(values)));
@@ -98,7 +97,6 @@ const AdminOrderForm = ({submitAction, specifiedInitialValues, formId}) => {
     };
 
     const validatedOnSubmit = (values) => {
-        console.log('submit')
         dispatch(submitAction({...values, date: dateToString(values.date)}));
     }
 

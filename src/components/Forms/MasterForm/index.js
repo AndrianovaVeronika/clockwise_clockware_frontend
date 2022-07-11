@@ -18,8 +18,6 @@ const MasterForm = ({specifiedInitialValues, submitAction, formId}) => {
     const dispatch = useDispatch();
     const classes = useStyles();
 
-    console.log(specifiedInitialValues)
-
     const [citiesChosen, setCitiesChosen] = useState(specifiedInitialValues?.cities?.split(', ') || []);
 
     const handleChange = (event) => {
@@ -76,7 +74,6 @@ const MasterForm = ({specifiedInitialValues, submitAction, formId}) => {
                                        helperText={<ErrorMessage name='name'/>}
                                        required
                                        className={classes.formItem}
-                                       onClick={() => console.log(props.values)}
                                 />
                                 <div
                                     className={classes.formItem}

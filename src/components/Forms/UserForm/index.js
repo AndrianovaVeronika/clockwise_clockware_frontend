@@ -20,9 +20,7 @@ const UserForm = ({submitAction, specifiedInitialValues, formId}) => {
         password: Yup.string().min(8, 'Password is too short'),
         email: Yup.string().email('email is not valid').required('Required')
     })
-    console.log('formId ' + formId)
     const onSubmit = async (values, props) => {
-        console.log('on submit user')
         dispatch(submitAction(specifiedInitialValues ? {id: specifiedInitialValues.id, ...values} : values));
     }
 

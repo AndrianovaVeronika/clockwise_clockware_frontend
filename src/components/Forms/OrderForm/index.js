@@ -14,6 +14,7 @@ import LoginOrSignup from "./LoginOrSignup";
 import useStyles from "../../../styles/useStyles";
 import {addOrder} from "../../../store/actions/orders";
 import ErrorListener from "../../PageComponents/ErrorListener";
+import {cleanErrors} from "../../../store/actions/errors";
 
 const initialValues = {
     username: '',
@@ -62,10 +63,11 @@ const OrderForm = () => {
         setActiveStep((prevActiveStep) => prevActiveStep - 1);
     };
 
-    // const handleClean = () => {
-    //     setValues(initialValues);
-    //     setActiveStep(0);
-    // }
+    const handleClean = () => {
+        dispatch(cleanErrors('orders'));
+        setValues(initialValues);
+        setActiveStep(0);
+    }
 
     const ActiveStep = () => {
         switch (activeStep) {
@@ -126,20 +128,22 @@ const OrderForm = () => {
                 <div className={classes.orderFormOutsideContainer}>
                     <div className={classes.orderFormInsideContainer}>
                         <ActiveStep/>
-                        <ErrorListener objType={'orders'}/>
                         <div className={classes.orderFormButtons}>
                             <IconButton disabled={activeStep === 0} onClick={handleBack}>
                                 <ArrowBackIosRoundedIcon/>
                             </IconButton>
                             {(activeStep === steps.length - 1) ?
-                                <Button type='submit' form='order-form'>Submit</Button>
-                                : <IconButton
+                                <>
+                                    <Button onClick={handleClean}>Clean</Button>
+                                    <Button type='submit' form='order-form'>Submit</Button>
+                                </> : <IconButton
                                     type='submit'
                                     form={'form' + activeStep}
                                 >
                                     <ArrowForwardIosRoundedIcon/>
                                 </IconButton>}
                         </div>
+                        <ErrorListener objType={'orders'}/>
                     </div>
                 </div>
             </Paper>

@@ -1,35 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="47aa944b-1eed-4aaf-807f-af5d121fc908" name="Changes" comment="feat: admin order form">
-      <change afterPath="$PROJECT_DIR$/src/components/Forms/AdminOrderForm/index.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/PageComponents/ErrorListener/index.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/store/middleware/createRejectionAction.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/store/reducers/errorReducer.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/store/selectors/errorsSelector.js" afterDir="false" />
+    <list default="true" id="47aa944b-1eed-4aaf-807f-af5d121fc908" name="Changes" comment="feat: admin order form, error listener, redux state errors, errors reducer, createRejectionAction.js, errorsSelector.js, ErrorListener&#10;fix: reject with value, form id system, DataTable,">
+      <change afterPath="$PROJECT_DIR$/src/store/actions/errors.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/store/constants/errors.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/DataTables/CitiesTable/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/DataTables/CitiesTable/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/DataTables/DataTable/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/DataTables/DataTable/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/DataTables/MastersTable/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/DataTables/MastersTable/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/DataTables/OrdersTable/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/DataTables/OrdersTable/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/DataTables/UsersTable/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/DataTables/UsersTable/index.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/Dialogs/FormDialog/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Dialogs/FormDialog/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Dialogs/OrderFormDialog/AdminOrderForm.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Dialogs/OrderFormDialog/AvailableMastersSelector.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Forms/AdminOrderForm/AvailableMastersListener.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Dialogs/OrderFormDialog/index.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Forms/CityForm/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Forms/CityForm/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Forms/FormSelect/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Forms/FormSelect/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Forms/AdminOrderForm/AvailableMastersListener.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Forms/AdminOrderForm/AvailableMastersListener.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Forms/AdminOrderForm/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Forms/AdminOrderForm/index.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/Forms/MasterForm/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Forms/MasterForm/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Forms/OrderForm/LoginOrSignup.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Forms/OrderForm/LoginOrSignup.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/Forms/OrderForm/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Forms/OrderForm/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Forms/SignInForm/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Forms/SignInForm/index.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/Forms/UserForm/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Forms/UserForm/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/PageComponents/ErrorListener/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/PageComponents/ErrorListener/index.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/store/actions/auth.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/store/actions/auth.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/store/initialState.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/store/initialState.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/store/actions/masters.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/store/actions/masters.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/store/middleware/createActionApi.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/store/middleware/createActionApi.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/store/middleware/createReducerApi.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/store/middleware/createReducerApi.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/store/reducers/authReducer.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/store/reducers/authReducer.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/store/reducers/mastersReducer.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/store/reducers/mastersReducer.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/store/reducers/rootReducer.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/store/reducers/rootReducer.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/store/middleware/createRejectionAction.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/store/middleware/createRejectionAction.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/store/reducers/errorReducer.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/store/reducers/errorReducer.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/store/selectors/errorsSelector.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/store/selectors/errorsSelector.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -242,14 +231,8 @@
       <workItem from="1657046102165" duration="8894000" />
       <workItem from="1657144326139" duration="2323000" />
       <workItem from="1657200096617" duration="34922000" />
-      <workItem from="1657448173418" duration="14951000" />
-    </task>
-    <task id="LOCAL-00043" summary="fix: try">
-      <created>1645520214891</created>
-      <option name="number" value="00043" />
-      <option name="presentableId" value="LOCAL-00043" />
-      <option name="project" value="LOCAL" />
-      <updated>1645520214891</updated>
+      <workItem from="1657448173418" duration="15438000" />
+      <workItem from="1657553931987" duration="7995000" />
     </task>
     <task id="LOCAL-00044" summary="fix: try">
       <created>1645520520412</created>
@@ -587,7 +570,14 @@
       <option name="project" value="LOCAL" />
       <updated>1656992151536</updated>
     </task>
-    <option name="localTasksCounter" value="92" />
+    <task id="LOCAL-00092" summary="feat: admin order form, error listener, redux state errors, errors reducer, createRejectionAction.js, errorsSelector.js, ErrorListener&#10;fix: reject with value, form id system, DataTable,">
+      <created>1657498505693</created>
+      <option name="number" value="00092" />
+      <option name="presentableId" value="LOCAL-00092" />
+      <option name="project" value="LOCAL" />
+      <updated>1657498505693</updated>
+    </task>
+    <option name="localTasksCounter" value="93" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -606,7 +596,6 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="fix: store queries" />
     <MESSAGE value="feat: createApi" />
     <MESSAGE value="fix: createApi, forms" />
     <MESSAGE value="fix: rerendering page after submit order form" />
@@ -631,7 +620,8 @@
     <MESSAGE value="feat: order success alert dialog" />
     <MESSAGE value="feat: get user by id, order form&#10;fix: create reducer api" />
     <MESSAGE value="feat: admin order form" />
-    <option name="LAST_COMMIT_MESSAGE" value="feat: admin order form" />
+    <MESSAGE value="feat: admin order form, error listener, redux state errors, errors reducer, createRejectionAction.js, errorsSelector.js, ErrorListener&#10;fix: reject with value, form id system, DataTable," />
+    <option name="LAST_COMMIT_MESSAGE" value="feat: admin order form, error listener, redux state errors, errors reducer, createRejectionAction.js, errorsSelector.js, ErrorListener&#10;fix: reject with value, form id system, DataTable," />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

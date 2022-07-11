@@ -1,6 +1,6 @@
 import instance from "./instance";
 
-export default (modelName) => {
+const createActionApi = (modelName) => {
     return {
         GET: async (_, thunkAPI) => {
             try {
@@ -36,7 +36,6 @@ export default (modelName) => {
 
                 return response.data;
             } catch (e) {
-                console.log('error in post ' + modelName    )
                 return thunkAPI.rejectWithValue(e.response.data)
             }
         },
@@ -66,3 +65,5 @@ export default (modelName) => {
         }
     }
 }
+
+export default createActionApi;

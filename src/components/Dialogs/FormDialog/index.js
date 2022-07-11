@@ -15,7 +15,6 @@ const FormDialog = ({
 
     const toggle = () => {
         setOpen(!open);
-        console.log('toggled')
     };
 
     const onCancelAction = () => {

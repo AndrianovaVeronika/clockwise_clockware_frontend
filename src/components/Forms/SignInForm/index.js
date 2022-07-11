@@ -23,7 +23,6 @@ const SignInForm = () => {
     });
 
     const onSubmit = async (values, props) => {
-        console.log('im on submit')
         dispatch(signIn(values));
         navigate('/profile');
     }
