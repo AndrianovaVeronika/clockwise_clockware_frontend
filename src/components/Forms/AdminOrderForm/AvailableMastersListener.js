@@ -5,6 +5,7 @@ import Rating from "@mui/material/Rating";
 import {useFormikContext} from "formik";
 import {Typography} from "@mui/material";
 import {useSelector} from "react-redux";
+import {isNumber} from "lodash";
 
 function renderRating(params) {
     return <Rating readOnly value={params.value}/>;
@@ -23,9 +24,11 @@ const columns = [
     }
 ];
 
-const AvailableMastersSelector = () => {
+const AvailableMastersListener = () => {
     const {values} = useFormikContext();
     const masters = useSelector(getAvailableMastersSelector);
+
+    console.log(values)
 
     const onMasterSelect = (e) => {
         values.masterId = e.row.id;
@@ -47,4 +50,4 @@ const AvailableMastersSelector = () => {
     )
 }
 
-export default AvailableMastersSelector;
+export default AvailableMastersListener;

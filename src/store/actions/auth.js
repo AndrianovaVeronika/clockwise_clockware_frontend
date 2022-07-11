@@ -9,5 +9,5 @@ export const signIn = createAsyncThunk(auth.SIGN_IN, createActionApi('auth/signi
 export const verifyUserAccess = createAsyncThunk(auth.VERIFY_USER_ACCESS, createActionApi('auth/checktocken').GET);
 
 export const logOut = createAsyncThunk(auth.LOG_OUT, async () => {
-    return {message: 'Are u sure u want to logout?'};
+    return {message: 'Logging out...'};
 });

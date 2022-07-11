@@ -14,7 +14,7 @@ const initialValues = {
     cities: []
 }
 
-const MasterForm = ({specifiedInitialValues, submitAction}) => {
+const MasterForm = ({specifiedInitialValues, submitAction, formId}) => {
     const dispatch = useDispatch();
     const classes = useStyles();
 
@@ -67,7 +67,7 @@ const MasterForm = ({specifiedInitialValues, submitAction}) => {
                         onSubmit={onSubmit}>
                     {
                         (props) => (
-                            <Form id='master-form'>
+                            <Form id={formId}>
                                 <Field as={TextField}
                                        label='Name'
                                        name='name'

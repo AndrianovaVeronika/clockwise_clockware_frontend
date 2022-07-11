@@ -6,13 +6,13 @@ import * as Yup from "yup";
 import {useSelector} from "react-redux";
 import {getCurrentUserSelector} from "../../../store/selectors/authSelector";
 
-const LoginOrSignup = ({formId, onSubmit}) => {
+const LoginOrSignup = ({formId, onSubmit, values}) => {
     const currentUser = useSelector(getCurrentUserSelector);
     const classes = useStyles();
 
     const initialValues = {
-        username: currentUser.username || '',
-        email: currentUser.email || ''
+        username: values?.username || currentUser.username || '',
+        email: values?.email || currentUser.email || ''
     };
     const validationSchema = Yup.object().shape({
         username: Yup.string().min(3, 'Username is too short').required('Required'),

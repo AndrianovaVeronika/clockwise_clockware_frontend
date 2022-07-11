@@ -4,10 +4,11 @@ import {Paper, TextField} from "@mui/material";
 import * as Yup from "yup";
 import {useDispatch} from "react-redux";
 import useStyles from "../../../styles/useStyles";
+import ErrorListener from "../../PageComponents/ErrorListener";
 
 const initialValues = {name: ''};
 
-const CityForm = ({specifiedInitialValues, submitAction}) => {
+const CityForm = ({specifiedInitialValues, submitAction, formId}) => {
     const dispatch = useDispatch();
     const styles = useStyles();
 
@@ -16,7 +17,7 @@ const CityForm = ({specifiedInitialValues, submitAction}) => {
     })
 
     const onSubmit = (values, props) => {
-        dispatch(submitAction(specifiedInitialValues? {id: specifiedInitialValues?.id, ...values} : values));
+        dispatch(submitAction(specifiedInitialValues ? {id: specifiedInitialValues?.id, ...values} : values));
     }
 
     return (
@@ -26,7 +27,7 @@ const CityForm = ({specifiedInitialValues, submitAction}) => {
                         onSubmit={onSubmit}>
                     {
                         (props) => (
-                            <Form id='city-form'>
+                            <Form id={formId}>
                                 <Field as={TextField}
                                        label='Name'
                                        name='name'

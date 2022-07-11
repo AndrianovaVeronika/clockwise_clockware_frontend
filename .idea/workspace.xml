@@ -2,11 +2,34 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="47aa944b-1eed-4aaf-807f-af5d121fc908" name="Changes" comment="feat: admin order form">
+      <change afterPath="$PROJECT_DIR$/src/components/Forms/AdminOrderForm/index.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/PageComponents/ErrorListener/index.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/store/middleware/createRejectionAction.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/store/reducers/errorReducer.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/store/selectors/errorsSelector.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/DataTables/CitiesTable/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/DataTables/CitiesTable/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/DataTables/DataTable/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/DataTables/DataTable/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/DataTables/MastersTable/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/DataTables/MastersTable/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/DataTables/OrdersTable/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/DataTables/OrdersTable/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/DataTables/UsersTable/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/DataTables/UsersTable/index.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/Dialogs/FormDialog/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Dialogs/FormDialog/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Dialogs/OrderFormDialog/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Dialogs/OrderFormDialog/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Dialogs/OrderFormDialog/AdminOrderForm.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Dialogs/OrderFormDialog/AvailableMastersSelector.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Forms/AdminOrderForm/AvailableMastersListener.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Dialogs/OrderFormDialog/index.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Forms/CityForm/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Forms/CityForm/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Forms/FormSelect/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Forms/FormSelect/index.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/Forms/MasterForm/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Forms/MasterForm/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Pages/HomePage/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Pages/HomePage/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Forms/OrderForm/LoginOrSignup.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Forms/OrderForm/LoginOrSignup.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Forms/OrderForm/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Forms/OrderForm/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Forms/UserForm/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Forms/UserForm/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/store/actions/auth.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/store/actions/auth.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/store/initialState.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/store/initialState.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/store/middleware/createActionApi.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/store/middleware/createActionApi.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/store/middleware/createReducerApi.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/store/middleware/createReducerApi.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/store/reducers/authReducer.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/store/reducers/authReducer.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/store/reducers/mastersReducer.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/store/reducers/mastersReducer.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/store/reducers/rootReducer.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/store/reducers/rootReducer.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -42,7 +65,7 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/components/Forms" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/components/Forms/AdminOrderForm" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.standard" value="true" />
@@ -56,14 +79,15 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\ClockwiseClockware\clockwise_clockware_frontend\src\components\Forms\AdminOrderForm" />
       <recent name="D:\ClockwiseClockware\clockwise_clockware_frontend\src\components\Forms" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\ClockwiseClockware\clockwise_clockware_frontend\src\components\PageComponents" />
+      <recent name="D:\ClockwiseClockware\clockwise_clockware_frontend\src\components\Forms" />
       <recent name="D:\ClockwiseClockware\clockwise_clockware_frontend\src\components\Forms\CloseButton" />
       <recent name="D:\ClockwiseClockware\clockwise_clockware_frontend\src\components\Dialogs\OrderFormDialog" />
       <recent name="D:\ClockwiseClockware\clockwise_clockware_frontend\src\styles" />
-      <recent name="D:\ClockwiseClockware\clockwise_clockware_frontend\src" />
-      <recent name="D:\ClockwiseClockware\clockwise_clockware_frontend\src\store\middleware" />
     </key>
   </component>
   <component name="RunManager" selected="npm.start">
@@ -217,6 +241,8 @@
       <workItem from="1656933464408" duration="26608000" />
       <workItem from="1657046102165" duration="8894000" />
       <workItem from="1657144326139" duration="2323000" />
+      <workItem from="1657200096617" duration="34922000" />
+      <workItem from="1657448173418" duration="14951000" />
     </task>
     <task id="LOCAL-00043" summary="fix: try">
       <created>1645520214891</created>

@@ -18,10 +18,8 @@ const {reducer} = createSlice({
             .addCase(updateMaster.fulfilled, api.UPDATE)
             .addCase(deleteMaster.fulfilled, api.DELETE)
             .addCase(getAvailableMasters.fulfilled, (state, action) => {
-                console.log('available masters: ')
-                console.log(action.payload)
                 state.masters.availableMasters = action.payload;
-                console.log(current(state))
+                state.errors.masters = [];
             })
             .addDefaultCase((state, action) => {
                 return state;

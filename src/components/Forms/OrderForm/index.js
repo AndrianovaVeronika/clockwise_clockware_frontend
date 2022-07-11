@@ -13,6 +13,7 @@ import ArrowBackIosRoundedIcon from '@mui/icons-material/ArrowBackIosRounded';
 import LoginOrSignup from "./LoginOrSignup";
 import useStyles from "../../../styles/useStyles";
 import {addOrder} from "../../../store/actions/orders";
+import ErrorListener from "../../PageComponents/ErrorListener";
 
 const initialValues = {
     username: '',
@@ -44,7 +45,6 @@ const OrderForm = () => {
     const onSubmit = (e) => {
         dispatch(addOrder(values));
         e.preventDefault();
-        handleClean();
     }
 
     const [activeStep, setActiveStep] = useState(0);
@@ -62,10 +62,10 @@ const OrderForm = () => {
         setActiveStep((prevActiveStep) => prevActiveStep - 1);
     };
 
-    const handleClean = () => {
-        setValues(initialValues);
-        setActiveStep(0);
-    }
+    // const handleClean = () => {
+    //     setValues(initialValues);
+    //     setActiveStep(0);
+    // }
 
     const ActiveStep = () => {
         switch (activeStep) {
@@ -73,6 +73,7 @@ const OrderForm = () => {
                 return <LoginOrSignup
                     formId='form0'
                     onSubmit={onFormSubmit}
+                    values={values}
                 />
             }
             case 1 : {
@@ -125,6 +126,7 @@ const OrderForm = () => {
                 <div className={classes.orderFormOutsideContainer}>
                     <div className={classes.orderFormInsideContainer}>
                         <ActiveStep/>
+                        <ErrorListener objType={'orders'}/>
                         <div className={classes.orderFormButtons}>
                             <IconButton disabled={activeStep === 0} onClick={handleBack}>
                                 <ArrowBackIosRoundedIcon/>

@@ -4,7 +4,7 @@ import {addOrder, deleteOrder, getOrders, updateOrder} from "../../../store/acti
 import {useDispatch, useSelector} from "react-redux";
 import {getOrdersSelector} from "../../../store/selectors/ordersSelector";
 import DataTable from "../DataTable";
-import OrderFormDialog from "../../Dialogs/OrderFormDialog";
+import AdminOrderForm from "../../Forms/AdminOrderForm";
 
 const columns = [
     {
@@ -49,8 +49,8 @@ const OrdersTable = () => {
             onRowDelete={deleteOrder}
             onRowUpdate={updateOrder}
             onRowAdd={addOrder}
-            formId='order-form'
-            ModelDialog={OrderFormDialog}
+            objType={'orders'}
+            ModelForm={AdminOrderForm}
         />
     );
 }

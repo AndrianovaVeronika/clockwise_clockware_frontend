@@ -32,7 +32,7 @@ const CitiesTable = () => {
                 onRowDelete={deleteCity}
                 onRowUpdate={updateCity}
                 onRowAdd={addCity}
-                formId='city-form'
+                objType={'cities'}
                 ModelForm={CityForm}
             />
         </>

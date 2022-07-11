@@ -10,8 +10,8 @@ export default (modelName) => {
                     }
                 });
                 return response.data || {};
-            } catch (err) {
-                return thunkAPI.rejectWithValue(err);
+            } catch (e) {
+                return thunkAPI.rejectWithValue(e.response.data)
             }
         },
         GET_BY_ID: async (id, thunkAPI) => {
@@ -22,8 +22,8 @@ export default (modelName) => {
                     }
                 });
                 return response.data || {};
-            } catch (err) {
-                return thunkAPI.rejectWithValue(err);
+            } catch (e) {
+                return thunkAPI.rejectWithValue(e.response.data)
             }
         },
         POST: async (newInstance, thunkAPI) => {
@@ -33,9 +33,11 @@ export default (modelName) => {
                         'x-access-token': sessionStorage.getItem('TOKEN')
                     }
                 });
+
                 return response.data;
-            } catch (err) {
-                return thunkAPI.rejectWithValue(err);
+            } catch (e) {
+                console.log('error in post ' + modelName    )
+                return thunkAPI.rejectWithValue(e.response.data)
             }
         },
         PUT: async ({id, ...updateValues}, thunkAPI) => {
@@ -46,8 +48,8 @@ export default (modelName) => {
                     }
                 });
                 return response.data;
-            } catch (err) {
-                return thunkAPI.rejectWithValue(err);
+            } catch (e) {
+                return thunkAPI.rejectWithValue(e.response.data)
             }
         },
         DELETE: async (instanceId, thunkAPI) => {
@@ -58,8 +60,8 @@ export default (modelName) => {
                     }
                 });
                 return response.data;
-            } catch (err) {
-                return thunkAPI.rejectWithValue(err);
+            } catch (e) {
+                return thunkAPI.rejectWithValue(e.response.data)
             }
         }
     }

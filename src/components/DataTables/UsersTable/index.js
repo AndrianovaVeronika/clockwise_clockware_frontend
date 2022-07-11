@@ -1,6 +1,6 @@
 import React, {useEffect} from "react";
 import {useDispatch, useSelector} from "react-redux";
-import {deleteUser, getUsers, updateUser} from "../../../store/actions/users";
+import {addUser, deleteUser, getUsers, updateUser} from "../../../store/actions/users";
 import {getUsersSelector} from "../../../store/selectors/usersSelector";
 import DataTable from "../DataTable";
 import {signUp} from "../../../store/actions/auth";
@@ -34,8 +34,8 @@ const UsersTable = () => {
                 rows={users}
                 onRowDelete={deleteUser}
                 onRowUpdate={updateUser}
-                onRowAdd={signUp}
-                formId='user-form'
+                onRowAdd={addUser}
+                objType={'users'}
                 ModelForm={UserForm}
             />
         </>

@@ -9,7 +9,7 @@ const FormSelect = (props) => {
         <div style={style}>
             <label htmlFor={name}>{label}</label>
             <Field as={Select} selected={0} id={name} name={name} {...rest}>
-                {options.map(option => {
+                    {options.map(option => {
                     return (
                         <MenuItem key={option.key} value={option.key}>
                             {option.value}

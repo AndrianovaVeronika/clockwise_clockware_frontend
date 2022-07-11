@@ -11,7 +11,7 @@ const initialValues = {
     password: ''
 };
 
-const UserForm = ({submitAction, specifiedInitialValues}) => {
+const UserForm = ({submitAction, specifiedInitialValues, formId}) => {
     const dispatch = useDispatch();
     const classes = useStyles();
 
@@ -20,8 +20,9 @@ const UserForm = ({submitAction, specifiedInitialValues}) => {
         password: Yup.string().min(8, 'Password is too short'),
         email: Yup.string().email('email is not valid').required('Required')
     })
-
+    console.log('formId ' + formId)
     const onSubmit = async (values, props) => {
+        console.log('on submit user')
         dispatch(submitAction(specifiedInitialValues ? {id: specifiedInitialValues.id, ...values} : values));
     }
 
@@ -32,7 +33,7 @@ const UserForm = ({submitAction, specifiedInitialValues}) => {
                         onSubmit={onSubmit}>
                     {
                         (props) => (
-                            <Form id='user-form'>
+                            <Form id={formId}>
                                 <Field as={TextField}
                                     label='Username'
                                     name='username'

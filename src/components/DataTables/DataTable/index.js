@@ -9,6 +9,7 @@ import FormDialog from "../../Dialogs/FormDialog";
 import AddIcon from '@mui/icons-material/Add';
 import useStyles from "../../../styles/useStyles";
 import _ from 'lodash';
+import ErrorListener from "../../PageComponents/ErrorListener";
 
 const DataTable = ({
                        columns,
@@ -16,11 +17,8 @@ const DataTable = ({
                        onRowDelete,
                        onRowUpdate,
                        onRowAdd,
-                       formId,
-                       ModelForm,
-                       ModelDialog,
-                       additionalFormDialogProps,
-                       ...rest
+                       objType,
+                       ModelForm
                    }) => {
     const dispatch = useDispatch();
     const [activeRow, setActiveRow] = useState({});
@@ -32,6 +30,7 @@ const DataTable = ({
             return;
         }
         dispatch(onRowDelete(activeRow.id));
+        setActiveRow({});
     }
 
     const onRowClick = ({row}) => {
@@ -49,41 +48,25 @@ const DataTable = ({
     }
 
     const EditDialog = () => {
-        return ModelDialog ?
-            <ModelDialog
-                OpenButton={(props) => <OpenIconButton Icon={EditIcon} {...props}/>}
-                submitAction={onRowUpdate}
-                specifiedInitialValues={activeRow}
-            /> : <FormDialog
-                OpenButton={(props) => <OpenIconButton Icon={EditIcon} {...props}/>}
-                dialogTitle={'Измените данные'}
-                submitButtonParams={{
-                    submitButtonText: 'Сохранить',
-                    form: formId
-                }}
-                {...additionalFormDialogProps}
-            >
-                <ModelForm submitAction={onRowUpdate} specifiedInitialValues={activeRow}/>
-            </FormDialog>;
+        return <FormDialog
+            OpenButton={(props) => <OpenIconButton Icon={EditIcon} {...props}/>}
+            dialogTitle={'Измените данные'}
+            submitButtonText={'Сохранить'}
+            formId={objType}
+        >
+            <ModelForm submitAction={onRowUpdate} formId={objType} specifiedInitialValues={activeRow}/>
+        </FormDialog>
     }
 
     const AddDialog = () => {
-        return ModelDialog ?
-            <ModelDialog
-                OpenButton={(props) => <OpenIconButton Icon={AddIcon} {...props}/>}
-                submitAction={onRowAdd}
-            /> : <FormDialog
-                OpenButton={(props) => <OpenIconButton Icon={AddIcon} {...props}/>}
-                dialogTitle={'Введите данные'}
-                submitButtonParams={{
-                    submitButtonText: 'Добавить',
-                    type: 'submit',
-                    form: formId
-                }}
-                {...additionalFormDialogProps}
-            >
-                <ModelForm submitAction={onRowAdd}/>
-            </FormDialog>;
+        return <FormDialog
+            OpenButton={(props) => <OpenIconButton Icon={AddIcon} {...props}/>}
+            dialogTitle={'Введите данные'}
+            submitButtonText={'Добавить'}
+            formId={objType}
+        >
+            <ModelForm submitAction={onRowAdd} formId={objType}/>
+        </FormDialog>
     }
 
     return (
@@ -95,9 +78,9 @@ const DataTable = ({
                     pageSize={5}
                     rowsPerPageOptions={[5]}
                     onRowClick={onRowClick}
-                    {...rest}
                 />
             </div>
+            <ErrorListener objType={objType}/>
             {!_.isEmpty(activeRow) && <>
                 <DeleteDialog/>
                 <EditDialog/>

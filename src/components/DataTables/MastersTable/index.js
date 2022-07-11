@@ -38,7 +38,7 @@ const MastersTable = () => {
         dispatch(getMasters());
     }, [dispatch])
 
-    const masters = useSelector(getMastersSelector).map(master => {
+    const rows = useSelector(getMastersSelector).map(master => {
         return {
             ...master,
             cities: master.cities.join(', ')
@@ -49,11 +49,11 @@ const MastersTable = () => {
         <>
             <DataTable
                 columns={columns}
-                rows={masters}
+                rows={rows}
                 onRowDelete={deleteMaster}
                 onRowUpdate={updateMaster}
                 onRowAdd={addMaster}
-                formId='master-form'
+                objType={'masters'}
                 ModelForm={MasterForm}
             />
         </>

@@ -3,7 +3,7 @@ const initialState = {
         currentUser: {},
         isAuth: false,
         userLoading: true,
-        isAdmin: false
+        isAdmin: false,
     },
     users: {
         usersList: [],
@@ -14,15 +14,23 @@ const initialState = {
     },
     masters: {
         mastersList: [],
-        availableMasters: []
+        availableMasters: [],
     },
     cities: {
         citiesList: [],
-        foundById: {}
+        foundById: {},
     },
     clockTypes: {
         clockTypesList: [],
-        foundById: {}
+        foundById: {},
+    },
+    errors: {
+        auth: [],
+        users: [],
+        orders: [],
+        masters: [],
+        cities: [],
+        clockTypes: [],
     }
 };
 

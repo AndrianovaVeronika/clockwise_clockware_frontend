@@ -12,7 +12,9 @@ import AdapterDateFns from "@mui/lab/AdapterDateFns";
 import {shiftTimeEnd, shiftTimeStart} from "../../../static/constants";
 import {getAvailableMasters} from "../../../store/actions/masters";
 import moment from "moment";
-import AvailableMastersSelector from "./AvailableMastersSelector";
+import AvailableMastersListener from "./AvailableMastersListener";
+import {getClockTypes} from "../../../store/actions/clockTypes";
+import {getCities} from "../../../store/actions/cities";
 
 const getTomorrow = () => {
     const today = new Date();
@@ -51,31 +53,33 @@ const getIdByName = (name, list) => {
     }
 };
 
-const AdminOrderForm = ({onSubmit, specifiedInitialValues}) => {
+const AdminOrderForm = ({submitAction, specifiedInitialValues, formId}) => {
     const classes = useStyles();
     const dispatch = useDispatch();
     useEffect(() => {
+        dispatch(getCities());
+        dispatch(getClockTypes());
         dispatch(getAvailableMasters());
     }, [dispatch]);
 
     const cities = useSelector(getCitiesSelector);
     const clockTypes = useSelector(getClockTypesSelector);
-    const getCities = () => {
+    const getValidatedCities = () => {
         const elements = [];
         for (const city of cities) {
             elements.push({key: city.id, value: city.name});
         }
         return elements;
     }
-    const getClockTypes = () => {
+    const getValidatedClockTypes = () => {
         const types = [];
         for (const type of clockTypes) {
             types.push({key: type.id, value: type.name});
         }
         return types;
     }
-    const cityOptions = getCities();
-    const clockTypeOptions = getClockTypes();
+    const cityOptions = getValidatedCities();
+    const clockTypeOptions = getValidatedClockTypes();
 
     const validationSchema = Yup.object().shape({
         username: Yup.string().min(3, 'Username is too short').required('Required'),
@@ -94,7 +98,8 @@ const AdminOrderForm = ({onSubmit, specifiedInitialValues}) => {
     };
 
     const validatedOnSubmit = (values) => {
-        onSubmit({...values, date: dateToString(values.date)});
+        console.log('submit')
+        dispatch(submitAction({...values, date: dateToString(values.date)}));
     }
 
     return (
@@ -107,7 +112,7 @@ const AdminOrderForm = ({onSubmit, specifiedInitialValues}) => {
             onSubmit={validatedOnSubmit}
             validationSchema={validationSchema}
         >{(props) => (
-            <Form id={'order-form'} className={classes.adminOrderForm}>
+            <Form id={formId} className={classes.adminOrderForm}>
                 <MastersController/>
                 <Box className={classes.adminOrderFormSide}>
                     <Field as={TextField}
@@ -173,7 +178,7 @@ const AdminOrderForm = ({onSubmit, specifiedInitialValues}) => {
                         required
                     /></Box>
                 <Box className={classes.adminOrderFormSide}>
-                    <AvailableMastersSelector/>
+                    <AvailableMastersListener/>
                 </Box>
             </Form>)}
         </Formik>
