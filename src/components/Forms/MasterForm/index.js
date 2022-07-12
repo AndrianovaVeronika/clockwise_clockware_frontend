@@ -1,6 +1,6 @@
 import React, {useEffect, useState} from "react";
 import {ErrorMessage, Field, Form, Formik} from "formik";
-import {Paper, Rating, TextField, Typography} from "@mui/material";
+import {Alert, AlertTitle, Paper, Rating, TextField, Typography} from "@mui/material";
 import * as Yup from 'yup';
 import {getCities} from "../../../store/actions/cities";
 import {useDispatch, useSelector} from "react-redux";
@@ -14,7 +14,7 @@ const initialValues = {
     cities: []
 }
 
-const MasterForm = ({specifiedInitialValues, submitAction, formId}) => {
+const MasterForm = ({specifiedInitialValues, submitAction, formId, setDataTableAlert}) => {
     const dispatch = useDispatch();
     const classes = useStyles();
 
@@ -48,13 +48,31 @@ const MasterForm = ({specifiedInitialValues, submitAction, formId}) => {
         name: Yup.string().min(3, 'Name is too short').required('Required'),
     })
 
-    const onSubmit = (values, props) => {
-        dispatch(submitAction(specifiedInitialValues ? {
+    const [Error, setError] = useState(<></>);
+
+    const onSubmit = async (values, props) => {
+        const {error, payload} = await dispatch(submitAction(specifiedInitialValues ? {
             id: specifiedInitialValues.id,
             ...values,
             cities: citiesChosen
         } : {...values, cities: citiesChosen}));
         props.resetForm();
+        if (error) {
+            setError(
+                <Alert severity="error" key={payload.message}>
+                    <AlertTitle>Error</AlertTitle>
+                    {payload.message}
+                </Alert>
+            );
+        } else {
+            setError(<></>);
+            setDataTableAlert(
+                <Alert severity="success">
+                    <AlertTitle>Success</AlertTitle>
+                    {'Row has been added/updated successfully.'}
+                </Alert>
+            );
+        }
     }
 
     return (
@@ -99,6 +117,7 @@ const MasterForm = ({specifiedInitialValues, submitAction, formId}) => {
                         )
                     }
                 </Formik>
+                {Error}
             </Paper>
         </>
     );

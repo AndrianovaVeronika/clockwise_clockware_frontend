@@ -1,4 +1,4 @@
-import React, {useEffect} from "react";
+import React, {useEffect, useState} from "react";
 import {useDispatch, useSelector} from "react-redux";
 import {getCitiesSelector} from "../../../store/selectors/citiesSelector";
 import {ErrorMessage, Field, Form, Formik, useFormikContext} from "formik";
@@ -6,7 +6,7 @@ import {getClockTypesSelector} from "../../../store/selectors/clockTypesSelector
 import FormSelect from "../../Forms/FormSelect";
 import useStyles from "../../../styles/useStyles";
 import * as Yup from "yup";
-import {Box, TextField} from "@mui/material";
+import {Alert, AlertTitle, Box, TextField} from "@mui/material";
 import {DesktopDatePicker, LocalizationProvider} from "@mui/lab";
 import AdapterDateFns from "@mui/lab/AdapterDateFns";
 import {shiftTimeEnd, shiftTimeStart} from "../../../static/constants";
@@ -53,13 +53,16 @@ const getIdByName = (name, list) => {
     }
 };
 
-const AdminOrderForm = ({submitAction, specifiedInitialValues, formId}) => {
+const AdminOrderForm = ({submitAction, specifiedInitialValues, formId, setDataTableAlert}) => {
     const classes = useStyles();
     const dispatch = useDispatch();
+    const [Error, setError] = useState(<></>);
+
     useEffect(() => {
         dispatch(getCities());
         dispatch(getClockTypes());
         dispatch(getAvailableMasters());
+        setError(<></>);
     }, [dispatch]);
 
     const cities = useSelector(getCitiesSelector);
@@ -96,90 +99,109 @@ const AdminOrderForm = ({submitAction, specifiedInitialValues, formId}) => {
         return null;
     };
 
-    const validatedOnSubmit = (values) => {
-        dispatch(submitAction({...values, date: dateToString(values.date)}));
+    const validatedOnSubmit = async (values) => {
+        const {error, payload} = await dispatch(submitAction({...values, date: dateToString(values.date)}));
+        if (error) {
+            setError(
+                <Alert severity="error" key={payload.message}>
+                    <AlertTitle>Error</AlertTitle>
+                    {payload.message}
+                </Alert>
+            );
+        } else {
+            setError(<></>);
+            setDataTableAlert(
+                <Alert severity="success">
+                    <AlertTitle>Success</AlertTitle>
+                    {'Row has been added/updated successfully.'}
+                </Alert>
+            );
+        }
     }
 
     return (
-        <Formik
-            initialValues={specifiedInitialValues ? {
-                ...specifiedInitialValues,
-                cityId: getIdByName(specifiedInitialValues.city, cities),
-                clockTypeId: getIdByName(specifiedInitialValues.clockType, clockTypes)
-            } : initialValues}
-            onSubmit={validatedOnSubmit}
-            validationSchema={validationSchema}
-        >{(props) => (
-            <Form id={formId} className={classes.adminOrderForm}>
-                <MastersController/>
-                <Box className={classes.adminOrderFormSide}>
-                    <Field as={TextField}
-                           label='Username'
-                           name='username'
-                           className={classes.formItem}
-                           error={props.errors.username && props.touched.username}
-                           helperText={<ErrorMessage name='username'/>}
-                           fullWidth
-                           required
-                    />
-                    <Field as={TextField}
-                           label='Email'
-                           name='email'
-                           className={classes.formItem}
-                           error={props.errors.email && props.touched.email}
-                           helperText={<ErrorMessage name='email'/>}
-                           fullWidth
-                           required
-                    />
-                    <FormSelect
-                        label='Clock size'
-                        name='clockTypeId'
-                        options={clockTypeOptions}
-                        required
-                        fullWidth
-                        className={classes.formItem}
-                    />
-                    <FormSelect
-                        label='City'
-                        name='cityId'
-                        options={cityOptions}
-                        required
-                        fullWidth
-                        className={classes.formItem}
-                    />
-                    <LocalizationProvider dateAdapter={AdapterDateFns}>
-                        <Field as={DesktopDatePicker}
-                               name="date"
-                               label="Date"
-                               minDate={tomorrow}
-                               value={props.values.date}
-                               onChange={(value) => {
-                                   props.setValues(values => ({...values, date: value}));
-                               }}
-                               error={props.errors.date && props.touched.date}
-                               renderInput={(params) =>
-                                   <TextField
-                                       className={classes.formItem}
-                                       fullWidth
-                                       {...params}
-                                   />}
+        <>
+            <Formik
+                initialValues={specifiedInitialValues ? {
+                    ...specifiedInitialValues,
+                    cityId: getIdByName(specifiedInitialValues.city, cities),
+                    clockTypeId: getIdByName(specifiedInitialValues.clockType, clockTypes)
+                } : initialValues}
+                onSubmit={validatedOnSubmit}
+                validationSchema={validationSchema}
+            >{(props) => (
+                <Form id={formId} className={classes.adminOrderForm}>
+                    <MastersController/>
+                    <Box className={classes.adminOrderFormSide}>
+                        <Field as={TextField}
+                               label='Username'
+                               name='username'
+                               className={classes.formItem}
+                               error={props.errors.username && props.touched.username}
+                               helperText={<ErrorMessage name='username'/>}
+                               fullWidth
+                               required
                         />
-                    </LocalizationProvider>
-                    <FormSelect
-                        label='Time'
-                        name='time'
-                        className={classes.formItem}
-                        options={hours.map(hour => {
-                            return {'key': hour, 'value': hour};
-                        })}
-                        fullWidth
-                        required
-                    /></Box>
-                <Box className={classes.adminOrderFormSide}>
-                    <AvailableMastersListener/>
-                </Box>
-            </Form>)}
-        </Formik>
+                        <Field as={TextField}
+                               label='Email'
+                               name='email'
+                               className={classes.formItem}
+                               error={props.errors.email && props.touched.email}
+                               helperText={<ErrorMessage name='email'/>}
+                               fullWidth
+                               required
+                        />
+                        <FormSelect
+                            label='Clock size'
+                            name='clockTypeId'
+                            options={clockTypeOptions}
+                            required
+                            fullWidth
+                            className={classes.formItem}
+                        />
+                        <FormSelect
+                            label='City'
+                            name='cityId'
+                            options={cityOptions}
+                            required
+                            fullWidth
+                            className={classes.formItem}
+                        />
+                        <LocalizationProvider dateAdapter={AdapterDateFns}>
+                            <Field as={DesktopDatePicker}
+                                   name="date"
+                                   label="Date"
+                                   minDate={tomorrow}
+                                   value={props.values.date}
+                                   onChange={(value) => {
+                                       props.setValues(values => ({...values, date: value}));
+                                   }}
+                                   error={props.errors.date && props.touched.date}
+                                   renderInput={(params) =>
+                                       <TextField
+                                           className={classes.formItem}
+                                           fullWidth
+                                           {...params}
+                                       />}
+                            />
+                        </LocalizationProvider>
+                        <FormSelect
+                            label='Time'
+                            name='time'
+                            className={classes.formItem}
+                            options={hours.map(hour => {
+                                return {'key': hour, 'value': hour};
+                            })}
+                            fullWidth
+                            required
+                        /></Box>
+                    <Box className={classes.adminOrderFormSide}>
+                        <AvailableMastersListener/>
+                    </Box>
+                </Form>)}
+            </Formik>
+            {Error}
+        </>
     )
 }
 

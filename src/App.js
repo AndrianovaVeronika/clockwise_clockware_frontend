@@ -8,6 +8,7 @@ import SignUpPage from "./components/Pages/AuthPages/SignUpPage";
 import Spinner from "./components/PageComponents/Spinner";
 import LogoutAlertDialog from "./components/Dialogs/LogoutAlertDialog";
 import OrderSuccessAlertDialog from "./components/Dialogs/OrderSuccessAlertDialog";
+import UserCreatedDialog from "./components/Dialogs/UserCreatedDialog";
 
 const HomePage = React.lazy(() => import("./components/Pages/HomePage"));
 const ProfilePage = React.lazy(() => import("./components/Pages/UserPages/ProfilePage"));
@@ -33,6 +34,7 @@ function App() {
                 <Route path='/profile' element={<ProfilePage/>}/>
                 <Route path='/logout' element={<LogoutAlertDialog/>}/>
                 <Route path='/order/success' element={<OrderSuccessAlertDialog/>}/>
+                <Route path='/user/success' element={<UserCreatedDialog/>}/>
                 <Route path='/admin/orders' element={<AdminOrdersPage/>}/>
                 <Route path='/admin/users' element={<AdminUsersPage/>}/>
                 <Route path='/admin/masters' element={<AdminMastersPage/>}/>

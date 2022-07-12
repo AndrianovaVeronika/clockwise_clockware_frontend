@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from 'react';
-import {Box, Button, IconButton, Paper, Step, StepLabel, Stepper} from "@mui/material";
+import {Alert, AlertTitle, Box, Button, IconButton, Paper, Step, StepLabel, Stepper} from "@mui/material";
 import CredentialsForm from "./CredentialsForm";
 import {getCities} from "../../../store/actions/cities";
 import {getClockTypes} from "../../../store/actions/clockTypes";
@@ -13,8 +13,8 @@ import ArrowBackIosRoundedIcon from '@mui/icons-material/ArrowBackIosRounded';
 import LoginOrSignup from "./LoginOrSignup";
 import useStyles from "../../../styles/useStyles";
 import {addOrder} from "../../../store/actions/orders";
-import ErrorListener from "../../PageComponents/ErrorListener";
 import {cleanErrors} from "../../../store/actions/errors";
+import {useNavigate} from "react-router";
 
 const initialValues = {
     username: '',
@@ -28,6 +28,7 @@ const initialValues = {
 
 const OrderForm = () => {
     const dispatch = useDispatch();
+    const navigate = useNavigate();
     const classes = useStyles();
     const [values, setValues] = useState(initialValues);
     const steps = ['User data', 'Credentials', 'Date & Time', 'Master', 'Check all'];
@@ -43,9 +44,21 @@ const OrderForm = () => {
         setValues({...values, ...v});
     }
 
-    const onSubmit = (e) => {
-        dispatch(addOrder(values));
+    const [Error, setError] = useState(<></>);
+
+    const onSubmit = async (e) => {
         e.preventDefault();
+        const {error, payload} = await dispatch(addOrder(values));
+        setError(
+            <Alert severity="error" key={payload.message}>
+                <AlertTitle>Error</AlertTitle>
+                {payload.message}
+            </Alert>
+        );
+        if (!error) {
+            setError(<></>);
+            navigate('/order/success');
+        }
     }
 
     const [activeStep, setActiveStep] = useState(0);
@@ -143,7 +156,7 @@ const OrderForm = () => {
                                     <ArrowForwardIosRoundedIcon/>
                                 </IconButton>}
                         </div>
-                        <ErrorListener objType={'orders'}/>
+                        {Error}
                     </div>
                 </div>
             </Paper>

@@ -1,9 +1,9 @@
 import {useDispatch} from "react-redux";
 import {useNavigate} from "react-router";
 import * as Yup from "yup";
-import {Box, Button, Paper, TextField} from "@mui/material";
-import {ErrorMessage, Form, Formik, Field} from "formik";
-import React from "react";
+import {Alert, AlertTitle, Button, Paper, TextField} from "@mui/material";
+import {ErrorMessage, Field, Form, Formik} from "formik";
+import React, {useState} from "react";
 import useStyles from "../../../styles/useStyles";
 import {signUp} from "../../../store/actions/auth";
 
@@ -24,9 +24,20 @@ const SignUpForm = () => {
         password: Yup.string().min(8, 'Password is too short').required('Required'),
     });
 
+    const [Error, setError] = useState(<></>);
+
     const onSubmit = async (values, props) => {
-        dispatch(signUp(values));
-        navigate('/login');
+        const {error, payload} = await dispatch(signUp(values));
+        setError(
+            <Alert severity="error" key={payload.message}>
+                <AlertTitle>Error</AlertTitle>
+                {payload.message}
+            </Alert>
+        );
+        if (!error) {
+            setError(<></>);
+            navigate('/user/success');
+        }
     };
 
     return (
@@ -39,32 +50,32 @@ const SignUpForm = () => {
                         (props) => (
                             <Form id='signup-form'>
                                 <Field as={TextField}
-                                    label='Username'
-                                    name='username'
-                                    className={classes.formItem}
-                                    error={props.errors.username && props.touched.username}
-                                    helperText={<ErrorMessage name='username'/>}
-                                    fullWidth
-                                    required
+                                       label='Username'
+                                       name='username'
+                                       className={classes.formItem}
+                                       error={props.errors.username && props.touched.username}
+                                       helperText={<ErrorMessage name='username'/>}
+                                       fullWidth
+                                       required
                                 />
                                 <Field as={TextField}
-                                    label='Email'
-                                    name='email'
-                                    className={classes.formItem}
-                                    error={props.errors.email && props.touched.email}
-                                    helperText={<ErrorMessage name='email'/>}
-                                    fullWidth
-                                    required
+                                       label='Email'
+                                       name='email'
+                                       className={classes.formItem}
+                                       error={props.errors.email && props.touched.email}
+                                       helperText={<ErrorMessage name='email'/>}
+                                       fullWidth
+                                       required
                                 />
                                 <Field as={TextField}
-                                    label='Password'
-                                    name='password'
-                                    type="password"
-                                    className={classes.formItem}
-                                    error={props.errors.password && props.touched.password}
-                                    helperText={<ErrorMessage name='password'/>}
-                                    fullWidth
-                                    required
+                                       label='Password'
+                                       name='password'
+                                       type="password"
+                                       className={classes.formItem}
+                                       error={props.errors.password && props.touched.password}
+                                       helperText={<ErrorMessage name='password'/>}
+                                       fullWidth
+                                       required
                                 />
                             </Form>
                         )
@@ -77,6 +88,7 @@ const SignUpForm = () => {
                         form='signup-form'
                     >Submit</Button>
                 </div>
+                {Error}
             </Paper>
         </>
     )

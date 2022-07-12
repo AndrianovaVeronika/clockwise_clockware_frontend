@@ -1,14 +1,13 @@
-import React from 'react';
+import React, {useState} from 'react';
 import {ErrorMessage, Field, Form, Formik} from "formik";
-import {Paper, TextField} from "@mui/material";
+import {Alert, AlertTitle, Paper, TextField} from "@mui/material";
 import * as Yup from "yup";
 import {useDispatch} from "react-redux";
 import useStyles from "../../../styles/useStyles";
-import ErrorListener from "../../PageComponents/ErrorListener";
 
 const initialValues = {name: ''};
 
-const CityForm = ({specifiedInitialValues, submitAction, formId}) => {
+const CityForm = ({specifiedInitialValues, submitAction, formId, setDataTableAlert}) => {
     const dispatch = useDispatch();
     const styles = useStyles();
 
@@ -16,8 +15,26 @@ const CityForm = ({specifiedInitialValues, submitAction, formId}) => {
         name: Yup.string().min(3, 'Name is too short').required('Required'),
     })
 
-    const onSubmit = (values, props) => {
-        dispatch(submitAction(specifiedInitialValues ? {id: specifiedInitialValues?.id, ...values} : values));
+    const [Error, setError] = useState(<></>);
+
+    const onSubmit = async (values, props) => {
+        const {error, payload} = await dispatch(submitAction(specifiedInitialValues ? {id: specifiedInitialValues?.id, ...values} : values));
+        if (error) {
+            setError(
+                <Alert severity="error" key={payload.message}>
+                    <AlertTitle>Error</AlertTitle>
+                    {payload.message}
+                </Alert>
+            );
+        } else {
+            setError(<></>);
+            setDataTableAlert(
+                <Alert severity="success">
+                    <AlertTitle>Success</AlertTitle>
+                    {'Row has been added/updated successfully.'}
+                </Alert>
+            );
+        }
     }
 
     return (
@@ -40,6 +57,7 @@ const CityForm = ({specifiedInitialValues, submitAction, formId}) => {
                         )
                     }
                 </Formik>
+                {Error}
             </Paper>
         </>
     )

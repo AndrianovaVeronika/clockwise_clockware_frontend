@@ -1,17 +1,11 @@
 import {useDispatch} from "react-redux";
 import * as Yup from "yup";
-import {Box, Paper, TextField} from "@mui/material";
+import {Alert, AlertTitle, Box, Paper, TextField} from "@mui/material";
 import {ErrorMessage, Form, Formik, Field} from "formik";
-import React from "react";
+import React, {useState} from "react";
 import useStyles from "../../../styles/useStyles";
 
-const initialValues = {
-    username: '',
-    email: '',
-    password: ''
-};
-
-const UserForm = ({submitAction, specifiedInitialValues, formId}) => {
+const UserForm = ({submitAction, specifiedInitialValues, formId, setDataTableAlert}) => {
     const dispatch = useDispatch();
     const classes = useStyles();
 
@@ -20,14 +14,39 @@ const UserForm = ({submitAction, specifiedInitialValues, formId}) => {
         password: Yup.string().min(8, 'Password is too short'),
         email: Yup.string().email('email is not valid').required('Required')
     })
+
+    const [Error, setError] = useState(<></>);
+
     const onSubmit = async (values, props) => {
-        dispatch(submitAction(specifiedInitialValues ? {id: specifiedInitialValues.id, ...values} : values));
+        const {error, payload} = await dispatch(submitAction(specifiedInitialValues ? {id: specifiedInitialValues.id, ...values} : values));
+        if (error) {
+            setError(
+                <Alert severity="error" key={payload.message}>
+                    <AlertTitle>Error</AlertTitle>
+                    {payload.message}
+                </Alert>
+            );
+        } else {
+            setError(<></>);
+            setDataTableAlert(
+                <Alert severity="success">
+                    <AlertTitle>Success</AlertTitle>
+                    {'Row has been added/updated successfully.'}
+                </Alert>
+            );
+        }
     }
+
+    const initialValues = {
+        username: specifiedInitialValues.username || '',
+        email: specifiedInitialValues.email || '',
+        password: specifiedInitialValues.password || ''
+    };
 
     return (
         <Box>
             <Paper elevation={0} className={classes.formPaper}>
-                <Formik initialValues={specifiedInitialValues || initialValues} validationSchema={validationSchema}
+                <Formik initialValues={initialValues} validationSchema={validationSchema}
                         onSubmit={onSubmit}>
                     {
                         (props) => (
@@ -63,6 +82,7 @@ const UserForm = ({submitAction, specifiedInitialValues, formId}) => {
                         )
                     }
                 </Formik>
+                {Error}
             </Paper>
         </Box>
     )

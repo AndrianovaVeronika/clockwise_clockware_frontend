@@ -2,14 +2,16 @@ import * as React from 'react';
 import {useState} from 'react';
 import {Button, Dialog, DialogActions, DialogContent, DialogTitle} from '@mui/material';
 import CloseButton from "../../Forms/CloseButton";
-import ErrorListener from "../../PageComponents/ErrorListener";
 
 const FormDialog = ({
                         OpenButton,
                         dialogTitle,
                         submitButtonText,
                         formId,
-                        children
+                        ModelForm,
+                        submitAction,
+                        specifiedInitialValues,
+                        setDataTableAlert
                     }) => {
     const [open, setOpen] = useState(false);
 
@@ -30,8 +32,12 @@ const FormDialog = ({
                     {dialogTitle}
                 </DialogTitle>
                 <DialogContent>
-                    {children}
-                    <ErrorListener objType={formId}/>
+                    <ModelForm
+                        formId={formId}
+                        submitAction={submitAction}
+                        specifiedInitialValues={specifiedInitialValues}
+                        setDataTableAlert={setDataTableAlert}
+                    />
                 </DialogContent>
                 <DialogActions>
                     <Button

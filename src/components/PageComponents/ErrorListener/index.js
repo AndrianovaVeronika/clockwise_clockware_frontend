@@ -4,7 +4,6 @@ import {getErrorsSelector} from "../../../store/selectors/errorsSelector";
 
 const ErrorListener = ({objType}) => {
     const errors = useSelector(getErrorsSelector);
-    console.log(errors)
     return (
         <>
             {errors[objType]?.map(error =>

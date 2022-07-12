@@ -1,7 +1,7 @@
 import * as React from 'react';
 import {useState} from 'react';
 import {DataGrid} from '@mui/x-data-grid';
-import {IconButton} from "@mui/material";
+import {Alert, AlertTitle, IconButton} from "@mui/material";
 import DeleteIcon from '@mui/icons-material/Delete';
 import {useDispatch} from "react-redux";
 import EditIcon from '@mui/icons-material/Edit';
@@ -9,7 +9,6 @@ import FormDialog from "../../Dialogs/FormDialog";
 import AddIcon from '@mui/icons-material/Add';
 import useStyles from "../../../styles/useStyles";
 import _ from 'lodash';
-import ErrorListener from "../../PageComponents/ErrorListener";
 
 const DataTable = ({
                        columns,
@@ -23,14 +22,35 @@ const DataTable = ({
     const dispatch = useDispatch();
     const [activeRow, setActiveRow] = useState({});
     const classes = useStyles();
+    const [DataTableAlert, setDataTableAlert] = useState(<></>);
 
-    const onDelete = () => {
-        if (Object.keys(activeRow).length === 0) {
-            console.log('Nothing to delete');
+    const onDelete = async () => {
+        if (_.isEmpty(activeRow)) {
+            setDataTableAlert(
+                <Alert severity="info">
+                    <AlertTitle>Attention</AlertTitle>
+                    {"Choose row to delete."}
+                </Alert>
+            );
             return;
         }
-        dispatch(onRowDelete(activeRow.id));
-        setActiveRow({});
+        const {error, payload} = await dispatch(onRowDelete(activeRow.id));
+        if (error) {
+            setDataTableAlert(
+                <Alert severity="error">
+                    <AlertTitle>Error</AlertTitle>
+                    {payload.message}
+                </Alert>
+            );
+        } else {
+            setDataTableAlert(
+                <Alert severity="success">
+                    <AlertTitle>Success</AlertTitle>
+                    {'Row has been deleted successfully.'}
+                </Alert>
+            );
+            setActiveRow({});
+        }
     }
 
     const onRowClick = ({row}) => {
@@ -53,9 +73,11 @@ const DataTable = ({
             dialogTitle={'Измените данные'}
             submitButtonText={'Сохранить'}
             formId={objType}
-        >
-            <ModelForm submitAction={onRowUpdate} formId={objType} specifiedInitialValues={activeRow}/>
-        </FormDialog>
+            ModelForm={ModelForm}
+            submitAction={onRowUpdate}
+            specifiedInitialValues={activeRow}
+            setDataTableAlert={setDataTableAlert}
+        />
     }
 
     const AddDialog = () => {
@@ -64,9 +86,10 @@ const DataTable = ({
             dialogTitle={'Введите данные'}
             submitButtonText={'Добавить'}
             formId={objType}
-        >
-            <ModelForm submitAction={onRowAdd} formId={objType}/>
-        </FormDialog>
+            ModelForm={ModelForm}
+            submitAction={onRowAdd}
+            setDataTableAlert={setDataTableAlert}
+        />
     }
 
     return (
@@ -80,12 +103,12 @@ const DataTable = ({
                     onRowClick={onRowClick}
                 />
             </div>
-            <ErrorListener objType={objType}/>
             {!_.isEmpty(activeRow) && <>
                 <DeleteDialog/>
                 <EditDialog/>
             </>}
             <AddDialog/>
+            {DataTableAlert}
         </>
     );
 }

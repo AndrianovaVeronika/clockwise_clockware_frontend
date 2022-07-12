@@ -33,7 +33,6 @@ const createActionApi = (modelName) => {
                         'x-access-token': sessionStorage.getItem('TOKEN')
                     }
                 });
-
                 return response.data;
             } catch (e) {
                 return thunkAPI.rejectWithValue(e.response.data)

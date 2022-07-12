@@ -9,8 +9,7 @@ const initialState = {
         usersList: [],
     },
     orders: {
-        ordersList: [],
-        orderUser: {},
+        ordersList: []
     },
     masters: {
         mastersList: [],
