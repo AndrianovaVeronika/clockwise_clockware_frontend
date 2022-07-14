@@ -38,9 +38,9 @@ const UserForm = ({submitAction, specifiedInitialValues, formId, setDataTableAle
     }
 
     const initialValues = {
-        username: specifiedInitialValues.username || '',
-        email: specifiedInitialValues.email || '',
-        password: specifiedInitialValues.password || ''
+        username: specifiedInitialValues?.username || '',
+        email: specifiedInitialValues?.email || '',
+        password: specifiedInitialValues?.password || ''
     };
 
     return (
