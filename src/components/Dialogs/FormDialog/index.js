@@ -1,17 +1,20 @@
 import * as React from 'react';
 import {useState} from 'react';
 import {Button, Dialog, DialogActions, DialogContent, DialogTitle} from '@mui/material';
-import CloseButton from "../../Forms/CloseButton";
+import CloseButton from "../../Forms/FormsComponents/CloseButton";
+import {useSelector} from "react-redux";
+import {getByIdSelectorCreator} from "../../../store/selectors/getByIdSelectorCreator";
+import useStyles from "../../../styles/useStyles";
 
 const FormDialog = ({
                         OpenButton,
                         dialogTitle,
                         submitButtonText,
-                        formId,
                         ModelForm,
+                        formId,
                         submitAction,
-                        specifiedInitialValues,
-                        setDataTableAlert
+                        setDataTableAlert,
+                        clearDataTableSelectedRow
                     }) => {
     const [open, setOpen] = useState(false);
 
@@ -23,6 +26,8 @@ const FormDialog = ({
         toggle();
     }
 
+    const formInitialValues = useSelector(getByIdSelectorCreator(formId));
+    const classes = useStyles();
     return (
         <>
             <OpenButton onClick={toggle}/>
@@ -31,12 +36,13 @@ const FormDialog = ({
                 <DialogTitle>
                     {dialogTitle}
                 </DialogTitle>
-                <DialogContent>
+                <DialogContent className={classes.dialog}>
                     <ModelForm
-                        formId={formId}
                         submitAction={submitAction}
-                        specifiedInitialValues={specifiedInitialValues}
+                        specifiedInitialValues={formInitialValues}
+                        formId={formId}
                         setDataTableAlert={setDataTableAlert}
+                        clearDataTableSelectedRow={clearDataTableSelectedRow}
                     />
                 </DialogContent>
                 <DialogActions>

@@ -1,9 +1,9 @@
 import React from 'react';
 import {Typography} from '@mui/material'
-import {getCitiesSelector} from "../../../store/selectors/citiesSelector";
+import {getCitiesSelector} from "../../../../store/selectors/citiesSelector";
 import {useSelector} from "react-redux";
-import {getMastersSelector} from "../../../store/selectors/mastersSelector";
-import {getClockTypesSelector} from "../../../store/selectors/clockTypesSelector";
+import {getMastersSelector} from "../../../../store/selectors/mastersSelector";
+import {getClockTypesSelector} from "../../../../store/selectors/clockTypesSelector";
 
 const ResultsReport = ({formId, onFinalSubmit, values}) => {
     const city = useSelector(getCitiesSelector).filter((el) => el.id === values.cityId);

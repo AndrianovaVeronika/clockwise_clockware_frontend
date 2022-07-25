@@ -1,12 +1,11 @@
 import React, {useState} from "react";
 import {TextField} from "@mui/material";
-import {DesktopDatePicker, LocalizationProvider} from "@mui/lab";
-import AdapterDateFns from '@mui/lab/AdapterDateFns';
 import moment from "moment";
-import FormSelect from "../FormSelect";
-import {Field, Form, Formik} from "formik";
-import useStyles from "../../../styles/useStyles";
-import {shiftTimeEnd, shiftTimeStart} from "../../../static/constants";
+import FormikSelectField from "../../FormsComponents/FormikSelectField";
+import {Form, Formik} from "formik";
+import useStyles from "../../../../styles/useStyles";
+import {shiftTimeEnd, shiftTimeStart} from "../../../../static/constants";
+import FormikDataTableField from "../../FormsComponents/FormikDataTableField";
 
 const getTomorrow = () => {
     const today = new Date();
@@ -46,30 +45,20 @@ const DateTimePick = ({formId, submitAction, values}) => {
             {
                 (props) => (
                     <Form id={formId}>
-                        <LocalizationProvider dateAdapter={AdapterDateFns}>
-                            <Field as={DesktopDatePicker}
-                                   name="date"
-                                   label="Date"
-                                   minDate={tomorrow}
-                                   value={date}
-                                   onChange={(value) => setDate(value)}
-                                   error={props.errors.date && props.touched.date}
-                                   renderInput={(params) =>
-                                       <TextField
-                                           className={classes.formItem}
-                                           fullWidth
-                                           {...params}
-                                       />}
-                            />
-                        </LocalizationProvider>
-                        <FormSelect
+                        <FormikDataTableField
+                            name="date"
+                            label="Date"
+                            minDate={tomorrow}
+                            value={date}
+                            onChange={(value) => setDate(value)}
+                            error={props.errors.date && props.touched.date}
+                        />
+                        <FormikSelectField
                             label='Time'
                             name='time'
-                            className={classes.formItem}
                             options={hours.map(hour => {
                                 return {'key': hour, 'value': hour};
                             })}
-                            fullWidth
                             required
                         />
                     </Form>

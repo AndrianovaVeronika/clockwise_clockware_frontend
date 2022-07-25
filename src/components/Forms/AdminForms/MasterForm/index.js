@@ -1,12 +1,13 @@
 import React, {useEffect, useState} from "react";
-import {ErrorMessage, Field, Form, Formik} from "formik";
-import {Alert, AlertTitle, Paper, Rating, TextField, Typography} from "@mui/material";
+import {Form, Formik} from "formik";
+import {Alert, AlertTitle, Box, InputLabel, Paper, Rating} from "@mui/material";
 import * as Yup from 'yup';
-import {getCities} from "../../../store/actions/cities";
+import cities from "../../../../store/actions/cities";
 import {useDispatch, useSelector} from "react-redux";
-import FormSelect from "../FormSelect";
-import {getCitiesSelector} from "../../../store/selectors/citiesSelector";
-import useStyles from "../../../styles/useStyles";
+import FormikSelectField from "../../FormsComponents/FormikSelectField";
+import {getCitiesSelector} from "../../../../store/selectors/citiesSelector";
+import useStyles from "../../../../styles/useStyles";
+import FormikTextField from "../../FormsComponents/FormikTextField";
 
 const initialValues = {
     name: '',
@@ -14,7 +15,7 @@ const initialValues = {
     cities: []
 }
 
-const MasterForm = ({specifiedInitialValues, submitAction, formId, setDataTableAlert}) => {
+const MasterForm = ({specifiedInitialValues, submitAction, formId, setDataTableAlert, clearDataTableSelectedRow}) => {
     const dispatch = useDispatch();
     const classes = useStyles();
 
@@ -41,7 +42,7 @@ const MasterForm = ({specifiedInitialValues, submitAction, formId, setDataTableA
     const cityOptions = getCityOptions();
 
     useEffect(() => {
-        dispatch(getCities());
+        dispatch(cities.getAll());
     }, [dispatch])
 
     const validationSchema = Yup.object().shape({
@@ -66,6 +67,9 @@ const MasterForm = ({specifiedInitialValues, submitAction, formId, setDataTableA
             );
         } else {
             setError(<></>);
+            if (clearDataTableSelectedRow) {
+                clearDataTableSelectedRow();
+            }
             setDataTableAlert(
                 <Alert severity="success">
                     <AlertTitle>Success</AlertTitle>
@@ -84,26 +88,22 @@ const MasterForm = ({specifiedInitialValues, submitAction, formId, setDataTableA
                     {
                         (props) => (
                             <Form id={formId}>
-                                <Field as={TextField}
-                                       label='Name'
-                                       name='name'
-                                       fullWidth
-                                       error={props.errors.name && props.touched.name}
-                                       helperText={<ErrorMessage name='name'/>}
-                                       required
-                                       className={classes.formItem}
+                                <FormikTextField
+                                    label='Name'
+                                    name='name'
+                                    error={props.errors.name && props.touched.name}
+                                    required
                                 />
-                                <div
-                                    className={classes.formItem}
-                                >
-                                    <Typography component="legend">Rating</Typography>
+                                <Box>
+                                    <InputLabel className={classes.formItemLabel}>Rating</InputLabel>
                                     <Rating
+                                        className={classes.formItem}
                                         name="rating"
                                         value={props.values.rating}
                                         onChange={({target}) => props.setFieldValue('rating', parseInt(target.value))}
                                     />
-                                </div>
-                                <FormSelect
+                                </Box>
+                                <FormikSelectField
                                     label='Cities'
                                     name='cities'
                                     options={cityOptions}

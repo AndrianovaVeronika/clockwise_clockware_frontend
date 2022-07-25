@@ -3,8 +3,8 @@ import DataTable from "../DataTable";
 import {useDispatch, useSelector} from "react-redux";
 import {getMastersSelector} from "../../../store/selectors/mastersSelector";
 import Rating from '@mui/material/Rating';
-import {addMaster, deleteMaster, getMasters, updateMaster} from "../../../store/actions/masters";
-import MasterForm from "../../Forms/MasterForm";
+import masters from "../../../store/actions/masters";
+import MasterForm from "../../Forms/AdminForms/MasterForm";
 
 function renderRating(params) {
     return <Rating readOnly value={params.value}/>;
@@ -35,7 +35,7 @@ const MastersTable = () => {
     const dispatch = useDispatch();
 
     useEffect(() => {
-        dispatch(getMasters());
+        dispatch(masters.getAll());
     }, [dispatch])
 
     const rows = useSelector(getMastersSelector).map(master => {
@@ -50,9 +50,7 @@ const MastersTable = () => {
             <DataTable
                 columns={columns}
                 rows={rows}
-                onRowDelete={deleteMaster}
-                onRowUpdate={updateMaster}
-                onRowAdd={addMaster}
+                actions={masters}
                 objType={'masters'}
                 ModelForm={MasterForm}
             />

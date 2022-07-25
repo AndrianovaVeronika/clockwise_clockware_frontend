@@ -13,9 +13,7 @@ import _ from 'lodash';
 const DataTable = ({
                        columns,
                        rows,
-                       onRowDelete,
-                       onRowUpdate,
-                       onRowAdd,
+                       actions,
                        objType,
                        ModelForm
                    }) => {
@@ -34,7 +32,7 @@ const DataTable = ({
             );
             return;
         }
-        const {error, payload} = await dispatch(onRowDelete(activeRow.id));
+        const {error, payload} = await dispatch(actions.delete(activeRow.id));
         if (error) {
             setDataTableAlert(
                 <Alert severity="error">
@@ -55,6 +53,7 @@ const DataTable = ({
 
     const onRowClick = ({row}) => {
         setActiveRow(row);
+        dispatch(actions.getById(row.id));
     }
 
     const OpenIconButton = ({Icon, ...props}) => {
@@ -74,9 +73,9 @@ const DataTable = ({
             submitButtonText={'Сохранить'}
             formId={objType}
             ModelForm={ModelForm}
-            submitAction={onRowUpdate}
-            specifiedInitialValues={activeRow}
+            submitAction={actions.update}
             setDataTableAlert={setDataTableAlert}
+            clearDataTableSelectedRow={() => setActiveRow({})}
         />
     }
 
@@ -87,7 +86,7 @@ const DataTable = ({
             submitButtonText={'Добавить'}
             formId={objType}
             ModelForm={ModelForm}
-            submitAction={onRowAdd}
+            submitAction={actions.add}
             setDataTableAlert={setDataTableAlert}
         />
     }

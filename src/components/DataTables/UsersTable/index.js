@@ -1,10 +1,9 @@
 import React, {useEffect} from "react";
 import {useDispatch, useSelector} from "react-redux";
-import {addUser, deleteUser, getUsers, updateUser} from "../../../store/actions/users";
+import users from "../../../store/actions/users";
 import {getUsersSelector} from "../../../store/selectors/usersSelector";
 import DataTable from "../DataTable";
-import {signUp} from "../../../store/actions/auth";
-import UserForm from "../../Forms/UserForm";
+import UserForm from "../../Forms/AdminForms/UserForm";
 
 const columns = [
     {
@@ -22,19 +21,17 @@ const UsersTable = () => {
     const dispatch = useDispatch();
 
     useEffect(() => {
-        dispatch(getUsers());
+        dispatch(users.getAll());
     }, [dispatch])
 
-    const users = useSelector(getUsersSelector);
+    const rows = useSelector(getUsersSelector);
 
     return (
         <>
             <DataTable
                 columns={columns}
-                rows={users}
-                onRowDelete={deleteUser}
-                onRowUpdate={updateUser}
-                onRowAdd={addUser}
+                rows={rows}
+                actions={users}
                 objType={'users'}
                 ModelForm={UserForm}
             />

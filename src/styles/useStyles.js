@@ -87,6 +87,9 @@ export const useStyles = makeStyles((theme) => ({
     formItem: {
         margin: '5px!important'
     },
+    formItemLabel: {
+        marginLeft: '5px!important'
+    },
     //sidebar
     sidebar: {
         height: '100%',
@@ -150,6 +153,10 @@ export const useStyles = makeStyles((theme) => ({
     adminOrderFormSide: {
         width: '50%',
         padding: '10px',
+    },
+    //dialog
+    dialog: {
+        overflow: 'hidden!important'
     }
 }));
 

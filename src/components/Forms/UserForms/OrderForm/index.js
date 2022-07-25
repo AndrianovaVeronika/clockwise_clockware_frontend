@@ -1,20 +1,20 @@
 import React, {useEffect, useState} from 'react';
 import {Alert, AlertTitle, Box, Button, IconButton, Paper, Step, StepLabel, Stepper} from "@mui/material";
 import CredentialsForm from "./CredentialsForm";
-import {getCities} from "../../../store/actions/cities";
-import {getClockTypes} from "../../../store/actions/clockTypes";
-import {getAvailableMasters, getMasters} from "../../../store/actions/masters";
+import cities from "../../../../store/actions/cities";
+import {getClockTypes} from "../../../../store/actions/clockTypes";
+import masters from "../../../../store/actions/masters";
 import DateTimePick from "./DateTimePick";
 import MasterPick from "./MasterPick";
 import ResultsReport from "./ResultsReport";
-import {useDispatch} from "react-redux";
+import {useDispatch, useSelector} from "react-redux";
 import ArrowForwardIosRoundedIcon from '@mui/icons-material/ArrowForwardIosRounded';
 import ArrowBackIosRoundedIcon from '@mui/icons-material/ArrowBackIosRounded';
 import LoginOrSignup from "./LoginOrSignup";
-import useStyles from "../../../styles/useStyles";
-import {addOrder} from "../../../store/actions/orders";
-import {cleanErrors} from "../../../store/actions/errors";
+import useStyles from "../../../../styles/useStyles";
+import orders from "../../../../store/actions/orders";
 import {useNavigate} from "react-router";
+import {getCurrentUserSelector} from "../../../../store/selectors/authSelector";
 
 const initialValues = {
     username: '',
@@ -32,23 +32,24 @@ const OrderForm = () => {
     const classes = useStyles();
     const [values, setValues] = useState(initialValues);
     const steps = ['User data', 'Credentials', 'Date & Time', 'Master', 'Check all'];
+    const currentUser = useSelector(getCurrentUserSelector);
 
     useEffect(() => {
-        dispatch(getCities());
-        dispatch(getMasters());
+        dispatch(cities.getAll());
+        dispatch(masters.getAll());
         dispatch(getClockTypes());
     }, [dispatch]);
 
     const onFormSubmit = (v, props) => {
-        handleNext();
         setValues({...values, ...v});
+        handleNext();
     }
 
     const [Error, setError] = useState(<></>);
 
     const onSubmit = async (e) => {
         e.preventDefault();
-        const {error, payload} = await dispatch(addOrder(values));
+        const {error, payload} = await dispatch(orders.add(values));
         setError(
             <Alert severity="error" key={payload.message}>
                 <AlertTitle>Error</AlertTitle>
@@ -62,12 +63,24 @@ const OrderForm = () => {
     }
 
     const [activeStep, setActiveStep] = useState(0);
+    const [mastersNeedToBeRetrieved, setMastersNeedToBeRetrieved] = useState(false);
+
+    useEffect(() => {
+        if (values.cityId && values.date && values.time && values.clockTypeId) {
+            setMastersNeedToBeRetrieved(true);
+        }
+    }, [values.cityId, values.date, values.time, values.clockTypeId])
+
+    useEffect(() => {
+        if (mastersNeedToBeRetrieved) {
+            console.log('retrieving')
+            dispatch(masters.getAvailableMasters(values));
+            setMastersNeedToBeRetrieved(false)
+        }
+    }, [mastersNeedToBeRetrieved]);
 
     const handleNext = () => {
         setActiveStep((prevActiveStep) => {
-            if (prevActiveStep === 2) {
-                dispatch(getAvailableMasters(values));
-            }
             return prevActiveStep + 1;
         });
     };
@@ -77,7 +90,6 @@ const OrderForm = () => {
     };
 
     const handleClean = () => {
-        dispatch(cleanErrors('orders'));
         setValues(initialValues);
         setActiveStep(0);
     }
@@ -89,6 +101,7 @@ const OrderForm = () => {
                     formId='form0'
                     onSubmit={onFormSubmit}
                     values={values}
+                    currentUser={currentUser }
                 />
             }
             case 1 : {

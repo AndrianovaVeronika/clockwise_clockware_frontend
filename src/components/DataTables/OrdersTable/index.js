@@ -1,10 +1,13 @@
 import * as React from 'react';
 import {useEffect} from 'react';
-import {addOrder, deleteOrder, getOrders, updateOrder} from "../../../store/actions/orders";
 import {useDispatch, useSelector} from "react-redux";
 import {getOrdersSelector} from "../../../store/selectors/ordersSelector";
 import DataTable from "../DataTable";
-import AdminOrderForm from "../../Forms/AdminOrderForm";
+import AdminOrderForm from "../../Forms/AdminForms/AdminOrderForm";
+import {getClockTypes} from "../../../store/actions/clockTypes";
+import cities from "../../../store/actions/cities";
+import masters from "../../../store/actions/masters";
+import orders from "../../../store/actions/orders";
 
 const columns = [
     {
@@ -37,18 +40,19 @@ const OrdersTable = () => {
     const dispatch = useDispatch();
 
     useEffect(() => {
-        dispatch(getOrders());
+        dispatch(orders.getAll());
+        dispatch(cities.getAll());
+        dispatch(getClockTypes());
+        dispatch(masters.getAll());
     }, [dispatch]);
 
-    const orders = useSelector(getOrdersSelector);
+    const rows = useSelector(getOrdersSelector);
 
     return (
         <DataTable
-            rows={orders}
+            rows={rows}
             columns={columns}
-            onRowDelete={deleteOrder}
-            onRowUpdate={updateOrder}
-            onRowAdd={addOrder}
+            actions={orders}
             objType={'orders'}
             ModelForm={AdminOrderForm}
         />

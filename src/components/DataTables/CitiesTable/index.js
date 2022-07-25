@@ -1,10 +1,10 @@
 import * as React from 'react';
 import {useEffect} from 'react';
 import DataTable from "../DataTable";
-import {addCity, deleteCity, getCities, updateCity} from "../../../store/actions/cities";
+import cities from "../../../store/actions/cities";
 import {useDispatch, useSelector} from "react-redux";
 import {getCitiesSelector} from "../../../store/selectors/citiesSelector";
-import CityForm from "../../Forms/CityForm";
+import CityForm from "../../Forms/AdminForms/CityForm";
 
 const columns = [
     {
@@ -19,7 +19,7 @@ const CitiesTable = () => {
     const dispatch = useDispatch();
 
     useEffect(() => {
-        dispatch(getCities());
+        dispatch(cities.getAll());
     }, [dispatch])
 
     const rows = useSelector(getCitiesSelector);
@@ -29,9 +29,7 @@ const CitiesTable = () => {
             <DataTable
                 columns={columns}
                 rows={rows}
-                onRowDelete={deleteCity}
-                onRowUpdate={updateCity}
-                onRowAdd={addCity}
+                actions={cities}
                 objType={'cities'}
                 ModelForm={CityForm}
             />

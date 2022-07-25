@@ -4,6 +4,7 @@ const createActionApi = (modelName) => {
     return {
         GET: async (_, thunkAPI) => {
             try {
+                console.log('GET ' + modelName)
                 const response = await instance.get('/' + modelName, {
                     headers: {
                         'x-access-token': sessionStorage.getItem('TOKEN')
@@ -15,6 +16,7 @@ const createActionApi = (modelName) => {
             }
         },
         GET_BY_ID: async (id, thunkAPI) => {
+            console.log('GET BY ID ' + modelName + '' +  id)
             try {
                 const response = await instance.get('/' + modelName + '/' + id, {
                     headers: {
@@ -28,6 +30,7 @@ const createActionApi = (modelName) => {
         },
         POST: async (newInstance, thunkAPI) => {
             try {
+                console.log('POST ' + modelName)
                 const response = await instance.post('/' + modelName, newInstance, {
                     headers: {
                         'x-access-token': sessionStorage.getItem('TOKEN')
@@ -40,6 +43,7 @@ const createActionApi = (modelName) => {
         },
         PUT: async ({id, ...updateValues}, thunkAPI) => {
             try {
+                console.log('UPDATE ' + modelName)
                 const response = await instance.put('/' + modelName + '/' + id, updateValues, {
                     headers: {
                         'x-access-token': sessionStorage.getItem('TOKEN')
@@ -52,6 +56,7 @@ const createActionApi = (modelName) => {
         },
         DELETE: async (instanceId, thunkAPI) => {
             try {
+                console.log('DELETE ' + modelName)
                 const response = await instance.delete('/' + modelName + '/' + instanceId, {
                     headers: {
                         'x-access-token': sessionStorage.getItem('TOKEN')

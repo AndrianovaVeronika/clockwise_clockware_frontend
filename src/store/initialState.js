@@ -17,20 +17,10 @@ const initialState = {
     },
     cities: {
         citiesList: [],
-        foundById: {},
     },
     clockTypes: {
         clockTypesList: [],
-        foundById: {},
     },
-    errors: {
-        auth: [],
-        users: [],
-        orders: [],
-        masters: [],
-        cities: [],
-        clockTypes: [],
-    }
 };
 
 export default initialState;

@@ -1,5 +1,5 @@
 import React from 'react';
-import SignUpForm from "../../../Forms/SignUpForm";
+import SignUpForm from "../../../Forms/UserForms/SignUpForm";
 import {Box} from "@mui/material";
 import useStyles from "../../../../styles/useStyles";
 

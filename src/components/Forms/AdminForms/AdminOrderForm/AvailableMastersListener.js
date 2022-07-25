@@ -1,5 +1,5 @@
 import React from "react";
-import {getAvailableMastersSelector} from "../../../store/selectors/mastersSelector";
+import {getAvailableMastersSelector} from "../../../../store/selectors/mastersSelector";
 import {DataGrid} from "@mui/x-data-grid";
 import Rating from "@mui/material/Rating";
 import {useFormikContext} from "formik";

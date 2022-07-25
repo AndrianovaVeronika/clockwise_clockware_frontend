@@ -5,16 +5,19 @@ import instance from "../middleware/instance";
 
 const api = createActionApi('masters');
 
-export const getMasters = createAsyncThunk(masters.GET_MASTERS, api.GET);
+const getMasters = createAsyncThunk(masters.GET_MASTERS, api.GET);
 
-export const addMaster = createAsyncThunk(masters.ADD_MASTER, api.POST);
+const getMasterById = createAsyncThunk(masters.GET_MASTER_BY_ID, api.GET_BY_ID);
 
-export const updateMaster = createAsyncThunk(masters.UPDATE_MASTER, api.PUT);
+const addMaster = createAsyncThunk(masters.ADD_MASTER, api.POST);
 
-export const deleteMaster = createAsyncThunk(masters.DELETE_MASTER, api.DELETE);
+const updateMaster = createAsyncThunk(masters.UPDATE_MASTER, api.PUT);
 
-export const getAvailableMasters = createAsyncThunk(masters.GET_AVAILABLE_MASTERS, async (values, thunkAPI) => {
+const deleteMaster = createAsyncThunk(masters.DELETE_MASTER, api.DELETE);
+
+const getAvailableMasters = createAsyncThunk(masters.GET_AVAILABLE_MASTERS, async (values, thunkAPI) => {
     try {
+        console.log('GET available masters')
         const response = await instance.post('/masters/available', values, {
             headers: {
                 'x-access-token': sessionStorage.getItem('TOKEN')
@@ -25,3 +28,12 @@ export const getAvailableMasters = createAsyncThunk(masters.GET_AVAILABLE_MASTER
         return thunkAPI.rejectWithValue(err);
     }
 })
+
+export default {
+    getAll: getMasters,
+    getById: getMasterById,
+    add: addMaster,
+    update: updateMaster,
+    delete: deleteMaster,
+    getAvailableMasters: getAvailableMasters
+}

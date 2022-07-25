@@ -1,5 +1,5 @@
 import React, {useEffect} from 'react';
-import SignInForm from "../../../Forms/SignInForm";
+import SignInForm from "../../../Forms/UserForms/SignInForm";
 import {Box} from "@mui/material";
 import useStyles from "../../../../styles/useStyles";
 import {useSelector} from "react-redux";

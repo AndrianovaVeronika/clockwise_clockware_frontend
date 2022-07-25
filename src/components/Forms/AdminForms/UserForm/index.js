@@ -3,9 +3,11 @@ import * as Yup from "yup";
 import {Alert, AlertTitle, Box, Paper, TextField} from "@mui/material";
 import {ErrorMessage, Form, Formik, Field} from "formik";
 import React, {useState} from "react";
-import useStyles from "../../../styles/useStyles";
+import useStyles from "../../../../styles/useStyles";
+import FormikTextField from "../../FormsComponents/FormikTextField";
+import FormikPasswordField from "../../FormsComponents/FormikPasswordField";
 
-const UserForm = ({submitAction, specifiedInitialValues, formId, setDataTableAlert}) => {
+const UserForm = ({submitAction, specifiedInitialValues, formId, setDataTableAlert, clearDataTableSelectedRow}) => {
     const dispatch = useDispatch();
     const classes = useStyles();
 
@@ -28,6 +30,9 @@ const UserForm = ({submitAction, specifiedInitialValues, formId, setDataTableAle
             );
         } else {
             setError(<></>);
+            if (clearDataTableSelectedRow) {
+                clearDataTableSelectedRow();
+            }
             setDataTableAlert(
                 <Alert severity="success">
                     <AlertTitle>Success</AlertTitle>
@@ -51,32 +56,23 @@ const UserForm = ({submitAction, specifiedInitialValues, formId, setDataTableAle
                     {
                         (props) => (
                             <Form id={formId}>
-                                <Field as={TextField}
+                                <FormikTextField
                                     label='Username'
                                     name='username'
-                                    className={classes.formItem}
-                                    fullWidth
                                     error={props.errors.name && props.touched.name}
-                                    helperText={<ErrorMessage name='username'/>}
                                     required
                                 />
-                                <Field as={TextField}
-                                    label='Mail'
+                                <FormikTextField
+                                    label='Email'
                                     name='email'
-                                    className={classes.formItem}
                                     error={props.errors.email && props.touched.email}
-                                    helperText={<ErrorMessage name='email'/>}
                                     required
-                                    fullWidth
                                 />
-                                <Field as={TextField}
+                                <FormikPasswordField
                                     label='Password'
                                     name='password'
-                                    className={classes.formItem}
-                                    fullWidth
                                     error={props.errors.name && props.touched.name}
-                                    helperText={<ErrorMessage name='password'/>}
-                                    type="password"
+                                    required
                                 />
                             </Form>
                         )

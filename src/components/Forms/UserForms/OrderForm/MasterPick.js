@@ -1,11 +1,11 @@
 import React, {useState} from "react";
 import {useSelector} from "react-redux";
-import {getAvailableMastersSelector} from "../../../store/selectors/mastersSelector";
+import {getAvailableMastersSelector} from "../../../../store/selectors/mastersSelector";
 import Rating from "@mui/material/Rating";
 import {Box, Typography} from "@mui/material";
 import {DataGrid} from "@mui/x-data-grid";
 import {isNumber} from "lodash";
-import useStyles from "../../../styles/useStyles";
+import useStyles from "../../../../styles/useStyles";
 import {Formik, Form} from "formik";
 
 function renderRating(params) {

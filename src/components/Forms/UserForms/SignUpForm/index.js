@@ -1,11 +1,13 @@
 import {useDispatch} from "react-redux";
 import {useNavigate} from "react-router";
 import * as Yup from "yup";
-import {Alert, AlertTitle, Button, Paper, TextField} from "@mui/material";
-import {ErrorMessage, Field, Form, Formik} from "formik";
+import {Alert, AlertTitle, Button, Paper} from "@mui/material";
+import {Form, Formik} from "formik";
 import React, {useState} from "react";
-import useStyles from "../../../styles/useStyles";
-import {signUp} from "../../../store/actions/auth";
+import useStyles from "../../../../styles/useStyles";
+import {signUp} from "../../../../store/actions/auth";
+import FormikTextField from "../../FormsComponents/FormikTextField";
+import FormikPasswordField from "../../FormsComponents/FormikPasswordField";
 
 const initialValues = {
     username: "",
@@ -49,33 +51,23 @@ const SignUpForm = () => {
                     {
                         (props) => (
                             <Form id='signup-form'>
-                                <Field as={TextField}
-                                       label='Username'
-                                       name='username'
-                                       className={classes.formItem}
-                                       error={props.errors.username && props.touched.username}
-                                       helperText={<ErrorMessage name='username'/>}
-                                       fullWidth
-                                       required
+                                <FormikTextField
+                                    label='Username'
+                                    name='username'
+                                    error={props.errors.username && props.touched.username}
+                                    required
                                 />
-                                <Field as={TextField}
-                                       label='Email'
-                                       name='email'
-                                       className={classes.formItem}
-                                       error={props.errors.email && props.touched.email}
-                                       helperText={<ErrorMessage name='email'/>}
-                                       fullWidth
-                                       required
+                                <FormikTextField
+                                    label='Email'
+                                    name='email'
+                                    error={props.errors.email && props.touched.email}
+                                    required
                                 />
-                                <Field as={TextField}
-                                       label='Password'
-                                       name='password'
-                                       type="password"
-                                       className={classes.formItem}
-                                       error={props.errors.password && props.touched.password}
-                                       helperText={<ErrorMessage name='password'/>}
-                                       fullWidth
-                                       required
+                                <FormikPasswordField
+                                    label='Password'
+                                    name='password'
+                                    error={props.errors.password && props.touched.password}
+                                    required
                                 />
                             </Form>
                         )

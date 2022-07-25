@@ -17,14 +17,12 @@ const {reducer} = createSlice({
                     state.auth.isAdmin = true;
                 }
                 sessionStorage.setItem("TOKEN", action.payload.accessToken);
-                state.errors.auth = [];
             })
             .addCase(logOut.fulfilled, (state, action) => {
                 state.auth.currentUser = {};
                 state.auth.isAuth = false;
                 state.auth.isAdmin = false;
                 sessionStorage.clear();
-                state.errors.auth = [];
 
             })
             .addCase(verifyUserAccess.fulfilled, (state, action) => {
@@ -34,7 +32,6 @@ const {reducer} = createSlice({
                 if (action.payload.roles.includes('ROLE_ADMIN')) {
                     state.auth.isAdmin = true;
                 }
-                state.errors.auth = [];
             })
             .addCase(verifyUserAccess.rejected, (state, action) => {
                 state.auth.userLoading = false;

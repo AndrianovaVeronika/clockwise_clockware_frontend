@@ -1,13 +1,14 @@
 import React, {useState} from 'react';
-import {ErrorMessage, Field, Form, Formik} from "formik";
-import {Alert, AlertTitle, Paper, TextField} from "@mui/material";
+import {ErrorMessage, Form, Formik} from "formik";
+import {Alert, AlertTitle, Paper} from "@mui/material";
 import * as Yup from "yup";
 import {useDispatch} from "react-redux";
-import useStyles from "../../../styles/useStyles";
+import useStyles from "../../../../styles/useStyles";
+import FormikTextField from "../../FormsComponents/FormikTextField";
 
 const initialValues = {name: ''};
 
-const CityForm = ({specifiedInitialValues, submitAction, formId, setDataTableAlert}) => {
+const CityForm = ({specifiedInitialValues, submitAction, formId, setDataTableAlert, clearDataTableSelectedRow}) => {
     const dispatch = useDispatch();
     const styles = useStyles();
 
@@ -18,7 +19,10 @@ const CityForm = ({specifiedInitialValues, submitAction, formId, setDataTableAle
     const [Error, setError] = useState(<></>);
 
     const onSubmit = async (values, props) => {
-        const {error, payload} = await dispatch(submitAction(specifiedInitialValues ? {id: specifiedInitialValues?.id, ...values} : values));
+        const {
+            error,
+            payload
+        } = await dispatch(submitAction(specifiedInitialValues ? {id: specifiedInitialValues?.id, ...values} : values));
         if (error) {
             setError(
                 <Alert severity="error" key={payload.message}>
@@ -28,6 +32,9 @@ const CityForm = ({specifiedInitialValues, submitAction, formId, setDataTableAle
             );
         } else {
             setError(<></>);
+            if (clearDataTableSelectedRow) {
+                clearDataTableSelectedRow();
+            }
             setDataTableAlert(
                 <Alert severity="success">
                     <AlertTitle>Success</AlertTitle>
@@ -45,13 +52,11 @@ const CityForm = ({specifiedInitialValues, submitAction, formId, setDataTableAle
                     {
                         (props) => (
                             <Form id={formId}>
-                                <Field as={TextField}
-                                       label='Name'
-                                       name='name'
-                                       fullWidth
-                                       error={props.errors.name && props.touched.name}
-                                       helperText={<ErrorMessage name='name'/>}
-                                       required
+                                <FormikTextField
+                                    label='Name'
+                                    name='name'
+                                    error={props.errors.name && props.touched.name}
+                                    required
                                 />
                             </Form>
                         )

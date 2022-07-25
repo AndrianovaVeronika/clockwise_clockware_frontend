@@ -9,5 +9,6 @@ body {
     flex-direction: column;
     height: inherit;
     width: inherit;
+    min-width: fit-content;
 }
 

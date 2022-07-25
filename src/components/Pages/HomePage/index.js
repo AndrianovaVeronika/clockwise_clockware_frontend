@@ -5,7 +5,7 @@ import {Box, Container, Typography} from "@mui/material";
 import useStyles from "../../../styles/useStyles";
 import {homePageText} from "../../../static/texts";
 import Page from "../../../styles/Page";
-import OrderForm from "../../Forms/OrderForm";
+import OrderForm from "../../Forms/UserForms/OrderForm";
 
 const HomePage = () => {
     const classes = useStyles();

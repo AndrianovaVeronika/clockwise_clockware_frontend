@@ -1,7 +1,8 @@
 import initialState from "../initialState";
 import {createSlice} from "@reduxjs/toolkit";
-import {getOrders, addOrder, updateOrder, deleteOrder} from "../actions/orders";
+import orders from "../actions/orders";
 import createReducerApi from "../middleware/createReducerApi";
+
 const api = createReducerApi('orders');
 
 const {reducer} = createSlice({
@@ -12,11 +13,11 @@ const {reducer} = createSlice({
     },
     extraReducers(builder) {
         builder
-            .addCase(getOrders.fulfilled, api.GET)
-            .addCase(addOrder.fulfilled, api.ADD)
-            .addCase(updateOrder.fulfilled, api.UPDATE)
-            .addCase(deleteOrder.fulfilled, api.DELETE)
-            .addCase(getOrders.rejected, api.REJECTED)
+            .addCase(orders.getAll.fulfilled, api.GET)
+            .addCase(orders.getById.fulfilled, api.GET_BY_ID)
+            .addCase(orders.add.fulfilled, api.ADD)
+            .addCase(orders.update.fulfilled, api.UPDATE)
+            .addCase(orders.delete.fulfilled, api.DELETE)
             .addDefaultCase((state, action) => {
                 return state;
             })
