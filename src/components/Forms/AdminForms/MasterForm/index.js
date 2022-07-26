@@ -19,7 +19,9 @@ const MasterForm = ({specifiedInitialValues, submitAction, formId, setDataTableA
     const dispatch = useDispatch();
     const classes = useStyles();
 
-    const [citiesChosen, setCitiesChosen] = useState(specifiedInitialValues?.cities?.split(', ') || []);
+    const [citiesChosen, setCitiesChosen] = useState(specifiedInitialValues?.cities || []);
+
+    console.log(specifiedInitialValues)
 
     const handleChange = (event) => {
         const {target: {value}} = event;

@@ -1,5 +1,5 @@
 import * as React from 'react';
-import {useState} from 'react';
+import {useEffect, useState} from 'react';
 import {DataGrid} from '@mui/x-data-grid';
 import {Alert, AlertTitle, IconButton} from "@mui/material";
 import DeleteIcon from '@mui/icons-material/Delete';
@@ -71,6 +71,7 @@ const DataTable = ({
             OpenButton={(props) => <OpenIconButton Icon={EditIcon} {...props}/>}
             dialogTitle={'Измените данные'}
             submitButtonText={'Сохранить'}
+            actionType={'Edit'}
             formId={objType}
             ModelForm={ModelForm}
             submitAction={actions.update}
@@ -84,6 +85,7 @@ const DataTable = ({
             OpenButton={(props) => <OpenIconButton Icon={AddIcon} {...props}/>}
             dialogTitle={'Введите данные'}
             submitButtonText={'Добавить'}
+            actionType={'Add'}
             formId={objType}
             ModelForm={ModelForm}
             submitAction={actions.add}
@@ -100,6 +102,7 @@ const DataTable = ({
                     pageSize={5}
                     rowsPerPageOptions={[5]}
                     onRowClick={onRowClick}
+                    onRowDoubleClick={() => setActiveRow({})}
                 />
             </div>
             {!_.isEmpty(activeRow) && <>

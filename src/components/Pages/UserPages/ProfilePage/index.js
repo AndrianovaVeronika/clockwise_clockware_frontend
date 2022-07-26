@@ -18,7 +18,6 @@ const ProfilePage = () => {
             <Box className={classes.profileContent}>
                 <Typography>Username: {user.username}</Typography>
                 <Typography>Email: {user.email}</Typography>
-                <Typography>Roles: {user.roles && user.roles.join(', ')}</Typography>
             </Box>
         </Page>
     )

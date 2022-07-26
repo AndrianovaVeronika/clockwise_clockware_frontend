@@ -12,6 +12,7 @@ const FormDialog = ({
                         submitButtonText,
                         ModelForm,
                         formId,
+                        actionType,
                         submitAction,
                         setDataTableAlert,
                         clearDataTableSelectedRow
@@ -27,6 +28,7 @@ const FormDialog = ({
     }
 
     const formInitialValues = useSelector(getByIdSelectorCreator(formId));
+
     const classes = useStyles();
     return (
         <>
@@ -39,7 +41,7 @@ const FormDialog = ({
                 <DialogContent className={classes.dialog}>
                     <ModelForm
                         submitAction={submitAction}
-                        specifiedInitialValues={formInitialValues}
+                        specifiedInitialValues={actionType === 'Edit'? formInitialValues : undefined}
                         formId={formId}
                         setDataTableAlert={setDataTableAlert}
                         clearDataTableSelectedRow={clearDataTableSelectedRow}

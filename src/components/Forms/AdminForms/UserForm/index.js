@@ -1,7 +1,7 @@
 import {useDispatch} from "react-redux";
 import * as Yup from "yup";
-import {Alert, AlertTitle, Box, Paper, TextField} from "@mui/material";
-import {ErrorMessage, Form, Formik, Field} from "formik";
+import {Alert, AlertTitle, Box, Paper} from "@mui/material";
+import {Form, Formik} from "formik";
 import React, {useState} from "react";
 import useStyles from "../../../../styles/useStyles";
 import FormikTextField from "../../FormsComponents/FormikTextField";
@@ -20,7 +20,10 @@ const UserForm = ({submitAction, specifiedInitialValues, formId, setDataTableAle
     const [Error, setError] = useState(<></>);
 
     const onSubmit = async (values, props) => {
-        const {error, payload} = await dispatch(submitAction(specifiedInitialValues ? {id: specifiedInitialValues.id, ...values} : values));
+        const {
+            error,
+            payload
+        } = await dispatch(submitAction(specifiedInitialValues ? {id: specifiedInitialValues.id, ...values} : values));
         if (error) {
             setError(
                 <Alert severity="error" key={payload.message}>
@@ -42,10 +45,10 @@ const UserForm = ({submitAction, specifiedInitialValues, formId, setDataTableAle
         }
     }
 
-    const initialValues = {
-        username: specifiedInitialValues?.username || '',
-        email: specifiedInitialValues?.email || '',
-        password: specifiedInitialValues?.password || ''
+    const initialValues = specifiedInitialValues || {
+        username: '',
+        email: '',
+        password: ''
     };
 
     return (
@@ -72,7 +75,6 @@ const UserForm = ({submitAction, specifiedInitialValues, formId, setDataTableAle
                                     label='Password'
                                     name='password'
                                     error={props.errors.name && props.touched.name}
-                                    required
                                 />
                             </Form>
                         )

@@ -1,3 +1,1 @@
-export const homePageText = 'Привет! :) Мы - Clockwise Clockware. Поломались любимые антикварные часы?\n' +
-    'Не беда, скажем мы! Лучшие мастера починят ваши часики в считаные секунды. Не успеете заметить как пролетит  ;)\n' +
-    'Чтобы сделать заказ, пожалуйста, войдите или зарегестрируйтесь.';
+export const homePageText = 'Hello! :) We are Clockwise Clockware. Broke your favorite antique clock? No problem! The best masters will fix your watch in no time. You won`t notice how it flies by ;)';
