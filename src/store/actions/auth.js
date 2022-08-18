@@ -8,6 +8,8 @@ export const signIn = createAsyncThunk(auth.SIGN_IN, createActionApi('auth/signi
 
 export const verifyUserAccess = createAsyncThunk(auth.VERIFY_USER_ACCESS, createActionApi('auth/checktocken').GET);
 
+export const createMasterAccount = createAsyncThunk(auth.CREATE_MASTER_ACCOUNT, createActionApi('auth/registrate_master').POST);
+
 export const logOut = createAsyncThunk(auth.LOG_OUT, async () => {
     return {message: 'Logged out.'};
 });

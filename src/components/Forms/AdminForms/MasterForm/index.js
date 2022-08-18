@@ -21,8 +21,6 @@ const MasterForm = ({specifiedInitialValues, submitAction, formId, setDataTableA
 
     const [citiesChosen, setCitiesChosen] = useState(specifiedInitialValues?.cities || []);
 
-    console.log(specifiedInitialValues)
-
     const handleChange = (event) => {
         const {target: {value}} = event;
         setCitiesChosen(

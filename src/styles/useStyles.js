@@ -68,7 +68,15 @@ export const useStyles = makeStyles((theme) => ({
         width: '50%',
         height: '95%',
         display: 'flex',
+        flexDirection: 'column',
         justifyContent: 'center',
+    },
+    masterSignUpForm: {
+        display: "flex",
+        flexDirection: 'row',
+    },
+    authFormCheckbox: {
+        display: 'flex',
         alignItems: 'center'
     },
     //auth form styles
@@ -82,6 +90,9 @@ export const useStyles = makeStyles((theme) => ({
     authFormButtons: {
         display: 'flex',
         justifyContent: 'flex-end'
+    },
+    masterFormSection: {
+        margin: '10px'
     },
     //form styles
     formItem: {
