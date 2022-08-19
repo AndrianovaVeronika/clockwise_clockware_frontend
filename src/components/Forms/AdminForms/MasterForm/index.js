@@ -11,6 +11,7 @@ import FormikTextField from "../../FormsComponents/FormikTextField";
 
 const initialValues = {
     name: '',
+    email: '',
     rating: 0,
     cities: []
 }
@@ -87,32 +88,42 @@ const MasterForm = ({specifiedInitialValues, submitAction, formId, setDataTableA
                         onSubmit={onSubmit}>
                     {
                         (props) => (
-                            <Form id={formId}>
-                                <FormikTextField
-                                    label='Name'
-                                    name='name'
-                                    error={props.errors.name && props.touched.name}
-                                    required
-                                />
-                                <Box>
-                                    <InputLabel className={classes.formItemLabel}>Rating</InputLabel>
-                                    <Rating
+                            <Form id={formId} className={classes.twoColumnForm}>
+                                <Box className={classes.formSection}>
+                                    <FormikTextField
+                                        label='Name'
+                                        name='name'
+                                        error={props.errors.name && props.touched.name}
+                                        required
+                                    />
+                                    <Box>
+                                        <InputLabel className={classes.formItemLabel}>Rating</InputLabel>
+                                        <Rating
+                                            className={classes.formItem}
+                                            name="rating"
+                                            value={props.values.rating}
+                                            onChange={({target}) => props.setFieldValue('rating', parseInt(target.value))}
+                                        />
+                                    </Box>
+                                </Box>
+                                <Box className={classes.formSection}>
+                                    <FormikTextField
+                                        label='Email'
+                                        name='email'
+                                        error={props.errors.email && props.touched.email}
+                                        required
+                                    />
+                                    <FormikSelectField
+                                        label='Cities'
+                                        name='cities'
+                                        options={cityOptions}
+                                        value={citiesChosen}
+                                        onChange={handleChange}
+                                        multiple
+                                        fullWidth
                                         className={classes.formItem}
-                                        name="rating"
-                                        value={props.values.rating}
-                                        onChange={({target}) => props.setFieldValue('rating', parseInt(target.value))}
                                     />
                                 </Box>
-                                <FormikSelectField
-                                    label='Cities'
-                                    name='cities'
-                                    options={cityOptions}
-                                    value={citiesChosen}
-                                    onChange={handleChange}
-                                    multiple
-                                    fullWidth
-                                    className={classes.formItem}
-                                />
                             </Form>
                         )
                     }

@@ -1,8 +1,8 @@
 import React, {useState} from 'react';
-import UserSignUpForm from "../../../Forms/UserForms/SignUpForm";
+import UserSignUpForm from "../../../Forms/UserForms/UserSignUpForm";
 import {Box, Button, Checkbox, Paper, Typography} from "@mui/material";
 import useStyles from "../../../../styles/useStyles";
-import MasterSignUpForm from "../../../Forms/MasterForms/SignUpForm";
+import MasterSignUpForm from "../../../Forms/MasterForms/MasterSignUpForm";
 import {useNavigate} from "react-router";
 
 const SignUpPage = () => {

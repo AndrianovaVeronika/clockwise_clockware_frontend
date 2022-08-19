@@ -81,16 +81,10 @@ const MasterSignUpForm = ({setError}) => {
                     onSubmit={onSubmit}>
                 {
                     (props) => (
-                        <Form id='signup-form' className={classes.masterSignUpForm}>
-                            <Box className={classes.masterFormSection}>
+                        <Form id='signup-form' className={classes.twoColumnForm}>
+                            <Box className={classes.formSection}>
                                 <FormikTextField
-                                    label='Username'
-                                    name='username'
-                                    error={props.errors.username && props.touched.username}
-                                    required
-                                />
-                                <FormikTextField
-                                    label='Displayed name'
+                                    label='Name'
                                     name='name'
                                     error={props.errors.name && props.touched.name}
                                     required
@@ -102,7 +96,7 @@ const MasterSignUpForm = ({setError}) => {
                                     required
                                 />
                             </Box>
-                            <Box className={classes.masterFormSection}>
+                            <Box className={classes.formSection}>
                                 <FormikPasswordField
                                     label='Password'
                                     name='password'

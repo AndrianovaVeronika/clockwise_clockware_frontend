@@ -1,7 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="47aa944b-1eed-4aaf-807f-af5d121fc908" name="Changes" comment="fix: end fix" />
+    <list default="true" id="47aa944b-1eed-4aaf-807f-af5d121fc908" name="Changes" comment="fix: end fix 2">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Forms/AdminForms/MasterForm/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Forms/AdminForms/MasterForm/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Forms/MasterForms/SignUpForm/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Forms/MasterForms/MasterSignUpForm/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Forms/UserForms/SignUpForm/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Forms/UserForms/UserSignUpForm/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Pages/AuthPages/SignUpPage/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Pages/AuthPages/SignUpPage/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/styles/useStyles.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/styles/useStyles.js" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -229,14 +236,8 @@
       <workItem from="1660831421087" duration="1322000" />
       <workItem from="1660853149883" duration="3769000" />
       <workItem from="1660859739973" duration="8941000" />
-      <workItem from="1660895715132" duration="2872000" />
-    </task>
-    <task id="LOCAL-00051" summary="fix: styles">
-      <created>1645775634783</created>
-      <option name="number" value="00051" />
-      <option name="presentableId" value="LOCAL-00051" />
-      <option name="project" value="LOCAL" />
-      <updated>1645775634784</updated>
+      <workItem from="1660895715132" duration="4363000" />
+      <workItem from="1660921304600" duration="5321000" />
     </task>
     <task id="LOCAL-00052" summary="feat: model mail in store, action send mail, when add order form submitted">
       <created>1646169905235</created>
@@ -574,7 +575,14 @@
       <option name="project" value="LOCAL" />
       <updated>1660905925573</updated>
     </task>
-    <option name="localTasksCounter" value="100" />
+    <task id="LOCAL-00100" summary="fix: end fix 2">
+      <created>1660910578650</created>
+      <option name="number" value="00100" />
+      <option name="presentableId" value="LOCAL-00100" />
+      <option name="project" value="LOCAL" />
+      <updated>1660910578650</updated>
+    </task>
+    <option name="localTasksCounter" value="101" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -605,7 +613,6 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="feat: create api for reducers&#10;fix: reducers, actions" />
     <MESSAGE value="fix: order form" />
     <MESSAGE value="fix: redux store instance, createApi, OrderForm" />
     <MESSAGE value="fix: labels in different languages bug, all logic about retrieving available masters removed, order form dispatch users only if current user is admin&#10;feat: masters-&gt;availableMasters in redux store state + selector + get available masters action" />
@@ -630,7 +637,8 @@
     <MESSAGE value="fix: filled fields in add form bug" />
     <MESSAGE value="feat: createMasterAccount, MasterSignUpForm&#10;fix: SignUpPage" />
     <MESSAGE value="fix: end fix" />
-    <option name="LAST_COMMIT_MESSAGE" value="fix: end fix" />
+    <MESSAGE value="fix: end fix 2" />
+    <option name="LAST_COMMIT_MESSAGE" value="fix: end fix 2" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

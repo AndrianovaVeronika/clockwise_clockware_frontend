@@ -72,7 +72,7 @@ export const useStyles = makeStyles((theme) => ({
         justifyContent: 'center',
         alignItems: 'center'
     },
-    masterSignUpForm: {
+    twoColumnForm: {
         display: "flex",
         flexDirection: 'row',
     },
@@ -92,7 +92,7 @@ export const useStyles = makeStyles((theme) => ({
         display: 'flex',
         justifyContent: 'flex-end'
     },
-    masterFormSection: {
+    formSection: {
         margin: '10px'
     },
     //email verification page
