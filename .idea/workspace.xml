@@ -2,15 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="47aa944b-1eed-4aaf-807f-af5d121fc908" name="Changes" comment="feat: createMasterAccount, MasterSignUpForm&#10;fix: SignUpPage">
-      <change afterPath="$PROJECT_DIR$/src/components/Pages/AuthPages/EmailVerificationStatePage/index.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Pages/UserPages/ProfilePage/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Pages/UserPages/ProfilePage/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/store/actions/auth.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/store/actions/auth.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/store/constants/auth.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/store/constants/auth.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/store/reducers/authReducer.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/store/reducers/authReducer.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/store/selectors/authSelector.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/store/selectors/authSelector.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/styles/useStyles.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/styles/useStyles.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -239,6 +231,7 @@
       <workItem from="1660831421087" duration="1322000" />
       <workItem from="1660853149883" duration="3769000" />
       <workItem from="1660859739973" duration="8941000" />
+      <workItem from="1660895715132" duration="2490000" />
     </task>
     <task id="LOCAL-00050" summary="feat: add lazy-loading, spinner&#10;fix: styles">
       <created>1645640429970</created>
@@ -594,7 +587,19 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State />
+            <State>
+              <option name="FILTERS">
+                <map>
+                  <entry key="branch">
+                    <value>
+                      <list>
+                        <option value="master_user_registration_feature" />
+                      </list>
+                    </value>
+                  </entry>
+                </map>
+              </option>
+            </State>
           </value>
         </entry>
       </map>
