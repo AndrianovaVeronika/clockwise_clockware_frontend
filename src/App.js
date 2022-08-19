@@ -17,6 +17,7 @@ const AdminMastersPage = React.lazy(() => import("./components/Pages/AdminPages/
 const AdminCitiesPage = React.lazy(() => import("./components/Pages/AdminPages/AdminCitiesPage"));
 const AdminUsersPage = React.lazy(() => import("./components/Pages/AdminPages/AdminUsersPage"));
 const ErrorAccessAdminDeniedPage = React.lazy(() => import("./components/Pages/ErrorPages/ErrorAccessAdminDeniedPage"));
+const EmailVerificationStatePage = React.lazy(()=> import("./components/Pages/AuthPages/EmailVerificationStatePage"))
 
 function App() {
     const dispatch = useDispatch();
@@ -31,6 +32,7 @@ function App() {
                 <Route path='/login' element={<SignInPage/>}/>
                 <Route path='/spinner' element={<Spinner/>}/>
                 <Route path='/signup' element={<SignUpPage/>}/>
+                <Route path='/verify/email/:code' element={<EmailVerificationStatePage/>}/>
                 <Route path='/profile' element={<ProfilePage/>}/>
                 <Route path='/logout' element={<LogoutAlertDialog/>}/>
                 <Route path='/order/success' element={<OrderSuccessAlertDialog/>}/>
