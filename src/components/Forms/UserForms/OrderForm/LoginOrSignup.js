@@ -8,11 +8,11 @@ const LoginOrSignup = ({formId, onSubmit, values, currentUser}) => {
     const classes = useStyles();
 
     const initialValues = {
-        username: values?.username || currentUser.username || '',
+        name: values?.name || currentUser.name || '',
         email: values?.email || currentUser.email || ''
     };
     const validationSchema = Yup.object().shape({
-        username: Yup.string().min(3, 'Username is too short').required('Required'),
+        name: Yup.string().min(3, 'Name is too short').required('Required'),
         email: Yup.string().email('Email is not valid').required('Required')
     });
 
@@ -24,9 +24,9 @@ const LoginOrSignup = ({formId, onSubmit, values, currentUser}) => {
                 (props) => (
                     <Form id={formId}>
                         <FormikTextField
-                            label='Username'
-                            name='username'
-                            error={props.errors.username && props.touched.username}
+                            label='Name'
+                            name='name'
+                            error={props.errors.name && props.touched.name}
                             required
                         />
                         <FormikTextField

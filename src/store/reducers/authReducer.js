@@ -1,6 +1,6 @@
 import initialState from "../initialState";
 import {createSlice} from "@reduxjs/toolkit";
-import {createMasterAccount, logOut, signIn, verifyEmailState, verifyUserAccess} from "../actions/auth";
+import {registerMasterAccount, logOut, signIn, verifyEmailState, verifyUserAccess} from "../actions/auth";
 
 const {reducer} = createSlice({
     name: 'auth',
@@ -38,7 +38,7 @@ const {reducer} = createSlice({
                 state.auth.currentUser = {};
                 state.auth.isAdmin = false;
             })
-            .addCase(createMasterAccount.fulfilled, (state, action) => {
+            .addCase(registerMasterAccount.fulfilled, (state, action) => {
                 console.log(action.payload)
                 state.users.usersList.push(action.payload);
                 if (!state.masters.mastersList.indexOf(action.payload)){

@@ -3,11 +3,20 @@
   <component name="ChangeListManager">
     <list default="true" id="47aa944b-1eed-4aaf-807f-af5d121fc908" name="Changes" comment="fix: end fix 2">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Forms/AdminForms/MasterForm/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Forms/AdminForms/MasterForm/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Forms/MasterForms/SignUpForm/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Forms/MasterForms/MasterSignUpForm/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Forms/UserForms/SignUpForm/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Forms/UserForms/UserSignUpForm/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Pages/AuthPages/SignUpPage/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Pages/AuthPages/SignUpPage/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/styles/useStyles.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/styles/useStyles.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/DataTables/OrdersTable/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/DataTables/OrdersTable/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/DataTables/UsersTable/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/DataTables/UsersTable/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Forms/AdminForms/AdminOrderForm/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Forms/AdminForms/AdminOrderForm/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Forms/AdminForms/UserForm/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Forms/AdminForms/UserForm/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Forms/MasterForms/MasterSignUpForm/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Forms/MasterForms/MasterSignUpForm/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Forms/UserForms/OrderForm/LoginOrSignup.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Forms/UserForms/OrderForm/LoginOrSignup.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Forms/UserForms/OrderForm/ResultsReport.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Forms/UserForms/OrderForm/ResultsReport.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Forms/UserForms/OrderForm/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Forms/UserForms/OrderForm/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Forms/UserForms/UserSignUpForm/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Forms/UserForms/UserSignUpForm/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Pages/UserPages/ProfilePage/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Pages/UserPages/ProfilePage/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/store/actions/auth.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/store/actions/auth.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/store/constants/auth.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/store/constants/auth.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/store/reducers/authReducer.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/store/reducers/authReducer.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/store/reducers/usersReducer.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/store/reducers/usersReducer.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -238,6 +247,8 @@
       <workItem from="1660859739973" duration="8941000" />
       <workItem from="1660895715132" duration="4363000" />
       <workItem from="1660921304600" duration="5321000" />
+      <workItem from="1661259515253" duration="2890000" />
+      <workItem from="1661350553325" duration="11710000" />
     </task>
     <task id="LOCAL-00052" summary="feat: model mail in store, action send mail, when add order form submitted">
       <created>1646169905235</created>

@@ -4,12 +4,12 @@ import * as Yup from "yup";
 import {Alert, AlertTitle} from "@mui/material";
 import {Form, Formik} from "formik";
 import React from "react";
-import {signUp} from "../../../../store/actions/auth";
 import FormikTextField from "../../FormsComponents/FormikTextField";
 import FormikPasswordField from "../../FormsComponents/FormikPasswordField";
+import {registerUserAccount} from "../../../../store/actions/auth";
 
 const initialValues = {
-    username: "",
+    name: "",
     email: "",
     password: ""
 };
@@ -19,13 +19,13 @@ const UserSignUpForm = ({setError}) => {
     const navigate = useNavigate();
 
     const validationSchema = Yup.object().shape({
-        username: Yup.string().min(3, 'Username is too short').required('Required'),
+        name: Yup.string().min(3, 'Name is too short').required('Required'),
         email: Yup.string().email('Email is not valid').required('Required'),
         password: Yup.string().min(8, 'Password is too short').required('Required'),
     });
 
     const onSubmit = async (values, props) => {
-        const {error, payload} = await dispatch(signUp(values));
+        const {error, payload} = await dispatch(registerUserAccount(values));
         setError(
             <Alert severity="error" key={payload.message}>
                 <AlertTitle>Error</AlertTitle>
@@ -47,9 +47,9 @@ const UserSignUpForm = ({setError}) => {
                     (props) => (
                         <Form id='signup-form'>
                             <FormikTextField
-                                label='Username'
-                                name='username'
-                                error={props.errors.username && props.touched.username}
+                                label='Name'
+                                name='name'
+                                error={props.errors.name && props.touched.name}
                                 required
                             />
                             <FormikTextField

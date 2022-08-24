@@ -11,7 +11,7 @@ const ResultsReport = ({formId, onFinalSubmit, values}) => {
     const clockType = useSelector(getClockTypesSelector).filter((el) => el.id === values.clockTypeId);
 
     const orderData = {
-        username: 'Name: ' + values?.username ? values?.username : '',
+        name: 'Name: ' + values?.name ? values?.name : '',
         email: 'Mail: ' + values?.email ? values?.email : '',
         clockType: 'Clock size: ' + clockType[0] ? clockType[0]?.name : '',
         master: 'Master: ' + master[0] ? master[0]?.name : '',

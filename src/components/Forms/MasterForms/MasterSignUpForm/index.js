@@ -5,18 +5,17 @@ import {Alert, AlertTitle, Box} from "@mui/material";
 import {Form, Formik} from "formik";
 import React, {useEffect, useState} from "react";
 import useStyles from "../../../../styles/useStyles";
-import {createMasterAccount} from "../../../../store/actions/auth";
 import FormikTextField from "../../FormsComponents/FormikTextField";
 import FormikPasswordField from "../../FormsComponents/FormikPasswordField";
 import {getCitiesSelector} from "../../../../store/selectors/citiesSelector";
 import cities from "../../../../store/actions/cities";
 import FormikSelectField from "../../FormsComponents/FormikSelectField";
+import {registerMasterAccount} from "../../../../store/actions/auth";
 
 const initialValues = {
-    username: "",
+    name: "",
     email: "",
     password: "",
-    name: "",
     cities: []
 };
 
@@ -26,10 +25,9 @@ const MasterSignUpForm = ({setError}) => {
     const classes = useStyles();
 
     const validationSchema = Yup.object().shape({
-        username: Yup.string().min(3, 'Username is too short').required('Required'),
+        name: Yup.string().min(3, 'Name is too short').required('Required'),
         email: Yup.string().email('Email is not valid').required('Required'),
         password: Yup.string().min(8, 'Password is too short').required('Required'),
-        name: Yup.string().min(3, 'Username is too short').required('Required'),
     });
 
     const [citiesChosen, setCitiesChosen] = useState(initialValues?.cities);
@@ -60,7 +58,7 @@ const MasterSignUpForm = ({setError}) => {
 
 
     const onSubmit = async (values, props) => {
-        const {error, payload} = await dispatch(createMasterAccount({...values, cities: citiesChosen}));
+        const {error, payload} = await dispatch(registerMasterAccount({...values, cities: citiesChosen}));
         if (error) {
             setError(
                 <Alert severity="error" key={payload?.message || error.message}>

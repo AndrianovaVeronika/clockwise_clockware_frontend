@@ -1,8 +1,8 @@
 import initialState from "../initialState";
 import {createSlice} from "@reduxjs/toolkit";
 import users from "../actions/users";
-import {signUp} from "../actions/auth";
 import createReducerApi from "../middleware/createReducerApi";
+import {registerUserAccount} from "../actions/auth";
 const api = createReducerApi('users');
 
 const {reducer} = createSlice({
@@ -13,7 +13,7 @@ const {reducer} = createSlice({
     },
     extraReducers(builder) {
         builder
-            .addCase(signUp.fulfilled, api.ADD)
+            .addCase(registerUserAccount.fulfilled, api.ADD)
             .addCase(users.add.fulfilled, api.ADD)
             .addCase(users.getAll.fulfilled, api.GET)
             .addCase(users.getById.fulfilled, api.GET_BY_ID)

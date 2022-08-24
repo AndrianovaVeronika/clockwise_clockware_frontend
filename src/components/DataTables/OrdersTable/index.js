@@ -14,7 +14,7 @@ const columns = [
         field: 'id', headerName: 'ID', width: 50
     },
     {
-        field: 'username', headerName: 'Name', width: 150
+        field: 'name', headerName: 'Name', width: 150
     },
     {
         field: 'email', headerName: 'Mail', width: 200,

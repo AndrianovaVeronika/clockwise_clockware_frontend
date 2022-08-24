@@ -15,7 +15,7 @@ const ProfilePage = () => {
     return (
         <Page>
             <Box className={classes.profileContent}>
-                <Typography>Username: {user.username}</Typography>
+                <Typography>Name: {user.name}</Typography>
                 <Typography color={user.emailChecked? 'green':'red'}>Email: {user.email}</Typography>
                 {!user.emailChecked && <Alert severity='error'>Email unverified. Check your postbox for confirmation letter.</Alert>}
             </Box>

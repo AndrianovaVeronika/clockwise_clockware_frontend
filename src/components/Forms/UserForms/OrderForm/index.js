@@ -17,7 +17,7 @@ import {useNavigate} from "react-router";
 import {getCurrentUserSelector} from "../../../../store/selectors/authSelector";
 
 const initialValues = {
-    username: '',
+    name: '',
     email: '',
     clockTypeId: '',
     masterId: '',

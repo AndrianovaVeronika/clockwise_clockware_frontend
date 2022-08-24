@@ -24,7 +24,7 @@ const dateToString = date => moment(date).format('YYYY-MM-DD');
 const getValuesWithValidatedDate = values => ({...values, date: dateToString(values.date)});
 
 const initialValues = {
-    username: '',
+    name: '',
     email: '',
     clockTypeId: '',
     masterId: '',
@@ -75,7 +75,7 @@ const AdminOrderForm = ({
     const clockTypeOptions = getValidatedClockTypes();
 
     const validationSchema = Yup.object().shape({
-        username: Yup.string().min(3, 'Username is too short').required('Required'),
+        name: Yup.string().min(3, 'Name is too short').required('Required'),
         email: Yup.string().email('Email is not valid').required('Required')
     });
 
@@ -124,9 +124,9 @@ const AdminOrderForm = ({
                     <Grid container spacing={2}>
                         <Grid item xs={3}>
                             <FormikTextField
-                                label='Username'
-                                name='username'
-                                error={props.errors.username && props.touched.username}
+                                label='Name'
+                                name='name'
+                                error={props.errors.name && props.touched.name}
                                 required
                             />
                             <FormikTextField

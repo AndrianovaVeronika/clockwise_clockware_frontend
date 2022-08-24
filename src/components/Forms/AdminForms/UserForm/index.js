@@ -12,7 +12,7 @@ const UserForm = ({submitAction, specifiedInitialValues, formId, setDataTableAle
     const classes = useStyles();
 
     const validationSchema = Yup.object().shape({
-        username: Yup.string().min(3, 'Username is too short').required('Required'),
+        name: Yup.string().min(3, 'Name is too short').required('Required'),
         password: Yup.string().min(8, 'Password is too short'),
         email: Yup.string().email('email is not valid').required('Required')
     })
@@ -46,7 +46,7 @@ const UserForm = ({submitAction, specifiedInitialValues, formId, setDataTableAle
     }
 
     const initialValues = specifiedInitialValues || {
-        username: '',
+        name: '',
         email: '',
         password: ''
     };
@@ -60,8 +60,8 @@ const UserForm = ({submitAction, specifiedInitialValues, formId, setDataTableAle
                         (props) => (
                             <Form id={formId}>
                                 <FormikTextField
-                                    label='Username'
-                                    name='username'
+                                    label='Name'
+                                    name='name'
                                     error={props.errors.name && props.touched.name}
                                     required
                                 />
