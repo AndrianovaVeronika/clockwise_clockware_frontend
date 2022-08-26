@@ -1,6 +1,13 @@
 import initialState from "../initialState";
 import {createSlice} from "@reduxjs/toolkit";
-import {registerMasterAccount, logOut, signIn, verifyEmailState, verifyUserAccess} from "../actions/auth";
+import {
+    registerMasterAccount,
+    logOut,
+    signIn,
+    verifyEmailState,
+    verifyUserAccess,
+    resetPassword
+} from "../actions/auth";
 
 const {reducer} = createSlice({
     name: 'auth',
@@ -47,6 +54,9 @@ const {reducer} = createSlice({
             })
             .addCase(verifyEmailState.fulfilled, (state, action) => {
                 state.auth.currentUser.emailChecked = true;
+            })
+            .addCase(resetPassword.fulfilled, (state, action) => {
+                console.log(action.payload.message);
             })
             .addDefaultCase((state, action) => {
                 return state;

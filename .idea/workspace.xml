@@ -1,22 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="47aa944b-1eed-4aaf-807f-af5d121fc908" name="Changes" comment="fix: end fix 2">
+    <list default="true" id="47aa944b-1eed-4aaf-807f-af5d121fc908" name="Changes" comment="fix: user">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/DataTables/OrdersTable/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/DataTables/OrdersTable/index.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/DataTables/UsersTable/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/DataTables/UsersTable/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Forms/AdminForms/AdminOrderForm/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Forms/AdminForms/AdminOrderForm/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Forms/AdminForms/UserForm/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Forms/AdminForms/UserForm/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Forms/MasterForms/MasterSignUpForm/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Forms/MasterForms/MasterSignUpForm/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Forms/UserForms/OrderForm/LoginOrSignup.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Forms/UserForms/OrderForm/LoginOrSignup.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Forms/UserForms/OrderForm/ResultsReport.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Forms/UserForms/OrderForm/ResultsReport.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Forms/UserForms/OrderForm/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Forms/UserForms/OrderForm/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Forms/UserForms/UserSignUpForm/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Forms/UserForms/UserSignUpForm/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Pages/UserPages/ProfilePage/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Pages/UserPages/ProfilePage/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/PageComponents/Sidebar/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/PageComponents/Sidebar/index.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/store/actions/auth.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/store/actions/auth.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/store/constants/auth.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/store/constants/auth.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/store/reducers/authReducer.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/store/reducers/authReducer.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/store/reducers/usersReducer.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/store/reducers/usersReducer.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -248,14 +238,8 @@
       <workItem from="1660895715132" duration="4363000" />
       <workItem from="1660921304600" duration="5321000" />
       <workItem from="1661259515253" duration="2890000" />
-      <workItem from="1661350553325" duration="11710000" />
-    </task>
-    <task id="LOCAL-00052" summary="feat: model mail in store, action send mail, when add order form submitted">
-      <created>1646169905235</created>
-      <option name="number" value="00052" />
-      <option name="presentableId" value="LOCAL-00052" />
-      <option name="project" value="LOCAL" />
-      <updated>1646169905236</updated>
+      <workItem from="1661350553325" duration="12550000" />
+      <workItem from="1661426754233" duration="16368000" />
     </task>
     <task id="LOCAL-00053" summary="feat: delete &amp; update actions on models&#10;fix: actions">
       <created>1646251047098</created>
@@ -593,7 +577,14 @@
       <option name="project" value="LOCAL" />
       <updated>1660910578650</updated>
     </task>
-    <option name="localTasksCounter" value="101" />
+    <task id="LOCAL-00101" summary="fix: user">
+      <created>1661383255025</created>
+      <option name="number" value="00101" />
+      <option name="presentableId" value="LOCAL-00101" />
+      <option name="project" value="LOCAL" />
+      <updated>1661383255025</updated>
+    </task>
+    <option name="localTasksCounter" value="102" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -624,7 +615,6 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="fix: order form" />
     <MESSAGE value="fix: redux store instance, createApi, OrderForm" />
     <MESSAGE value="fix: labels in different languages bug, all logic about retrieving available masters removed, order form dispatch users only if current user is admin&#10;feat: masters-&gt;availableMasters in redux store state + selector + get available masters action" />
     <MESSAGE value="fix: unnecessary" />
@@ -649,7 +639,8 @@
     <MESSAGE value="feat: createMasterAccount, MasterSignUpForm&#10;fix: SignUpPage" />
     <MESSAGE value="fix: end fix" />
     <MESSAGE value="fix: end fix 2" />
-    <option name="LAST_COMMIT_MESSAGE" value="fix: end fix 2" />
+    <MESSAGE value="fix: user" />
+    <option name="LAST_COMMIT_MESSAGE" value="fix: user" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

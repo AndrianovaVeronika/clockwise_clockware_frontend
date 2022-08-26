@@ -9,7 +9,7 @@ export const registerUserAccount = createAsyncThunk(auth.CREATE_USER_ACCOUNT, cr
 
 export const registerMasterAccount = createAsyncThunk(auth.CREATE_MASTER_ACCOUNT, createActionApi('register/master').POST);
 
-export const verifyUserAccess = createAsyncThunk(auth.VERIFY_USER_ACCESS, createActionApi('auth/checktocken').GET);
+export const verifyUserAccess = createAsyncThunk(auth.VERIFY_USER_ACCESS, createActionApi('access/user').GET);
 
 export const verifyEmailState = createAsyncThunk(auth.VERIFY_EMAIL_STATE, async (url, thunkAPI) => {
     try {
@@ -28,6 +28,16 @@ export const logOut = createAsyncThunk(auth.LOG_OUT, async () => {
     return {message: 'Logged out.'};
 });
 
-export const resetPassword = createAsyncThunk(auth.RESET_PASSWORD, async (userId, thunkAPI) => {
-
+export const resetPassword = createAsyncThunk(auth.RESET_PASSWORD, async (recipient, thunkAPI) => {
+    try {
+        console.log(recipient)
+        const response = await instance.put('/reset/password', {recipient: recipient}, {
+            headers: {
+                'x-access-token': sessionStorage.getItem('TOKEN')
+            }
+        });
+        return response.data;
+    } catch (e) {
+        return thunkAPI.rejectWithValue(e.response.data)
+    }
 });

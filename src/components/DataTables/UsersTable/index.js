@@ -6,10 +6,10 @@ import DataTable from "../DataTable";
 import UserForm from "../../Forms/AdminForms/UserForm";
 import {Button} from "@mui/material";
 import {resetPassword} from "../../../store/actions/auth";
+import store from "../../../store/store";
 
 function renderResetPasswordButton({value}) {
-    const dispatch = useDispatch();
-    return <Button onClick={()=>dispatch(resetPassword(value))}>Reset password</Button>;
+    return <Button onClick={() => store.dispatch(resetPassword(value))}>Reset password</Button>;
 }
 
 const columns = [
@@ -26,10 +26,10 @@ const columns = [
         field: 'emailChecked', headerName: 'Email checked', width: 150
     },
     {
-        field: 'resetPasswordButton',
+        field: 'recipient',
         type: 'number',
         headerName: 'Reset password',
-        width: 150,
+        width: 200,
         renderCell: renderResetPasswordButton
     }
 ];
@@ -41,7 +41,7 @@ const UsersTable = () => {
         dispatch(users.getAll());
     }, [dispatch])
 
-    const rows = useSelector(getUsersSelector);
+    const rows = useSelector(getUsersSelector).map(user => ({...user, recipient: {id: user.id, email: user.email}}));
 
     return (
         <>
