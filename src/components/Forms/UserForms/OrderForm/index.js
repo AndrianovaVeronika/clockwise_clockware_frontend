@@ -73,7 +73,6 @@ const OrderForm = () => {
 
     useEffect(() => {
         if (mastersNeedToBeRetrieved) {
-            console.log('retrieving')
             dispatch(masters.getAvailableMasters(values));
             setMastersNeedToBeRetrieved(false)
         }

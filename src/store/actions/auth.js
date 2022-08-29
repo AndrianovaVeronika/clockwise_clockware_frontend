@@ -30,7 +30,6 @@ export const logOut = createAsyncThunk(auth.LOG_OUT, async () => {
 
 export const resetPassword = createAsyncThunk(auth.RESET_PASSWORD, async (recipient, thunkAPI) => {
     try {
-        console.log(recipient)
         const response = await instance.put('/reset/password', {recipient: recipient}, {
             headers: {
                 'x-access-token': sessionStorage.getItem('TOKEN')

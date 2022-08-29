@@ -17,7 +17,6 @@ const deleteMaster = createAsyncThunk(masters.DELETE_MASTER, api.DELETE);
 
 const getAvailableMasters = createAsyncThunk(masters.GET_AVAILABLE_MASTERS, async (values, thunkAPI) => {
     try {
-        console.log('GET available masters')
         const response = await instance.post('/masters/available', values, {
             headers: {
                 'x-access-token': sessionStorage.getItem('TOKEN')

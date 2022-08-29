@@ -1,12 +1,12 @@
 import initialState from "../initialState";
 import {createSlice} from "@reduxjs/toolkit";
 import {
-    registerMasterAccount,
     logOut,
+    registerMasterAccount,
+    resetPassword,
     signIn,
     verifyEmailState,
-    verifyUserAccess,
-    resetPassword
+    verifyUserAccess
 } from "../actions/auth";
 
 const {reducer} = createSlice({
@@ -46,9 +46,8 @@ const {reducer} = createSlice({
                 state.auth.isAdmin = false;
             })
             .addCase(registerMasterAccount.fulfilled, (state, action) => {
-                console.log(action.payload)
                 state.users.usersList.push(action.payload);
-                if (!state.masters.mastersList.indexOf(action.payload)){
+                if (!state.masters.mastersList.indexOf(action.payload)) {
                     state.masters.mastersList.push(action.payload);
                 }
             })
@@ -56,7 +55,7 @@ const {reducer} = createSlice({
                 state.auth.currentUser.emailChecked = true;
             })
             .addCase(resetPassword.fulfilled, (state, action) => {
-                console.log(action.payload.message);
+                //password reseted
             })
             .addDefaultCase((state, action) => {
                 return state;
