@@ -12,11 +12,13 @@ import useStyles from "../../../../styles/useStyles";
 const ProfilePage = () => {
     const user = useSelector(getCurrentUserSelector);
     const classes = useStyles();
+
     return (
         <Page>
             <Box className={classes.profileContent}>
                 <Typography>Name: {user.name}</Typography>
                 <Typography color={user.emailChecked? 'green':'red'}>Email: {user.email}</Typography>
+                {user.isPasswordTemporary && <Alert severity='warning'>Temporary password. Please change it on your own one for safety reasons!</Alert>}
                 {!user.emailChecked && <Alert severity='error'>Email unverified. Check your postbox for confirmation letter.</Alert>}
             </Box>
         </Page>
