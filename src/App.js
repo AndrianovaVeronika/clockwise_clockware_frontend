@@ -17,7 +17,9 @@ const AdminMastersPage = React.lazy(() => import("./components/Pages/AdminPages/
 const AdminCitiesPage = React.lazy(() => import("./components/Pages/AdminPages/AdminCitiesPage"));
 const AdminUsersPage = React.lazy(() => import("./components/Pages/AdminPages/AdminUsersPage"));
 const ErrorAccessAdminDeniedPage = React.lazy(() => import("./components/Pages/ErrorPages/ErrorAccessAdminDeniedPage"));
-const EmailVerificationStatePage = React.lazy(()=> import("./components/Pages/AuthPages/EmailVerificationStatePage"))
+const EmailVerificationStatePage = React.lazy(()=> import("./components/Pages/AuthPages/EmailVerificationStatePage"));
+const UserOrdersPage = React.lazy(()=>import("./components/Pages/UserPages/UserOrdersPage"));
+const MasterOrdersPage = React.lazy(()=>import("./components/Pages/MasterPages/MasterOrdersPage"));
 
 function App() {
     const dispatch = useDispatch();
@@ -42,6 +44,8 @@ function App() {
                 <Route path='/admin/masters' element={<AdminMastersPage/>}/>
                 <Route path='/admin/cities' element={<AdminCitiesPage/>}/>
                 <Route path='/admin/error' element={<ErrorAccessAdminDeniedPage/>}/>
+                <Route path='/user/orders' element={<UserOrdersPage/>}/>
+                <Route path='/master/orders' element={<MasterOrdersPage/>}/>
             </Routes>
         </>
     );

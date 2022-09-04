@@ -26,7 +26,7 @@ const columns = [
         field: 'emailChecked', headerName: 'Email checked', width: 150
     },
     {
-        field: 'recipient',
+        field: 'resetUserWithId',
         type: 'number',
         headerName: 'Reset password',
         width: 200,
@@ -41,7 +41,7 @@ const UsersTable = () => {
         dispatch(users.getAll());
     }, [dispatch])
 
-    const rows = useSelector(getUsersSelector).map(user => ({...user, recipient: {id: user.id, email: user.email}}));
+    const rows = useSelector(getUsersSelector).map(user => ({...user, resetUserWithId: user.id}));
 
     return (
         <>

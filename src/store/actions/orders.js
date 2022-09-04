@@ -1,23 +1,27 @@
 import {createAsyncThunk} from "@reduxjs/toolkit";
 import orders from '../constants/orders';
-import createActionApi from "../middleware/createActionApi";
+import actionApi from "../middleware/createActionApi";
 
-const api = createActionApi('orders');
+const getOrders = createAsyncThunk(orders.GET_ORDERS, actionApi.GET('/orders'));
 
-const getOrders = createAsyncThunk(orders.GET_ORDERS, api.GET);
+const getOrderById = createAsyncThunk(orders.GET_ORDER_BY_ID, actionApi.GET_BY_ID('/orders'))
 
-const getOrderById = createAsyncThunk(orders.GET_ORDER_BY_ID, api.GET_BY_ID)
+const addOrder = createAsyncThunk(orders.ADD_ORDER, actionApi.POST('/orders'));
 
-const addOrder = createAsyncThunk(orders.ADD_ORDER, api.POST);
+const updateOrder = createAsyncThunk(orders.UPDATE_ORDER, actionApi.PUT('/orders'));
 
-const updateOrder = createAsyncThunk(orders.UPDATE_ORDER, api.PUT);
+const deleteOrder = createAsyncThunk(orders.DELETE_ORDER, actionApi.DELETE('/orders'));
 
-const deleteOrder = createAsyncThunk(orders.DELETE_ORDER, api.DELETE);
+const getCurrentUserOrders = createAsyncThunk(orders.GET_CURRENT_USERS_ORDERS, actionApi.GET('/current_user/orders'));
+
+const getCurrentMasterOrders = createAsyncThunk(orders.GET_CURRENT_MASTERS_ORDERS, actionApi.GET('/current_master/orders'));
 
 export default {
     getAll: getOrders,
     getById: getOrderById,
     add: addOrder,
     update: updateOrder,
-    delete: deleteOrder
-}
+    delete: deleteOrder,
+    getCurrentUserOrders: getCurrentUserOrders,
+    getCurrentMasterOrders: getCurrentMasterOrders
+};

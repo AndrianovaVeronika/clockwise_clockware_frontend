@@ -1,32 +1,18 @@
 import {createAsyncThunk} from "@reduxjs/toolkit";
 import masters from '../constants/masters';
-import createActionApi from "../middleware/createActionApi";
-import instance from "../middleware/instance";
+import actionApi from "../middleware/createActionApi";
 
-const api = createActionApi('masters');
+const getMasters = createAsyncThunk(masters.GET_MASTERS, actionApi.GET('/masters'));
 
-const getMasters = createAsyncThunk(masters.GET_MASTERS, api.GET);
+const getMasterById = createAsyncThunk(masters.GET_MASTER_BY_ID, actionApi.GET_BY_ID('/masters'));
 
-const getMasterById = createAsyncThunk(masters.GET_MASTER_BY_ID, api.GET_BY_ID);
+const addMaster = createAsyncThunk(masters.ADD_MASTER, actionApi.POST('/masters'));
 
-const addMaster = createAsyncThunk(masters.ADD_MASTER, api.POST);
+const updateMaster = createAsyncThunk(masters.UPDATE_MASTER, actionApi.PUT('/masters'));
 
-const updateMaster = createAsyncThunk(masters.UPDATE_MASTER, api.PUT);
+const deleteMaster = createAsyncThunk(masters.DELETE_MASTER, actionApi.DELETE('/masters'));
 
-const deleteMaster = createAsyncThunk(masters.DELETE_MASTER, api.DELETE);
-
-const getAvailableMasters = createAsyncThunk(masters.GET_AVAILABLE_MASTERS, async (values, thunkAPI) => {
-    try {
-        const response = await instance.post('/masters/available', values, {
-            headers: {
-                'x-access-token': sessionStorage.getItem('TOKEN')
-            }
-        });
-        return response.data || {};
-    } catch (err) {
-        return thunkAPI.rejectWithValue(err);
-    }
-})
+const getAvailableMasters = createAsyncThunk(masters.GET_AVAILABLE_MASTERS, actionApi.POST('/masters/available'));
 
 export default {
     getAll: getMasters,

@@ -2,9 +2,27 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="47aa944b-1eed-4aaf-807f-af5d121fc908" name="Changes" comment="fix: unnecessary logs, gitignore">
+      <change afterPath="$PROJECT_DIR$/src/components/Pages/MasterPages/MasterOrdersPage/index.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/Pages/UserPages/UserOrdersPage/index.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/functions/withRedirectIfNotMaster.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Forms/AdminForms/MasterForm/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Forms/AdminForms/MasterForm/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Pages/UserPages/ProfilePage/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Pages/UserPages/ProfilePage/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/DataTables/OrdersTable/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/DataTables/OrdersTable/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/DataTables/UsersTable/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/DataTables/UsersTable/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/PageComponents/Sidebar/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/PageComponents/Sidebar/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/store/actions/auth.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/store/actions/auth.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/store/actions/cities.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/store/actions/cities.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/store/actions/clockTypes.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/store/actions/clockTypes.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/store/actions/masters.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/store/actions/masters.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/store/actions/orders.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/store/actions/orders.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/store/actions/users.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/store/actions/users.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/store/constants/orders.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/store/constants/orders.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/store/initialState.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/store/initialState.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/store/middleware/createActionApi.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/store/middleware/createActionApi.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/store/reducers/authReducer.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/store/reducers/authReducer.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/store/reducers/ordersReducer.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/store/reducers/ordersReducer.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/store/selectors/authSelector.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/store/selectors/authSelector.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/store/selectors/ordersSelector.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/store/selectors/ordersSelector.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -20,7 +38,13 @@
     </option>
   </component>
   <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="develop" />
+      </map>
+    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="RESET_MODE" value="HARD" />
   </component>
   <component name="GitSEFilterConfiguration">
     <file-type-list>
@@ -58,11 +82,11 @@
       <recent name="D:\ClockwiseClockware\clockwise_clockware_frontend\src\components\Forms" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\ClockwiseClockware\clockwise_clockware_frontend\src\components\Pages\MasterPages" />
       <recent name="D:\ClockwiseClockware\clockwise_clockware_frontend\src\components\Forms\FormsComponents" />
       <recent name="D:\ClockwiseClockware\clockwise_clockware_frontend\src\components\Forms\UserForms" />
       <recent name="D:\ClockwiseClockware\clockwise_clockware_frontend\src\components\Forms\AdminForms" />
       <recent name="D:\ClockwiseClockware\clockwise_clockware_frontend\src\components\PageComponents" />
-      <recent name="D:\ClockwiseClockware\clockwise_clockware_frontend\src\components\Forms" />
     </key>
   </component>
   <component name="RunManager" selected="npm.start">
@@ -241,6 +265,9 @@
       <workItem from="1661753092397" duration="5174000" />
       <workItem from="1661802706433" duration="9767000" />
       <workItem from="1661846068233" duration="476000" />
+      <workItem from="1661947623630" duration="1783000" />
+      <workItem from="1662037644519" duration="27487000" />
+      <workItem from="1662306253962" duration="2337000" />
     </task>
     <task id="LOCAL-00055" summary="fix: change data buttons in data table, order form, data table, admin pages">
       <created>1646773825756</created>
@@ -602,7 +629,7 @@
                   <entry key="branch">
                     <value>
                       <list>
-                        <option value="master_user_registration_feature" />
+                        <option value="feature/user-master-orders-page" />
                       </list>
                     </value>
                   </entry>

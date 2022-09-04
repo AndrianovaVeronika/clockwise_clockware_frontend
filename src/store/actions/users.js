@@ -1,18 +1,16 @@
 import {createAsyncThunk} from "@reduxjs/toolkit";
 import users from "../constants/users";
-import createActionApi from "../middleware/createActionApi";
+import actionApi from "../middleware/createActionApi";
 
-const api = createActionApi('users');
+const addUser = createAsyncThunk(users.ADD_USER, actionApi.POST('/users'));
 
-const addUser = createAsyncThunk(users.ADD_USER, api.POST);
+const getUsers = createAsyncThunk(users.GET_USERS, actionApi.GET('/users'));
 
-const getUsers = createAsyncThunk(users.GET_USERS, api.GET);
+const updateUser = createAsyncThunk(users.UPDATE_USER, actionApi.PUT('/users'));
 
-const updateUser = createAsyncThunk(users.UPDATE_USER, api.PUT);
+const deleteUser = createAsyncThunk(users.DELETE_USER, actionApi.DELETE('/users'));
 
-const deleteUser = createAsyncThunk(users.DELETE_USER, api.DELETE);
-
-const getUserById = createAsyncThunk(users.GET_USER_BY_ID, api.GET_BY_ID);
+const getUserById = createAsyncThunk(users.GET_USER_BY_ID, actionApi.GET_BY_ID('/users'));
 
 export default {
     getAll: getUsers,

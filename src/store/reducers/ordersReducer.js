@@ -18,6 +18,12 @@ const {reducer} = createSlice({
             .addCase(orders.add.fulfilled, api.ADD)
             .addCase(orders.update.fulfilled, api.UPDATE)
             .addCase(orders.delete.fulfilled, api.DELETE)
+            .addCase(orders.getCurrentUserOrders.fulfilled, (state, action) => {
+                state.orders.currentUserOrders = action.payload;
+            })
+            .addCase(orders.getCurrentMasterOrders.fulfilled, (state, action) => {
+                state.orders.currentMasterOrders = action.payload;
+            })
             .addDefaultCase((state, action) => {
                 return state;
             })

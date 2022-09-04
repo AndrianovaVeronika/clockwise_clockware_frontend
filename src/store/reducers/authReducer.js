@@ -23,12 +23,16 @@ const {reducer} = createSlice({
                 if (action.payload.roles.includes('ROLE_ADMIN')) {
                     state.auth.isAdmin = true;
                 }
+                if (action.payload.roles.includes('ROLE_MASTER')) {
+                    state.auth.isMasterAccount = true;
+                }
                 sessionStorage.setItem("TOKEN", action.payload.accessToken);
             })
             .addCase(logOut.fulfilled, (state, action) => {
                 state.auth.currentUser = {};
                 state.auth.isAuth = false;
                 state.auth.isAdmin = false;
+                state.auth.isMasterAccount = false;
                 sessionStorage.clear();
             })
             .addCase(verifyUserAccess.fulfilled, (state, action) => {
@@ -38,12 +42,16 @@ const {reducer} = createSlice({
                 if (action.payload.roles.includes('ROLE_ADMIN')) {
                     state.auth.isAdmin = true;
                 }
+                if (action.payload.roles.includes('ROLE_MASTER')) {
+                    state.auth.isMasterAccount = true;
+                }
             })
             .addCase(verifyUserAccess.rejected, (state, action) => {
                 state.auth.userLoading = false;
                 state.auth.isAuth = false;
                 state.auth.currentUser = {};
                 state.auth.isAdmin = false;
+                state.auth.isMasterAccount = false;
             })
             .addCase(registerMasterAccount.fulfilled, (state, action) => {
                 state.users.usersList.push(action.payload);
@@ -55,7 +63,7 @@ const {reducer} = createSlice({
                 state.auth.currentUser.emailChecked = true;
             })
             .addCase(resetPassword.fulfilled, (state, action) => {
-                //password reseted
+                //password reset
             })
             .addDefaultCase((state, action) => {
                 return state;
