@@ -1,9 +1,9 @@
-import {Box, Typography} from "@mui/material";
+import {Box, Button, Typography} from "@mui/material";
 import useStyles from "../../../../styles/useStyles";
 import {useDispatch, useSelector} from "react-redux";
 import {useEffect} from "react";
 import orders from "../../../../store/actions/orders";
-import {getCurrentMasterOrdersSelector, getCurrentUserOrdersSelector} from "../../../../store/selectors/ordersSelector";
+import {getCurrentMasterOrdersSelector} from "../../../../store/selectors/ordersSelector";
 import Page from "../../../../styles/Page";
 import {DataGrid} from "@mui/x-data-grid";
 import {compose} from "redux";
@@ -11,11 +11,13 @@ import {withHeader} from "../../../../functions/withHeader";
 import withSidebar from "../../../../functions/withSidebar";
 import withRedirectAfterLogout from "../../../../functions/withRedirectAfterLogout";
 import withRedirectIfNotMaster from "../../../../functions/withRedirectIfNotMaster";
+import store from "../../../../store/store";
 
-function renderStatus({value}) {
+function renderStatus({id, value}) {
     const color = value ? 'green' : 'red';
     const text = value ? 'Completed' : 'Not completed';
-    return <Typography sx={{color: color}}>{text}</Typography>;
+
+    return <Button onClick={()=> store.dispatch(orders.updateMasterOrderById({id, isCompleted: !value}))} sx={{color: color}}>{text}</Button>;
 }
 
 const columns = [
@@ -41,9 +43,6 @@ const columns = [
         field: 'time', headerName: 'Time', width: 120,
     },
     {
-        field: 'master', headerName: 'Master', width: 90,
-    },
-    {
         field: 'price', headerName: 'Price', width: 80,
     },
     {
@@ -55,7 +54,7 @@ const columns = [
     },
 ];
 
-const UserOrdersPage = () => {
+const MasterOrdersPage = () => {
     const classes = useStyles();
     const dispatch = useDispatch();
 
@@ -81,4 +80,4 @@ const UserOrdersPage = () => {
     )
 }
 
-export default compose(withHeader, withSidebar, withRedirectAfterLogout, withRedirectIfNotMaster)(UserOrdersPage);
+export default compose(withHeader, withSidebar, withRedirectAfterLogout, withRedirectIfNotMaster)(MasterOrdersPage);

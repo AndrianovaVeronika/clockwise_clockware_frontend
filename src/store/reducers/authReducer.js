@@ -26,7 +26,7 @@ const {reducer} = createSlice({
                 if (action.payload.roles.includes('ROLE_MASTER')) {
                     state.auth.isMasterAccount = true;
                 }
-                sessionStorage.setItem("TOKEN", action.payload.accessToken);
+                sessionStorage.setItem("TOKEN", action?.payload?.accessToken);
             })
             .addCase(logOut.fulfilled, (state, action) => {
                 state.auth.currentUser = {};

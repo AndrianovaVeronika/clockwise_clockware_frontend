@@ -1,5 +1,5 @@
 import initialState from "../initialState";
-import {createSlice} from "@reduxjs/toolkit";
+import {createSlice, current} from "@reduxjs/toolkit";
 import orders from "../actions/orders";
 import reducerApi from "../middleware/createReducerApi";
 
@@ -21,6 +21,10 @@ const {reducer} = createSlice({
             })
             .addCase(orders.getCurrentMasterOrders.fulfilled, (state, action) => {
                 state.orders.currentMasterOrders = action.payload;
+            })
+            .addCase(orders.updateMasterOrderById.fulfilled, (state, action) => {
+                const list = current(state.orders.currentMasterOrders);
+                state.orders.currentMasterOrders = list.map(instance => instance.id === parseInt(action.payload.id) ? action.payload : instance);
             })
             .addDefaultCase((state, action) => {
                 return state;

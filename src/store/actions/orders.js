@@ -16,6 +16,8 @@ const getCurrentUserOrders = createAsyncThunk(orders.GET_CURRENT_USERS_ORDERS, a
 
 const getCurrentMasterOrders = createAsyncThunk(orders.GET_CURRENT_MASTERS_ORDERS, actionApi.GET('/current_master/orders'));
 
+const updateMasterOrderById = createAsyncThunk(orders.UPDATE_CURRENT_MASTER_ORDER, actionApi.PUT('/master/orders'))
+
 export default {
     getAll: getOrders,
     getById: getOrderById,
@@ -23,5 +25,6 @@ export default {
     update: updateOrder,
     delete: deleteOrder,
     getCurrentUserOrders: getCurrentUserOrders,
-    getCurrentMasterOrders: getCurrentMasterOrders
+    getCurrentMasterOrders: getCurrentMasterOrders,
+    updateMasterOrderById: updateMasterOrderById
 };

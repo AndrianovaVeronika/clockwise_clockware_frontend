@@ -2,13 +2,16 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="47aa944b-1eed-4aaf-807f-af5d121fc908" name="Changes" comment="fix: reducerApi">
+      <change afterPath="$PROJECT_DIR$/src/components/Dialogs/LogInAlertDialog/index.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/store/middleware/createReducerApi.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/store/middleware/createReducerApi.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/store/reducers/citiesReducer.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/store/reducers/citiesReducer.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/store/reducers/clockTypesReducer.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/store/reducers/clockTypesReducer.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/store/reducers/mastersReducer.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/store/reducers/mastersReducer.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Forms/UserForms/OrderForm/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Forms/UserForms/OrderForm/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Forms/UserForms/SignInForm/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Forms/UserForms/SignInForm/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Pages/MasterPages/MasterOrdersPage/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Pages/MasterPages/MasterOrdersPage/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/store/actions/orders.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/store/actions/orders.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/store/constants/orders.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/store/constants/orders.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/store/reducers/authReducer.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/store/reducers/authReducer.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/store/reducers/ordersReducer.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/store/reducers/ordersReducer.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/store/reducers/usersReducer.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/store/reducers/usersReducer.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -253,14 +256,8 @@
       <workItem from="1661846068233" duration="476000" />
       <workItem from="1661947623630" duration="1783000" />
       <workItem from="1662037644519" duration="27487000" />
-      <workItem from="1662306253962" duration="10483000" />
-    </task>
-    <task id="LOCAL-00057" summary="feat: logout alert dialog">
-      <created>1647608664725</created>
-      <option name="number" value="00057" />
-      <option name="presentableId" value="LOCAL-00057" />
-      <option name="project" value="LOCAL" />
-      <updated>1647608664725</updated>
+      <workItem from="1662306253962" duration="17343000" />
+      <workItem from="1662406247150" duration="11022000" />
     </task>
     <task id="LOCAL-00058" summary="fix: styles">
       <created>1647707909026</created>
@@ -598,7 +595,14 @@
       <option name="project" value="LOCAL" />
       <updated>1662388353804</updated>
     </task>
-    <option name="localTasksCounter" value="106" />
+    <task id="LOCAL-00106" summary="fix: reducerApi">
+      <created>1662393024499</created>
+      <option name="number" value="00106" />
+      <option name="presentableId" value="LOCAL-00106" />
+      <option name="project" value="LOCAL" />
+      <updated>1662393024499</updated>
+    </task>
+    <option name="localTasksCounter" value="107" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
