@@ -11,11 +11,11 @@ const {reducer} = createSlice({
     },
     extraReducers(builder) {
         builder
-            .addCase(cities.getAll.fulfilled, reducerApi.GET('/cities'))
-            .addCase(cities.getById.fulfilled, reducerApi.GET_BY_ID('/cities'))
-            .addCase(cities.add.fulfilled, reducerApi.ADD('/cities'))
-            .addCase(cities.update.fulfilled, reducerApi.UPDATE('/cities'))
-            .addCase(cities.delete.fulfilled, reducerApi.DELETE('/cities'))
+            .addCase(cities.getAll.fulfilled, reducerApi.GET('cities'))
+            .addCase(cities.getById.fulfilled, reducerApi.GET_BY_ID('cities'))
+            .addCase(cities.add.fulfilled, reducerApi.ADD('cities'))
+            .addCase(cities.update.fulfilled, reducerApi.UPDATE('cities'))
+            .addCase(cities.delete.fulfilled, reducerApi.DELETE('cities'))
             .addDefaultCase((state, action) => {
                 return state;
             })

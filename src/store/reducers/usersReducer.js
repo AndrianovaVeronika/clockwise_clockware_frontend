@@ -12,12 +12,12 @@ const {reducer} = createSlice({
     },
     extraReducers(builder) {
         builder
-            .addCase(registerUserAccount.fulfilled, reducerApi.ADD('/users'))
-            .addCase(users.add.fulfilled, reducerApi.ADD('/users'))
-            .addCase(users.getAll.fulfilled, reducerApi.GET('/users'))
-            .addCase(users.getById.fulfilled, reducerApi.GET_BY_ID('/users'))
-            .addCase(users.update.fulfilled, reducerApi.UPDATE('/users'))
-            .addCase(users.delete.fulfilled, reducerApi.DELETE('/users'))
+            .addCase(registerUserAccount.fulfilled, reducerApi.ADD('users'))
+            .addCase(users.add.fulfilled, reducerApi.ADD('users'))
+            .addCase(users.getAll.fulfilled, reducerApi.GET('users'))
+            .addCase(users.getById.fulfilled, reducerApi.GET_BY_ID('users'))
+            .addCase(users.update.fulfilled, reducerApi.UPDATE('users'))
+            .addCase(users.delete.fulfilled, reducerApi.DELETE('users'))
             .addDefaultCase((state, action) => {
                 return state;
             })

@@ -11,11 +11,11 @@ const {reducer} = createSlice({
     },
     extraReducers(builder) {
         builder
-            .addCase(masters.getAll.fulfilled, reducerApi.GET('/masters'))
-            .addCase(masters.getById.fulfilled, reducerApi.GET_BY_ID('/masters'))
-            .addCase(masters.add.fulfilled, reducerApi.ADD('/masters'))
-            .addCase(masters.update.fulfilled, reducerApi.UPDATE('/masters'))
-            .addCase(masters.delete.fulfilled, reducerApi.DELETE('/masters'))
+            .addCase(masters.getAll.fulfilled, reducerApi.GET('masters'))
+            .addCase(masters.getById.fulfilled, reducerApi.GET_BY_ID('masters'))
+            .addCase(masters.add.fulfilled, reducerApi.ADD('masters'))
+            .addCase(masters.update.fulfilled, reducerApi.UPDATE('masters'))
+            .addCase(masters.delete.fulfilled, reducerApi.DELETE('masters'))
             .addCase(masters.getAvailableMasters.fulfilled, (state, action) => {
                 state.masters.availableMasters = action.payload;
             })
