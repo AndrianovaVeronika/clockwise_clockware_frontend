@@ -1,6 +1,6 @@
 import instance from "./instance";
 
-const actionApi = {
+export default {
     GET: (path) => async (_, thunkAPI) => {
         try {
             const response = await instance.get(path, {
@@ -62,5 +62,3 @@ const actionApi = {
         }
     }
 }
-
-export default actionApi;

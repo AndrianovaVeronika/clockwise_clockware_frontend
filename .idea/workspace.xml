@@ -1,28 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="47aa944b-1eed-4aaf-807f-af5d121fc908" name="Changes" comment="fix: unnecessary logs, gitignore">
-      <change afterPath="$PROJECT_DIR$/src/components/Pages/MasterPages/MasterOrdersPage/index.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/Pages/UserPages/UserOrdersPage/index.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/functions/withRedirectIfNotMaster.js" afterDir="false" />
+    <list default="true" id="47aa944b-1eed-4aaf-807f-af5d121fc908" name="Changes" comment="feat: userOrdersPage, mastersOrdersPage, isMasterSelector, add price and status columns to OrdersTable, Sidebar-MenuItem-to-user/orders and -master/orders pages, UserOrdersPage, MasterOrdersPage&#10;fix: actionApi, reducer-signin, UsersTable,">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/DataTables/OrdersTable/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/DataTables/OrdersTable/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/DataTables/UsersTable/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/DataTables/UsersTable/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/PageComponents/Sidebar/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/PageComponents/Sidebar/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/store/actions/auth.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/store/actions/auth.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/store/actions/cities.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/store/actions/cities.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/store/actions/clockTypes.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/store/actions/clockTypes.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/store/actions/masters.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/store/actions/masters.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/store/actions/orders.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/store/actions/orders.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/store/actions/users.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/store/actions/users.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/store/constants/orders.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/store/constants/orders.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/store/initialState.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/store/initialState.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/store/middleware/createActionApi.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/store/middleware/createActionApi.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/store/reducers/authReducer.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/store/reducers/authReducer.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/store/middleware/createReducerApi.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/store/middleware/createReducerApi.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/store/reducers/citiesReducer.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/store/reducers/citiesReducer.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/store/reducers/clockTypesReducer.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/store/reducers/clockTypesReducer.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/store/reducers/mastersReducer.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/store/reducers/mastersReducer.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/store/reducers/ordersReducer.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/store/reducers/ordersReducer.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/store/selectors/authSelector.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/store/selectors/authSelector.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/store/selectors/ordersSelector.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/store/selectors/ordersSelector.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/store/reducers/usersReducer.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/store/reducers/usersReducer.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -267,14 +254,7 @@
       <workItem from="1661846068233" duration="476000" />
       <workItem from="1661947623630" duration="1783000" />
       <workItem from="1662037644519" duration="27487000" />
-      <workItem from="1662306253962" duration="2337000" />
-    </task>
-    <task id="LOCAL-00055" summary="fix: change data buttons in data table, order form, data table, admin pages">
-      <created>1646773825756</created>
-      <option name="number" value="00055" />
-      <option name="presentableId" value="LOCAL-00055" />
-      <option name="project" value="LOCAL" />
-      <updated>1646773825757</updated>
+      <workItem from="1662306253962" duration="9341000" />
     </task>
     <task id="LOCAL-00056" summary="fix: order form">
       <created>1647010319903</created>
@@ -612,7 +592,14 @@
       <option name="project" value="LOCAL" />
       <updated>1661753891150</updated>
     </task>
-    <option name="localTasksCounter" value="104" />
+    <task id="LOCAL-00104" summary="feat: userOrdersPage, mastersOrdersPage, isMasterSelector, add price and status columns to OrdersTable, Sidebar-MenuItem-to-user/orders and -master/orders pages, UserOrdersPage, MasterOrdersPage&#10;fix: actionApi, reducer-signin, UsersTable,">
+      <created>1662312224853</created>
+      <option name="number" value="00104" />
+      <option name="presentableId" value="LOCAL-00104" />
+      <option name="project" value="LOCAL" />
+      <updated>1662312224853</updated>
+    </task>
+    <option name="localTasksCounter" value="105" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -643,7 +630,6 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="fix: unnecessary" />
     <MESSAGE value="feat: all styles in useStyles.js;&#10;user form;&#10;styled component Page;&#10;theme.js;&#10;fix: styles" />
     <MESSAGE value="fix: styles" />
     <MESSAGE value="feat: constants&#10;fix: fixed sized tables error, order form values, Home page," />
@@ -668,7 +654,8 @@
     <MESSAGE value="fix: user" />
     <MESSAGE value="feat: resetPassword, UsersTable" />
     <MESSAGE value="fix: unnecessary logs, gitignore" />
-    <option name="LAST_COMMIT_MESSAGE" value="fix: unnecessary logs, gitignore" />
+    <MESSAGE value="feat: userOrdersPage, mastersOrdersPage, isMasterSelector, add price and status columns to OrdersTable, Sidebar-MenuItem-to-user/orders and -master/orders pages, UserOrdersPage, MasterOrdersPage&#10;fix: actionApi, reducer-signin, UsersTable," />
+    <option name="LAST_COMMIT_MESSAGE" value="feat: userOrdersPage, mastersOrdersPage, isMasterSelector, add price and status columns to OrdersTable, Sidebar-MenuItem-to-user/orders and -master/orders pages, UserOrdersPage, MasterOrdersPage&#10;fix: actionApi, reducer-signin, UsersTable," />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

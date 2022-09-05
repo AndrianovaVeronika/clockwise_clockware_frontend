@@ -1,9 +1,7 @@
 import initialState from "../initialState";
 import {createSlice} from "@reduxjs/toolkit";
 import cities from "../actions/cities";
-import createReducerApi from "../middleware/createReducerApi";
-
-const api = createReducerApi('cities');
+import reducerApi from "../middleware/createReducerApi";
 
 const {reducer} = createSlice({
     name: 'cities',
@@ -13,11 +11,11 @@ const {reducer} = createSlice({
     },
     extraReducers(builder) {
         builder
-            .addCase(cities.getAll.fulfilled, api.GET)
-            .addCase(cities.getById.fulfilled, api.GET_BY_ID)
-            .addCase(cities.add.fulfilled, api.ADD)
-            .addCase(cities.update.fulfilled, api.UPDATE)
-            .addCase(cities.delete.fulfilled, api.DELETE)
+            .addCase(cities.getAll.fulfilled, reducerApi.GET('/cities'))
+            .addCase(cities.getById.fulfilled, reducerApi.GET_BY_ID('/cities'))
+            .addCase(cities.add.fulfilled, reducerApi.ADD('/cities'))
+            .addCase(cities.update.fulfilled, reducerApi.UPDATE('/cities'))
+            .addCase(cities.delete.fulfilled, reducerApi.DELETE('/cities'))
             .addDefaultCase((state, action) => {
                 return state;
             })
