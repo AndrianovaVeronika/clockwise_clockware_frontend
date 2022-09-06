@@ -28,4 +28,6 @@ export const logOut = createAsyncThunk(auth.LOG_OUT, async () => {
     return {message: 'Logged out.'};
 });
 
+export const isUserCreated = createAsyncThunk(auth.IS_USER_CREATED, actionApi.POST('/verify/user/created'));
+
 export const resetPassword = createAsyncThunk(auth.RESET_PASSWORD, actionApi.PUT('/reset/password'));

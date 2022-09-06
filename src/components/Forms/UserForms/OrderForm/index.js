@@ -56,9 +56,6 @@ const OrderForm = () => {
                 {payload.message}
             </Alert>
         );
-        if (payload.code === 401){
-            navigate('/alert/login');
-        }
         if (!error) {
             setError(<></>);
             navigate('/order/success');
