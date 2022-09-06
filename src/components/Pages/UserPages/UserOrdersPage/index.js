@@ -10,12 +10,18 @@ import {compose} from "redux";
 import {withHeader} from "../../../../functions/withHeader";
 import withSidebar from "../../../../functions/withSidebar";
 import withRedirectAfterLogout from "../../../../functions/withRedirectAfterLogout";
+import RateOrderForm from "../../../Forms/UserForms/RateOrderForm";
 
 function renderStatus({value}) {
     const color = value ? 'green' : 'red';
     const text = value ? 'Completed' : 'Not completed';
     return <Typography sx={{color: color}}>{text}</Typography>;
 }
+
+function renderButtonRateOrder({value}) {
+    return <RateOrderForm {...value}/>;
+}
+
 
 const columns = [
     {
@@ -46,6 +52,14 @@ const columns = [
         renderCell: renderStatus,
         type: 'boolean'
     },
+    {
+        field: 'rateOrder',
+        headerName: 'Rate order',
+        width: 150,
+        renderCell: renderButtonRateOrder,
+        type: 'boolean',
+        valueGetter: ({row}) => row,
+    }
 ];
 
 const UserOrdersPage = () => {

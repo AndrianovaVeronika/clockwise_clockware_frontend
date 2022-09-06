@@ -39,6 +39,7 @@ export default {
     },
     PUT: (path) => async ({id, ...updateValues}, thunkAPI) => {
         try {
+            console.log(updateValues)
             const response = await instance.put(path + '/' + id, updateValues, {
                 headers: {
                     'x-access-token': sessionStorage.getItem('TOKEN')

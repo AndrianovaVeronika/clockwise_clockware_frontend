@@ -26,6 +26,10 @@ const {reducer} = createSlice({
                 const list = current(state.orders.currentMasterOrders);
                 state.orders.currentMasterOrders = list.map(instance => instance.id === parseInt(action.payload.id) ? action.payload : instance);
             })
+            .addCase(orders.rateOrder, (state, action) => {
+                const list = current(state.orders.currentUserOrders);
+                state.orders.currentUserOrders = list.map(instance => instance.id === parseInt(action.payload.id) ? action.payload : instance);
+            })
             .addDefaultCase((state, action) => {
                 return state;
             })
