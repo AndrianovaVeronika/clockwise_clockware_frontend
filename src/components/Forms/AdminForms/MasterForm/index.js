@@ -16,35 +16,38 @@ const initialValues = {
     cities: []
 }
 
+const getCityOptionsForSelect = (incomeCities) => {
+    const cities = [];
+    for (const city of incomeCities) {
+        cities.push({key: city.name, value: city.name});
+    }
+    return cities;
+}
+
 const MasterForm = ({specifiedInitialValues, submitAction, formId, setDataTableAlert, clearDataTableSelectedRow}) => {
     const dispatch = useDispatch();
     const classes = useStyles();
 
-    const [citiesChosen, setCitiesChosen] = useState(specifiedInitialValues?.cities || []);
+    const [values, setValues] = useState(initialValues);
+
+    const setCities = (newCities) => {
+        setValues({...values, cities: newCities});
+    }
 
     const handleChange = (event) => {
         const {target: {value}} = event;
-        setCitiesChosen(
+        setCities(
             // On autofill we get a stringified value.
             typeof value === 'string' ? value.split(',') : value,
         );
     };
 
-    const incomeCities = useSelector(getCitiesSelector);
-
-    const getCityOptions = () => {
-        const cities = [];
-        for (const city of incomeCities) {
-            cities.push({key: city.name, value: city.name});
-        }
-        return cities;
-    }
-
-    const cityOptions = getCityOptions();
-
     useEffect(() => {
         dispatch(cities.getAll());
     }, [dispatch])
+
+    const incomeCities = useSelector(getCitiesSelector);
+    const cityOptions = getCityOptionsForSelect(incomeCities);
 
     const validationSchema = Yup.object().shape({
         name: Yup.string().min(3, 'Name is too short').required('Required'),
@@ -52,12 +55,12 @@ const MasterForm = ({specifiedInitialValues, submitAction, formId, setDataTableA
 
     const [Error, setError] = useState(<></>);
 
-    const onSubmit = async (values, props) => {
+    const onSubmit = async (formValues, props) => {
+        setValues({...formValues, cities: values.cities});
         const {error, payload} = await dispatch(submitAction(specifiedInitialValues ? {
             id: specifiedInitialValues.id,
-            ...values,
-            cities: citiesChosen
-        } : {...values, cities: citiesChosen}));
+            ...values
+        } : values));
         props.resetForm();
         if (error) {
             setError(
@@ -86,47 +89,45 @@ const MasterForm = ({specifiedInitialValues, submitAction, formId, setDataTableA
                 <Formik initialValues={specifiedInitialValues || initialValues}
                         validationSchema={validationSchema}
                         onSubmit={onSubmit}>
-                    {
-                        (props) => (
-                            <Form id={formId} className={classes.twoColumnForm}>
-                                <Box className={classes.formSection}>
-                                    <FormikTextField
-                                        label='Name'
-                                        name='name'
-                                        error={props.errors.name && props.touched.name}
-                                        required
-                                    />
-                                    <Box>
-                                        <InputLabel className={classes.formItemLabel}>Rating</InputLabel>
-                                        <Rating
-                                            className={classes.formItem}
-                                            name="rating"
-                                            value={props.values.rating}
-                                            onChange={({target}) => props.setFieldValue('rating', parseInt(target.value))}
-                                        />
-                                    </Box>
-                                </Box>
-                                <Box className={classes.formSection}>
-                                    <FormikTextField
-                                        label='Email'
-                                        name='email'
-                                        error={props.errors.email && props.touched.email}
-                                        required
-                                    />
-                                    <FormikSelectField
-                                        label='Cities'
-                                        name='cities'
-                                        options={cityOptions}
-                                        value={citiesChosen}
-                                        onChange={handleChange}
-                                        multiple
-                                        fullWidth
+                    {(props) => (
+                        <Form id={formId} className={classes.twoColumnForm}>
+                            <Box className={classes.formSection}>
+                                <FormikTextField
+                                    label='Name'
+                                    name='name'
+                                    error={props.errors.name && props.touched.name}
+                                    required
+                                />
+                                <Box>
+                                    <InputLabel className={classes.formItemLabel}>Rating</InputLabel>
+                                    <Rating
                                         className={classes.formItem}
+                                        name="rating"
+                                        value={props.values.rating}
+                                        onChange={({target}) => props.setFieldValue('rating', parseInt(target.value))}
                                     />
                                 </Box>
-                            </Form>
-                        )
-                    }
+                            </Box>
+                            <Box className={classes.formSection}>
+                                <FormikTextField
+                                    label='Email'
+                                    name='email'
+                                    error={props.errors.email && props.touched.email}
+                                    required
+                                />
+                                <FormikSelectField
+                                    label='Cities'
+                                    name='cities'
+                                    options={cityOptions}
+                                    value={values.cities}
+                                    onChange={handleChange}
+                                    multiple
+                                    fullWidth
+                                    className={classes.formItem}
+                                />
+                            </Box>
+                        </Form>
+                    )}
                 </Formik>
                 {Error}
             </Paper>

@@ -1,11 +1,16 @@
-import {ErrorMessage, Form, Formik} from "formik";
+import {Form, Formik} from "formik";
 import React from "react";
 import useStyles from "../../../../styles/useStyles";
 import * as Yup from "yup";
 import FormikTextField from "../../FormsComponents/FormikTextField";
+import {isUserCreated} from "../../../../store/actions/auth";
+import {useDispatch} from "react-redux";
+import {useNavigate} from "react-router";
 
 const LoginOrSignup = ({formId, onSubmit, values, currentUser}) => {
     const classes = useStyles();
+    const dispatch = useDispatch();
+    const navigate = useNavigate();
 
     const initialValues = {
         name: values?.name || currentUser.name || '',
@@ -16,10 +21,18 @@ const LoginOrSignup = ({formId, onSubmit, values, currentUser}) => {
         email: Yup.string().email('Email is not valid').required('Required')
     });
 
+    const submitAction = async (v) => {
+        const {error, payload} = await dispatch(isUserCreated(v));
+        if (error && payload?.code === 401) {
+            navigate('/alert/login');
+        }
+        onSubmit(v);
+    };
+
     return (
         <Formik initialValues={initialValues}
                 validationSchema={validationSchema}
-                onSubmit={onSubmit}>
+                onSubmit={submitAction}>
             {
                 (props) => (
                     <Form id={formId}>

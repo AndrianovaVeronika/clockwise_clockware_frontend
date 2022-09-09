@@ -37,6 +37,7 @@ const SignInForm = () => {
             );
         } else {
             setError(<></>);
+            navigate('/');
         }
     }
 
