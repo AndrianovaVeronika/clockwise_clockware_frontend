@@ -1,9 +1,7 @@
 import initialState from "../initialState";
 import {createSlice} from "@reduxjs/toolkit";
 import masters from "../actions/masters";
-import createReducerApi from "../middleware/createReducerApi";
-
-const api = createReducerApi('masters');
+import reducerApi from "../middleware/createReducerApi";
 
 const {reducer} = createSlice({
     name: 'masters',
@@ -13,11 +11,11 @@ const {reducer} = createSlice({
     },
     extraReducers(builder) {
         builder
-            .addCase(masters.getAll.fulfilled, api.GET)
-            .addCase(masters.getById.fulfilled, api.GET_BY_ID)
-            .addCase(masters.add.fulfilled, api.ADD)
-            .addCase(masters.update.fulfilled, api.UPDATE)
-            .addCase(masters.delete.fulfilled, api.DELETE)
+            .addCase(masters.getAll.fulfilled, reducerApi.GET('masters'))
+            .addCase(masters.getById.fulfilled, reducerApi.GET_BY_ID('masters'))
+            .addCase(masters.add.fulfilled, reducerApi.ADD('masters'))
+            .addCase(masters.update.fulfilled, reducerApi.UPDATE('masters'))
+            .addCase(masters.delete.fulfilled, reducerApi.DELETE('masters'))
             .addCase(masters.getAvailableMasters.fulfilled, (state, action) => {
                 state.masters.availableMasters = action.payload;
             })
