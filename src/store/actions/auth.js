@@ -14,7 +14,7 @@ export const verifyUserAccess = createAsyncThunk(auth.VERIFY_USER_ACCESS, action
 
 export const verifyEmailState = createAsyncThunk(auth.VERIFY_EMAIL_STATE, async (url, thunkAPI) => {
     try {
-        const response = await instance.get(url, {baseHeaders});
+        const response = await instance.get(url, {...baseHeaders});
         return response.data || {};
     } catch (e) {
         return thunkAPI.rejectWithValue(e.response.data)
