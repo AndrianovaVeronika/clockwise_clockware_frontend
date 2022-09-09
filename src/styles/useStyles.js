@@ -173,6 +173,16 @@ export const useStyles = makeStyles((theme) => ({
     //dialog
     dialog: {
         overflow: 'hidden!important'
+    },
+    //backdrop
+    backdrop: {
+        color: '#fff',
+        zIndex: -1
+    },
+    //helper text
+    helperText: {
+        marginTop: '0px!important',
+        marginLeft: '20px!important'
     }
 }));
 

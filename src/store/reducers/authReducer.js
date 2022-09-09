@@ -3,8 +3,8 @@ import {createSlice} from "@reduxjs/toolkit";
 import {
     logOut,
     registerMasterAccount,
-    resetPassword,
     signIn,
+    updateCredentials,
     verifyEmailState,
     verifyUserAccess
 } from "../actions/auth";
@@ -54,8 +54,8 @@ const {reducer} = createSlice({
             .addCase(verifyEmailState.fulfilled, (state, action) => {
                 state.auth.currentUser.emailChecked = true;
             })
-            .addCase(resetPassword.fulfilled, (state, action) => {
-                //password reseted
+            .addCase(updateCredentials.fulfilled, (state, action) => {
+                //credentials updated
             })
             .addDefaultCase((state, action) => {
                 return state;

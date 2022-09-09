@@ -5,7 +5,7 @@ import {getUsersSelector} from "../../../store/selectors/usersSelector";
 import DataTable from "../DataTable";
 import UserForm from "../../Forms/AdminForms/UserForm";
 import {Button} from "@mui/material";
-import {resetPassword} from "../../../store/actions/auth";
+import {resetPassword} from "../../../store/actions/users";
 import store from "../../../store/store";
 
 function renderResetPasswordButton({value}) {
