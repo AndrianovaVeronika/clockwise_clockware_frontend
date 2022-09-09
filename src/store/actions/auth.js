@@ -2,6 +2,7 @@ import {createAsyncThunk} from "@reduxjs/toolkit";
 import auth from "../constants/auth";
 import actionApi from "../middleware/createActionApi";
 import instance from "../middleware/instance";
+import baseHeaders from "../middleware/headers";
 
 export const signIn = createAsyncThunk(auth.SIGN_IN, actionApi.POST('/signin'));
 
@@ -13,11 +14,7 @@ export const verifyUserAccess = createAsyncThunk(auth.VERIFY_USER_ACCESS, action
 
 export const verifyEmailState = createAsyncThunk(auth.VERIFY_EMAIL_STATE, async (url, thunkAPI) => {
     try {
-        const response = await instance.get(url, {
-            headers: {
-                'x-access-token': sessionStorage.getItem('TOKEN')
-            }
-        });
+        const response = await instance.get(url, {baseHeaders});
         return response.data || {};
     } catch (e) {
         return thunkAPI.rejectWithValue(e.response.data)

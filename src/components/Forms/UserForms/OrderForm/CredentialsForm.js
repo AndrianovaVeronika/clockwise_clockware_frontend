@@ -33,7 +33,7 @@ const CredentialsForm = ({formId, submitAction, values}) => {
     const cityOptions = getCities();
     const clockTypeOptions = getClockTypes();
 
-    const onSubmit = async (v, props) => {
+    const onSubmit = (v, props) => {
         submitAction(v);
     }
 

@@ -1,4 +1,5 @@
 import instance from "./instance";
+import baseHeaders from "./headers";
 
 export default {
     GET: (path) => async (_, thunkAPI) => {
@@ -15,11 +16,7 @@ export default {
     },
     GET_BY_ID: (path) => async (id, thunkAPI) => {
         try {
-            const response = await instance.get(path + '/' + id, {
-                headers: {
-                    'x-access-token': sessionStorage.getItem('TOKEN')
-                }
-            });
+            const response = await instance.get(path + '/' + id, {baseHeaders});
             return response.data || {};
         } catch (e) {
             return thunkAPI.rejectWithValue(e.response.data)
@@ -27,11 +24,7 @@ export default {
     },
     POST: (path) => async (newInstance, thunkAPI) => {
         try {
-            const response = await instance.post(path, newInstance, {
-                headers: {
-                    'x-access-token': sessionStorage.getItem('TOKEN')
-                }
-            });
+            const response = await instance.post(path, newInstance, {baseHeaders});
             return response.data;
         } catch (e) {
             return thunkAPI.rejectWithValue(e.response.data)
@@ -40,11 +33,7 @@ export default {
     PUT: (path) => async ({id, ...updateValues}, thunkAPI) => {
         try {
             console.log(updateValues)
-            const response = await instance.put(path + '/' + id, updateValues, {
-                headers: {
-                    'x-access-token': sessionStorage.getItem('TOKEN')
-                }
-            });
+            const response = await instance.put(path + '/' + id, updateValues, {baseHeaders});
             return response.data;
         } catch (e) {
             return thunkAPI.rejectWithValue(e.response.data)
@@ -52,11 +41,7 @@ export default {
     },
     DELETE: (path) => async (id, thunkAPI) => {
         try {
-            const response = await instance.delete(path + '/' + id, {
-                headers: {
-                    'x-access-token': sessionStorage.getItem('TOKEN')
-                }
-            });
+            const response = await instance.delete(path + '/' + id, {baseHeaders});
             return response.data;
         } catch (e) {
             return thunkAPI.rejectWithValue(e.response.data)

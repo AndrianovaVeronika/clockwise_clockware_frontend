@@ -2,12 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="47aa944b-1eed-4aaf-807f-af5d121fc908" name="Changes" comment="feat: RateOrderForm, renderButtonRateOrder for userOrdersPage, rateOrder action">
+      <change afterPath="$PROJECT_DIR$/src/store/middleware/headers.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/Forms/UserForms/OrderForm/CredentialsForm.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Forms/UserForms/OrderForm/CredentialsForm.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Forms/UserForms/OrderForm/LoginOrSignup.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Forms/UserForms/OrderForm/LoginOrSignup.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Forms/UserForms/OrderForm/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Forms/UserForms/OrderForm/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/store/actions/auth.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/store/actions/auth.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/store/constants/auth.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/store/constants/auth.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/store/middleware/createActionApi.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/store/middleware/createActionApi.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
