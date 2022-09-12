@@ -10,7 +10,7 @@ const PopupDialog = ({
                          Actions
                      }) => {
     const styles = useStyles();
-    console.log('popup dialog')
+
     const [open, setOpen] = useState(false);
     const doOpen = () => setOpen(true);
     const doClose = () => setOpen(false);
@@ -27,7 +27,7 @@ const PopupDialog = ({
                     {dialogTitleText}
                 </DialogTitle>
                 <DialogContent>
-                    {Content}
+                    <Content closeAction={doClose}/>
                 </DialogContent>
                 <DialogActions>
                     {Actions}
