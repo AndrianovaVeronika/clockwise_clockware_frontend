@@ -1,10 +1,9 @@
 import initialState from "../initialState";
 import {createSlice} from "@reduxjs/toolkit";
 import users from "../actions/users";
-import createReducerApi from "../middleware/createReducerApi";
+import reducerApi from "../middleware/createReducerApi";
 import {registerUserAccount} from "../actions/auth";
 import {resetPassword} from "../actions/users"
-const api = createReducerApi('users');
 
 const {reducer} = createSlice({
     name: 'users',
@@ -14,12 +13,12 @@ const {reducer} = createSlice({
     },
     extraReducers(builder) {
         builder
-            .addCase(registerUserAccount.fulfilled, api.ADD)
-            .addCase(users.add.fulfilled, api.ADD)
-            .addCase(users.getAll.fulfilled, api.GET)
-            .addCase(users.getById.fulfilled, api.GET_BY_ID)
-            .addCase(users.update.fulfilled, api.UPDATE)
-            .addCase(users.delete.fulfilled, api.DELETE)
+            .addCase(registerUserAccount.fulfilled, reducerApi.ADD('users'))
+            .addCase(users.add.fulfilled, reducerApi.ADD('users'))
+            .addCase(users.getAll.fulfilled, reducerApi.GET('users'))
+            .addCase(users.getById.fulfilled, reducerApi.GET_BY_ID('users'))
+            .addCase(users.update.fulfilled, reducerApi.UPDATE('users'))
+            .addCase(users.delete.fulfilled, reducerApi.DELETE('users'))
             .addCase(resetPassword.fulfilled, (state, action) => {
                 //password reseted
             })
