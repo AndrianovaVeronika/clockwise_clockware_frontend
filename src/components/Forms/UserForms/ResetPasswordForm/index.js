@@ -1,10 +1,8 @@
 import React, {useState} from "react";
-import {useDispatch, useSelector} from "react-redux";
-import useStyles from "../../../../styles/useStyles";
+import {useDispatch} from "react-redux";
 import FormikPasswordField from "../../FormsComponents/FormikPasswordField";
 import {Form, Formik} from "formik";
 import * as Yup from "yup";
-import {getCurrentUserSelector} from "../../../../store/selectors/authSelector";
 import {updateCredentials} from "../../../../store/actions/auth";
 import {Alert, AlertTitle} from "@mui/material";
 
@@ -13,10 +11,8 @@ const initialValues = {
     confirmPassword: ''
 }
 
-const ResetPasswordForm = () => {
+const ResetPasswordForm = ({closeAction}) => {
     const dispatch = useDispatch();
-    const styles = useStyles();
-    const currentUser = useSelector(getCurrentUserSelector);
 
     const [Error, setError] = useState(<></>);
 
@@ -31,6 +27,7 @@ const ResetPasswordForm = () => {
             );
         } else {
             setError(<></>);
+            closeAction();
         }
     };
 

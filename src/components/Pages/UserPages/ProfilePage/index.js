@@ -14,7 +14,8 @@ import ResetPasswordForm from "../../../Forms/UserForms/ResetPasswordForm";
 const ProfilePage = () => {
     const user = useSelector(getCurrentUserSelector);
     const classes = useStyles();
-    console.log('profile page')
+
+
     return (
         <Page>
             <Box className={classes.profileContent}>
@@ -28,8 +29,13 @@ const ProfilePage = () => {
                 <PopupDialog
                     openButtonText='Reset password'
                     dialogTitleText='Enter new password and confirm'
-                    Content={<ResetPasswordForm/>}
-                    Actions={<Button type='submit' form='reset-password-form'>Confirm</Button>}
+                    Content={ResetPasswordForm}
+                    Actions={
+                        <Button
+                            type='submit'
+                            form='reset-password-form'
+                        >Confirm</Button>
+                    }
                 />
             </Box>
         </Page>
