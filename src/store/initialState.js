@@ -9,7 +9,9 @@ const initialState = {
         usersList: [],
     },
     orders: {
-        ordersList: []
+        ordersList: [],
+        currentUserOrders: [],
+        currentMasterOrders: []
     },
     masters: {
         mastersList: [],
