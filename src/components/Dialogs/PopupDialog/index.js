@@ -12,22 +12,22 @@ const PopupDialog = ({
     const styles = useStyles();
 
     const [open, setOpen] = useState(false);
-    const doOpen = () => setOpen(true);
-    const doClose = () => setOpen(false);
+    const onOpen = () => setOpen(true);
+    const onClose = () => setOpen(false);
 
     return (<>
-        <Button onClick={doOpen}>{openButtonText}</Button>
+        <Button onClick={onOpen}>{openButtonText}</Button>
         <Backdrop
             className={styles.backdrop}
             open={open}
         >
-            <Dialog open={open} onClose={doClose}>
-                <CloseButton onCancel={doClose}/>
+            <Dialog open={open} onClose={onClose}>
+                <CloseButton onCancel={onClose}/>
                 <DialogTitle>
                     {dialogTitleText}
                 </DialogTitle>
                 <DialogContent>
-                    <Content closeAction={doClose}/>
+                    <Content closeAction={onClose}/>
                 </DialogContent>
                 <DialogActions>
                     {Actions}
