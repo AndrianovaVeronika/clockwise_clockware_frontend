@@ -74,7 +74,7 @@ const UserForm = ({submitAction, specifiedInitialValues, formId, setDataTableAle
                                 <FormikPasswordField
                                     label='Password'
                                     name='password'
-                                    error={props.errors.name && props.touched.name}
+                                    error={props.errors.password && props.touched.password}
                                 />
                             </Form>
                         )
