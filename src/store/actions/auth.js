@@ -12,12 +12,25 @@ export const registerMasterAccount = createAsyncThunk(auth.CREATE_MASTER_ACCOUNT
 
 export const verifyUserAccess = createAsyncThunk(auth.VERIFY_USER_ACCESS, actionApi.GET('/access/user'));
 
-export const verifyEmailState = createAsyncThunk(auth.VERIFY_EMAIL_STATE, async (url, thunkAPI) => {
+export const updateCredentials = createAsyncThunk(auth.UPDATE_CREDENTIALS, async (valuesToUpdate, thunkApi) => {
     try {
         const response = await instance.get(url, {...baseHeaders});
         return response.data || {};
     } catch (e) {
-        return thunkAPI.rejectWithValue(e.response.data)
+        return thunkApi.rejectWithValue(e.response.data);
+    }
+})
+
+export const verifyEmailState = createAsyncThunk(auth.VERIFY_EMAIL_STATE, async (url, thunkAPI) => {
+    try {
+        const response = await instance.get(url, {
+            headers: {
+                'x-access-token': sessionStorage.getItem('TOKEN')
+            }
+        });
+        return response.data || {};
+    } catch (e) {
+        return thunkAPI.rejectWithValue(e.response.data);
     }
 });
 
@@ -26,5 +39,3 @@ export const logOut = createAsyncThunk(auth.LOG_OUT, async () => {
 });
 
 export const isUserCreated = createAsyncThunk(auth.IS_USER_CREATED, actionApi.POST('/verify/user/created'));
-
-export const resetPassword = createAsyncThunk(auth.RESET_PASSWORD, actionApi.PUT('/reset/password'));

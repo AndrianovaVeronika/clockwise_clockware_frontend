@@ -1,10 +1,10 @@
 import React, {useState} from "react";
-import {IconButton, InputAdornment, InputLabel, OutlinedInput} from "@mui/material";
+import {FormHelperText, IconButton, InputAdornment, InputLabel, OutlinedInput} from "@mui/material";
 import {ErrorMessage, Field} from "formik";
 import {Visibility, VisibilityOff} from "@mui/icons-material";
 import useStyles from "../../../../styles/useStyles";
 
-const FormikPasswordField = ({name, label, ...props}) => {
+const FormikPasswordField = ({name, label, error, ...props}) => {
     const classes = useStyles();
     const [showPassword, setShowPassword] = useState(false);
 
@@ -22,9 +22,9 @@ const FormikPasswordField = ({name, label, ...props}) => {
                id={name + '-field'}
                name={name}
                type={showPassword ? 'text' : 'password'}
-               helpertext={<ErrorMessage name='password'/>}
                fullWidth
                className={classes.formItem}
+               error={error}
                endAdornment={
                    <InputAdornment position="end">
                        <IconButton
@@ -38,6 +38,7 @@ const FormikPasswordField = ({name, label, ...props}) => {
                }
                {...props}
         />
+        <FormHelperText className={classes.helperText} error={error}><ErrorMessage name={name}/></FormHelperText>
     </>
 }
 

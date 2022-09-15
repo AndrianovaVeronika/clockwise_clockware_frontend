@@ -3,6 +3,7 @@ import {createSlice} from "@reduxjs/toolkit";
 import users from "../actions/users";
 import reducerApi from "../middleware/createReducerApi";
 import {registerUserAccount} from "../actions/auth";
+import {resetPassword} from "../actions/users"
 
 const {reducer} = createSlice({
     name: 'users',
@@ -18,6 +19,9 @@ const {reducer} = createSlice({
             .addCase(users.getById.fulfilled, reducerApi.GET_BY_ID('users'))
             .addCase(users.update.fulfilled, reducerApi.UPDATE('users'))
             .addCase(users.delete.fulfilled, reducerApi.DELETE('users'))
+            .addCase(resetPassword.fulfilled, (state, action) => {
+                //password reseted
+            })
             .addDefaultCase((state, action) => {
                 return state;
             })
