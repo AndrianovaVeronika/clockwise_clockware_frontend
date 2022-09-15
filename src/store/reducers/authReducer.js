@@ -64,8 +64,6 @@ const {reducer} = createSlice({
             })
             .addCase(updateCredentials.fulfilled, (state, action) => {
                 //credentials updated
-            .addCase(resetPassword.fulfilled, (state, action) => {
-                //password reset
             })
             .addDefaultCase((state, action) => {
                 return state;
