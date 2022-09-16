@@ -2,6 +2,7 @@ import {createAsyncThunk} from "@reduxjs/toolkit";
 import users from "../constants/users";
 import instance from "../middleware/instance";
 import actionApi from "../middleware/createActionApi";
+import baseHeaders from "../middleware/headers";
 
 const addUser = createAsyncThunk(users.ADD_USER, actionApi.POST('/users'));
 
@@ -16,9 +17,7 @@ const getUserById = createAsyncThunk(users.GET_USER_BY_ID, actionApi.GET_BY_ID('
 export const resetPassword = createAsyncThunk(users.RESET_PASSWORD, async (id, thunkAPI) => {
     try {
         const response = await instance.put('/reset/password/' + id, {}, {
-            headers: {
-                'x-access-token': sessionStorage.getItem('TOKEN')
-            }
+            headers: {...baseHeaders}
         });
         return response.data;
     } catch (e) {
