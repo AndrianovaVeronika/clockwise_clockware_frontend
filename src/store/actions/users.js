@@ -16,7 +16,7 @@ const getUserById = createAsyncThunk(users.GET_USER_BY_ID, actionApi.GET_BY_ID('
 
 export const resetPassword = createAsyncThunk(users.RESET_PASSWORD, async (id, thunkAPI) => {
     try {
-        const response = await instance.put('/reset/password/' + id, {}, {
+        const response = await instance.put(`/reset/password/${id}`, {}, {
             headers: {...baseHeaders}
         });
         return response.data;

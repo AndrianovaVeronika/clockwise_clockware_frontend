@@ -14,7 +14,7 @@ export default {
     },
     GET_BY_ID: (path) => async (id, thunkAPI) => {
         try {
-            const response = await instance.get(path + '/' + id, {
+            const response = await instance.get(`${path}/${id}`, {
                 headers: {...baseHeaders}
             });
             return response.data || {};
@@ -34,7 +34,7 @@ export default {
     },
     PUT: (path) => async ({id, ...updateValues}, thunkAPI) => {
         try {
-            const response = await instance.put(path + '/' + id, updateValues, {
+            const response = await instance.put(`${path}/${id}`, updateValues, {
                 headers: {...baseHeaders}
             });
             return response.data;
@@ -44,7 +44,7 @@ export default {
     },
     DELETE: (path) => async (id, thunkAPI) => {
         try {
-            const response = await instance.delete(path + '/' + id, {
+            const response = await instance.delete(`${path}/${id}`, {
                 headers: {...baseHeaders}
             });
             return response.data;
