@@ -14,7 +14,9 @@ export const verifyUserAccess = createAsyncThunk(auth.VERIFY_USER_ACCESS, action
 
 export const updateCredentials = createAsyncThunk(auth.UPDATE_CREDENTIALS, async (valuesToUpdate, thunkApi) => {
     try {
-        const response = await instance.get(url, {...baseHeaders});
+        const response = await instance.put('/update/credentials', valuesToUpdate,{
+            headers: {...baseHeaders}
+        });
         return response.data || {};
     } catch (e) {
         return thunkApi.rejectWithValue(e.response.data);
@@ -24,9 +26,7 @@ export const updateCredentials = createAsyncThunk(auth.UPDATE_CREDENTIALS, async
 export const verifyEmailState = createAsyncThunk(auth.VERIFY_EMAIL_STATE, async (url, thunkAPI) => {
     try {
         const response = await instance.get(url, {
-            headers: {
-                'x-access-token': sessionStorage.getItem('TOKEN')
-            }
+            headers: {...baseHeaders}
         });
         return response.data || {};
     } catch (e) {

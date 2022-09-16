@@ -17,7 +17,7 @@ function renderStatus({id, value}) {
     const color = value ? 'green' : 'red';
     const text = value ? 'Completed' : 'Not completed';
 
-    return <Button onClick={()=> store.dispatch(orders.updateMasterOrderById({id, isCompleted: !value}))} sx={{color: color}}>{text}</Button>;
+    return <Button disabled={value} onClick={()=> store.dispatch(orders.updateMasterOrderById({id, isCompleted: !value}))} sx={{color: color}}>{text}</Button>;
 }
 
 const columns = [

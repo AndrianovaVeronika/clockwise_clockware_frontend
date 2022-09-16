@@ -1,15 +1,20 @@
 import React, {useEffect} from "react";
 import {useDispatch, useSelector} from "react-redux";
-import users from "../../../store/actions/users";
+import users, {resetPassword} from "../../../store/actions/users";
 import {getUsersSelector} from "../../../store/selectors/usersSelector";
 import DataTable from "../DataTable";
 import UserForm from "../../Forms/AdminForms/UserForm";
 import {Button} from "@mui/material";
-import {resetPassword} from "../../../store/actions/users";
 import store from "../../../store/store";
 
 function renderResetPasswordButton({value}) {
-    return <Button onClick={() => store.dispatch(resetPassword(value))}>Reset password</Button>;
+    const onClick = async () => {
+        const {error, payload} = await store.dispatch(resetPassword(value));
+        if (!error) {
+            console.log('Password reset');
+        }
+    }
+    return <Button onClick={onClick}>Reset password</Button>;
 }
 
 const columns = [

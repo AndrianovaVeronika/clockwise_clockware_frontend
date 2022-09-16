@@ -63,7 +63,7 @@ const {reducer} = createSlice({
                 state.auth.currentUser.emailChecked = true;
             })
             .addCase(updateCredentials.fulfilled, (state, action) => {
-                //credentials updated
+                state.auth.currentUser = action.payload;
             })
             .addDefaultCase((state, action) => {
                 return state;

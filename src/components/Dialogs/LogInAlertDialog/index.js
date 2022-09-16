@@ -10,7 +10,7 @@ const LogoutAlertDialog = () => {
             <Dialog open={true}>
                 <DialogTitle>Error!</DialogTitle>
                 <DialogContent>
-                    <Typography>You need to log in before placing new order on your account!</Typography>
+                    <Typography>You need to log in and prove your email before placing new order on your account!</Typography>
                 </DialogContent>
                 <DialogActions>
                     <Button onClick={() => {

@@ -5,9 +5,7 @@ export default {
     GET: (path) => async (_, thunkAPI) => {
         try {
             const response = await instance.get(path, {
-                headers: {
-                    'x-access-token': sessionStorage.getItem('TOKEN')
-                }
+                headers: {...baseHeaders}
             });
             return response.data || {};
         } catch (e) {
@@ -16,7 +14,9 @@ export default {
     },
     GET_BY_ID: (path) => async (id, thunkAPI) => {
         try {
-            const response = await instance.get(path + '/' + id, {...baseHeaders});
+            const response = await instance.get(`${path}/${id}`, {
+                headers: {...baseHeaders}
+            });
             return response.data || {};
         } catch (e) {
             return thunkAPI.rejectWithValue(e.response.data)
@@ -24,7 +24,9 @@ export default {
     },
     POST: (path) => async (newInstance, thunkAPI) => {
         try {
-            const response = await instance.post(path, newInstance, {...baseHeaders});
+            const response = await instance.post(path, newInstance, {
+                headers: {...baseHeaders}
+            });
             return response.data;
         } catch (e) {
             return thunkAPI.rejectWithValue(e.response.data)
@@ -32,8 +34,9 @@ export default {
     },
     PUT: (path) => async ({id, ...updateValues}, thunkAPI) => {
         try {
-            console.log(updateValues)
-            const response = await instance.put(path + '/' + id, updateValues, {...baseHeaders});
+            const response = await instance.put(`${path}/${id}`, updateValues, {
+                headers: {...baseHeaders}
+            });
             return response.data;
         } catch (e) {
             return thunkAPI.rejectWithValue(e.response.data)
@@ -41,7 +44,9 @@ export default {
     },
     DELETE: (path) => async (id, thunkAPI) => {
         try {
-            const response = await instance.delete(path + '/' + id, {...baseHeaders});
+            const response = await instance.delete(`${path}/${id}`, {
+                headers: {...baseHeaders}
+            });
             return response.data;
         } catch (e) {
             return thunkAPI.rejectWithValue(e.response.data)
