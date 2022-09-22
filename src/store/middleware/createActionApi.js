@@ -1,11 +1,11 @@
 import instance from "./instance";
-import baseHeaders from "./headers";
+import getBaseHeaders from "./headers";
 
 export default {
     GET: (path) => async (_, thunkAPI) => {
         try {
             const response = await instance.get(path, {
-                headers: {...baseHeaders}
+                headers: getBaseHeaders()
             });
             return response.data || {};
         } catch (e) {
@@ -15,7 +15,7 @@ export default {
     GET_BY_ID: (path) => async (id, thunkAPI) => {
         try {
             const response = await instance.get(`${path}/${id}`, {
-                headers: {...baseHeaders}
+                headers: getBaseHeaders()
             });
             return response.data || {};
         } catch (e) {
@@ -25,7 +25,7 @@ export default {
     POST: (path) => async (newInstance, thunkAPI) => {
         try {
             const response = await instance.post(path, newInstance, {
-                headers: {...baseHeaders}
+                headers: getBaseHeaders()
             });
             return response.data;
         } catch (e) {
@@ -35,7 +35,7 @@ export default {
     PUT: (path) => async ({id, ...updateValues}, thunkAPI) => {
         try {
             const response = await instance.put(`${path}/${id}`, updateValues, {
-                headers: {...baseHeaders}
+                headers: getBaseHeaders()
             });
             return response.data;
         } catch (e) {
@@ -45,7 +45,7 @@ export default {
     DELETE: (path) => async (id, thunkAPI) => {
         try {
             const response = await instance.delete(`${path}/${id}`, {
-                headers: {...baseHeaders}
+                headers: getBaseHeaders()
             });
             return response.data;
         } catch (e) {

@@ -3,18 +3,16 @@ import {withHeader} from '../../../../functions/withHeader';
 import {compose} from "redux";
 import {useSelector} from "react-redux";
 import {getCurrentUserSelector} from "../../../../store/selectors/authSelector";
-import {Alert, Box, Button, Typography} from "@mui/material";
+import {Alert, Box, Typography} from "@mui/material";
 import withRedirectAfterLogout from "../../../../functions/withRedirectAfterLogout";
 import withSidebar from "../../../../functions/withSidebar";
 import Page from "../../../../styles/Page";
 import useStyles from "../../../../styles/useStyles";
-import PopupDialog from "../../../Dialogs/PopupDialog";
-import ResetPasswordForm from "../../../Forms/UserForms/ResetPasswordForm";
+import ResetPasswordDialog from "../../../Dialogs/ResetPasswordDialog";
 
 const ProfilePage = () => {
     const user = useSelector(getCurrentUserSelector);
     const classes = useStyles();
-
 
     return (
         <Page>
@@ -26,17 +24,7 @@ const ProfilePage = () => {
                     reasons!</Alert>}
                 {!user.emailChecked &&
                 <Alert severity='error'>Email unverified. Check your postbox for confirmation letter.</Alert>}
-                <PopupDialog
-                    openButtonText='Reset password'
-                    dialogTitleText='Enter new password and confirm'
-                    Content={ResetPasswordForm}
-                    Actions={
-                        <Button
-                            type='submit'
-                            form='reset-password-form'
-                        >Confirm</Button>
-                    }
-                />
+                <ResetPasswordDialog/>
             </Box>
         </Page>
     )

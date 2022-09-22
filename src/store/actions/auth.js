@@ -2,7 +2,7 @@ import {createAsyncThunk} from "@reduxjs/toolkit";
 import auth from "../constants/auth";
 import actionApi from "../middleware/createActionApi";
 import instance from "../middleware/instance";
-import baseHeaders from "../middleware/headers";
+import getBaseHeaders from "../middleware/headers";
 
 export const signIn = createAsyncThunk(auth.SIGN_IN, actionApi.POST('/signin'));
 
@@ -15,7 +15,7 @@ export const verifyUserAccess = createAsyncThunk(auth.VERIFY_USER_ACCESS, action
 export const updateCredentials = createAsyncThunk(auth.UPDATE_CREDENTIALS, async (valuesToUpdate, thunkApi) => {
     try {
         const response = await instance.put('/update/credentials', valuesToUpdate,{
-            headers: {...baseHeaders}
+            headers: getBaseHeaders()
         });
         return response.data || {};
     } catch (e) {
@@ -26,7 +26,7 @@ export const updateCredentials = createAsyncThunk(auth.UPDATE_CREDENTIALS, async
 export const verifyEmailState = createAsyncThunk(auth.VERIFY_EMAIL_STATE, async (url, thunkAPI) => {
     try {
         const response = await instance.get(url, {
-            headers: {...baseHeaders}
+            headers: getBaseHeaders()
         });
         return response.data || {};
     } catch (e) {

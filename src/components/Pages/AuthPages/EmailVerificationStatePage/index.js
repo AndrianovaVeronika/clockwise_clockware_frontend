@@ -13,6 +13,7 @@ const EmailVerificationStatePage = () => {
     const [{message, isEmailValid}, setData] = useState({});
 
     const getText = async () => {
+        console.log(location.pathname)
         const income = await dispatch(verifyEmailState(location.pathname));
         setData(income.payload);
     }
