@@ -17,14 +17,23 @@ const ProfilePage = () => {
     return (
         <Page>
             <Box className={classes.profileContent}>
-                <Typography>Name: {user.name}</Typography>
-                <Typography color={user.emailChecked ? 'green' : 'red'}>Email: {user.email}</Typography>
-                {user.isPasswordTemporary &&
-                <Alert severity='warning'>Temporary password. Please change it on your own one for safety
-                    reasons!</Alert>}
-                {!user.emailChecked &&
-                <Alert severity='error'>Email unverified. Check your postbox for confirmation letter.</Alert>}
-                <ResetPasswordDialog/>
+                <Typography variant='h5' gutterBottom>My credentials</Typography>
+                <Box className={classes.userAccessArea}>
+                    <Box>
+                        <Typography className={classes.userAccessAreaItem}>Name: {user.name}</Typography>
+                        <Typography className={classes.userAccessAreaItem} color={user.emailChecked ? 'green' : 'red'}>Email: {user.email}</Typography>
+                    </Box>
+                    <Box>
+                        <ResetPasswordDialog/>
+                    </Box>
+                </Box>
+                <Box>
+                    {user.isPasswordTemporary &&
+                    <Alert severity='warning'>Temporary password. Please change it on your own one for safety
+                        reasons!</Alert>}
+                    {!user.emailChecked &&
+                    <Alert severity='error'>Email unverified. Check your postbox for confirmation letter.</Alert>}
+                </Box>
             </Box>
         </Page>
     )

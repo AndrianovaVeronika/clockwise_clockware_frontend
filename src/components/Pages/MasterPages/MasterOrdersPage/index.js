@@ -1,7 +1,7 @@
 import {Box, Button, Typography} from "@mui/material";
 import useStyles from "../../../../styles/useStyles";
 import {useDispatch, useSelector} from "react-redux";
-import {useEffect} from "react";
+import React, {useEffect} from "react";
 import orders from "../../../../store/actions/orders";
 import {getCurrentMasterOrdersSelector} from "../../../../store/selectors/ordersSelector";
 import Page from "../../../../styles/Page";
@@ -67,6 +67,7 @@ const MasterOrdersPage = () => {
     return (
         <Page>
             <Box className={classes.profileContent}>
+                <Typography variant='h5' gutterBottom>Received orders</Typography>
                 <Box className={classes.dataTable}>
                     <DataGrid
                         rows={currentUserOrders}

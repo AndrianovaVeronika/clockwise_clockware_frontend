@@ -7,7 +7,7 @@ import withRedirectIfNotAdmin from "../../../../functions/withRedirectIfNotAdmin
 import {compose} from "redux";
 import useStyles from "../../../../styles/useStyles";
 import Page from "../../../../styles/Page";
-import {Box} from "@mui/material";
+import {Box, Typography} from "@mui/material";
 
 const AdminCitiesPage = () => {
     const classes = useStyles();
@@ -15,6 +15,7 @@ const AdminCitiesPage = () => {
     return (
         <Page>
             <Box className={classes.profileContent}>
+                <Typography variant='h5' gutterBottom>Cities table</Typography>
                 <CitiesTable/>
             </Box>
         </Page>

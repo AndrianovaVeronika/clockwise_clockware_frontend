@@ -7,7 +7,7 @@ import withSidebar from "../../../../functions/withSidebar";
 import withRedirectIfNotAdmin from "../../../../functions/withRedirectIfNotAdmin";
 import useStyles from "../../../../styles/useStyles";
 import Page from "../../../../styles/Page";
-import {Box} from "@mui/material";
+import {Box, Typography} from "@mui/material";
 
 const AdminOrdersPage = () => {
     const classes = useStyles();
@@ -15,6 +15,7 @@ const AdminOrdersPage = () => {
     return (
         <Page>
             <Box className={classes.profileContent}>
+                <Typography variant='h5' gutterBottom>Orders table</Typography>
                 <OrdersTable/>
             </Box>
         </Page>

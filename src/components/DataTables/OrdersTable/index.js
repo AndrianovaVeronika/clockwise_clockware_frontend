@@ -45,7 +45,7 @@ const columns = [
     {
         field: 'isCompleted',
         headerName: 'Status',
-        width: 80,
+        width: 120,
         renderCell: renderStatus,
         type: 'boolean'
     },

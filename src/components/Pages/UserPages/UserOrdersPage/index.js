@@ -75,6 +75,7 @@ const UserOrdersPage = () => {
     return (
         <Page>
             <Box className={classes.profileContent}>
+                <Typography variant='h5' gutterBottom>My orders</Typography>
                 <Box className={classes.dataTable}>
                     <DataGrid
                         rows={currentUserOrders}
