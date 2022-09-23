@@ -13,11 +13,19 @@ import withRedirectAfterLogout from "../../../../functions/withRedirectAfterLogo
 import withRedirectIfNotMaster from "../../../../functions/withRedirectIfNotMaster";
 import store from "../../../../store/store";
 
-function renderStatus({id, value}) {
+function renderStatus({value}) {
+    console.log(value)
     const color = value ? 'green' : 'red';
     const text = value ? 'Completed' : 'Not completed';
 
-    return <Button disabled={value} onClick={()=> store.dispatch(orders.updateMasterOrderById({id, isCompleted: !value}))} sx={{color: color}}>{text}</Button>;
+    return <Typography color={color}>{text}</Typography>;
+}
+
+function renderCompleteButton({id, row}) {
+    return <Button
+        disabled={row.isCompleted}
+        onClick={() => store.dispatch(orders.updateMasterOrderById({id, isCompleted: !row.isCompleted}))}
+    >Complete</Button>
 }
 
 const columns = [
@@ -52,6 +60,13 @@ const columns = [
         renderCell: renderStatus,
         type: 'boolean'
     },
+    {
+        field: 'complete',
+        headerName: '',
+        width: 150,
+        renderCell: renderCompleteButton,
+        type: 'boolean'
+    }
 ];
 
 const MasterOrdersPage = () => {
