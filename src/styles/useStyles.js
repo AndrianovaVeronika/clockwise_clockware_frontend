@@ -120,6 +120,13 @@ export const useStyles = makeStyles((theme) => ({
     profileContent: {
         padding: '30px'
     },
+    userAccessArea: {
+        display: "flex",
+        direction: "row",
+    },
+    userAccessAreaItem: {
+        margin: "10px!important"
+    },
     //order page
     orderFormPaper: {
         height: '400px',

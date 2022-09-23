@@ -6,7 +6,7 @@ import UsersTable from "../../../DataTables/UsersTable";
 import withSidebar from "../../../../functions/withSidebar";
 import withRedirectIfNotAdmin from "../../../../functions/withRedirectIfNotAdmin";
 import Page from "../../../../styles/Page";
-import {Box} from "@mui/material";
+import {Box, Typography} from "@mui/material";
 import useStyles from "../../../../styles/useStyles";
 
 const AdminUsersPage = () => {
@@ -15,6 +15,7 @@ const AdminUsersPage = () => {
     return (
         <Page>
             <Box className={classes.profileContent}>
+                <Typography variant='h5' gutterBottom>Users table</Typography>
                 <UsersTable/>
             </Box>
         </Page>

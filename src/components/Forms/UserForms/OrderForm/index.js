@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from 'react';
-import {Alert, AlertTitle, Box, Button, IconButton, Paper, Snackbar, Step, StepLabel, Stepper} from "@mui/material";
+import {Alert, AlertTitle, Box, Button, IconButton, Paper, Step, StepLabel, Stepper} from "@mui/material";
 import CredentialsForm from "./CredentialsForm";
 import cities from "../../../../store/actions/cities";
 import {getClockTypes} from "../../../../store/actions/clockTypes";
@@ -15,6 +15,8 @@ import useStyles from "../../../../styles/useStyles";
 import orders from "../../../../store/actions/orders";
 import {useNavigate} from "react-router";
 import {getCurrentUserSelector} from "../../../../store/selectors/authSelector";
+import LoginAlertDialog from "../../../Dialogs/LogInAlertDialog";
+import OrderSuccessAlertDialog from "../../../Dialogs/OrderSuccessAlertDialog";
 
 const initialValues = {
     name: '',
@@ -40,12 +42,20 @@ const OrderForm = () => {
         dispatch(getClockTypes());
     }, [dispatch]);
 
-    const onFormSubmit = (v, props) => {
+    const [displayLoginError, setDisplayLoginError] = useState(false);
+    const onFormSubmit = (v, params) => {
         setValues({...values, ...v});
-        handleNext();
-    }
+        if (params) {
+            if (params.code === 401) {
+                setDisplayLoginError(true);
+            }
+        } else {
+            handleNext();
+        }
+    };
 
     const [Error, setError] = useState(<></>);
+    const [displaySuccessDialog, setDisplaySuccessDialog] = useState(false);
 
     const onSubmit = async (e) => {
         e.preventDefault();
@@ -58,7 +68,8 @@ const OrderForm = () => {
         );
         if (!error) {
             setError(<></>);
-            navigate('/order/success');
+            handleClean();
+            setDisplaySuccessDialog(true);
         }
     }
 
@@ -100,7 +111,7 @@ const OrderForm = () => {
                     formId='form0'
                     onSubmit={onFormSubmit}
                     values={values}
-                    currentUser={currentUser }
+                    currentUser={currentUser}
                 />
             }
             case 1 : {
@@ -172,6 +183,14 @@ const OrderForm = () => {
                     </div>
                 </div>
             </Paper>
+            {displayLoginError && <LoginAlertDialog
+                display={displayLoginError}
+                onClose={() => setDisplayLoginError(false)}
+            />}
+            {displaySuccessDialog && <OrderSuccessAlertDialog
+                display={displaySuccessDialog}
+                onClose={() => setDisplaySuccessDialog(false)}
+            />}
         </Box>
     )
 }

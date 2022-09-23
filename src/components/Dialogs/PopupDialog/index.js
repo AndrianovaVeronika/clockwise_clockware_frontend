@@ -1,22 +1,18 @@
-import {Backdrop, Button, Dialog, DialogActions, DialogContent, DialogTitle} from "@mui/material";
-import React, {useState} from "react";
+import {Backdrop, Dialog, DialogActions, DialogContent, DialogTitle} from "@mui/material";
+import React from "react";
 import useStyles from "../../../styles/useStyles";
 import CloseButton from "../../Forms/FormsComponents/CloseButton";
 
 const PopupDialog = ({
-                         openButtonText,
+                         open,
+                         onClose,
                          dialogTitleText,
                          Content,
                          Actions
                      }) => {
     const styles = useStyles();
 
-    const [open, setOpen] = useState(false);
-    const onOpen = () => setOpen(true);
-    const onClose = () => setOpen(false);
-
     return (<>
-        <Button onClick={onOpen}>{openButtonText}</Button>
         <Backdrop
             className={styles.backdrop}
             open={open}
@@ -27,7 +23,7 @@ const PopupDialog = ({
                     {dialogTitleText}
                 </DialogTitle>
                 <DialogContent>
-                    <Content closeAction={onClose}/>
+                    {Content}
                 </DialogContent>
                 <DialogActions>
                     {Actions}

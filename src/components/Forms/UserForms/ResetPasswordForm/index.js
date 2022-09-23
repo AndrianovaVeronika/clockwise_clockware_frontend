@@ -8,7 +8,8 @@ import {Alert, AlertTitle} from "@mui/material";
 
 const initialValues = {
     password: '',
-    confirmPassword: ''
+    confirmPassword: '',
+    currentPassword: ''
 }
 
 const ResetPasswordForm = ({closeAction}) => {
@@ -16,8 +17,8 @@ const ResetPasswordForm = ({closeAction}) => {
 
     const [Error, setError] = useState(<></>);
 
-    const onSubmit = async ({password}) => {
-        const {error, payload} = await dispatch(updateCredentials({password}));
+    const onSubmit = async ({password, currentPassword}) => {
+        const {error, payload} = await dispatch(updateCredentials({password, currentPassword}));
         if (error) {
             setError(
                 <Alert severity="error" key={payload.message}>
@@ -32,6 +33,7 @@ const ResetPasswordForm = ({closeAction}) => {
     };
 
     const validationSchema = Yup.object().shape({
+        currentPassword: Yup.string().min(8, 'Password is too short').required('Required'),
         password: Yup.string().min(8, 'Password is too short').required('Required'),
         confirmPassword: Yup.string().min(8, 'Password is too short').required('Required')
             .oneOf([Yup.ref('password'), null], 'Passwords dont match')
@@ -44,6 +46,12 @@ const ResetPasswordForm = ({closeAction}) => {
                 {
                     (props) => (
                         <Form id='reset-password-form'>
+                            <FormikPasswordField
+                                label='Current password'
+                                name='currentPassword'
+                                error={props.errors.currentPassword && props.touched.currentPassword}
+                                required
+                            />
                             <FormikPasswordField
                                 label='Password'
                                 name='password'

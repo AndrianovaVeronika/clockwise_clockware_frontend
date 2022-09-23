@@ -1,30 +1,36 @@
-import React from "react";
-import {Button, Dialog, DialogActions, DialogContent, DialogTitle, Typography} from "@mui/material";
+import React, {useState} from "react";
+import {Button, Typography} from "@mui/material";
 import {useNavigate} from "react-router";
 import {logOut} from "../../../store/actions/auth";
 import {useDispatch} from "react-redux";
+import PopupDialog from "../../Dialogs/PopupDialog";
 
-const LogoutAlertDialog = () => {
+const LogoutAlertDialog = ({openButtonText, OpenButtonType}) => {
     const navigate = useNavigate();
     const dispatch = useDispatch();
+    const [open, setOpen] = useState(false);
+    const onOpen = () => {
+        setOpen(true);
+    }
+    const onClose = () => {
+        setOpen(false);
+    }
 
     return (
         <>
-            <Dialog open={true}>
-                <DialogTitle>Attention!</DialogTitle>
-                <DialogContent>
-                    <Typography>Are you sure you want to log out?</Typography>
-                </DialogContent>
-                <DialogActions>
-                    <Button onClick={()=> {
-                        navigate('/profile');
-                    }}>Cancel</Button>
+            <OpenButtonType onClick={onOpen}>{openButtonText}</OpenButtonType>
+            <PopupDialog
+                open={open}
+                onClose={onClose}
+                dialogTitleText='Attention!'
+                Content={<Typography>Are you sure you want to log out?</Typography>}
+                Actions={
                     <Button onClick={() => {
                         dispatch(logOut());
                         navigate('/');
                     }}>Ok</Button>
-                </DialogActions>
-            </Dialog>
+                }
+            />
         </>
     )
 }

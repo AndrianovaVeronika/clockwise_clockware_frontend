@@ -1,26 +1,27 @@
 import React from "react";
-import {Button, Dialog, DialogActions, DialogContent, DialogTitle, Typography} from "@mui/material";
+import {Button, Typography} from "@mui/material";
 import {useNavigate} from "react-router";
+import PopupDialog from "../PopupDialog";
 
-const UserCreatedDialog = () => {
+const UserCreatedDialog = ({display, onClose}) => {
     const navigate = useNavigate();
 
     return (
         <>
-            <Dialog open={true}>
-                <DialogTitle>Success!</DialogTitle>
-                <DialogContent>
-                    <Typography>User created successfully!</Typography>
-                </DialogContent>
-                <DialogActions>
-                    <Button onClick={()=> {
+            <PopupDialog
+                open={display}
+                onClose={onClose}
+                dialogTitleText='Success!'
+                Content={<Typography>Account registered successfully!</Typography>}
+                Actions={<>
+                    <Button onClick={() => {
                         navigate('/login');
                     }}>Sign in</Button>
-                    <Button onClick={()=> {
+                    <Button onClick={() => {
                         navigate('/');
                     }}>Home</Button>
-                </DialogActions>
-            </Dialog>
+                </>}
+            />
         </>
     )
 }

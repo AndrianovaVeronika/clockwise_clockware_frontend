@@ -23,35 +23,38 @@ const LoginOrSignup = ({formId, onSubmit, values, currentUser}) => {
 
     const submitAction = async (v) => {
         const {error, payload} = await dispatch(isUserCreated(v));
-        if (error && payload?.code === 401) {
-            navigate('/alert/login');
+        if (error) {
+            onSubmit(v, payload);
+        } else {
+            onSubmit(v);
         }
-        onSubmit(v);
     };
 
     return (
-        <Formik initialValues={initialValues}
-                validationSchema={validationSchema}
-                onSubmit={submitAction}>
-            {
-                (props) => (
-                    <Form id={formId}>
-                        <FormikTextField
-                            label='Name'
-                            name='name'
-                            error={props.errors.name && props.touched.name}
-                            required
-                        />
-                        <FormikTextField
-                            label='Email'
-                            name='email'
-                            error={props.errors.email && props.touched.email}
-                            required
-                        />
-                    </Form>
-                )
-            }
-        </Formik>
+        <>
+            <Formik initialValues={initialValues}
+                    validationSchema={validationSchema}
+                    onSubmit={submitAction}>
+                {
+                    (props) => (
+                        <Form id={formId}>
+                            <FormikTextField
+                                label='Name'
+                                name='name'
+                                error={props.errors.name && props.touched.name}
+                                required
+                            />
+                            <FormikTextField
+                                label='Email'
+                                name='email'
+                                error={props.errors.email && props.touched.email}
+                                required
+                            />
+                        </Form>
+                    )
+                }
+            </Formik>
+        </>
     )
 }
 

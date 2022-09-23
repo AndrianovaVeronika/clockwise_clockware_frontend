@@ -11,6 +11,7 @@ import {getCitiesSelector} from "../../../../store/selectors/citiesSelector";
 import cities from "../../../../store/actions/cities";
 import FormikSelectField from "../../FormsComponents/FormikSelectField";
 import {registerMasterAccount} from "../../../../store/actions/auth";
+import UserCreatedDialog from "../../../Dialogs/UserCreatedDialog";
 
 const initialValues = {
     name: "",
@@ -56,6 +57,7 @@ const MasterSignUpForm = ({setError}) => {
         dispatch(cities.getAll());
     }, [dispatch])
 
+    const [displaySuccessDialog, setDisplaySuccessfulDialog] = useState(false);
 
     const onSubmit = async (values, props) => {
         const {error, payload} = await dispatch(registerMasterAccount({...values, cities: citiesChosen}));
@@ -68,7 +70,7 @@ const MasterSignUpForm = ({setError}) => {
             );
         } else {
             setError(<></>);
-            navigate('/user/success');
+            setDisplaySuccessfulDialog(true);
         }
     };
 
@@ -116,6 +118,10 @@ const MasterSignUpForm = ({setError}) => {
                     )
                 }
             </Formik>
+            {displaySuccessDialog && <UserCreatedDialog
+                display={displaySuccessDialog}
+                onClose={() => setDisplaySuccessfulDialog(false)}
+            />}
         </>
     )
 }

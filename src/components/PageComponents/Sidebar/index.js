@@ -9,6 +9,7 @@ import {isAdminSelector, isAuthUserSelector, isMasterSelector} from "../../../st
 import {useEffect, useState} from "react";
 import useStyles from "../../../styles/useStyles";
 import ListAltIcon from '@mui/icons-material/ListAlt';
+import LogoutAlertDialog from "../../Dialogs/LogoutAlertDialog";
 
 const Sidebar = () => {
     const navigate = useNavigate();
@@ -38,7 +39,13 @@ const Sidebar = () => {
                     <MenuItem onClick={() => navigate('/admin/masters')}>Masters</MenuItem>
                     <MenuItem onClick={() => navigate('/admin/cities')}>Cities</MenuItem>
                 </SubMenu>}
-                {isAuth && <MenuItem icon={<LogoutIcon/>} onClick={() => navigate('/logout')}>Log out</MenuItem>}
+                {isAuth &&
+                <LogoutAlertDialog
+                    OpenButtonType={(params) =>
+                        <MenuItem {...params} icon={<LogoutIcon/>}/>
+                    }
+                    openButtonText='Log out'
+                />}
             </Menu>
         </ProSidebar>
     )
