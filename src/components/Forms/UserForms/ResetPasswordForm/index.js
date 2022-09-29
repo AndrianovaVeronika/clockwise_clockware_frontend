@@ -34,7 +34,10 @@ const ResetPasswordForm = ({closeAction}) => {
 
     const validationSchema = Yup.object().shape({
         currentPassword: Yup.string().min(8, 'Password is too short').required('Required'),
-        password: Yup.string().min(8, 'Password is too short').required('Required'),
+        password: Yup.string().min(8, 'Password is too short').required('Required')
+            .when(["currentPassword"], (curr, schema) => {
+                return schema.notOneOf([curr], "Password should not be equal to current one");
+            }),
         confirmPassword: Yup.string().min(8, 'Password is too short').required('Required')
             .oneOf([Yup.ref('password'), null], 'Passwords dont match')
     });
