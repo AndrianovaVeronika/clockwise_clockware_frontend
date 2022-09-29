@@ -14,7 +14,6 @@ import withRedirectIfNotMaster from "../../../../functions/withRedirectIfNotMast
 import store from "../../../../store/store";
 
 function renderStatus({value}) {
-    console.log(value)
     const color = value ? 'green' : 'red';
     const text = value ? 'Completed' : 'Not completed';
 
