@@ -8,6 +8,7 @@ import FormikSelectField from "../../FormsComponents/FormikSelectField";
 import {getCitiesSelector} from "../../../../store/selectors/citiesSelector";
 import useStyles from "../../../../styles/useStyles";
 import FormikTextField from "../../FormsComponents/FormikTextField";
+import {useTranslation} from "react-i18next";
 
 const initialValues = {
     name: '',
@@ -25,6 +26,7 @@ const getCityOptionsForSelect = (incomeCities) => {
 }
 
 const MasterForm = ({specifiedInitialValues, submitAction, formId, setDataTableAlert, clearDataTableSelectedRow}) => {
+    const {t} = useTranslation();
     const dispatch = useDispatch();
     const classes = useStyles();
 
@@ -50,7 +52,7 @@ const MasterForm = ({specifiedInitialValues, submitAction, formId, setDataTableA
     const cityOptions = getCityOptionsForSelect(incomeCities);
 
     const validationSchema = Yup.object().shape({
-        name: Yup.string().min(3, 'Name is too short').required('Required'),
+        name: Yup.string().min(3, t("forms.validationErrors.shortName")).required(t("forms.validationErrors.required")),
     })
 
     const [Error, setError] = useState(<></>);
@@ -93,7 +95,7 @@ const MasterForm = ({specifiedInitialValues, submitAction, formId, setDataTableA
                         <Form id={formId} className={classes.twoColumnForm}>
                             <Box className={classes.formSection}>
                                 <FormikTextField
-                                    label='Name'
+                                    label={t("forms.labels.name")}
                                     name='name'
                                     error={props.errors.name && props.touched.name}
                                     required
@@ -110,13 +112,13 @@ const MasterForm = ({specifiedInitialValues, submitAction, formId, setDataTableA
                             </Box>
                             <Box className={classes.formSection}>
                                 <FormikTextField
-                                    label='Email'
+                                    label={t("forms.labels.email")}
                                     name='email'
                                     error={props.errors.email && props.touched.email}
                                     required
                                 />
                                 <FormikSelectField
-                                    label='Cities'
+                                    label={t("forms.labels.cities")}
                                     name='cities'
                                     options={cityOptions}
                                     value={values.cities}

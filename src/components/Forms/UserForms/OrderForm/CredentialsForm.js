@@ -4,10 +4,12 @@ import {getCitiesSelector} from "../../../../store/selectors/citiesSelector";
 import {Form, Formik} from "formik";
 import FormikSelectField from "../../FormsComponents/FormikSelectField";
 import {getClockTypesSelector} from "../../../../store/selectors/clockTypesSelector";
+import {useTranslation} from "react-i18next";
 
 const CredentialsForm = ({formId, submitAction, values}) => {
     const cities = useSelector(getCitiesSelector);
     const clockTypes = useSelector(getClockTypesSelector);
+    const {t} = useTranslation();
 
     const initialValues = values ? values : {
         cityId: '',
@@ -44,13 +46,13 @@ const CredentialsForm = ({formId, submitAction, values}) => {
         >{(props) => (
             <Form id={formId}>
                 <FormikSelectField
-                    label='Clock size'
+                    label={t("forms.labels.clockType")}
                     name='clockTypeId'
                     options={clockTypeOptions}
                     required
                 />
                 <FormikSelectField
-                    label='City'
+                    label={t("forms.labels.city")}
                     name='cityId'
                     options={cityOptions}
                     required

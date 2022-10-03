@@ -6,26 +6,31 @@ import {Box, Typography} from "@mui/material";
 import {DataGrid} from "@mui/x-data-grid";
 import {isNumber} from "lodash";
 import useStyles from "../../../../styles/useStyles";
-import {Formik, Form} from "formik";
+import {Form, Formik} from "formik";
+import {useTranslation} from "react-i18next";
 
 function renderRating(params) {
     return <Rating readOnly value={params.value}/>;
 }
 
-const columns = [
-    {
-        field: 'name', headerName: 'Имя', width: 100
-    },
-    {
-        field: 'rating',
-        headerName: 'Рейтинг',
-        width: 150,
-        renderCell: renderRating,
-        type: 'number',
-    }
-];
-
 const MasterPick = ({values, formId, submitAction}) => {
+    const {t} =useTranslation();
+
+    const columns = [
+        {
+            field: 'name',
+            headerName: t("forms.labels.name"),
+            width: 100
+        },
+        {
+            field: 'rating',
+            headerName: t("forms.labels.rating"),
+            width: 150,
+            renderCell: renderRating,
+            type: 'number',
+        }
+    ];
+
     const [masterId, setMasterId] = useState(values.masterId || '');
 
     const masters = useSelector(getAvailableMastersSelector);

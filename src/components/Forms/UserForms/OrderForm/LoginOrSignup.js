@@ -6,8 +6,10 @@ import FormikTextField from "../../FormsComponents/FormikTextField";
 import {isUserCreated} from "../../../../store/actions/auth";
 import {useDispatch} from "react-redux";
 import {useNavigate} from "react-router";
+import {useTranslation} from "react-i18next";
 
 const LoginOrSignup = ({formId, onSubmit, values, currentUser}) => {
+    const {t} = useTranslation();
     const classes = useStyles();
     const dispatch = useDispatch();
     const navigate = useNavigate();
@@ -17,8 +19,10 @@ const LoginOrSignup = ({formId, onSubmit, values, currentUser}) => {
         email: values?.email || currentUser.email || ''
     };
     const validationSchema = Yup.object().shape({
-        name: Yup.string().min(3, 'Name is too short').required('Required'),
-        email: Yup.string().email('Email is not valid').required('Required')
+        name: Yup.string().min(3, t("forms.validationErrors.shortName"))
+            .required(t("forms.validationErrors.required")),
+        email: Yup.string().email(t("forms.validationErrors.emailNotValid"))
+            .required(t("forms.validationErrors.required"))
     });
 
     const submitAction = async (v) => {
@@ -39,13 +43,13 @@ const LoginOrSignup = ({formId, onSubmit, values, currentUser}) => {
                     (props) => (
                         <Form id={formId}>
                             <FormikTextField
-                                label='Name'
+                                label={t("forms.labels.name")}
                                 name='name'
                                 error={props.errors.name && props.touched.name}
                                 required
                             />
                             <FormikTextField
-                                label='Email'
+                                label={t("forms.labels.email")}
                                 name='email'
                                 error={props.errors.email && props.touched.email}
                                 required

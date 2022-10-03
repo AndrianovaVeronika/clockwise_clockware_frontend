@@ -12,6 +12,7 @@ import cities from "../../../../store/actions/cities";
 import FormikSelectField from "../../FormsComponents/FormikSelectField";
 import {registerMasterAccount} from "../../../../store/actions/auth";
 import UserCreatedDialog from "../../../Dialogs/UserCreatedDialog";
+import {useTranslation} from "react-i18next";
 
 const initialValues = {
     name: "",
@@ -21,14 +22,18 @@ const initialValues = {
 };
 
 const MasterSignUpForm = ({setError}) => {
+    const {t} = useTranslation();
     const dispatch = useDispatch();
     const navigate = useNavigate();
     const classes = useStyles();
 
     const validationSchema = Yup.object().shape({
-        name: Yup.string().min(3, 'Name is too short').required('Required'),
-        email: Yup.string().email('Email is not valid').required('Required'),
-        password: Yup.string().min(8, 'Password is too short').required('Required'),
+        name: Yup.string().min(3, t("forms.validationErrors.shortName"))
+            .required(t("forms.validationErrors.required")),
+        email: Yup.string().email(t("forms.validationErrors.emailNotValid"))
+            .required(t("forms.validationErrors.required")),
+        password: Yup.string().min(8, t("forms.validationErrors.shortPassword"))
+            .required(t("forms.validationErrors.required")),
     });
 
     const [citiesChosen, setCitiesChosen] = useState(initialValues?.cities);
@@ -84,13 +89,13 @@ const MasterSignUpForm = ({setError}) => {
                         <Form id='signup-form' className={classes.twoColumnForm}>
                             <Box className={classes.formSection}>
                                 <FormikTextField
-                                    label='Name'
+                                    label={t("forms.labels.name")}
                                     name='name'
                                     error={props.errors.name && props.touched.name}
                                     required
                                 />
                                 <FormikTextField
-                                    label='Email'
+                                    label={t("forms.labels.email")}
                                     name='email'
                                     error={props.errors.email && props.touched.email}
                                     required
@@ -98,13 +103,13 @@ const MasterSignUpForm = ({setError}) => {
                             </Box>
                             <Box className={classes.formSection}>
                                 <FormikPasswordField
-                                    label='Password'
+                                    label={t("forms.labels.password")}
                                     name='password'
                                     error={props.errors.password && props.touched.password}
                                     required
                                 />
                                 <FormikSelectField
-                                    label='Cities'
+                                    label={t("forms.labels.city")}
                                     name='cities'
                                     options={cityOptions}
                                     value={citiesChosen}

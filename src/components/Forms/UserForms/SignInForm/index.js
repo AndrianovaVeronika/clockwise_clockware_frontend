@@ -8,6 +8,7 @@ import {useNavigate} from "react-router";
 import useStyles from "../../../../styles/useStyles";
 import FormikTextField from "../../FormsComponents/FormikTextField";
 import FormikPasswordField from "../../FormsComponents/FormikPasswordField"
+import {useTranslation} from "react-i18next";
 
 const initialValues = {
     email: '',
@@ -15,13 +16,14 @@ const initialValues = {
 };
 
 const SignInForm = () => {
+    const {t} = useTranslation();
     const dispatch = useDispatch();
     const navigate = useNavigate();
     const classes = useStyles();
 
     const validationSchema = Yup.object().shape({
-        email: Yup.string().email('Email is not valid').required('Required'),
-        password: Yup.string().min(8, 'Password is too short').required('Required')
+        email: Yup.string().email(t("forms.validationErrors.emailNotValid")).required(t("validationErrors.required")),
+        password: Yup.string().min(8, t("forms.validationErrors.shortPassword")).required(t("validationErrors.required"))
     });
 
     const [Error, setError] = useState(<></>);
@@ -49,13 +51,13 @@ const SignInForm = () => {
                         (props) => (
                             <Form id='signin-form'>
                                 <FormikTextField
-                                    label='Email'
+                                    label={t("forms.labels.email")}
                                     name='email'
                                     error={props.errors.email && props.touched.email}
                                     required
                                 />
                                 <FormikPasswordField
-                                    label='Password'
+                                    label={t("forms.labels.password")}
                                     name='password'
                                     error={props.errors.password && props.touched.password}
                                     required
@@ -65,11 +67,11 @@ const SignInForm = () => {
                     }
                 </Formik>
                 <div className={classes.authFormButtons}>
-                    <Button onClick={() => navigate('/')}>Cancel</Button>
+                    <Button onClick={() => navigate('/')}>{t("forms.signInForm.cancelButton")}</Button>
                     <Button
                         type='submit'
                         form='signin-form'
-                    >Sign in</Button>
+                    >{t("forms.signInForm.submitButton")}</Button>
                 </div>
                 {Error}
             </Paper>

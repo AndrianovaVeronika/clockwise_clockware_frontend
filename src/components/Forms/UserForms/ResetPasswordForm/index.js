@@ -5,6 +5,7 @@ import {Form, Formik} from "formik";
 import * as Yup from "yup";
 import {updateCredentials} from "../../../../store/actions/auth";
 import {Alert, AlertTitle} from "@mui/material";
+import {useTranslation} from "react-i18next";
 
 const initialValues = {
     password: '',
@@ -13,6 +14,7 @@ const initialValues = {
 }
 
 const ResetPasswordForm = ({closeAction}) => {
+    const {t} = useTranslation();
     const dispatch = useDispatch();
 
     const [Error, setError] = useState(<></>);
@@ -33,13 +35,13 @@ const ResetPasswordForm = ({closeAction}) => {
     };
 
     const validationSchema = Yup.object().shape({
-        currentPassword: Yup.string().min(8, 'Password is too short').required('Required'),
-        password: Yup.string().min(8, 'Password is too short').required('Required')
-            .when(["currentPassword"], (curr, schema) => {
-                return schema.notOneOf([curr], "Password should not be equal to current one");
-            }),
-        confirmPassword: Yup.string().min(8, 'Password is too short').required('Required')
-            .oneOf([Yup.ref('password'), null], 'Passwords dont match')
+        currentPassword: Yup.string().min(8, t("forms.validationErrors.shortPassword"))
+            .required(t("forms.validationErrors.required")),
+        password: Yup.string().min(8, t("forms.validationErrors.shortPassword"))
+            .required(t("forms.validationErrors.required")),
+        confirmPassword: Yup.string().min(8, t("forms.validationErrors.shortPassword"))
+            .required(t("forms.validationErrors.required"))
+            .oneOf([Yup.ref('password'), null], t("forms.validationErrors.notMatchPassword"))
     });
 
     return (
@@ -50,19 +52,19 @@ const ResetPasswordForm = ({closeAction}) => {
                     (props) => (
                         <Form id='reset-password-form'>
                             <FormikPasswordField
-                                label='Current password'
+                                label={t("forms.labels.currentPassword")}
                                 name='currentPassword'
                                 error={props.errors.currentPassword && props.touched.currentPassword}
                                 required
                             />
                             <FormikPasswordField
-                                label='Password'
+                                label={t("forms.labels.password")}
                                 name='password'
                                 error={props.errors.password && props.touched.password}
                                 required
                             />
                             <FormikPasswordField
-                                label='Confirm password'
+                                label={t("forms.labels.confirmPassword")}
                                 name='confirmPassword'
                                 error={props.errors.confirmPassword && props.touched.confirmPassword}
                                 required

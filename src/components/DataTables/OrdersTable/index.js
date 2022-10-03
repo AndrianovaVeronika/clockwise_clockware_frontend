@@ -9,49 +9,52 @@ import cities from "../../../store/actions/cities";
 import masters from "../../../store/actions/masters";
 import orders from "../../../store/actions/orders";
 import {Typography} from "@mui/material";
+import {useTranslation} from "react-i18next";
 
 function renderStatus({value}) {
     return <Typography sx={{color: value ? 'green' : 'red'}}>{value ? 'Completed' : 'Not completed'}</Typography>;
 }
 
-const columns = [
-    {
-        field: 'id', headerName: 'ID', width: 50
-    },
-    {
-        field: 'name', headerName: 'Name', width: 150
-    },
-    {
-        field: 'email', headerName: 'Mail', width: 200,
-    },
-    {
-        field: 'clockType', headerName: 'Clock size', width: 80,
-    },
-    {
-        field: 'city', headerName: 'City', width: 80,
-    },
-    {
-        field: 'date', headerName: 'Date', width: 200,
-    },
-    {
-        field: 'time', headerName: 'Time', width: 150,
-    },
-    {
-        field: 'master', headerName: 'Master', width: 90,
-    },
-    {
-        field: 'price', headerName: 'Price', width: 80,
-    },
-    {
-        field: 'isCompleted',
-        headerName: 'Status',
-        width: 120,
-        renderCell: renderStatus,
-        type: 'boolean'
-    },
-];
-
 const OrdersTable = () => {
+    const {t} = useTranslation();
+
+    const columns = [
+        {
+            field: 'id', headerName: 'ID', width: 50
+        },
+        {
+            field: 'name', headerName: t("forms.labels.name"), width: 150
+        },
+        {
+            field: 'email', headerName: t("forms.labels.email"), width: 200,
+        },
+        {
+            field: 'clockType', headerName: t("forms.labels.clockType"), width: 80,
+        },
+        {
+            field: 'city', headerName: t("forms.labels.city"), width: 80,
+        },
+        {
+            field: 'date', headerName: t("forms.labels.date"), width: 200,
+        },
+        {
+            field: 'time', headerName: t("forms.labels.time"), width: 150,
+        },
+        {
+            field: 'master', headerName: t("forms.labels.master"), width: 90,
+        },
+        {
+            field: 'price', headerName: t("forms.labels.price"), width: 80,
+        },
+        {
+            field: 'isCompleted',
+            headerName: t("forms.labels.status"),
+            width: 120,
+            renderCell: renderStatus,
+            type: 'boolean'
+        },
+    ];
+
     const dispatch = useDispatch();
 
     useEffect(() => {

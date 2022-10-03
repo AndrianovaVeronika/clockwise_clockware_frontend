@@ -1,1 +1,0 @@
-export const homePageText = 'Hello! :) We are Clockwise Clockware. Broke your favorite antique clock? No problem! The best masters will fix your watch in no time. You won`t notice how it flies by ;)';
