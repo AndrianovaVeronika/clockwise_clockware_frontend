@@ -15,7 +15,6 @@ import store from "../../../../store/store";
 import {useTranslation} from "react-i18next";
 
 function renderStatus({value}) {
-    console.log(value)
     const color = value ? 'green' : 'red';
     const text = value ? 'Completed' : 'Not completed';
 
