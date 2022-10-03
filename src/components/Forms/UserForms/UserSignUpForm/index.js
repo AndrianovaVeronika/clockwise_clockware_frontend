@@ -7,6 +7,7 @@ import React from "react";
 import FormikTextField from "../../FormsComponents/FormikTextField";
 import FormikPasswordField from "../../FormsComponents/FormikPasswordField";
 import {registerUserAccount} from "../../../../store/actions/auth";
+import {useTranslation} from "react-i18next";
 
 const initialValues = {
     name: "",
@@ -15,13 +16,17 @@ const initialValues = {
 };
 
 const UserSignUpForm = ({setError}) => {
+    const {t} = useTranslation();
     const dispatch = useDispatch();
     const navigate = useNavigate();
 
     const validationSchema = Yup.object().shape({
-        name: Yup.string().min(3, 'Name is too short').required('Required'),
-        email: Yup.string().email('Email is not valid').required('Required'),
-        password: Yup.string().min(8, 'Password is too short').required('Required'),
+        name: Yup.string().min(3, t("forms.validationErrors.shortName"))
+            .required(t("forms.validationErrors.required")),
+        email: Yup.string().email(t("forms.validationErrors.emailNotValid"))
+            .required(t("forms.validationErrors.required")),
+        password: Yup.string().min(8, t("forms.validationErrors.shortPassword"))
+            .required(t("forms.validationErrors.required")),
     });
 
     const onSubmit = async (values, props) => {
@@ -47,19 +52,19 @@ const UserSignUpForm = ({setError}) => {
                     (props) => (
                         <Form id='signup-form'>
                             <FormikTextField
-                                label='Name'
+                                label={t("forms.labels.name")}
                                 name='name'
                                 error={props.errors.name && props.touched.name}
                                 required
                             />
                             <FormikTextField
-                                label='Email'
+                                label={t("forms.labels.email")}
                                 name='email'
                                 error={props.errors.email && props.touched.email}
                                 required
                             />
                             <FormikPasswordField
-                                label='Password'
+                                label={t("forms.labels.password")}
                                 name='password'
                                 error={props.errors.password && props.touched.password}
                                 required

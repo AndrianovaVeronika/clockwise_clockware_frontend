@@ -8,14 +8,16 @@ import withRedirectIfNotAdmin from "../../../../functions/withRedirectIfNotAdmin
 import useStyles from "../../../../styles/useStyles";
 import Page from "../../../../styles/Page";
 import {Box, Typography} from "@mui/material";
+import {useTranslation} from "react-i18next";
 
 const AdminMastersPage = () => {
+    const {t} = useTranslation();
     const classes = useStyles();
 
     return (
         <Page>
             <Box className={classes.profileContent}>
-                <Typography variant='h5' gutterBottom>Masters table</Typography>
+                <Typography variant='h5' gutterBottom>{t("pages.masters.title")}</Typography>
                 <MastersTable/>
             </Box>
         </Page>

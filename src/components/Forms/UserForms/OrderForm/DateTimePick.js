@@ -1,11 +1,11 @@
 import React, {useState} from "react";
-import {TextField} from "@mui/material";
 import moment from "moment";
 import FormikSelectField from "../../FormsComponents/FormikSelectField";
 import {Form, Formik} from "formik";
 import useStyles from "../../../../styles/useStyles";
 import {shiftTimeEnd, shiftTimeStart} from "../../../../static/constants";
 import FormikDataTableField from "../../FormsComponents/FormikDataTableField";
+import {useTranslation} from "react-i18next";
 
 const getTomorrow = () => {
     const today = new Date();
@@ -24,6 +24,7 @@ const getHours = () => {
 const hours = getHours();
 
 const DateTimePick = ({formId, submitAction, values}) => {
+    const {t} = useTranslation();
     const [date, setDate] = useState(values.date || tomorrow);
     const classes = useStyles();
 
@@ -47,14 +48,14 @@ const DateTimePick = ({formId, submitAction, values}) => {
                     <Form id={formId}>
                         <FormikDataTableField
                             name="date"
-                            label="Date"
+                            label={t("forms.labels.date")}
                             minDate={tomorrow}
                             value={date}
                             onChange={(value) => setDate(value)}
                             error={props.errors.date && props.touched.date}
                         />
                         <FormikSelectField
-                            label='Time'
+                            label={t("forms.labels.time")}
                             name='time'
                             options={hours.map(hour => {
                                 return {'key': hour, 'value': hour};

@@ -5,17 +5,20 @@ import cities from "../../../store/actions/cities";
 import {useDispatch, useSelector} from "react-redux";
 import {getCitiesSelector} from "../../../store/selectors/citiesSelector";
 import CityForm from "../../Forms/AdminForms/CityForm";
-
-const columns = [
-    {
-        field: 'id', headerName: 'ID', width: 50
-    },
-    {
-        field: 'name', headerName: 'Name', width: 100
-    },
-];
+import {useTranslation} from "react-i18next";
 
 const CitiesTable = () => {
+    const {t} = useTranslation();
+
+    const columns = [
+        {
+            field: 'id', headerName: 'ID', width: 50
+        },
+        {
+            field: 'name', headerName: t("forms.labels.name"), width: 100
+        },
+    ];
+
     const dispatch = useDispatch();
 
     useEffect(() => {

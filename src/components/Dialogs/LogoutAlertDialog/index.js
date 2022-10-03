@@ -4,8 +4,10 @@ import {useNavigate} from "react-router";
 import {logOut} from "../../../store/actions/auth";
 import {useDispatch} from "react-redux";
 import PopupDialog from "../../Dialogs/PopupDialog";
+import {useTranslation} from "react-i18next";
 
 const LogoutAlertDialog = ({openButtonText, OpenButtonType}) => {
+    const {t} = useTranslation();
     const navigate = useNavigate();
     const dispatch = useDispatch();
     const [open, setOpen] = useState(false);
@@ -22,13 +24,13 @@ const LogoutAlertDialog = ({openButtonText, OpenButtonType}) => {
             <PopupDialog
                 open={open}
                 onClose={onClose}
-                dialogTitleText='Attention!'
-                Content={<Typography>Are you sure you want to log out?</Typography>}
+                dialogTitleText={t("alertDialogs.logoutAtt.title")}
+                Content={<Typography>{t("alertDialogs.logoutAtt.text")}</Typography>}
                 Actions={
                     <Button onClick={() => {
                         dispatch(logOut());
                         navigate('/');
-                    }}>Ok</Button>
+                    }}>{t("alertDialogs.logoutAtt.submitButton")}</Button>
                 }
             />
         </>

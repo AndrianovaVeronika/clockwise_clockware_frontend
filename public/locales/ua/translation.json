@@ -1,0 +1,115 @@
+{
+  "header": {
+    "homePageButton": "Головна",
+    "signInButton": "Увійти",
+    "signUpButton": "Реєстрація",
+    "profileButton": "Кабінет"
+  },
+  "sidebar": {
+    "profile": "Особистий кабінет",
+    "userOrders": "Мої замовлення",
+    "masterOrders": "Замовлення на виконання",
+    "tables": {
+      "title": "Таблиці",
+      "orders": "Замовлення",
+      "users": "Користувачі",
+      "masters": "Майстри",
+      "cities": "Міста"
+    },
+    "logout": "Вийти"
+  },
+  "pages": {
+    "home": {
+      "introduction": "Привіт! :) Ми - Clockwise Clockware. Зламався ваш улюблений антикварний годинник? Без проблем! Наші кращі майстри вже готові виїхати по вашому замовленню. Не помітите, як сплине час ;)"
+    },
+    "profile": {
+      "title": "Мої дані"
+    },
+    "userOrders": {
+      "title": "Мої замовлення"
+    },
+    "masterOrders": {
+      "title": "Замовлення на виконання"
+    },
+    "cities": {
+      "title": "Міста"
+    },
+    "masters": {
+      "title": "Майстри"
+    },
+    "orders": {
+      "title": "Замовлення"
+    },
+    "users": {
+      "title": "Користувачі"
+    }
+  },
+  "forms": {
+    "labels": {
+      "name": "Ім'я",
+      "email": "Пошта",
+      "password": "Пароль",
+      "clockType": "Розмір",
+      "city": "Місто",
+      "date": "Дата",
+      "time": "Час",
+      "rating": "Рейтинг",
+      "master": "Майстер",
+      "currentPassword": "Поточний пароль",
+      "confirmPassword": "Підтвердіть пароль",
+      "price": "Ціна",
+      "status": "Статус",
+      "rateOrder": "Оцінити",
+      "emailChecked": "Пошта веріфікована",
+      "resetPassword": "Скинути пароль"
+    },
+    "resetPassword": {
+      "openButton": "Змінити пароль",
+      "title": "Введіть новий пароль і підтвердіть",
+      "confirmButton": "Підтвердити"
+    },
+    "userOrderForm": {
+      "steps": {
+        "0": "Інформація клієнта",
+        "1": "Дані",
+        "2": "Дата і Час",
+        "3": "Мастер",
+        "4": "Замовлення"
+      },
+      "cleanButton": "Очистити",
+      "submitButton": "Підвердити"
+    },
+    "signInForm": {
+      "submitButton": "Увійти",
+      "cancelButton": "Скасувати"
+    },
+    "validationErrors": {
+      "emailNotValid": "Невірний формат",
+      "required": "Обов'язково",
+      "shortPassword": "Пароль надто короткий",
+      "notMatchPassword": "Паролі не співпадають",
+      "shortName": "Ім'я занадто коротке"
+    }
+  },
+  "alertDialogs": {
+    "loginErr": {
+      "title": "Помилка!",
+      "text": "Для нового замовлення увійдіть в обліковий запис та підтвердіть електронну пошту!",
+      "loginButton": "Увійти"
+    },
+    "orderSuccess": {
+      "title": "Ваше замовлення було успішно зареєстровано",
+      "text": "Будь-ласка перевірте електронну пошту задля деталей.",
+      "submitButton": "Ok"
+    },
+    "logoutAtt": {
+      "title": "Увага!",
+      "text": "Ви впевнені, що хочете вийти?",
+      "submitButton": "Так"
+    }
+  },
+  "alerts": {
+    "temporaryPassword": "Пароль тимчасовий. Будь ласка змініть його на особистий для безпеки!",
+    "emailUnverified": "Пошта не підтверджена. Перевірте свою пошту на наявність листа."
+  }
+}

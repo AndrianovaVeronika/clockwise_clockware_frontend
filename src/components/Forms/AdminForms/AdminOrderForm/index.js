@@ -6,13 +6,14 @@ import {getClockTypesSelector} from "../../../../store/selectors/clockTypesSelec
 import FormikSelectField from "../../FormsComponents/FormikSelectField";
 import useStyles from "../../../../styles/useStyles";
 import * as Yup from "yup";
-import {Alert, AlertTitle, Box, Grid} from "@mui/material";
+import {Alert, AlertTitle, Grid} from "@mui/material";
 import {shiftTimeEnd, shiftTimeStart} from "../../../../static/constants";
 import moment from "moment";
 import AvailableMastersListener from "./AvailableMastersListener";
 import masters from "../../../../store/actions/masters";
 import FormikTextField from "../../FormsComponents/FormikTextField";
 import FormikDataTableField from "../../FormsComponents/FormikDataTableField";
+import {useTranslation} from "react-i18next";
 
 const getTomorrow = () => {
     const today = new Date();
@@ -50,6 +51,7 @@ const AdminOrderForm = ({
                             setDataTableAlert,
                             clearDataTableSelectedRow
                         }) => {
+    const {t} = useTranslation();
     const classes = useStyles();
     const dispatch = useDispatch();
     const [Error, setError] = useState(<></>);
@@ -75,8 +77,8 @@ const AdminOrderForm = ({
     const clockTypeOptions = getValidatedClockTypes();
 
     const validationSchema = Yup.object().shape({
-        name: Yup.string().min(3, 'Name is too short').required('Required'),
-        email: Yup.string().email('Email is not valid').required('Required')
+        name: Yup.string().min(3, t("forms.validationErrors.shortName")).required(t("forms.validationErrors.required")),
+        email: Yup.string().email(t("forms.validationErrors.emailNotValid")).required(t("forms.validationErrors.required"))
     });
 
     const MastersController = () => {
@@ -124,19 +126,19 @@ const AdminOrderForm = ({
                     <Grid container spacing={2}>
                         <Grid item xs={3}>
                             <FormikTextField
-                                label='Name'
+                                label={t("forms.labels.name")}
                                 name='name'
                                 error={props.errors.name && props.touched.name}
                                 required
                             />
                             <FormikTextField
-                                label='Email'
+                                label={t("forms.labels.email")}
                                 name='email'
                                 error={props.errors.email && props.touched.email}
                                 required
                             />
                             <FormikSelectField
-                                label='Clock size'
+                                label={t("forms.labels.clockType")}
                                 name='clockTypeId'
                                 error={props.errors.clockTypeId && props.touched.clockTypeId}
                                 required
@@ -145,14 +147,14 @@ const AdminOrderForm = ({
                         </Grid>
                         <Grid item xs={3}>
                             <FormikSelectField
-                                label='City'
+                                label={t("forms.labels.city")}
                                 name='cityId'
                                 error={props.errors.cityId && props.touched.cityId}
                                 required
                                 options={cityOptions}
                             />
                             <FormikDataTableField
-                                label='Date'
+                                label={t("forms.labels.date")}
                                 name='date'
                                 minDate={specifiedInitialValues ? undefined : tomorrow}
                                 value={props.values.date}
@@ -162,7 +164,7 @@ const AdminOrderForm = ({
                                 error={props.errors.date && props.touched.date}
                             />
                             <FormikSelectField
-                                label='Time'
+                                label={t("forms.labels.time")}
                                 name='time'
                                 error={props.errors.time && props.touched.time}
                                 options={hours.map(hour => {

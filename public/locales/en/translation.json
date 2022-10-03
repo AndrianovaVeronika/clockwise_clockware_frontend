@@ -1,0 +1,115 @@
+{
+  "header": {
+    "homePageButton": "Home",
+    "signInButton": "Sign in",
+    "signUpButton": "Sign up",
+    "profileButton": "Profile"
+  },
+  "sidebar": {
+    "profile": "Profile",
+    "userOrders": "My Orders",
+    "masterOrders": "Orders to do",
+    "tables": {
+      "title": "Tables",
+      "orders": "Orders",
+      "users": "Users",
+      "masters": "Masters",
+      "cities": "Cities"
+    },
+    "logout": "Log out"
+  },
+  "pages": {
+    "home": {
+      "introduction": "Hello! :) We are Clockwise Clockware. Broke your favorite antique clock? No problem! The best masters will fix your watch in no time. You won`t notice how it flies by ;)"
+    },
+    "profile": {
+      "title": "My credentials"
+    },
+    "userOrders": {
+      "title": "My orders"
+    },
+    "masterOrders": {
+      "title": "Orders to do"
+    },
+    "cities": {
+      "title": "Cities table"
+    },
+    "masters": {
+      "title": "Masters table"
+    },
+    "orders": {
+      "title": "Orders table"
+    },
+    "users": {
+      "title": "Users table"
+    }
+  },
+  "forms": {
+    "labels": {
+      "name": "Name",
+      "email": "Email",
+      "password": "Password",
+      "clockType": "Clock size",
+      "city": "City",
+      "date": "Date",
+      "time": "Time",
+      "rating": "Rating",
+      "master": "Master",
+      "currentPassword": "Current password",
+      "confirmPassword": "Confirm password",
+      "price": "Price",
+      "status": "Status",
+      "rateOrder": "Rate order",
+      "emailChecked": "Email checked",
+      "resetPassword": "Reset password"
+    },
+    "resetPassword": {
+      "openButton": "Reset password",
+      "title": "Enter new password and confirm",
+      "confirmButton": "Confirm"
+    },
+    "userOrderForm": {
+      "steps": {
+        "0": "User data",
+        "1": "Credentials",
+        "2": "Date & Time",
+        "3": "Master",
+        "4": "Check all"
+      },
+      "cleanButton": "Clean",
+      "submitButton": "Submit"
+    },
+    "signInForm": {
+      "submitButton": "Log in",
+      "cancelButton": "Cancel"
+    },
+    "validationErrors": {
+      "emailNotValid": "Email is not valid",
+      "required": "Required",
+      "shortPassword": "Password is too short",
+      "notMatchPassword": "Passwords dont match",
+      "shortName": "Name is too short"
+    }
+  },
+  "alertDialogs": {
+    "loginErr": {
+      "title": "Error!",
+      "text": "You need to log in and prove your email before placing new order on your account!",
+      "loginButton": "Log in"
+    },
+    "orderSuccess": {
+      "title": "Order have been created successfully",
+      "text": "Please check your email for your order details.",
+      "submitButton": "Ok"
+    },
+    "logoutAtt": {
+      "title": "Attention!",
+      "text": "Are you sure you want to log out?",
+      "submitButton": "Yes"
+    }
+  },
+  "alerts": {
+    "temporaryPassword": "Temporary password. Please change it on your own one for safety reasons!",
+    "emailUnverified": "Email unverified. Check your postbox for confirmation letter."
+  }
+}

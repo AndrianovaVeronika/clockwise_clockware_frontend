@@ -12,6 +12,7 @@ import withSidebar from "../../../../functions/withSidebar";
 import withRedirectAfterLogout from "../../../../functions/withRedirectAfterLogout";
 import withRedirectIfNotMaster from "../../../../functions/withRedirectIfNotMaster";
 import store from "../../../../store/store";
+import {useTranslation} from "react-i18next";
 
 function renderStatus({value}) {
     console.log(value)
@@ -28,48 +29,50 @@ function renderCompleteButton({id, row}) {
     >Complete</Button>
 }
 
-const columns = [
-    {
-        field: 'id', headerName: 'ID', width: 50
-    },
-    {
-        field: 'name', headerName: 'Name', width: 150
-    },
-    {
-        field: 'email', headerName: 'Mail', width: 200,
-    },
-    {
-        field: 'clockType', headerName: 'Clock size', width: 80,
-    },
-    {
-        field: 'city', headerName: 'City', width: 80,
-    },
-    {
-        field: 'date', headerName: 'Date', width: 150,
-    },
-    {
-        field: 'time', headerName: 'Time', width: 120,
-    },
-    {
-        field: 'price', headerName: 'Price', width: 80,
-    },
-    {
-        field: 'isCompleted',
-        headerName: 'Status',
-        width: 150,
-        renderCell: renderStatus,
-        type: 'boolean'
-    },
-    {
-        field: 'complete',
-        headerName: '',
-        width: 150,
-        renderCell: renderCompleteButton,
-        type: 'boolean'
-    }
-];
-
 const MasterOrdersPage = () => {
+    const {t} = useTranslation();
+
+    const columns = [
+        {
+            field: 'id', headerName: 'ID', width: 50
+        },
+        {
+            field: 'name', headerName: t("forms.labels.name"), width: 150
+        },
+        {
+            field: 'email', headerName: t("forms.labels.email"), width: 200,
+        },
+        {
+            field: 'clockType', headerName: t("forms.labels.clockType"), width: 80,
+        },
+        {
+            field: 'city', headerName: t("forms.labels.city"), width: 80,
+        },
+        {
+            field: 'date', headerName: t("forms.labels.date"), width: 150,
+        },
+        {
+            field: 'time', headerName: t("forms.labels.time"), width: 120,
+        },
+        {
+            field: 'price', headerName: t("forms.labels.price"), width: 80,
+        },
+        {
+            field: 'isCompleted',
+            headerName: t("forms.labels.status"),
+            width: 150,
+            renderCell: renderStatus,
+            type: 'boolean'
+        },
+        {
+            field: 'complete',
+            headerName: '',
+            width: 150,
+            renderCell: renderCompleteButton,
+            type: 'boolean'
+        }
+    ];
+
     const classes = useStyles();
     const dispatch = useDispatch();
 
@@ -82,7 +85,7 @@ const MasterOrdersPage = () => {
     return (
         <Page>
             <Box className={classes.profileContent}>
-                <Typography variant='h5' gutterBottom>Received orders</Typography>
+                <Typography variant='h5' gutterBottom>{t("pages.masterOrders.title")}</Typography>
                 <Box className={classes.dataTable}>
                     <DataGrid
                         rows={currentUserOrders}

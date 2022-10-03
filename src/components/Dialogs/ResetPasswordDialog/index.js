@@ -3,8 +3,10 @@ import {Button} from "@mui/material";
 import {useNavigate} from "react-router";
 import PopupDialog from "../PopupDialog";
 import ResetPasswordForm from "../../Forms/UserForms/ResetPasswordForm";
+import {useTranslation} from "react-i18next";
 
 const ResetPasswordDialog = () => {
+    const {t} = useTranslation();
     const navigate = useNavigate();
 
     const [open, setOpen] = useState(false);
@@ -17,17 +19,17 @@ const ResetPasswordDialog = () => {
 
     return (
         <>
-            <Button onClick={onOpen}>Reset password</Button>
+            <Button onClick={onOpen}>{t("forms.resetPassword.openButton")}</Button>
             <PopupDialog
                 open={open}
                 onClose={onClose}
-                dialogTitleText='Enter new password and confirm'
+                dialogTitleText={t("forms.resetPassword.title")}
                 Content={<ResetPasswordForm closeAction={onClose}/>}
                 Actions={
                     <Button
                         type='submit'
                         form='reset-password-form'
-                    >Confirm</Button>
+                    >{t("forms.resetPassword.confirmButton")}</Button>
                 }
             />
         </>

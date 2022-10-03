@@ -2,8 +2,10 @@ import React from "react";
 import {Button, Typography} from "@mui/material";
 import {useNavigate} from "react-router";
 import PopupDialog from "../PopupDialog";
+import {useTranslation} from "react-i18next";
 
 const OrderSuccessAlertDialog = ({display, onClose}) => {
+    const {t} = useTranslation();
     const navigate = useNavigate();
 
     return (
@@ -11,10 +13,10 @@ const OrderSuccessAlertDialog = ({display, onClose}) => {
             <PopupDialog
                 open={display}
                 onClose={onClose}
-                dialogTitleText='Order have been created successfully'
-                Content={<Typography>Please check your email for your order details.</Typography>}
+                dialogTitleText={t("alertDialogs.orderSuccess.title")}
+                Content={<Typography>{t("alertDialogs.orderSuccess.text")}</Typography>}
                 Actions={
-                    <Button onClick={onClose}>Ok</Button>
+                    <Button onClick={onClose}>{t("alertDialogs.orderSuccess.submitButton")}</Button>
                 }
             />
         </>

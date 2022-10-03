@@ -10,8 +10,10 @@ import {useEffect, useState} from "react";
 import useStyles from "../../../styles/useStyles";
 import ListAltIcon from '@mui/icons-material/ListAlt';
 import LogoutAlertDialog from "../../Dialogs/LogoutAlertDialog";
+import {useTranslation} from "react-i18next";
 
 const Sidebar = () => {
+    const {t} = useTranslation();
     const navigate = useNavigate();
     const [isLoading, setLoading] = useState(true);
     const isAdmin = useSelector(isAdminSelector);
@@ -27,24 +29,33 @@ const Sidebar = () => {
         <ProSidebar className={classes.sidebar}>
             <Menu iconShape="square" className={classes.sidebarMenu}>
                 {isAuth && <>
-                    <MenuItem icon={<AccountBoxIcon/>} onClick={() => navigate('/profile')}>Profile</MenuItem>
-                    <MenuItem icon={<ListAltIcon/>} onClick={() => navigate('/user/orders')}>My orders</MenuItem>
+                    <MenuItem
+                        icon={<AccountBoxIcon/>}
+                        onClick={() => navigate('/profile')}
+                    >{t("sidebar.profile")}</MenuItem>
+                    <MenuItem
+                        icon={<ListAltIcon/>}
+                        onClick={() => navigate('/user/orders')}
+                    >{t("sidebar.userOrders")}</MenuItem>
                 </>}
                 {isAuth && isMaster && <>
-                    <MenuItem icon={<ListAltIcon/>} onClick={() => navigate('/master/orders')}>Orders to do</MenuItem>
+                    <MenuItem
+                        icon={<ListAltIcon/>}
+                        onClick={() => navigate('/master/orders')}
+                    >{t("sidebar.masterOrders")}</MenuItem>
                 </>}
-                {isAdmin && <SubMenu title="Tables" icon={<BackupTableIcon/>}>
-                    <MenuItem onClick={() => navigate('/admin/orders')}>Orders</MenuItem>
-                    <MenuItem onClick={() => navigate('/admin/users')}>Users</MenuItem>
-                    <MenuItem onClick={() => navigate('/admin/masters')}>Masters</MenuItem>
-                    <MenuItem onClick={() => navigate('/admin/cities')}>Cities</MenuItem>
+                {isAdmin && <SubMenu title={t("sidebar.tables.title")} icon={<BackupTableIcon/>}>
+                    <MenuItem onClick={() => navigate('/admin/orders')}>{t("sidebar.tables.orders")}</MenuItem>
+                    <MenuItem onClick={() => navigate('/admin/users')}>{t("sidebar.tables.users")}</MenuItem>
+                    <MenuItem onClick={() => navigate('/admin/masters')}>{t("sidebar.tables.masters")}</MenuItem>
+                    <MenuItem onClick={() => navigate('/admin/cities')}>{t("sidebar.tables.cities")}</MenuItem>
                 </SubMenu>}
                 {isAuth &&
                 <LogoutAlertDialog
                     OpenButtonType={(params) =>
                         <MenuItem {...params} icon={<LogoutIcon/>}/>
                     }
-                    openButtonText='Log out'
+                    openButtonText={t("sidebar.logout")}
                 />}
             </Menu>
         </ProSidebar>

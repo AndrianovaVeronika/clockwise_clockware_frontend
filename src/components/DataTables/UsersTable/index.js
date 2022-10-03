@@ -6,6 +6,7 @@ import DataTable from "../DataTable";
 import UserForm from "../../Forms/AdminForms/UserForm";
 import {Button} from "@mui/material";
 import store from "../../../store/store";
+import {useTranslation} from "react-i18next";
 
 function renderResetPasswordButton({value}) {
     const onClick = async () => {
@@ -17,29 +18,31 @@ function renderResetPasswordButton({value}) {
     return <Button onClick={onClick}>Reset password</Button>;
 }
 
-const columns = [
-    {
-        field: 'id', headerName: 'ID', width: 50
-    },
-    {
-        field: 'name', headerName: 'Name', width: 150,
-    },
-    {
-        field: 'email', headerName: 'Mail', width: 200,
-    },
-    {
-        field: 'emailChecked', headerName: 'Email checked', width: 150
-    },
-    {
-        field: 'resetUserWithId',
-        type: 'number',
-        headerName: 'Reset password',
-        width: 200,
-        renderCell: renderResetPasswordButton
-    }
-];
-
 const UsersTable = () => {
+    const {t} = useTranslation();
+
+    const columns = [
+        {
+            field: 'id', headerName: 'ID', width: 50
+        },
+        {
+            field: 'name', headerName: t("forms.labels.name"), width: 150,
+        },
+        {
+            field: 'email', headerName: t("forms.labels.email"), width: 200,
+        },
+        {
+            field: 'emailChecked', headerName: t("forms.labels.emailChecked"), width: 150
+        },
+        {
+            field: 'resetUserWithId',
+            type: 'number',
+            headerName: t("forms.labels.resetPassword"),
+            width: 200,
+            renderCell: renderResetPasswordButton
+        }
+    ];
+
     const dispatch = useDispatch();
 
     useEffect(() => {

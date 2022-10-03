@@ -17,6 +17,7 @@ import {useNavigate} from "react-router";
 import {getCurrentUserSelector} from "../../../../store/selectors/authSelector";
 import LoginAlertDialog from "../../../Dialogs/LogInAlertDialog";
 import OrderSuccessAlertDialog from "../../../Dialogs/OrderSuccessAlertDialog";
+import {useTranslation} from "react-i18next";
 
 const initialValues = {
     name: '',
@@ -28,12 +29,21 @@ const initialValues = {
     time: ''
 };
 
+const getSteps = (t) => {
+    const steps = [];
+    for (let i = 0; i < 5; i++) {
+        steps.push(t("forms.userOrderForm.steps." + i));
+    }
+    return steps;
+}
+
 const OrderForm = () => {
+    const {t} = useTranslation();
     const dispatch = useDispatch();
     const navigate = useNavigate();
     const classes = useStyles();
     const [values, setValues] = useState(initialValues);
-    const steps = ['User data', 'Credentials', 'Date & Time', 'Master', 'Check all'];
+    const steps = getSteps(t);
     const currentUser = useSelector(getCurrentUserSelector);
 
     useEffect(() => {
@@ -170,8 +180,8 @@ const OrderForm = () => {
                             </IconButton>
                             {(activeStep === steps.length - 1) ?
                                 <>
-                                    <Button onClick={handleClean}>Clean</Button>
-                                    <Button type='submit' form='order-form'>Submit</Button>
+                                    <Button onClick={handleClean}>{t("forms.userOrderForm.cleanButton")}</Button>
+                                    <Button type='submit' form='order-form'>{t("forms.userOrderForm.submitButton")}</Button>
                                 </> : <IconButton
                                     type='submit'
                                     form={'form' + activeStep}

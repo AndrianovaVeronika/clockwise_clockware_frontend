@@ -5,15 +5,17 @@ import * as Yup from "yup";
 import {useDispatch} from "react-redux";
 import useStyles from "../../../../styles/useStyles";
 import FormikTextField from "../../FormsComponents/FormikTextField";
+import {useTranslation} from "react-i18next";
 
 const initialValues = {name: ''};
 
 const CityForm = ({specifiedInitialValues, submitAction, formId, setDataTableAlert, clearDataTableSelectedRow}) => {
+    const {t} = useTranslation();
     const dispatch = useDispatch();
     const styles = useStyles();
 
     const validationSchema = Yup.object().shape({
-        name: Yup.string().min(3, 'Name is too short').required('Required'),
+        name: Yup.string().min(3, t("forms.validationErrors.shortName")).required(t("forms.validationErrors.required")),
     })
 
     const [Error, setError] = useState(<></>);
@@ -53,7 +55,7 @@ const CityForm = ({specifiedInitialValues, submitAction, formId, setDataTableAle
                         (props) => (
                             <Form id={formId}>
                                 <FormikTextField
-                                    label='Name'
+                                    label={t("forms.labels.name")}
                                     name='name'
                                     error={props.errors.name && props.touched.name}
                                     required

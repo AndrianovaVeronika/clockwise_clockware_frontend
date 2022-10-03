@@ -8,6 +8,7 @@ import Spinner from "./components/PageComponents/Spinner";
 import {ThemeProvider} from '@mui/material/styles';
 import theme from "./styles/theme";
 import "./index.css";
+import "./i18n";
 
 ReactDOM.render(
     <React.Suspense fallback={<Spinner/>}>
