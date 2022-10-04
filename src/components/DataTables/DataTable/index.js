@@ -1,6 +1,6 @@
 import * as React from 'react';
-import {useEffect, useState} from 'react';
-import {DataGrid} from '@mui/x-data-grid';
+import {useState} from 'react';
+import {DataGrid, ukUA} from '@mui/x-data-grid';
 import {Alert, AlertTitle, IconButton} from "@mui/material";
 import DeleteIcon from '@mui/icons-material/Delete';
 import {useDispatch} from "react-redux";
@@ -9,6 +9,7 @@ import FormDialog from "../../Dialogs/FormDialog";
 import AddIcon from '@mui/icons-material/Add';
 import useStyles from "../../../styles/useStyles";
 import _ from 'lodash';
+import {useTranslation} from "react-i18next";
 
 const DataTable = ({
                        columns,
@@ -17,6 +18,7 @@ const DataTable = ({
                        objType,
                        ModelForm
                    }) => {
+    const {i18n} = useTranslation();
     const dispatch = useDispatch();
     const [activeRow, setActiveRow] = useState({});
     const classes = useStyles();
@@ -103,6 +105,7 @@ const DataTable = ({
                     rowsPerPageOptions={[5]}
                     onRowClick={onRowClick}
                     onRowDoubleClick={() => setActiveRow({})}
+                    localeText={i18n.language === 'ua' ? ukUA.components.MuiDataGrid.defaultProps.localeText : undefined}
                 />
             </div>
             {!_.isEmpty(activeRow) && <>

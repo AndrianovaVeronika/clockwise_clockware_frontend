@@ -2,8 +2,10 @@ import {Backdrop, Button, Dialog, DialogActions, DialogContent, DialogTitle, Rat
 import React, {useState} from "react";
 import {useDispatch} from "react-redux";
 import orders from "../../../../store/actions/orders";
+import {useTranslation} from "react-i18next";
 
 const RateOrderForm = ({id, isCompleted, rating}) => {
+    const {t} = useTranslation();
     const dispatch = useDispatch();
 
     const [open, setOpen] = useState(false);
@@ -18,7 +20,7 @@ const RateOrderForm = ({id, isCompleted, rating}) => {
     };
 
     return (rated ? <Rating readOnly value={rating || ratingValue}/> : <>
-        <Button disabled={!isCompleted} onClick={handleOpen}>Rate</Button>
+        <Button disabled={!isCompleted} onClick={handleOpen}>{t("pages.userOrders.rateButton")}</Button>
         <Backdrop
             sx={{color: '#fff', zIndex: (theme) => theme.zIndex.drawer + 1}}
             open={open}

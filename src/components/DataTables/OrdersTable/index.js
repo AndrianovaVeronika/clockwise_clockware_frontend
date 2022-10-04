@@ -29,7 +29,8 @@ const OrdersTable = () => {
             field: 'email', headerName: t("forms.labels.email"), width: 200,
         },
         {
-            field: 'clockType', headerName: t("forms.labels.clockType"), width: 80,
+            field: 'clockType', headerName: t("forms.labels.clockType"), width: 100,
+            renderCell: ({value}) => t("clockTypes." + value)
         },
         {
             field: 'city', headerName: t("forms.labels.city"), width: 80,

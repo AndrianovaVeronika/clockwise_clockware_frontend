@@ -5,7 +5,7 @@ import React, {useEffect} from "react";
 import orders from "../../../../store/actions/orders";
 import {getCurrentMasterOrdersSelector} from "../../../../store/selectors/ordersSelector";
 import Page from "../../../../styles/Page";
-import {DataGrid} from "@mui/x-data-grid";
+import {DataGrid, ukUA} from "@mui/x-data-grid";
 import {compose} from "redux";
 import {withHeader} from "../../../../functions/withHeader";
 import withSidebar from "../../../../functions/withSidebar";
@@ -14,23 +14,21 @@ import withRedirectIfNotMaster from "../../../../functions/withRedirectIfNotMast
 import store from "../../../../store/store";
 import {useTranslation} from "react-i18next";
 
-function renderStatus({value}) {
-    console.log(value)
+function renderStatus({value}, t) {
     const color = value ? 'green' : 'red';
-    const text = value ? 'Completed' : 'Not completed';
-
+    const text = value ? t("statusCompleted.true") : t("statusCompleted.false");
     return <Typography color={color}>{text}</Typography>;
 }
 
-function renderCompleteButton({id, row}) {
+function renderCompleteButton({id, row}, t) {
     return <Button
         disabled={row.isCompleted}
         onClick={() => store.dispatch(orders.updateMasterOrderById({id, isCompleted: !row.isCompleted}))}
-    >Complete</Button>
+    >{t("pages.masterOrders.completeButton")}</Button>
 }
 
 const MasterOrdersPage = () => {
-    const {t} = useTranslation();
+    const {t, i18n} = useTranslation();
 
     const columns = [
         {
@@ -43,7 +41,8 @@ const MasterOrdersPage = () => {
             field: 'email', headerName: t("forms.labels.email"), width: 200,
         },
         {
-            field: 'clockType', headerName: t("forms.labels.clockType"), width: 80,
+            field: 'clockType', headerName: t("forms.labels.clockType"), width: 100,
+            renderCell: ({value}) => t("clockTypes." + value)
         },
         {
             field: 'city', headerName: t("forms.labels.city"), width: 80,
@@ -61,14 +60,14 @@ const MasterOrdersPage = () => {
             field: 'isCompleted',
             headerName: t("forms.labels.status"),
             width: 150,
-            renderCell: renderStatus,
+            renderCell: value => renderStatus(value, t),
             type: 'boolean'
         },
         {
             field: 'complete',
             headerName: '',
             width: 150,
-            renderCell: renderCompleteButton,
+            renderCell: value => renderCompleteButton(value, t),
             type: 'boolean'
         }
     ];
@@ -92,6 +91,7 @@ const MasterOrdersPage = () => {
                         columns={columns}
                         pageSize={5}
                         rowsPerPageOptions={[5]}
+                        localeText={i18n.language === 'ua' ? ukUA.components.MuiDataGrid.defaultProps.localeText : undefined}
                     />
                 </Box>
             </Box>

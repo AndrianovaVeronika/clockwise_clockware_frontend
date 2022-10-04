@@ -22,8 +22,8 @@ const SignInForm = () => {
     const classes = useStyles();
 
     const validationSchema = Yup.object().shape({
-        email: Yup.string().email(t("forms.validationErrors.emailNotValid")).required(t("validationErrors.required")),
-        password: Yup.string().min(8, t("forms.validationErrors.shortPassword")).required(t("validationErrors.required"))
+        email: Yup.string().email(t("forms.validationErrors.emailNotValid")).required(t("forms.validationErrors.required")),
+        password: Yup.string().min(8, t("forms.validationErrors.shortPassword")).required(t("forms.validationErrors.required"))
     });
 
     const [Error, setError] = useState(<></>);

@@ -26,10 +26,12 @@
       "title": "My credentials"
     },
     "userOrders": {
-      "title": "My orders"
+      "title": "My orders",
+      "rateButton": "Rate"
     },
     "masterOrders": {
-      "title": "Orders to do"
+      "title": "Orders to do",
+      "completeButton": "Complete"
     },
     "cities": {
       "title": "Cities table"
@@ -88,7 +90,8 @@
       "required": "Required",
       "shortPassword": "Password is too short",
       "notMatchPassword": "Passwords dont match",
-      "shortName": "Name is too short"
+      "shortName": "Name is too short",
+      "passwordEquals": "Password should not be equal to current one"
     }
   },
   "alertDialogs": {
@@ -111,5 +114,14 @@
   "alerts": {
     "temporaryPassword": "Temporary password. Please change it on your own one for safety reasons!",
     "emailUnverified": "Email unverified. Check your postbox for confirmation letter."
+  },
+  "clockTypes": {
+    "small": "small",
+    "average": "average",
+    "big": "big"
+  },
+  "statusCompleted": {
+    "true": "Completed",
+    "false": "Not completed"
   }
 }

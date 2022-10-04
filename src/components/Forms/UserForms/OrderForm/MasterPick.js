@@ -3,7 +3,7 @@ import {useSelector} from "react-redux";
 import {getAvailableMastersSelector} from "../../../../store/selectors/mastersSelector";
 import Rating from "@mui/material/Rating";
 import {Box, Typography} from "@mui/material";
-import {DataGrid} from "@mui/x-data-grid";
+import {DataGrid, ukUA} from "@mui/x-data-grid";
 import {isNumber} from "lodash";
 import useStyles from "../../../../styles/useStyles";
 import {Form, Formik} from "formik";
@@ -14,7 +14,7 @@ function renderRating(params) {
 }
 
 const MasterPick = ({values, formId, submitAction}) => {
-    const {t} =useTranslation();
+    const {t, i18n} = useTranslation();
 
     const columns = [
         {
@@ -59,6 +59,7 @@ const MasterPick = ({values, formId, submitAction}) => {
                                     pageSize={5}
                                     rowsPerPageOptions={[5]}
                                     onRowClick={onMasterSelect}
+                                    localeText={i18n.language === 'ua' ? ukUA.components.MuiDataGrid.defaultProps.localeText : undefined}
                                 />
                             </Box>
                         </Form>

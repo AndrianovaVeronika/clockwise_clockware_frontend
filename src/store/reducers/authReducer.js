@@ -20,10 +20,10 @@ const {reducer} = createSlice({
             .addCase(signIn.fulfilled, (state, action) => {
                 state.auth.currentUser = action.payload;
                 state.auth.isAuth = true;
-                if (action.payload.roles.includes('ROLE_ADMIN')) {
+                if (action.payload.roles.includes('admin')) {
                     state.auth.isAdmin = true;
                 }
-                if (action.payload.roles.includes('ROLE_MASTER')) {
+                if (action.payload.roles.includes('master')) {
                     state.auth.isMasterAccount = true;
                 }
                 sessionStorage.setItem("TOKEN", action?.payload?.accessToken);
@@ -39,10 +39,10 @@ const {reducer} = createSlice({
                 state.auth.userLoading = false;
                 state.auth.isAuth = true;
                 state.auth.currentUser = action.payload;
-                if (action.payload.roles.includes('ROLE_ADMIN')) {
+                if (action.payload.roles.includes('admin')) {
                     state.auth.isAdmin = true;
                 }
-                if (action.payload.roles.includes('ROLE_MASTER')) {
+                if (action.payload.roles.includes('master')) {
                     state.auth.isMasterAccount = true;
                 }
             })

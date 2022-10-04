@@ -38,7 +38,10 @@ const ResetPasswordForm = ({closeAction}) => {
         currentPassword: Yup.string().min(8, t("forms.validationErrors.shortPassword"))
             .required(t("forms.validationErrors.required")),
         password: Yup.string().min(8, t("forms.validationErrors.shortPassword"))
-            .required(t("forms.validationErrors.required")),
+            .required(t("forms.validationErrors.required"))
+            .when(["currentPassword"], (curr, schema) => {
+                return schema.notOneOf([curr], t("forms.validationErrors.passwordEquals"));
+            }),
         confirmPassword: Yup.string().min(8, t("forms.validationErrors.shortPassword"))
             .required(t("forms.validationErrors.required"))
             .oneOf([Yup.ref('password'), null], t("forms.validationErrors.notMatchPassword"))
