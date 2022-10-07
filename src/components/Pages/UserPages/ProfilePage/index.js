@@ -24,11 +24,11 @@ const ProfilePage = () => {
                     <Box>
                         <Typography
                             className={classes.userAccessAreaItem}
-                        >{t("forms.labels.name") + ": " + user.name}</Typography>
+                        >{`${t("forms.labels.name")}: ${user.name}`}</Typography>
                         <Typography
                             className={classes.userAccessAreaItem}
                             color={user.emailChecked ? 'green' : 'red'}
-                        >{t("forms.labels.email") + ": " + user.email}</Typography>
+                        >{`${t("forms.labels.email")}: ${user.email}`}</Typography>
                     </Box>
                     <Box>
                         <ResetPasswordDialog/>
