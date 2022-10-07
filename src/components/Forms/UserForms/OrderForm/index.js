@@ -32,7 +32,7 @@ const initialValues = {
 const getSteps = (t) => {
     const steps = [];
     for (let i = 0; i < 5; i++) {
-        steps.push(t("forms.userOrderForm.steps." + i));
+        steps.push(t(`forms.userOrderForm.steps.${i}`));
     }
     return steps;
 }

@@ -26,7 +26,7 @@ const ResultsReport = ({formId, onFinalSubmit, values}) => {
         const report = [];
         for (const orderDataKey in orderData) {
             report.push(<Typography
-                key={orderDataKey}>{t("forms.labels." + orderDataKey) + ': ' + orderData[orderDataKey]}</Typography>);
+                key={orderDataKey}>{`${t(`forms.labels.${orderDataKey}`)}: ${orderData[orderDataKey]}`}</Typography>);
         }
         return report;
     }

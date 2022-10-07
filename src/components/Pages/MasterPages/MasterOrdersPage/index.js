@@ -42,7 +42,7 @@ const MasterOrdersPage = () => {
         },
         {
             field: 'clockType', headerName: t("forms.labels.clockType"), width: 100,
-            renderCell: ({value}) => t("clockTypes." + value)
+            renderCell: ({value}) => t(`clockTypes.${value}`)
         },
         {
             field: 'city', headerName: t("forms.labels.city"), width: 80,

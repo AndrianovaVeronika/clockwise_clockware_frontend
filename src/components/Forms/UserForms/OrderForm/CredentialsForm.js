@@ -27,7 +27,7 @@ const CredentialsForm = ({formId, submitAction, values}) => {
     const getClockTypes = () => {
         const types = [];
         for (const type of clockTypes) {
-            types.push({key: type.id, value: t("clockTypes" + type.name)});
+            types.push({key: type.id, value: t(`clockTypes.${type.name}`)});
         }
         return types;
     }

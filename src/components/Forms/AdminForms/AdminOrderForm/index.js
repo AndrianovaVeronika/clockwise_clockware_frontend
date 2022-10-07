@@ -69,7 +69,7 @@ const AdminOrderForm = ({
     const getValidatedClockTypes = () => {
         const types = [];
         for (const type of clockTypes) {
-            types.push({key: type.id, value: t("clockTypes." + type.name)});
+            types.push({key: type.id, value: t('clockTypes.${type.name}')});
         }
         return types;
     }
