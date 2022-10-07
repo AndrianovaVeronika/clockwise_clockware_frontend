@@ -1,6 +1,6 @@
 import React from "react";
 import {getAvailableMastersSelector} from "../../../../store/selectors/mastersSelector";
-import {DataGrid} from "@mui/x-data-grid";
+import {DataGrid, ukUA} from "@mui/x-data-grid";
 import Rating from "@mui/material/Rating";
 import {useFormikContext} from "formik";
 import {Typography} from "@mui/material";
@@ -12,7 +12,7 @@ function renderRating(params) {
 }
 
 const AvailableMastersListener = () => {
-    const {t} = useTranslation();
+    const {t, i18n} = useTranslation();
 
     const columns = [
         {
@@ -44,6 +44,7 @@ const AvailableMastersListener = () => {
                     pageSize={5}
                     rowsPerPageOptions={[5]}
                     onRowClick={onMasterSelect}
+                    localeText={i18n.language === 'ua' ? ukUA.components.MuiDataGrid.defaultProps.localeText : undefined}
                 />
             }
         </>

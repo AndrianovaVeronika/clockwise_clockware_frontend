@@ -2,7 +2,7 @@ import useStyles from "../../../../styles/useStyles";
 import Page from "../../../../styles/Page";
 import {Box, Typography} from "@mui/material";
 import React, {useEffect} from "react";
-import {DataGrid} from "@mui/x-data-grid";
+import {DataGrid, ukUA} from "@mui/x-data-grid";
 import {useDispatch, useSelector} from "react-redux";
 import orders from "../../../../store/actions/orders";
 import {getCurrentUserOrdersSelector} from "../../../../store/selectors/ordersSelector";
@@ -13,10 +13,10 @@ import withRedirectAfterLogout from "../../../../functions/withRedirectAfterLogo
 import RateOrderForm from "../../../Forms/UserForms/RateOrderForm";
 import {useTranslation} from "react-i18next";
 
-function renderStatus({value}) {
+function renderStatus({value}, t) {
     const color = value ? 'green' : 'red';
-    const text = value ? 'Completed' : 'Not completed';
-    return <Typography sx={{color: color}}>{text}</Typography>;
+    const text = value ? t("statusCompleted.true") : t("statusCompleted.false");
+    return <Typography color={color}>{text}</Typography>;
 }
 
 function renderButtonRateOrder({value}) {
@@ -24,14 +24,15 @@ function renderButtonRateOrder({value}) {
 }
 
 const UserOrdersPage = () => {
-    const {t} = useTranslation();
+    const {t, i18n} = useTranslation();
 
     const columns = [
         {
             field: 'id', headerName: 'ID', width: 50
         },
         {
-            field: 'clockType', headerName: t("forms.labels.clockType"), width: 80,
+            field: 'clockType', headerName: t("forms.labels.clockType"), width: 100,
+            renderCell: ({value}) => t(`clockTypes.${value}`)
         },
         {
             field: 'city', headerName: t("forms.labels.city"), width: 80,
@@ -52,7 +53,7 @@ const UserOrdersPage = () => {
             field: 'isCompleted',
             headerName: t("forms.labels.status"),
             width: 150,
-            renderCell: renderStatus,
+            renderCell: value => renderStatus(value, t),
             type: 'boolean'
         },
         {
@@ -84,6 +85,7 @@ const UserOrdersPage = () => {
                         columns={columns}
                         pageSize={5}
                         rowsPerPageOptions={[5]}
+                        localeText={i18n.language === 'ua' ? ukUA.components.MuiDataGrid.defaultProps.localeText: undefined}
                     />
                 </Box>
             </Box>
