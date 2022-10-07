@@ -11,8 +11,10 @@ import orders from "../../../store/actions/orders";
 import {Typography} from "@mui/material";
 import {useTranslation} from "react-i18next";
 
-function renderStatus({value}) {
-    return <Typography sx={{color: value ? 'green' : 'red'}}>{value ? 'Completed' : 'Not completed'}</Typography>;
+function renderStatus({value}, t) {
+    const color = value ? 'green' : 'red';
+    const text = value ? t("statusCompleted.true") : t("statusCompleted.false");
+    return <Typography color={color}>{text}</Typography>;
 }
 
 const OrdersTable = () => {
@@ -51,7 +53,7 @@ const OrdersTable = () => {
             field: 'isCompleted',
             headerName: t("forms.labels.status"),
             width: 120,
-            renderCell: renderStatus,
+            renderCell: value => renderStatus(value, t),
             type: 'boolean'
         },
     ];
