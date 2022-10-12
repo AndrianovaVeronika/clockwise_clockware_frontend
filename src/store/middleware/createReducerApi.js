@@ -4,6 +4,10 @@ export default {
     GET: (modelName) => (state, action) => {
         state[modelName][modelName + 'List'] = action.payload;
     },
+    GET_FILTERED: (modelName) => (state, action) => {
+        console.log(action.payload)
+        state[modelName][modelName + 'FilteredList'] = action.payload;
+    },
     GET_BY_ID: (modelName) => (state, action) => {
         state[modelName]['foundById'] = action.payload;
     },

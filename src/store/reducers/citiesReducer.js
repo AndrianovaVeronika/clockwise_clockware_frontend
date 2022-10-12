@@ -12,6 +12,7 @@ const {reducer} = createSlice({
     extraReducers(builder) {
         builder
             .addCase(cities.getAll.fulfilled, reducerApi.GET('cities'))
+            .addCase(cities.getFiltered.fulfilled, reducerApi.GET_FILTERED('cities'))
             .addCase(cities.getById.fulfilled, reducerApi.GET_BY_ID('cities'))
             .addCase(cities.add.fulfilled, reducerApi.ADD('cities'))
             .addCase(cities.update.fulfilled, reducerApi.UPDATE('cities'))

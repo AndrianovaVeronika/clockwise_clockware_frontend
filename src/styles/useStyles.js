@@ -190,6 +190,14 @@ export const useStyles = makeStyles((theme) => ({
     helperText: {
         marginTop: '0px!important',
         marginLeft: '20px!important'
+    },
+    //filtration form
+    filtrationForm: {
+        display: 'flex',
+        flexDirection: 'row'
+    },
+    filtrationFormItem: {
+        margin: '10px!important'
     }
 }));
 
