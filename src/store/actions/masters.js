@@ -4,6 +4,8 @@ import actionApi from "../middleware/createActionApi";
 
 const getMasters = createAsyncThunk(masters.GET_MASTERS, actionApi.GET('/masters'));
 
+const getFilteredMasters = createAsyncThunk(masters.GET_FILTERED_MASTERS, actionApi.GET_FILTERED('/masters'));
+
 const getMasterById = createAsyncThunk(masters.GET_MASTER_BY_ID, actionApi.GET_BY_ID('/masters'));
 
 const addMaster = createAsyncThunk(masters.ADD_MASTER, actionApi.POST('/masters'));
@@ -16,9 +18,10 @@ const getAvailableMasters = createAsyncThunk(masters.GET_AVAILABLE_MASTERS, acti
 
 export default {
     getAll: getMasters,
+    getFiltered: getFilteredMasters,
     getById: getMasterById,
     add: addMaster,
     update: updateMaster,
     delete: deleteMaster,
     getAvailableMasters: getAvailableMasters
-}
+};

@@ -6,11 +6,12 @@ import {useDispatch, useSelector} from "react-redux";
 import {getFilteredCitiesSelector} from "../../../store/selectors/citiesSelector";
 import CityForm from "../../Forms/AdminForms/CityForm";
 import {useTranslation} from "react-i18next";
-import {Box} from "@mui/material";
 import CitiesFiltrationForm from "../../Forms/FiltrationForms/CitiesFiltrationForm";
+import useStyles from "../../../styles/useStyles";
 
 const CitiesTable = () => {
     const {t} = useTranslation();
+    const classes = useStyles();
 
     const columns = [
         {
@@ -35,9 +36,7 @@ const CitiesTable = () => {
 
     return (
         <>
-            <Box sx={{margin: '10px', marginLeft: '0px!important', width: '30%'}}>
-                <CitiesFiltrationForm/>
-            </Box>
+            <CitiesFiltrationForm/>
             <DataTable
                 columns={columns}
                 rows={filteredCities}

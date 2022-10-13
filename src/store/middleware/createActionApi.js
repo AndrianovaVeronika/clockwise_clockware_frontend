@@ -33,7 +33,6 @@ export default {
     },
     POST: (path) => async (newInstance, thunkAPI) => {
         try {
-            console.log(newInstance)
             const response = await instance.post(path, newInstance);
             return response.data;
         } catch (e) {

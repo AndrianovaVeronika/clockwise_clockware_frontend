@@ -5,6 +5,8 @@ import actionApi from "../middleware/createActionApi";
 
 const addUser = createAsyncThunk(users.ADD_USER, actionApi.POST('/users'));
 
+const getFilteredUsers = createAsyncThunk(users.GET_FILTERED_USERS, actionApi.GET_FILTERED('/users'));
+
 const getUsers = createAsyncThunk(users.GET_USERS, actionApi.GET('/users'));
 
 const updateUser = createAsyncThunk(users.UPDATE_USER, actionApi.PUT('/users'));
@@ -24,6 +26,7 @@ export const resetPassword = createAsyncThunk(users.RESET_PASSWORD, async (id, t
 
 export default {
     getAll: getUsers,
+    getFiltered: getFilteredUsers,
     getById: getUserById,
     add: addUser,
     update: updateUser,

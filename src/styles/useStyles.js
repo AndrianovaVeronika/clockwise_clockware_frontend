@@ -193,8 +193,9 @@ export const useStyles = makeStyles((theme) => ({
     },
     //filtration form
     filtrationForm: {
-        display: 'flex',
-        flexDirection: 'row'
+        margin: '10px',
+        marginLeft: '0px!important',
+        width: '30%'
     },
     filtrationFormItem: {
         margin: '10px!important'

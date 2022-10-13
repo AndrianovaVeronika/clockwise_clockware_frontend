@@ -1,15 +1,18 @@
 import * as React from 'react';
 import {useEffect} from 'react';
 import {useDispatch, useSelector} from "react-redux";
-import {getOrdersSelector} from "../../../store/selectors/ordersSelector";
+import {getFilteredOrdersSelector} from "../../../store/selectors/ordersSelector";
 import DataTable from "../DataTable";
 import AdminOrderForm from "../../Forms/AdminForms/AdminOrderForm";
 import {getClockTypes} from "../../../store/actions/clockTypes";
 import cities from "../../../store/actions/cities";
 import masters from "../../../store/actions/masters";
 import orders from "../../../store/actions/orders";
-import {Typography} from "@mui/material";
+import {Box, Typography} from "@mui/material";
 import {useTranslation} from "react-i18next";
+import useStyles from "../../../styles/useStyles";
+import OrdersFiltrationForm from "../../Forms/FiltrationForms/OrdersFiltrationForm";
+import users from "../../../store/actions/users";
 
 function renderStatus({value}, t) {
     const color = value ? 'green' : 'red';
@@ -19,6 +22,7 @@ function renderStatus({value}, t) {
 
 const OrdersTable = () => {
     const {t} = useTranslation();
+    const classes = useStyles();
 
     const columns = [
         {
@@ -62,22 +66,28 @@ const OrdersTable = () => {
 
     useEffect(() => {
         dispatch(orders.getAll());
+        dispatch(orders.getFiltered())
         dispatch(cities.getAll());
         dispatch(getClockTypes());
         dispatch(masters.getAll());
+        dispatch(users.getAll());
     }, [dispatch]);
 
-    const rows = useSelector(getOrdersSelector);
+    const filteredOrders = useSelector(getFilteredOrdersSelector);
 
-    return (
+    return (<Box sx={{
+        // display: 'flex',
+        // flexDirection: 'row'
+    }}>
+        <OrdersFiltrationForm/>
         <DataTable
-            rows={rows}
+            rows={filteredOrders}
             columns={columns}
             actions={orders}
             objType={'orders'}
             ModelForm={AdminOrderForm}
         />
-    );
+    </Box>);
 }
 
 export default React.memo(OrdersTable);

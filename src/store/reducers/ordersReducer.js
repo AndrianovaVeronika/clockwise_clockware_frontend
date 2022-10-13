@@ -12,6 +12,7 @@ const {reducer} = createSlice({
     extraReducers(builder) {
         builder
             .addCase(orders.getAll.fulfilled, reducerApi.GET('orders'))
+            .addCase(orders.getFiltered.fulfilled, reducerApi.GET_FILTERED('orders'))
             .addCase(orders.getById.fulfilled, reducerApi.GET_BY_ID('orders'))
             .addCase(orders.add.fulfilled, reducerApi.ADD('orders'))
             .addCase(orders.update.fulfilled, reducerApi.UPDATE('orders'))

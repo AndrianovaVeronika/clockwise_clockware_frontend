@@ -1,9 +1,8 @@
 import initialState from "../initialState";
 import {createSlice} from "@reduxjs/toolkit";
-import users from "../actions/users";
+import users, {resetPassword} from "../actions/users";
 import reducerApi from "../middleware/createReducerApi";
 import {registerUserAccount} from "../actions/auth";
-import {resetPassword} from "../actions/users"
 
 const {reducer} = createSlice({
     name: 'users',
@@ -14,6 +13,7 @@ const {reducer} = createSlice({
     extraReducers(builder) {
         builder
             .addCase(registerUserAccount.fulfilled, reducerApi.ADD('users'))
+            .addCase(users.getFiltered.fulfilled, reducerApi.GET_FILTERED('users'))
             .addCase(users.add.fulfilled, reducerApi.ADD('users'))
             .addCase(users.getAll.fulfilled, reducerApi.GET('users'))
             .addCase(users.getById.fulfilled, reducerApi.GET_BY_ID('users'))

@@ -1,4 +1,4 @@
-import {Button} from "@mui/material";
+import {Box, Button} from "@mui/material";
 import {Form, Formik} from "formik";
 import * as React from "react";
 import {useState} from "react";
@@ -10,6 +10,7 @@ import FormikTextField from "../../FormsComponents/FormikTextField";
 import cities from "../../../../store/actions/cities";
 import {useDispatch, useSelector} from "react-redux";
 import {getCitiesSelector} from "../../../../store/selectors/citiesSelector";
+import {useTranslation} from "react-i18next";
 
 const initialValues = {
     id: '',
@@ -18,15 +19,16 @@ const initialValues = {
 };
 
 const CitiesFiltrationForm = () => {
+    const {t} = useTranslation();
     const classes = useStyles();
     const [values, setValues] = useState(initialValues);
     const allCities = useSelector(getCitiesSelector);
     const dispatch = useDispatch();
 
-    const onSubmit = () => {
+    const onSubmit = (formValues) => {
         const filters = {
             where: {
-                ...((values.id.length > 0) && {id: toNumber(values.id)}),
+                ...((formValues.id.length > 0) && {id: toNumber(formValues.id)}),
                 ...((values.name.length > 0) && {name: values.name}),
             },
             priceRange: values.priceRange
@@ -34,27 +36,26 @@ const CitiesFiltrationForm = () => {
         dispatch(cities.getFiltered(filters));
     }
 
-    return (<>
+    return (<Box className={classes.filtrationForm}>
         <Formik
             initialValues={initialValues}
             // validationSchema={validationSchema}
             onSubmit={onSubmit}
         >{(props) => (
-            <Form id='city'>
+            <Form id='city-filter'>
                 <FormikTextField
                     name='id'
                     label='ID'
                     className={classes.filtrationFormItem}
                 />
                 <AutocompleteField
-                    label={'Name'}
+                    label={t("forms.labels.city")}
                     options={allCities}
                     optionValueKey={'name'}
-                    value={values.name}
                     handleValueChange={(v) => {
-                        console.log(v)
                         setValues({...values, name: v})
                     }}
+                    neededValueKey={'name'}
                     className={classes.filtrationFormItem}
                 />
                 <RangeInput
@@ -70,8 +71,8 @@ const CitiesFiltrationForm = () => {
                 />
             </Form>
         )}</Formik>
-        <Button type='submit' form='city'>Confirm</Button>
-    </>)
+        <Button type='submit' form='city-filter'>Confirm</Button>
+    </Box>)
 };
 
 export default CitiesFiltrationForm;

@@ -12,6 +12,10 @@ import withSidebar from "../../../../functions/withSidebar";
 import withRedirectAfterLogout from "../../../../functions/withRedirectAfterLogout";
 import RateOrderForm from "../../../Forms/UserForms/RateOrderForm";
 import {useTranslation} from "react-i18next";
+import UserOrdersFiltrationForm from "../../../Forms/FiltrationForms/UserOrdersFiltrationForm";
+import cities from "../../../../store/actions/cities";
+import {getClockTypes} from "../../../../store/actions/clockTypes";
+import masters from "../../../../store/actions/masters";
 
 function renderStatus({value}, t) {
     const color = value ? 'green' : 'red';
@@ -71,6 +75,9 @@ const UserOrdersPage = () => {
 
     useEffect(() => {
         dispatch(orders.getCurrentUserOrders());
+        dispatch(cities.getAll());
+        dispatch(getClockTypes());
+        dispatch(masters.getAll());
     }, [dispatch]);
 
     const currentUserOrders = useSelector(getCurrentUserOrdersSelector);
@@ -79,13 +86,14 @@ const UserOrdersPage = () => {
         <Page>
             <Box className={classes.profileContent}>
                 <Typography variant='h5' gutterBottom>{t("pages.userOrders.title")}</Typography>
+                <UserOrdersFiltrationForm/>
                 <Box className={classes.dataTable}>
                     <DataGrid
                         rows={currentUserOrders}
                         columns={columns}
                         pageSize={5}
                         rowsPerPageOptions={[5]}
-                        localeText={i18n.language === 'ua' ? ukUA.components.MuiDataGrid.defaultProps.localeText: undefined}
+                        localeText={i18n.language === 'ua' ? ukUA.components.MuiDataGrid.defaultProps.localeText : undefined}
                     />
                 </Box>
             </Box>

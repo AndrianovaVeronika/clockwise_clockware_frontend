@@ -13,6 +13,11 @@ import withRedirectAfterLogout from "../../../../functions/withRedirectAfterLogo
 import withRedirectIfNotMaster from "../../../../functions/withRedirectIfNotMaster";
 import store from "../../../../store/store";
 import {useTranslation} from "react-i18next";
+import cities from "../../../../store/actions/cities";
+import {getClockTypes} from "../../../../store/actions/clockTypes";
+import masters from "../../../../store/actions/masters";
+import users from "../../../../store/actions/users";
+import MasterOrdersFiltrationForm from "../../../Forms/FiltrationForms/MasterOrdersFiltrationForm";
 
 function renderStatus({value}, t) {
     const color = value ? 'green' : 'red';
@@ -77,6 +82,10 @@ const MasterOrdersPage = () => {
 
     useEffect(() => {
         dispatch(orders.getCurrentMasterOrders());
+        dispatch(orders.getCurrentUserOrders());
+        dispatch(cities.getAll());
+        dispatch(users.getAll());
+        dispatch(getClockTypes());
     }, [dispatch]);
 
     const currentUserOrders = useSelector(getCurrentMasterOrdersSelector);
@@ -85,6 +94,7 @@ const MasterOrdersPage = () => {
         <Page>
             <Box className={classes.profileContent}>
                 <Typography variant='h5' gutterBottom>{t("pages.masterOrders.title")}</Typography>
+                <MasterOrdersFiltrationForm/>
                 <Box className={classes.dataTable}>
                     <DataGrid
                         rows={currentUserOrders}
