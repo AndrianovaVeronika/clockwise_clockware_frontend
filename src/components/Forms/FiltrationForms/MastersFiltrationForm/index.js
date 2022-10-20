@@ -8,15 +8,15 @@ import AutocompleteField from "../../FormsComponents/AutocompleteField";
 import RangeInput from "../../FormsComponents/RangeInputField";
 import FormikTextField from "../../FormsComponents/FormikTextField";
 import {useTranslation} from "react-i18next";
-import {getAllCities} from "../../../../store/getters/cities";
+import {getAllMasters} from "../../../../store/getters/masters";
 
 const initialValues = {
     id: '',
     name: '',
-    priceRange: [0, 20]
+    ratingRange: [0, 5]
 };
 
-const CitiesFiltrationForm = ({filtrate}) => {
+const MastersFiltrationForm = ({filtrate}) => {
     const {t} = useTranslation();
     const classes = useStyles();
 
@@ -28,7 +28,7 @@ const CitiesFiltrationForm = ({filtrate}) => {
                 ...((formValues.id.length > 0) && {id: toNumber(formValues.id)}),
                 ...((values.name.length > 0) && {name: values.name}),
             },
-            priceRange: values.priceRange
+            ratingRange: values.ratingRange
         };
         filtrate(filters);
     }
@@ -39,15 +39,15 @@ const CitiesFiltrationForm = ({filtrate}) => {
             // validationSchema={validationSchema}
             onSubmit={onSubmit}
         >{(props) => (
-            <Form id='city-filter'>
+            <Form id='master-filter'>
                 <FormikTextField
                     name='id'
                     label='ID'
                     className={classes.filtrationFormItem}
                 />
                 <AutocompleteField
-                    getOptionsFunction={getAllCities}
-                    label={t("forms.labels.city")}
+                    getOptionsFunction={getAllMasters}
+                    label={t("forms.labels.name")}
                     optionValueKey={'name'}
                     handleValueChange={(v) => {
                         setValues({...values, name: v})
@@ -56,20 +56,20 @@ const CitiesFiltrationForm = ({filtrate}) => {
                     className={classes.filtrationFormItem}
                 />
                 <RangeInput
-                    label={t("forms.labels.price")}
-                    from={0}
-                    to={20}
-                    step={0.1}
-                    value={values.priceRange}
+                    label={t("forms.labels.rating")}
+                    from={initialValues.ratingRange[0]}
+                    to={initialValues.ratingRange[1]}
+                    step={1}
+                    value={values.ratingRange}
                     handleValueChange={(v) => {
-                        setValues({...values, priceRange: v})
+                        setValues({...values, ratingRange: v})
                     }}
                     className={classes.filtrationFormItem}
                 />
             </Form>
         )}</Formik>
-        <Button type='submit' form='city-filter'>{t("forms.buttons.confirm")}</Button>
+        <Button type='submit' form='master-filter'>{t("forms.buttons.confirm")}</Button>
     </Box>)
 };
 
-export default CitiesFiltrationForm;
+export default MastersFiltrationForm;

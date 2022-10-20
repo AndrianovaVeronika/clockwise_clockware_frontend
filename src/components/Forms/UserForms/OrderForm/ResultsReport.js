@@ -1,23 +1,28 @@
-import React from 'react';
+import React, {useEffect, useState} from 'react';
 import {Typography} from '@mui/material'
-import {getCitiesSelector} from "../../../../store/selectors/citiesSelector";
-import {useSelector} from "react-redux";
-import {getMastersSelector} from "../../../../store/selectors/mastersSelector";
-import {getClockTypesSelector} from "../../../../store/selectors/clockTypesSelector";
 import {useTranslation} from "react-i18next";
+import {getCityById} from "../../../../store/getters/cities";
+import {getMasterById} from "../../../../store/getters/masters";
+import {getClockTypeById} from "../../../../store/getters/clockTypes";
 
 const ResultsReport = ({formId, onFinalSubmit, values}) => {
     const {t} = useTranslation();
-    const city = useSelector(getCitiesSelector).filter((el) => el.id === values.cityId);
-    const master = useSelector(getMastersSelector).filter((el) => el.id === values.masterId);
-    const clockType = useSelector(getClockTypesSelector).filter((el) => el.id === values.clockTypeId);
+
+    const [city, setCity] = useState();
+    const [master, setMaster] = useState();
+    const [clockType, setClockType] = useState();
+    useEffect(async () => {
+        setCity(await getCityById(values.cityId));
+        setMaster(await getMasterById(values.masterId));
+        setClockType(await getClockTypeById(values.clockTypeId));
+    }, []);
 
     const orderData = {
         name: values?.name ? values?.name : '',
         email: values?.email ? values?.email : '',
-        clockType: clockType[0] ? clockType[0]?.name : '',
-        master: master[0] ? master[0]?.name : '',
-        city: city[0] ? city[0]?.name : '',
+        clockType: clockType ? clockType?.name : '',
+        master: master ? master?.name : '',
+        city: city ? city?.name : '',
         date: values?.date ? values?.date : '',
         time: values?.time ? values?.time : ''
     };

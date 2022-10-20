@@ -1,65 +1,62 @@
-import {Box, Button, TextField} from "@mui/material";
+import {Box, Button} from "@mui/material";
 import {Form, Formik} from "formik";
 import * as React from "react";
-import {useState} from "react";
+import {useEffect, useState} from "react";
 import useStyles from "../../../../styles/useStyles";
 import AutocompleteField from "../../FormsComponents/AutocompleteField";
-import {useDispatch, useSelector} from "react-redux";
 import FormikSelectField from "../../FormsComponents/FormikSelectField";
-import {getClockTypesSelector} from "../../../../store/selectors/clockTypesSelector";
-import {getCitiesSelector} from "../../../../store/selectors/citiesSelector";
-import {getMastersSelector} from "../../../../store/selectors/mastersSelector";
 import {useTranslation} from "react-i18next";
 import RangeInput from "../../FormsComponents/RangeInputField";
-import orders from "../../../../store/actions/orders";
-import {LocalizationProvider, MobileDateRangePicker} from "@mui/lab";
-import AdapterDateFns from "@mui/lab/AdapterDateFns";
+import FormikDateRangeField from "../../FormsComponents/FormikDateRangeField";
+import {getAllClockTypes} from "../../../../store/getters/clockTypes";
+import {getAllCities} from "../../../../store/getters/cities";
+import YesNoChooseField from "../../FormsComponents/YesNoChooseField";
+import FormikTextField from "../../FormsComponents/FormikTextField";
 
 const initialValues = {
     clockTypeId: '',
     cityId: undefined,
-    isCompleted: '',
+    isCompleted: undefined,
     dateRange: [null, null],
-    priceRange: [0, 60]
+    priceRange: [0, 60],
+    name: '',
+    email: ''
 };
 
-const MasterOrdersFiltrationForm = () => {
+const MasterOrdersFiltrationForm = ({filtrate}) => {
     const classes = useStyles();
     const {t} = useTranslation();
-    const [values, setValues] = useState(initialValues);
-    const allClockTypes = useSelector(getClockTypesSelector).map(clockType => ({
-        key: clockType.id,
-        value: t(`clockTypes.${clockType.name}`)
-    }));
-    const allCities = useSelector(getCitiesSelector);
-    // const allUsers = useSelector(getUsersSelector);
-    const dispatch = useDispatch();
 
-    const statuses = [
-        {key: true, value: t("statusCompleted.true")},
-        {key: false, value: t("statusCompleted.false")}
-    ];
+    const [values, setValues] = useState(initialValues);
+
+    const [clockTypesOptions, setClockTypesOptions] = useState([]);
+    useEffect(async () => {
+        const clockTypes = await getAllClockTypes();
+        setClockTypesOptions(clockTypes.map(clockType => ({
+            key: clockType.id,
+            value: t(`clockTypes.${clockType.name}`)
+        })));
+    }, []);
 
     const onSubmit = (formValues) => {
         const filters = {
             where: {
-                // ...((formValues.id.length > 0) && {id: toNumber(formValues.id)}),
-                // ...(values.userId && {userId: values.userId}),
                 ...(formValues.clockTypeId && {clockTypeId: formValues.clockTypeId}),
-                // ...(values.masterId && {masterId: values.masterId}),
                 ...(values.cityId && {cityId: values.cityId}),
-                ...(typeof formValues.isCompleted === "boolean" && {isCompleted: formValues.isCompleted}),
+                ...(formValues.isCompleted && {isCompleted: formValues.isCompleted}),
             },
+            ...((formValues.name.length > 0) && {name: formValues.name}),
+            ...((formValues.email.length > 0) && {email: formValues.email}),
             ...(((values.dateRange[0] !== null) || (values.dateRange[1] !== null))
                 && {dateRange: values.dateRange}),
             priceRange: values.priceRange
         };
-        dispatch(orders.getCurrentMasterOrders(filters));
+        filtrate(filters);
     }
 
-    const onClear = () => {
-        setValues(initialValues);
-    }
+    // const onClear = () => {
+    //     setValues(initialValues);
+    // }
 
     return (<Box className={classes.filtrationForm}>
         <Formik
@@ -68,39 +65,22 @@ const MasterOrdersFiltrationForm = () => {
             onSubmit={onSubmit}
         >{(props) => (
             <Form id='order-filter'>
-                {/*<FormikTextField*/}
-                {/*    name='id'*/}
-                {/*    label='ID'*/}
-                {/*    className={classes.filtrationFormItem}*/}
-                {/*/>*/}
-                {/*<AutocompleteField*/}
-                {/*    label={t("forms.labels.email")}*/}
-                {/*    options={allUsers}*/}
-                {/*    optionValueKey={'email'}*/}
-                {/*    handleValueChange={(v) => {*/}
-                {/*        setValues({...values, userId: v})*/}
-                {/*    }}*/}
-                {/*    neededValueKey={'id'}*/}
-                {/*    className={classes.filtrationFormItem}*/}
-                {/*/>*/}
+                <FormikTextField
+                    label={t("forms.labels.name")}
+                    name={'name'}
+                />
+                <FormikTextField
+                    label={t("forms.labels.email")}
+                    name={'email'}
+                />
                 <FormikSelectField
                     label={t("forms.labels.clockType")}
                     name='clockTypeId'
-                    options={allClockTypes}
+                    options={clockTypesOptions}
                 />
-                {/*<AutocompleteField*/}
-                {/*    label={t("forms.labels.master")}*/}
-                {/*    options={allMasters}*/}
-                {/*    optionValueKey={'name'}*/}
-                {/*    handleValueChange={(v) => {*/}
-                {/*        setValues({...values, masterId: v});*/}
-                {/*    }}*/}
-                {/*    neededValueKey={'id'}*/}
-                {/*    className={classes.filtrationFormItem}*/}
-                {/*/>*/}
                 <AutocompleteField
+                    getOptionsFunction={getAllCities}
                     label={t("forms.labels.city")}
-                    options={allCities}
                     optionValueKey={'name'}
                     handleValueChange={(v) => {
                         setValues({...values, cityId: v})
@@ -108,10 +88,13 @@ const MasterOrdersFiltrationForm = () => {
                     neededValueKey={'id'}
                     className={classes.filtrationFormItem}
                 />
-                <FormikSelectField
-                    label={t("forms.labels.status")}
+                <YesNoChooseField
+                    label={t("forms.labels.isCompleted")}
                     name={'isCompleted'}
-                    options={statuses}
+                    value={values.isCompleted}
+                    handleChange={(v) => {
+                        setValues({...values, isCompleted: v})
+                    }}
                 />
                 <RangeInput
                     label={t("forms.labels.price")}
@@ -124,24 +107,12 @@ const MasterOrdersFiltrationForm = () => {
                     }}
                     className={classes.filtrationFormItem}
                 />
-                <LocalizationProvider
-                    dateAdapter={AdapterDateFns}
-                    localeText={{start: 'Mobile start', end: 'Mobile end'}}
-                >
-                    <MobileDateRangePicker
-                        value={values.dateRange}
-                        onChange={(v) => {
-                            setValues({...values, dateRange: v});
-                        }}
-                        renderInput={(startProps, endProps) => (
-                            <React.Fragment>
-                                <TextField {...startProps} />
-                                <Box sx={{mx: 2}}> to </Box>
-                                <TextField {...endProps} />
-                            </React.Fragment>
-                        )}
-                    />
-                </LocalizationProvider>
+                <FormikDateRangeField
+                    value={values.dateRange}
+                    handleChange={(v) => {
+                        setValues({...values, dateRange: v});
+                    }}
+                />
             </Form>
         )}</Formik>
         <Button type='submit' form='order-filter'>Confirm</Button>

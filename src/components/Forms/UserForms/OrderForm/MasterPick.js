@@ -1,6 +1,4 @@
-import React, {useState} from "react";
-import {useSelector} from "react-redux";
-import {getAvailableMastersSelector} from "../../../../store/selectors/mastersSelector";
+import React, {useEffect, useState} from "react";
 import Rating from "@mui/material/Rating";
 import {Box, Typography} from "@mui/material";
 import {DataGrid, ukUA} from "@mui/x-data-grid";
@@ -8,6 +6,7 @@ import {isNumber} from "lodash";
 import useStyles from "../../../../styles/useStyles";
 import {Form, Formik} from "formik";
 import {useTranslation} from "react-i18next";
+import {getAvailableMasters} from "../../../../store/getters/masters";
 
 function renderRating(params) {
     return <Rating readOnly value={params.value}/>;
@@ -31,9 +30,13 @@ const MasterPick = ({values, formId, submitAction}) => {
         }
     ];
 
+    const [masters, setMasters] = useState([]);
+    useEffect(async () => {
+        setMasters(await getAvailableMasters());
+    }, []);
+
     const [masterId, setMasterId] = useState(values.masterId || '');
 
-    const masters = useSelector(getAvailableMastersSelector);
     const classes = useStyles();
 
     const onMasterSelect = (e) => {

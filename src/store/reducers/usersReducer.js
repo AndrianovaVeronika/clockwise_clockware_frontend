@@ -13,7 +13,6 @@ const {reducer} = createSlice({
     extraReducers(builder) {
         builder
             .addCase(registerUserAccount.fulfilled, reducerApi.ADD('users'))
-            .addCase(users.getFiltered.fulfilled, reducerApi.GET_FILTERED('users'))
             .addCase(users.add.fulfilled, reducerApi.ADD('users'))
             .addCase(users.getAll.fulfilled, reducerApi.GET('users'))
             .addCase(users.getById.fulfilled, reducerApi.GET_BY_ID('users'))

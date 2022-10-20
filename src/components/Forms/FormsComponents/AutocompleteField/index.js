@@ -1,8 +1,13 @@
 import * as React from "react";
-import {useState} from "react";
+import {useEffect, useState} from "react";
 import {Autocomplete, TextField} from "@mui/material";
 
-const AutocompleteField = ({options, label, optionValueKey, handleValueChange, neededValueKey, ...props}) => {
+const AutocompleteField = ({getOptionsFunction, label, optionValueKey, handleValueChange, neededValueKey, ...props}) => {
+    const [options, setOptions] = useState([]);
+    useEffect(async () => {
+        setOptions(await getOptionsFunction());
+    }, []);
+
     const [objValue, setObjValue] = useState(null);
     const [input, setInput] = useState('');
 

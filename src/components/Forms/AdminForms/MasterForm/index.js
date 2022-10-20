@@ -2,13 +2,12 @@ import React, {useEffect, useState} from "react";
 import {Form, Formik} from "formik";
 import {Alert, AlertTitle, Box, InputLabel, Paper, Rating} from "@mui/material";
 import * as Yup from 'yup';
-import cities from "../../../../store/actions/cities";
-import {useDispatch, useSelector} from "react-redux";
+import {useDispatch} from "react-redux";
 import FormikSelectField from "../../FormsComponents/FormikSelectField";
-import {getCitiesSelector} from "../../../../store/selectors/citiesSelector";
 import useStyles from "../../../../styles/useStyles";
 import FormikTextField from "../../FormsComponents/FormikTextField";
 import {useTranslation} from "react-i18next";
+import {getAllCities} from "../../../../store/getters/cities";
 
 const initialValues = {
     name: '',
@@ -17,18 +16,19 @@ const initialValues = {
     cities: []
 }
 
-const getCityOptionsForSelect = (incomeCities) => {
-    const cities = [];
-    for (const city of incomeCities) {
-        cities.push({key: city.name, value: city.name});
-    }
-    return cities;
-}
-
 const MasterForm = ({specifiedInitialValues, submitAction, formId, setDataTableAlert, clearDataTableSelectedRow}) => {
     const {t} = useTranslation();
     const dispatch = useDispatch();
     const classes = useStyles();
+
+    const [citiesOptions, setCitiesOptions] = useState([]);
+    useEffect(async () => {
+        const cities = await getAllCities();
+        setCitiesOptions(cities.map(city => ({
+            key: city.id,
+            value: city.name
+        })));
+    }, []);
 
     const [values, setValues] = useState(initialValues);
 
@@ -43,13 +43,6 @@ const MasterForm = ({specifiedInitialValues, submitAction, formId, setDataTableA
             typeof value === 'string' ? value.split(',') : value,
         );
     };
-
-    useEffect(() => {
-        dispatch(cities.getAll());
-    }, [dispatch])
-
-    const incomeCities = useSelector(getCitiesSelector);
-    const cityOptions = getCityOptionsForSelect(incomeCities);
 
     const validationSchema = Yup.object().shape({
         name: Yup.string().min(3, t("forms.validationErrors.shortName")).required(t("forms.validationErrors.required")),
@@ -120,7 +113,7 @@ const MasterForm = ({specifiedInitialValues, submitAction, formId, setDataTableA
                                 <FormikSelectField
                                     label={t("forms.labels.cities")}
                                     name='cities'
-                                    options={cityOptions}
+                                    options={citiesOptions}
                                     value={values.cities}
                                     onChange={handleChange}
                                     multiple

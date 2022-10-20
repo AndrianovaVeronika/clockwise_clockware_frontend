@@ -38,7 +38,7 @@ export default function Header() {
     };
 
     return (
-        <AppBar position='relative' className={classes.header}>
+        <AppBar position='fixed' className={classes.header}>
             <Container fixed>
                 <Toolbar>
                     <Typography

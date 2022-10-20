@@ -1,39 +1,32 @@
-import React from "react";
-import {useSelector} from "react-redux";
-import {getCitiesSelector} from "../../../../store/selectors/citiesSelector";
+import React, {useEffect, useState} from "react";
 import {Form, Formik} from "formik";
 import FormikSelectField from "../../FormsComponents/FormikSelectField";
-import {getClockTypesSelector} from "../../../../store/selectors/clockTypesSelector";
 import {useTranslation} from "react-i18next";
+import {getAllClockTypes} from "../../../../store/getters/clockTypes";
+import {getAllCities} from "../../../../store/getters/cities";
 
 const CredentialsForm = ({formId, submitAction, values}) => {
-    const cities = useSelector(getCitiesSelector);
-    const clockTypes = useSelector(getClockTypesSelector);
     const {t} = useTranslation();
+
+    const [clockTypesOptions, setClockTypesOptions] = useState([]);
+    const [citiesOptions, setCitiesOptions] = useState([]);
+    useEffect(async () => {
+        const clockTypes = await getAllClockTypes();
+        setClockTypesOptions(clockTypes.map(clockType => ({
+            key: clockType.id,
+            value: t(`clockTypes.${clockType.name}`)
+        })));
+        const cities = await getAllCities();
+        setCitiesOptions(cities.map(city => ({
+            key: city.id,
+            value: city.name
+        })));
+    }, []);
 
     const initialValues = values ? values : {
         cityId: '',
         clockTypeId: ''
     }
-
-    const getCities = () => {
-        const elements = [];
-        for (const city of cities) {
-            elements.push({key: city.id, value: city.name});
-        }
-        return elements;
-    }
-
-    const getClockTypes = () => {
-        const types = [];
-        for (const type of clockTypes) {
-            types.push({key: type.id, value: t(`clockTypes.${type.name}`)});
-        }
-        return types;
-    }
-
-    const cityOptions = getCities();
-    const clockTypeOptions = getClockTypes();
 
     const onSubmit = (v, props) => {
         submitAction(v);
@@ -48,13 +41,13 @@ const CredentialsForm = ({formId, submitAction, values}) => {
                 <FormikSelectField
                     label={t("forms.labels.clockType")}
                     name='clockTypeId'
-                    options={clockTypeOptions}
+                    options={clockTypesOptions}
                     required
                 />
                 <FormikSelectField
                     label={t("forms.labels.city")}
                     name='cityId'
-                    options={cityOptions}
+                    options={citiesOptions}
                     required
                 />
             </Form>)}

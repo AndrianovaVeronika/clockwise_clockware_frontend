@@ -1,9 +1,7 @@
 import {Box, Button, Typography} from "@mui/material";
 import useStyles from "../../../../styles/useStyles";
-import {useDispatch, useSelector} from "react-redux";
-import React, {useEffect} from "react";
+import React, {useEffect, useState} from "react";
 import orders from "../../../../store/actions/orders";
-import {getCurrentMasterOrdersSelector} from "../../../../store/selectors/ordersSelector";
 import Page from "../../../../styles/Page";
 import {DataGrid, ukUA} from "@mui/x-data-grid";
 import {compose} from "redux";
@@ -13,11 +11,8 @@ import withRedirectAfterLogout from "../../../../functions/withRedirectAfterLogo
 import withRedirectIfNotMaster from "../../../../functions/withRedirectIfNotMaster";
 import store from "../../../../store/store";
 import {useTranslation} from "react-i18next";
-import cities from "../../../../store/actions/cities";
-import {getClockTypes} from "../../../../store/actions/clockTypes";
-import masters from "../../../../store/actions/masters";
-import users from "../../../../store/actions/users";
 import MasterOrdersFiltrationForm from "../../../Forms/FiltrationForms/MasterOrdersFiltrationForm";
+import {getCurrentMasterOrders} from "../../../../store/getters/orders";
 
 function renderStatus({value}, t) {
     const color = value ? 'green' : 'red';
@@ -33,6 +28,7 @@ function renderCompleteButton({id, row}, t) {
 }
 
 const MasterOrdersPage = () => {
+    const classes = useStyles();
     const {t, i18n} = useTranslation();
 
     const columns = [
@@ -77,27 +73,21 @@ const MasterOrdersPage = () => {
         }
     ];
 
-    const classes = useStyles();
-    const dispatch = useDispatch();
+    const [rows, setRows] = useState([]);
+    useEffect(async () => {
+        setRows(await getCurrentMasterOrders());
+    }, []);
 
-    useEffect(() => {
-        dispatch(orders.getCurrentMasterOrders());
-        dispatch(orders.getCurrentUserOrders());
-        dispatch(cities.getAll());
-        dispatch(users.getAll());
-        dispatch(getClockTypes());
-    }, [dispatch]);
-
-    const currentUserOrders = useSelector(getCurrentMasterOrdersSelector);
+    const filtrate = async filters => setRows(await getCurrentMasterOrders(filters));
 
     return (
         <Page>
             <Box className={classes.profileContent}>
                 <Typography variant='h5' gutterBottom>{t("pages.masterOrders.title")}</Typography>
-                <MasterOrdersFiltrationForm/>
+                <MasterOrdersFiltrationForm filtrate={filtrate}/>
                 <Box className={classes.dataTable}>
                     <DataGrid
-                        rows={currentUserOrders}
+                        rows={rows}
                         columns={columns}
                         pageSize={5}
                         rowsPerPageOptions={[5]}

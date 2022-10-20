@@ -1,23 +1,20 @@
-import {Box, Button, TextField} from "@mui/material";
+import {Box, Button} from "@mui/material";
 import {Form, Formik} from "formik";
 import * as React from "react";
-import {useState} from "react";
+import {useEffect, useState} from "react";
 import {toNumber} from "lodash";
 import useStyles from "../../../../styles/useStyles";
 import AutocompleteField from "../../FormsComponents/AutocompleteField";
 import FormikTextField from "../../FormsComponents/FormikTextField";
-import {useDispatch, useSelector} from "react-redux";
-import {getOrdersSelector} from "../../../../store/selectors/ordersSelector";
 import FormikSelectField from "../../FormsComponents/FormikSelectField";
-import {getClockTypesSelector} from "../../../../store/selectors/clockTypesSelector";
-import {getCitiesSelector} from "../../../../store/selectors/citiesSelector";
-import {getMastersSelector} from "../../../../store/selectors/mastersSelector";
 import {useTranslation} from "react-i18next";
-import {getUsersSelector} from "../../../../store/selectors/usersSelector";
 import RangeInput from "../../FormsComponents/RangeInputField";
-import orders from "../../../../store/actions/orders";
-import {LocalizationProvider, MobileDateRangePicker} from "@mui/lab";
-import AdapterDateFns from "@mui/lab/AdapterDateFns";
+import YesNoChooseField from "../../FormsComponents/YesNoChooseField";
+import FormikDateRangeField from "../../FormsComponents/FormikDateRangeField";
+import {getAllClockTypes} from "../../../../store/getters/clockTypes";
+import {getAllUsers} from "../../../../store/getters/users";
+import {getAllMasters} from "../../../../store/getters/masters";
+import {getAllCities} from "../../../../store/getters/cities";
 
 const initialValues = {
     id: '',
@@ -25,33 +22,27 @@ const initialValues = {
     clockTypeId: '',
     masterId: undefined,
     cityId: undefined,
-    isCompleted: '',
+    isCompleted: undefined,
     dateRange: [null, null],
     priceRange: [0, 60]
 };
 
-const OrdersFiltrationForm = () => {
+const OrdersFiltrationForm = ({filtrate}) => {
     const classes = useStyles();
     const {t} = useTranslation();
-    const [values, setValues] = useState(initialValues);
-    const allOrders = useSelector(getOrdersSelector);
-    const allClockTypes = useSelector(getClockTypesSelector).map(clockType => ({
-        key: clockType.id,
-        value: clockType.name
-    }));
-    const allCities = useSelector(getCitiesSelector);
-    const allMasters = useSelector(getMastersSelector);
-    const allUsers = useSelector(getUsersSelector);
-    const dispatch = useDispatch();
 
-    const statuses = [
-        {key: true, value: t("statusCompleted.true")},
-        {key: false, value: t("statusCompleted.false")}
-    ];
+    const [clockTypesOptions, setClockTypesOptions] = useState([]);
+    useEffect(async () => {
+        const clockTypes = await getAllClockTypes();
+        setClockTypesOptions(clockTypes.map(clockType => ({
+            key: clockType.id,
+            value: t("clockTypes." + clockType.name)
+        })));
+    }, []);
+
+    const [values, setValues] = useState(initialValues);
 
     const onSubmit = (formValues) => {
-        console.log('VALUES')
-        console.log(values)
         const filters = {
             where: {
                 ...((formValues.id.length > 0) && {id: toNumber(formValues.id)}),
@@ -59,15 +50,13 @@ const OrdersFiltrationForm = () => {
                 ...(formValues.clockTypeId && {clockTypeId: formValues.clockTypeId}),
                 ...(values.masterId && {masterId: values.masterId}),
                 ...(values.cityId && {cityId: values.cityId}),
-                ...(typeof formValues.isCompleted === "boolean" && {isCompleted: formValues.isCompleted}),
+                ...(values.isCompleted && {isCompleted: (values.isCompleted === 'true')}),
             },
             ...(((values.dateRange[0] !== null) || (values.dateRange[1] !== null))
                 && {dateRange: values.dateRange}),
             priceRange: values.priceRange
         };
-        console.log('FILTERS')
-        console.log(filters)
-        dispatch(orders.getFiltered(filters));
+        filtrate(filters);
     }
 
     return (<Box className={classes.filtrationForm}>
@@ -83,8 +72,8 @@ const OrdersFiltrationForm = () => {
                     className={classes.filtrationFormItem}
                 />
                 <AutocompleteField
+                    getOptionsFunction={getAllUsers}
                     label={t("forms.labels.email")}
-                    options={allUsers}
                     optionValueKey={'email'}
                     handleValueChange={(v) => {
                         setValues({...values, userId: v})
@@ -95,11 +84,11 @@ const OrdersFiltrationForm = () => {
                 <FormikSelectField
                     label={t("forms.labels.clockType")}
                     name='clockTypeId'
-                    options={allClockTypes}
+                    options={clockTypesOptions}
                 />
                 <AutocompleteField
+                    getOptionsFunction={getAllMasters}
                     label={t("forms.labels.master")}
-                    options={allMasters}
                     optionValueKey={'name'}
                     handleValueChange={(v) => {
                         setValues({...values, masterId: v});
@@ -108,8 +97,8 @@ const OrdersFiltrationForm = () => {
                     className={classes.filtrationFormItem}
                 />
                 <AutocompleteField
+                    getOptionsFunction={getAllCities}
                     label={t("forms.labels.city")}
-                    options={allCities}
                     optionValueKey={'name'}
                     handleValueChange={(v) => {
                         setValues({...values, cityId: v})
@@ -117,10 +106,13 @@ const OrdersFiltrationForm = () => {
                     neededValueKey={'id'}
                     className={classes.filtrationFormItem}
                 />
-                <FormikSelectField
-                    label={t("forms.labels.status")}
+                <YesNoChooseField
+                    label={t("forms.labels.isCompleted")}
                     name={'isCompleted'}
-                    options={statuses}
+                    value={values.isCompleted}
+                    handleChange={(v) => {
+                        setValues({...values, isCompleted: v})
+                    }}
                 />
                 <RangeInput
                     label={t("forms.labels.price")}
@@ -133,24 +125,12 @@ const OrdersFiltrationForm = () => {
                     }}
                     className={classes.filtrationFormItem}
                 />
-                <LocalizationProvider
-                    dateAdapter={AdapterDateFns}
-                    localeText={{start: 'Mobile start', end: 'Mobile end'}}
-                >
-                    <MobileDateRangePicker
-                        value={values.dateRange}
-                        onChange={(v) => {
-                            setValues({...values, dateRange: v});
-                        }}
-                        renderInput={(startProps, endProps) => (
-                            <React.Fragment>
-                                <TextField {...startProps} />
-                                <Box sx={{mx: 2}}> to </Box>
-                                <TextField {...endProps} />
-                            </React.Fragment>
-                        )}
-                    />
-                </LocalizationProvider>
+                <FormikDateRangeField
+                    value={values.dateRange}
+                    handleChange={(v) => {
+                        setValues({...values, dateRange: v});
+                    }}
+                />
             </Form>
         )}</Formik>
         <Button type='submit' form='order-filter'>Confirm</Button>

@@ -108,17 +108,23 @@ export const useStyles = makeStyles((theme) => ({
     },
     //sidebar
     sidebar: {
+        position: 'fixed',
         height: '100%',
         backgroundColor: '#1d1d1d',
+        paddingTop: '60px',
     },
     sidebarMenu: {
         width: '100%',
         backgroundColor: '#1d1d1d',
         margin: '10px'
     },
+    proSidebarInner:{
+        position: 'fixed'
+    },
     //profile page
     profileContent: {
-        padding: '30px'
+        paddingTop: '90px',
+        paddingLeft: '300px'
     },
     userAccessArea: {
         display: "flex",

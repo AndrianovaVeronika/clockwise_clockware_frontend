@@ -63,7 +63,21 @@
       "status": "Статус",
       "rateOrder": "Оцінити",
       "emailChecked": "Пошта веріфікована",
-      "resetPassword": "Скинути пароль"
+      "resetPassword": "Скинути пароль",
+      "isPasswordTemporary": "Пароль тимчасовий",
+      "isCompleted": "Виконаний"
+    },
+    "dateRangeForm": {
+      "to": "по",
+      "start": "Початок",
+      "end": "Кінець"
+    },
+    "yesNoChooseField": {
+      "yes": "Так",
+      "no": "Ні"
+    },
+    "buttons": {
+      "confirm": "Підтвердити"
     },
     "resetPassword": {
       "openButton": "Змінити пароль",

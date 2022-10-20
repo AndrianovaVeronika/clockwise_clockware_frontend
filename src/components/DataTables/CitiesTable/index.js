@@ -1,17 +1,14 @@
 import * as React from 'react';
-import {useEffect} from 'react';
+import {useEffect, useState} from 'react';
 import DataTable from "../DataTable";
 import cities from "../../../store/actions/cities";
-import {useDispatch, useSelector} from "react-redux";
-import {getFilteredCitiesSelector} from "../../../store/selectors/citiesSelector";
 import CityForm from "../../Forms/AdminForms/CityForm";
 import {useTranslation} from "react-i18next";
 import CitiesFiltrationForm from "../../Forms/FiltrationForms/CitiesFiltrationForm";
-import useStyles from "../../../styles/useStyles";
+import {getAllCities} from "../../../store/getters/cities";
 
 const CitiesTable = () => {
     const {t} = useTranslation();
-    const classes = useStyles();
 
     const columns = [
         {
@@ -25,21 +22,21 @@ const CitiesTable = () => {
         },
     ];
 
-    const dispatch = useDispatch();
+    const [rows, setRows] = useState([]);
+    useEffect(async () => {
+        setRows(await getAllCities());
+    }, []);
 
-    useEffect(() => {
-        dispatch(cities.getAll());
-        dispatch(cities.getFiltered());
-    }, [dispatch])
-
-    const filteredCities = useSelector(getFilteredCitiesSelector);
+    const filtrate = async filters => setRows(await getAllCities(filters));
 
     return (
         <>
-            <CitiesFiltrationForm/>
+            <CitiesFiltrationForm
+                filtrate={filtrate}
+            />
             <DataTable
                 columns={columns}
-                rows={filteredCities}
+                rows={rows}
                 actions={cities}
                 objType={'cities'}
                 ModelForm={CityForm}
