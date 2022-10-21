@@ -5,7 +5,7 @@ import {InputLabel, TextField} from "@mui/material";
 import React from "react";
 import useStyles from "../../../../styles/useStyles";
 
-const FormikDataTableField = ({label, name, minDate, value, onChange}) => {
+const FormikDateTimeField = ({label, name, minDate, value, onChange}) => {
     const classes = useStyles();
 
     return <>
@@ -29,4 +29,4 @@ const FormikDataTableField = ({label, name, minDate, value, onChange}) => {
     </>
 }
 
-export default FormikDataTableField;
+export default FormikDateTimeField;

@@ -37,12 +37,14 @@ const CityForm = ({specifiedInitialValues, submitAction, formId, setDataTableAle
             if (clearDataTableSelectedRow) {
                 clearDataTableSelectedRow();
             }
-            setDataTableAlert(
-                <Alert severity="success">
-                    <AlertTitle>Success</AlertTitle>
-                    {'Row has been added/updated successfully.'}
-                </Alert>
-            );
+            if (setDataTableAlert) {
+                setDataTableAlert(
+                    <Alert severity="success">
+                        <AlertTitle>Success</AlertTitle>
+                        {'Row has been added/updated successfully.'}
+                    </Alert>
+                );
+            }
         }
     }
 

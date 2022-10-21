@@ -1,11 +1,12 @@
-import React, {useEffect} from 'react';
+import React, {useEffect, useState} from 'react';
 import DataTable from "../DataTable";
-import {useDispatch, useSelector} from "react-redux";
-import {getMastersSelector} from "../../../store/selectors/mastersSelector";
 import Rating from '@mui/material/Rating';
 import masters from "../../../store/actions/masters";
 import MasterForm from "../../Forms/AdminForms/MasterForm";
 import {useTranslation} from "react-i18next";
+import MastersFiltrationForm from "../../Forms/FiltrationForms/MastersFiltrationForm";
+import cities from "../../../store/actions/cities";
+import {getAllMasters} from "../../../store/getters/masters";
 
 function renderRating(params) {
     return <Rating readOnly value={params.value}/>;
@@ -35,21 +36,18 @@ const MastersTable = () => {
         }
     ];
 
-    const dispatch = useDispatch();
+    const [rows, setRows] = useState([]);
+    useEffect(async () => {
+        setRows(await getAllMasters());
+    }, []);
 
-    useEffect(() => {
-        dispatch(masters.getAll());
-    }, [dispatch])
-
-    const rows = useSelector(getMastersSelector).map(master => {
-        return {
-            ...master,
-            cities: master.cities.join(', ')
-        }
-    });
+    const filtrate = async filters => setRows(await getAllMasters(filters));
 
     return (
         <>
+            <MastersFiltrationForm
+                filtrate={filtrate}
+            />
             <DataTable
                 columns={columns}
                 rows={rows}

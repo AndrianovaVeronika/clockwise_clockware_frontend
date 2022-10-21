@@ -17,7 +17,7 @@ const AdminCitiesPage = () => {
     return (
         <Page>
             <Box className={classes.profileContent}>
-                <Typography variant='h5' gutterBottom>{t("pages.cities.title")}</Typography>
+                <Typography variant='h5' gutterBottom className={classes.pageTitle}>{t("pages.cities.title")}</Typography>
                 <CitiesTable/>
             </Box>
         </Page>

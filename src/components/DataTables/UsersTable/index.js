@@ -1,12 +1,13 @@
-import React, {useEffect} from "react";
-import {useDispatch, useSelector} from "react-redux";
+import React, {useEffect, useState} from "react";
 import users, {resetPassword} from "../../../store/actions/users";
-import {getUsersSelector} from "../../../store/selectors/usersSelector";
 import DataTable from "../DataTable";
 import UserForm from "../../Forms/AdminForms/UserForm";
 import {Button} from "@mui/material";
 import store from "../../../store/store";
 import {useTranslation} from "react-i18next";
+import UsersFiltrationForm from "../../Forms/FiltrationForms/UsersFiltrationForm";
+import {getAllCities} from "../../../store/getters/cities";
+import {getAllUsers} from "../../../store/getters/users";
 
 function renderResetPasswordButton({value}) {
     const onClick = async () => {
@@ -43,16 +44,18 @@ const UsersTable = () => {
         }
     ];
 
-    const dispatch = useDispatch();
+    const [rows, setRows] = useState([]);
+    useEffect(async () => {
+        setRows(await getAllUsers());
+    }, []);
 
-    useEffect(() => {
-        dispatch(users.getAll());
-    }, [dispatch])
-
-    const rows = useSelector(getUsersSelector).map(user => ({...user, resetUserWithId: user.id}));
+    const filtrate = async filters => setRows(await getAllUsers(filters));
 
     return (
         <>
+            <UsersFiltrationForm
+                filtrate={filtrate}
+            />
             <DataTable
                 columns={columns}
                 rows={rows}

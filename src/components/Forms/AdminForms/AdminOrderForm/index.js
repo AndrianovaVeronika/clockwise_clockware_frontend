@@ -1,8 +1,6 @@
 import React, {useEffect, useState} from "react";
-import {useDispatch, useSelector} from "react-redux";
-import {getCitiesSelector} from "../../../../store/selectors/citiesSelector";
+import {useDispatch} from "react-redux";
 import {Form, Formik, useFormikContext} from "formik";
-import {getClockTypesSelector} from "../../../../store/selectors/clockTypesSelector";
 import FormikSelectField from "../../FormsComponents/FormikSelectField";
 import useStyles from "../../../../styles/useStyles";
 import * as Yup from "yup";
@@ -12,8 +10,10 @@ import moment from "moment";
 import AvailableMastersListener from "./AvailableMastersListener";
 import masters from "../../../../store/actions/masters";
 import FormikTextField from "../../FormsComponents/FormikTextField";
-import FormikDataTableField from "../../FormsComponents/FormikDataTableField";
+import FormikDataTableField from "../../FormsComponents/FormikDateTimeField";
 import {useTranslation} from "react-i18next";
+import {getAllClockTypes} from "../../../../store/getters/clockTypes";
+import {getAllCities} from "../../../../store/getters/cities";
 
 const getTomorrow = () => {
     const today = new Date();
@@ -56,25 +56,20 @@ const AdminOrderForm = ({
     const dispatch = useDispatch();
     const [Error, setError] = useState(<></>);
 
-    const cities = useSelector(getCitiesSelector);
-    const clockTypes = useSelector(getClockTypesSelector);
-
-    const getValidatedCities = () => {
-        const elements = [];
-        for (const city of cities) {
-            elements.push({key: city.id, value: city.name});
-        }
-        return elements;
-    }
-    const getValidatedClockTypes = () => {
-        const types = [];
-        for (const type of clockTypes) {
-            types.push({key: type.id, value: t('clockTypes.${type.name}')});
-        }
-        return types;
-    }
-    const cityOptions = getValidatedCities();
-    const clockTypeOptions = getValidatedClockTypes();
+    const [clockTypesOptions, setClockTypesOptions] = useState([]);
+    const [citiesOptions, setCitiesOptions] = useState([]);
+    useEffect(async () => {
+        const clockTypes = await getAllClockTypes();
+        setClockTypesOptions(clockTypes.map(clockType => ({
+            key: clockType.id,
+            value: t(`clockTypes.${clockType.name}`)
+        })));
+        const cities = await getAllCities();
+        setCitiesOptions(cities.map(city => ({
+            key: city.id,
+            value: city.name
+        })));
+    }, []);
 
     const validationSchema = Yup.object().shape({
         name: Yup.string().min(3, t("forms.validationErrors.shortName")).required(t("forms.validationErrors.required")),
@@ -142,7 +137,7 @@ const AdminOrderForm = ({
                                 name='clockTypeId'
                                 error={props.errors.clockTypeId && props.touched.clockTypeId}
                                 required
-                                options={clockTypeOptions}
+                                options={clockTypesOptions}
                             />
                         </Grid>
                         <Grid item xs={3}>
@@ -151,7 +146,7 @@ const AdminOrderForm = ({
                                 name='cityId'
                                 error={props.errors.cityId && props.touched.cityId}
                                 required
-                                options={cityOptions}
+                                options={citiesOptions}
                             />
                             <FormikDataTableField
                                 label={t("forms.labels.date")}

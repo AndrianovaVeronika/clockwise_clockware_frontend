@@ -1,9 +1,8 @@
 import initialState from "../initialState";
 import {createSlice} from "@reduxjs/toolkit";
-import users from "../actions/users";
+import users, {resetPassword} from "../actions/users";
 import reducerApi from "../middleware/createReducerApi";
 import {registerUserAccount} from "../actions/auth";
-import {resetPassword} from "../actions/users"
 
 const {reducer} = createSlice({
     name: 'users',

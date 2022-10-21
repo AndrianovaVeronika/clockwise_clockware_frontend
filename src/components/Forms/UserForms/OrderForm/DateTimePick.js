@@ -4,7 +4,7 @@ import FormikSelectField from "../../FormsComponents/FormikSelectField";
 import {Form, Formik} from "formik";
 import useStyles from "../../../../styles/useStyles";
 import {shiftTimeEnd, shiftTimeStart} from "../../../../static/constants";
-import FormikDataTableField from "../../FormsComponents/FormikDataTableField";
+import FormikDataTableField from "../../FormsComponents/FormikDateTimeField";
 import {useTranslation} from "react-i18next";
 
 const getTomorrow = () => {

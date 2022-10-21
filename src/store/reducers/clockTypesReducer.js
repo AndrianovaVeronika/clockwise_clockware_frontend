@@ -1,6 +1,6 @@
 import initialState from "../initialState";
 import {createSlice} from "@reduxjs/toolkit";
-import {getClockTypes} from "../actions/clockTypes";
+import clockTypes from "../actions/clockTypes";
 import reducerApi from "../middleware/createReducerApi";
 
 const {reducer} = createSlice({
@@ -11,7 +11,7 @@ const {reducer} = createSlice({
     },
     extraReducers(builder) {
         builder
-            .addCase(getClockTypes.fulfilled, reducerApi.GET('clockTypes'))
+            .addCase(clockTypes.getAll.fulfilled, reducerApi.GET('clockTypes'))
             .addDefaultCase((state, action) => {
                 return state;
             })

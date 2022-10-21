@@ -21,4 +21,4 @@ export default {
     update: updateMaster,
     delete: deleteMaster,
     getAvailableMasters: getAvailableMasters
-}
+};

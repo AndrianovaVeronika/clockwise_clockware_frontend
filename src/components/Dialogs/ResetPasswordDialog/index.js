@@ -1,13 +1,11 @@
 import React, {useState} from "react";
 import {Button} from "@mui/material";
-import {useNavigate} from "react-router";
 import PopupDialog from "../PopupDialog";
 import ResetPasswordForm from "../../Forms/UserForms/ResetPasswordForm";
 import {useTranslation} from "react-i18next";
 
 const ResetPasswordDialog = () => {
     const {t} = useTranslation();
-    const navigate = useNavigate();
 
     const [open, setOpen] = useState(false);
     const onOpen = () => {

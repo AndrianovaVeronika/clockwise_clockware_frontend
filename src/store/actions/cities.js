@@ -18,4 +18,4 @@ export default {
     add: addCity,
     update: updateCity,
     delete: deleteCity
-}
+};

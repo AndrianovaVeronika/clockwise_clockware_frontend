@@ -1,5 +1,4 @@
-import {useDispatch, useSelector} from "react-redux";
-import {useNavigate} from "react-router";
+import {useDispatch} from "react-redux";
 import * as Yup from "yup";
 import {Alert, AlertTitle, Box} from "@mui/material";
 import {Form, Formik} from "formik";
@@ -7,12 +6,11 @@ import React, {useEffect, useState} from "react";
 import useStyles from "../../../../styles/useStyles";
 import FormikTextField from "../../FormsComponents/FormikTextField";
 import FormikPasswordField from "../../FormsComponents/FormikPasswordField";
-import {getCitiesSelector} from "../../../../store/selectors/citiesSelector";
-import cities from "../../../../store/actions/cities";
 import FormikSelectField from "../../FormsComponents/FormikSelectField";
 import {registerMasterAccount} from "../../../../store/actions/auth";
 import UserCreatedDialog from "../../../Dialogs/UserCreatedDialog";
 import {useTranslation} from "react-i18next";
+import {getAllCities} from "../../../../store/getters/cities";
 
 const initialValues = {
     name: "",
@@ -24,8 +22,12 @@ const initialValues = {
 const MasterSignUpForm = ({setError}) => {
     const {t} = useTranslation();
     const dispatch = useDispatch();
-    const navigate = useNavigate();
     const classes = useStyles();
+
+    const [incomeCities, setIncomeCities] = useState([]);
+    useEffect(async () => {
+        setIncomeCities(await getAllCities());
+    }, []);
 
     const validationSchema = Yup.object().shape({
         name: Yup.string().min(3, t("forms.validationErrors.shortName"))
@@ -46,8 +48,6 @@ const MasterSignUpForm = ({setError}) => {
         );
     };
 
-    const incomeCities = useSelector(getCitiesSelector);
-
     const getCityOptions = () => {
         const cities = [];
         for (const city of incomeCities) {
@@ -57,10 +57,6 @@ const MasterSignUpForm = ({setError}) => {
     }
 
     const cityOptions = getCityOptions();
-
-    useEffect(() => {
-        dispatch(cities.getAll());
-    }, [dispatch])
 
     const [displaySuccessDialog, setDisplaySuccessfulDialog] = useState(false);
 

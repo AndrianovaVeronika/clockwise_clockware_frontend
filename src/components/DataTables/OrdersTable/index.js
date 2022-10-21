@@ -1,18 +1,17 @@
 import * as React from 'react';
-import {useEffect} from 'react';
-import {useDispatch, useSelector} from "react-redux";
-import {getOrdersSelector} from "../../../store/selectors/ordersSelector";
+import {useEffect, useState} from 'react';
 import DataTable from "../DataTable";
 import AdminOrderForm from "../../Forms/AdminForms/AdminOrderForm";
-import {getClockTypes} from "../../../store/actions/clockTypes";
-import cities from "../../../store/actions/cities";
-import masters from "../../../store/actions/masters";
 import orders from "../../../store/actions/orders";
 import {Typography} from "@mui/material";
 import {useTranslation} from "react-i18next";
+import OrdersFiltrationForm from "../../Forms/FiltrationForms/OrdersFiltrationForm";
+import {getAllOrders} from "../../../store/getters/orders";
 
-function renderStatus({value}) {
-    return <Typography sx={{color: value ? 'green' : 'red'}}>{value ? 'Completed' : 'Not completed'}</Typography>;
+function renderStatus({value}, t) {
+    const color = value ? 'green' : 'red';
+    const text = value ? t("statusCompleted.true") : t("statusCompleted.false");
+    return <Typography color={color}>{text}</Typography>;
 }
 
 const OrdersTable = () => {
@@ -51,23 +50,22 @@ const OrdersTable = () => {
             field: 'isCompleted',
             headerName: t("forms.labels.status"),
             width: 120,
-            renderCell: renderStatus,
+            renderCell: value => renderStatus(value, t),
             type: 'boolean'
         },
     ];
 
-    const dispatch = useDispatch();
+    const [rows, setRows] = useState([]);
+    useEffect(async () => {
+        setRows(await getAllOrders());
+    }, []);
 
-    useEffect(() => {
-        dispatch(orders.getAll());
-        dispatch(cities.getAll());
-        dispatch(getClockTypes());
-        dispatch(masters.getAll());
-    }, [dispatch]);
+    const filtrate = async filters => setRows(await getAllOrders(filters));
 
-    const rows = useSelector(getOrdersSelector);
-
-    return (
+    return (<>
+        <OrdersFiltrationForm
+            filtrate={filtrate}
+        />
         <DataTable
             rows={rows}
             columns={columns}
@@ -75,7 +73,7 @@ const OrdersTable = () => {
             objType={'orders'}
             ModelForm={AdminOrderForm}
         />
-    );
+    </>);
 }
 
 export default React.memo(OrdersTable);

@@ -1,8 +1,6 @@
 import React, {useEffect, useState} from 'react';
 import {Alert, AlertTitle, Box, Button, IconButton, Paper, Step, StepLabel, Stepper} from "@mui/material";
 import CredentialsForm from "./CredentialsForm";
-import cities from "../../../../store/actions/cities";
-import {getClockTypes} from "../../../../store/actions/clockTypes";
 import masters from "../../../../store/actions/masters";
 import DateTimePick from "./DateTimePick";
 import MasterPick from "./MasterPick";
@@ -13,7 +11,6 @@ import ArrowBackIosRoundedIcon from '@mui/icons-material/ArrowBackIosRounded';
 import LoginOrSignup from "./LoginOrSignup";
 import useStyles from "../../../../styles/useStyles";
 import orders from "../../../../store/actions/orders";
-import {useNavigate} from "react-router";
 import {getCurrentUserSelector} from "../../../../store/selectors/authSelector";
 import LoginAlertDialog from "../../../Dialogs/LogInAlertDialog";
 import OrderSuccessAlertDialog from "../../../Dialogs/OrderSuccessAlertDialog";
@@ -40,17 +37,10 @@ const getSteps = (t) => {
 const OrderForm = () => {
     const {t} = useTranslation();
     const dispatch = useDispatch();
-    const navigate = useNavigate();
     const classes = useStyles();
     const [values, setValues] = useState(initialValues);
     const steps = getSteps(t);
     const currentUser = useSelector(getCurrentUserSelector);
-
-    useEffect(() => {
-        dispatch(cities.getAll());
-        dispatch(masters.getAll());
-        dispatch(getClockTypes());
-    }, [dispatch]);
 
     const [displayLoginError, setDisplayLoginError] = useState(false);
     const onFormSubmit = (v, params) => {
@@ -158,7 +148,7 @@ const OrderForm = () => {
     }
 
     return (
-        <Box className={classes.profileContent}>
+        <Box>
             <Paper className={classes.orderFormPaper}>
                 <Stepper activeStep={activeStep} className={classes.stepper}>
                     {steps.map((label, index) => {
@@ -181,7 +171,10 @@ const OrderForm = () => {
                             {(activeStep === steps.length - 1) ?
                                 <>
                                     <Button onClick={handleClean}>{t("forms.userOrderForm.cleanButton")}</Button>
-                                    <Button type='submit' form='order-form'>{t("forms.userOrderForm.submitButton")}</Button>
+                                    <Button
+                                        type='submit'
+                                        form='order-form'
+                                    >{t("forms.userOrderForm.submitButton")}</Button>
                                 </> : <IconButton
                                     type='submit'
                                     form={'form' + activeStep}

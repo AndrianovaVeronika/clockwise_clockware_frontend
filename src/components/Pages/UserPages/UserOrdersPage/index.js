@@ -1,17 +1,16 @@
 import useStyles from "../../../../styles/useStyles";
 import Page from "../../../../styles/Page";
 import {Box, Typography} from "@mui/material";
-import React, {useEffect} from "react";
+import React, {useEffect, useState} from "react";
 import {DataGrid, ukUA} from "@mui/x-data-grid";
-import {useDispatch, useSelector} from "react-redux";
-import orders from "../../../../store/actions/orders";
-import {getCurrentUserOrdersSelector} from "../../../../store/selectors/ordersSelector";
 import {compose} from "redux";
 import {withHeader} from "../../../../functions/withHeader";
 import withSidebar from "../../../../functions/withSidebar";
 import withRedirectAfterLogout from "../../../../functions/withRedirectAfterLogout";
 import RateOrderForm from "../../../Forms/UserForms/RateOrderForm";
 import {useTranslation} from "react-i18next";
+import UserOrdersFiltrationForm from "../../../Forms/FiltrationForms/UserOrdersFiltrationForm";
+import {getCurrentUserOrders} from "../../../../store/getters/orders";
 
 function renderStatus({value}, t) {
     const color = value ? 'green' : 'red';
@@ -24,6 +23,7 @@ function renderButtonRateOrder({value}) {
 }
 
 const UserOrdersPage = () => {
+    const classes = useStyles();
     const {t, i18n} = useTranslation();
 
     const columns = [
@@ -66,31 +66,30 @@ const UserOrdersPage = () => {
         }
     ];
 
-    const classes = useStyles();
-    const dispatch = useDispatch();
+    const [rows, setRows] = useState([]);
+    useEffect(async () => {
+        setRows(await getCurrentUserOrders());
+    }, []);
 
-    useEffect(() => {
-        dispatch(orders.getCurrentUserOrders());
-    }, [dispatch]);
-
-    const currentUserOrders = useSelector(getCurrentUserOrdersSelector);
+    const filtrate = async filters => setRows(await getCurrentUserOrders(filters));
 
     return (
         <Page>
             <Box className={classes.profileContent}>
                 <Typography variant='h5' gutterBottom>{t("pages.userOrders.title")}</Typography>
+                <UserOrdersFiltrationForm filtrate={filtrate}/>
                 <Box className={classes.dataTable}>
                     <DataGrid
-                        rows={currentUserOrders}
+                        rows={rows}
                         columns={columns}
                         pageSize={5}
                         rowsPerPageOptions={[5]}
-                        localeText={i18n.language === 'ua' ? ukUA.components.MuiDataGrid.defaultProps.localeText: undefined}
+                        localeText={i18n.language === 'ua' ? ukUA.components.MuiDataGrid.defaultProps.localeText : undefined}
                     />
                 </Box>
             </Box>
         </Page>
     )
-}
+};
 
 export default compose(withHeader, withSidebar, withRedirectAfterLogout)(UserOrdersPage);

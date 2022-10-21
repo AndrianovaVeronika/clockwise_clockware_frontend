@@ -63,7 +63,22 @@
       "status": "Status",
       "rateOrder": "Rate order",
       "emailChecked": "Email checked",
-      "resetPassword": "Reset password"
+      "resetPassword": "Reset password",
+      "isPasswordTemporary": "Password temporary",
+      "isCompleted": "Completed"
+    },
+    "dateRangeForm": {
+      "to": "to",
+      "start": "start",
+      "end": "end"
+    },
+    "yesNoChooseField": {
+      "yes": "Yes",
+      "no": "No"
+    },
+    "buttons": {
+      "confirm": "Confirm",
+      "clear": "Clear"
     },
     "resetPassword": {
       "openButton": "Reset password",

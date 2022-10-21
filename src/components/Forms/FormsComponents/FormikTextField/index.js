@@ -1,11 +1,11 @@
-import {InputLabel, TextField} from "@mui/material";
+import {Box, InputLabel, TextField} from "@mui/material";
 import {ErrorMessage, Field} from "formik";
 import React from "react";
 import useStyles from "../../../../styles/useStyles";
 
-const FormikTextField = ({label, name, error, ...props}) => {
+const FormikTextField = ({label, name, error, className, ...props}) => {
     const classes = useStyles();
-    return <>
+    return <Box className={className}>
         <InputLabel className={classes.formItemLabel} htmlFor={name + '-field'}>{label}</InputLabel>
         <Field as={TextField}
                id={name + '-field'}
@@ -16,7 +16,7 @@ const FormikTextField = ({label, name, error, ...props}) => {
                helperText={<ErrorMessage name={name}/>}
                {...props}
         />
-    </>
+    </Box>
 }
 
 export default FormikTextField;

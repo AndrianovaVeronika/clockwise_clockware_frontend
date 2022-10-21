@@ -10,12 +10,9 @@ const initialState = {
     },
     orders: {
         ordersList: [],
-        currentUserOrders: [],
-        currentMasterOrders: []
     },
     masters: {
         mastersList: [],
-        availableMasters: [],
     },
     cities: {
         citiesList: [],

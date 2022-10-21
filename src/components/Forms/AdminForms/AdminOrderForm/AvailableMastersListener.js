@@ -1,11 +1,11 @@
-import React from "react";
-import {getAvailableMastersSelector} from "../../../../store/selectors/mastersSelector";
+import React, {useEffect, useState} from "react";
 import {DataGrid, ukUA} from "@mui/x-data-grid";
 import Rating from "@mui/material/Rating";
 import {useFormikContext} from "formik";
 import {Typography} from "@mui/material";
-import {useSelector} from "react-redux";
 import {useTranslation} from "react-i18next";
+import {getAllMasters} from "../../../../store/getters/masters";
+// import {getAllMasters} from "../../../../store/getters/masters";
 
 function renderRating(params) {
     return <Rating readOnly value={params.value}/>;
@@ -28,7 +28,11 @@ const AvailableMastersListener = () => {
     ];
 
     const {values} = useFormikContext();
-    const masters = useSelector(getAvailableMastersSelector);
+
+    const [masters, setMasters] = useState();
+    useEffect(async ()=>{
+        setMasters(await getAllMasters());
+    }, []);
 
     const onMasterSelect = (e) => {
         values.masterId = e.row.id;

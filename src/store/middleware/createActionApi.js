@@ -1,9 +1,15 @@
 import instance from "./instance";
+import qs from "qs";
 
 export default {
-    GET: (path) => async (_, thunkAPI) => {
+    GET: (path) => async (params, thunkAPI) => {
         try {
-            const response = await instance.get(path);
+            const response = await instance.get(path, {
+                params: params,
+                paramsSerializer: params => {
+                    return qs.stringify(params)
+                }
+            });
             return response.data || {};
         } catch (e) {
             return thunkAPI.rejectWithValue(e.response.data)
