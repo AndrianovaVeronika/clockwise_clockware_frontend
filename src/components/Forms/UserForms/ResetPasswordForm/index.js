@@ -27,6 +27,7 @@ const ResetPasswordForm = ({closeAction}) => {
                     <AlertTitle>Error</AlertTitle>
                     {payload.message}
                 </Alert>
+
             );
         } else {
             setError(<></>);

@@ -14,11 +14,13 @@ const HomePage = () => {
     return (
         <Page>
             <Container fixed className={classes.homePageContent}>
-                <Box className={classes.homePageText}>
-                    <Typography>{t("pages.home.introduction")}</Typography>
-                </Box>
-                <Box className={classes.homePageImageContainer}>
-                    <Box className={classes.homePageImage}/>
+                <Box className={classes.homePageLeftContent}>
+                    <Box className={classes.homePageText}>
+                        <Typography>{t("pages.home.introduction")}</Typography>
+                    </Box>
+                    <Box className={classes.homePageImageContainer}>
+                        <Box className={classes.homePageImage}/>
+                    </Box>
                 </Box>
                 <OrderForm/>
             </Container>

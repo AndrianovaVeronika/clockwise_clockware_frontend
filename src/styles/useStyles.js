@@ -27,16 +27,24 @@ export const useStyles = makeStyles((theme) => ({
         position: 'relative',
         flexGrow: 1
     },
+    //titles style
+    pageTitle: {
+        marginBottom: '0px!important'
+    },
     //home page styles
     homePageContent: {
         position: "relative",
         padding: '50px!important',
+        paddingTop: '110px!important',
         display: 'flex!important',
         height: '100%'
     },
+    homePageLeftContent: {
+        padding: '10px',
+        paddingLeft: '20px!important'
+    },
     homePageText: {
-        padding: '25px',
-        width: '55%'
+        width: '80%'
     },
     link: {
         fontSize: '20px'
@@ -118,13 +126,13 @@ export const useStyles = makeStyles((theme) => ({
         backgroundColor: '#1d1d1d',
         margin: '10px'
     },
-    proSidebarInner:{
+    proSidebarInner: {
         position: 'fixed'
     },
     //profile page
     profileContent: {
-        paddingTop: '90px',
-        paddingLeft: '300px'
+        paddingTop: '80px',
+        paddingLeft: '290px'
     },
     userAccessArea: {
         display: "flex",
@@ -136,7 +144,7 @@ export const useStyles = makeStyles((theme) => ({
     //order page
     orderFormPaper: {
         height: '400px',
-        width: '500px',
+        width: '510px',
         padding: '40px 30px',
         flexDirection: 'column',
     },
@@ -169,7 +177,8 @@ export const useStyles = makeStyles((theme) => ({
     dataTable: {
         height: '400px',
         border: '4px double black',
-        display: 'flex'
+        display: 'flex',
+        marginRight: '20px'
     },
     iconButton: {
         width: '50px',
@@ -199,12 +208,19 @@ export const useStyles = makeStyles((theme) => ({
     },
     //filtration form
     filtrationForm: {
-        margin: '10px',
         marginLeft: '0px!important',
-        width: '30%'
     },
     filtrationFormItem: {
-        margin: '10px!important'
+        margin: '10px!important',
+        width: '200px'
+    },
+    filter: {
+        display: "flex",
+        flexDirection: "row",
+        alignItems: "center"
+    },
+    filterFormSection: {
+        margin: '5px'
     }
 }));
 

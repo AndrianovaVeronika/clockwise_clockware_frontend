@@ -9,12 +9,11 @@ import FormikTextField from "../../FormsComponents/FormikTextField";
 import {useTranslation} from "react-i18next";
 import YesNoChooseField from "../../FormsComponents/YesNoChooseField";
 import {getAllUsers} from "../../../../store/getters/users";
-// import {getAllUsers} from "../../../../store/getters/users";
 
 const initialValues = {
     id: '',
     name: '',
-    email: undefined,
+    email: null,
     emailChecked: undefined,
     isPasswordTemporary: undefined
 };
@@ -30,7 +29,7 @@ const UsersFiltrationForm = ({filtrate}) => {
             where: {
                 ...((formValues.id.length > 0) && {id: _.toNumber(formValues.id)}),
                 ...((formValues.name.length > 0) && {name: formValues.name}),
-                ...(values.email && {email: values.email}),
+                ...(values.email && {email: values.email.email}),
                 ...(values.emailChecked && {emailChecked: values.emailChecked}),
                 ...(values.isPasswordTemporary && {isPasswordTemporary: values.isPasswordTemporary}),
             },
@@ -38,52 +37,68 @@ const UsersFiltrationForm = ({filtrate}) => {
         filtrate(filters);
     }
 
+    const onClear = () => {
+        setValues(initialValues);
+        filtrate({});
+    }
+
     return (<Box className={classes.filtrationForm}>
         <Formik
             initialValues={initialValues}
             // validationSchema={validationSchema}
             onSubmit={onSubmit}
-        >{(props) => (
-            <Form id='order-filter'>
-                <FormikTextField
-                    name='id'
-                    label='ID'
-                    className={classes.filtrationFormItem}
-                />
-                <FormikTextField
-                    label={t("forms.labels.name")}
-                    name='name'
-                    className={classes.filtrationFormItem}
-                />
-                <AutocompleteField
-                    getOptionsFunction={getAllUsers}
-                    label={t("forms.labels.email")}
-                    optionValueKey={'email'}
-                    handleValueChange={(v) => {
-                        setValues({...values, email: v})
-                    }}
-                    neededValueKey={'email'}
-                    className={classes.filtrationFormItem}
-                />
-                <YesNoChooseField
-                    label={t("forms.labels.emailChecked")}
-                    name={'emailChecked'}
-                    value={values.emailChecked}
-                    handleChange={(v) => {
-                        setValues({...values, emailChecked: v})
-                    }}
-                />
-                <YesNoChooseField
-                    label={t("forms.labels.isPasswordTemporary")}
-                    name={'isPasswordTemporary'}
-                    value={values.isPasswordTemporary}
-                    handleChange={(v) => {
-                        setValues({...values, isPasswordTemporary: v})
-                    }}
-                />
+        >{(props) => (<>
+            <Form id='user-filter' className={classes.filter}>
+                <Box className={classes.filterFormSection}>
+                    <FormikTextField
+                        name='id'
+                        label='ID'
+                        className={classes.filtrationFormItem}
+                    />
+                    <FormikTextField
+                        label={t("forms.labels.name")}
+                        name='name'
+                        className={classes.filtrationFormItem}
+                    />
+                </Box>
+                <Box className={classes.filterFormSection}>
+                    <AutocompleteField
+                        value={values.email}
+                        getOptionsFunction={getAllUsers}
+                        label={t("forms.labels.email")}
+                        optionValueKey={'email'}
+                        handleValueChange={(v) => {
+                            setValues({...values, email: v})
+                        }}
+                        neededValueKey={'email'}
+                        className={classes.filtrationFormItem}
+                    />
+                    <YesNoChooseField
+                        label={t("forms.labels.emailChecked")}
+                        name={'emailChecked'}
+                        value={values.emailChecked}
+                        handleChange={(v) => {
+                            setValues({...values, emailChecked: v})
+                        }}
+                    />
+                </Box>
+                <Box className={classes.filterFormSection}>
+                    <YesNoChooseField
+                        label={t("forms.labels.isPasswordTemporary")}
+                        name={'isPasswordTemporary'}
+                        value={values.isPasswordTemporary}
+                        handleChange={(v) => {
+                            setValues({...values, isPasswordTemporary: v})
+                        }}
+                    />
+                </Box>
             </Form>
-        )}</Formik>
-        <Button type='submit' form='order-filter'>Confirm</Button>
+            <Button type='submit' form='user-filter'>Confirm</Button>
+            <Button onClick={() => {
+                onClear();
+                props.handleReset();
+            }}>{t("forms.buttons.clear")}</Button>
+        </>)}</Formik>
     </Box>)
 };
 

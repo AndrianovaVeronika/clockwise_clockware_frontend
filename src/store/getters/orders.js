@@ -13,7 +13,6 @@ export const getCurrentMasterOrders = async (filters) => {
 
 export const getCurrentUserOrders = async (filters) => {
     const action = await store.dispatch(orders.getCurrentUserOrders(filters))
-    console.log(action.payload)
     return action.payload;
 };
 

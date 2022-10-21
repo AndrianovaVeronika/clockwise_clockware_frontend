@@ -12,7 +12,7 @@ import {getAllCities} from "../../../../store/getters/cities";
 
 const initialValues = {
     id: '',
-    name: '',
+    name: null,
     priceRange: [0, 20]
 };
 
@@ -26,11 +26,16 @@ const CitiesFiltrationForm = ({filtrate}) => {
         const filters = {
             where: {
                 ...((formValues.id.length > 0) && {id: toNumber(formValues.id)}),
-                ...((values.name.length > 0) && {name: values.name}),
+                ...(values.name && {name: values.name.name}),
             },
             priceRange: values.priceRange
         };
         filtrate(filters);
+    }
+
+    const onClear = () => {
+        setValues(initialValues);
+        filtrate({});
     }
 
     return (<Box className={classes.filtrationForm}>
@@ -38,14 +43,15 @@ const CitiesFiltrationForm = ({filtrate}) => {
             initialValues={initialValues}
             // validationSchema={validationSchema}
             onSubmit={onSubmit}
-        >{(props) => (
-            <Form id='city-filter'>
+        >{(props) => (<>
+            <Form id='city-filter' className={classes.filter}>
                 <FormikTextField
                     name='id'
                     label='ID'
                     className={classes.filtrationFormItem}
                 />
                 <AutocompleteField
+                    value={values.name}
                     getOptionsFunction={getAllCities}
                     label={t("forms.labels.city")}
                     optionValueKey={'name'}
@@ -67,8 +73,12 @@ const CitiesFiltrationForm = ({filtrate}) => {
                     className={classes.filtrationFormItem}
                 />
             </Form>
-        )}</Formik>
-        <Button type='submit' form='city-filter'>{t("forms.buttons.confirm")}</Button>
+            <Button type='submit' form='city-filter'>{t("forms.buttons.confirm")}</Button>
+            <Button onClick={() => {
+                onClear();
+                props.handleReset();
+            }}>{t("forms.buttons.clear")}</Button>
+        </>)}</Formik>
     </Box>)
 };
 

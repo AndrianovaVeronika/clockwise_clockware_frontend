@@ -12,7 +12,7 @@ import {getAllMasters} from "../../../../store/getters/masters";
 
 const initialValues = {
     id: '',
-    name: '',
+    name: null,
     ratingRange: [0, 5]
 };
 
@@ -26,11 +26,16 @@ const MastersFiltrationForm = ({filtrate}) => {
         const filters = {
             where: {
                 ...((formValues.id.length > 0) && {id: toNumber(formValues.id)}),
-                ...((values.name.length > 0) && {name: values.name}),
+                ...(values.name && {name: values.name.name}),
             },
             ratingRange: values.ratingRange
         };
         filtrate(filters);
+    }
+
+    const onClear = () => {
+        setValues(initialValues);
+        filtrate({});
     }
 
     return (<Box className={classes.filtrationForm}>
@@ -38,14 +43,15 @@ const MastersFiltrationForm = ({filtrate}) => {
             initialValues={initialValues}
             // validationSchema={validationSchema}
             onSubmit={onSubmit}
-        >{(props) => (
-            <Form id='master-filter'>
+        >{(props) => (<>
+            <Form id='master-filter' className={classes.filter}>
                 <FormikTextField
                     name='id'
                     label='ID'
                     className={classes.filtrationFormItem}
                 />
                 <AutocompleteField
+                    value={values.name}
                     getOptionsFunction={getAllMasters}
                     label={t("forms.labels.name")}
                     optionValueKey={'name'}
@@ -67,8 +73,12 @@ const MastersFiltrationForm = ({filtrate}) => {
                     className={classes.filtrationFormItem}
                 />
             </Form>
-        )}</Formik>
-        <Button type='submit' form='master-filter'>{t("forms.buttons.confirm")}</Button>
+            <Button type='submit' form='master-filter'>{t("forms.buttons.confirm")}</Button>
+            <Button onClick={() => {
+                onClear();
+                props.handleReset();
+            }}>{t("forms.buttons.clear")}</Button>
+        </>)}</Formik>
     </Box>)
 };
 

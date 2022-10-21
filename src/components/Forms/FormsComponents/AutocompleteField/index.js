@@ -1,24 +1,33 @@
 import * as React from "react";
 import {useEffect, useState} from "react";
-import {Autocomplete, TextField} from "@mui/material";
+import {Autocomplete, Box, TextField, Typography} from "@mui/material";
 
-const AutocompleteField = ({getOptionsFunction, label, optionValueKey, handleValueChange, neededValueKey, ...props}) => {
+const AutocompleteField = ({
+                               value,
+                               getOptionsFunction,
+                               label,
+                               optionValueKey,
+                               handleValueChange,
+                               neededValueKey,
+                               className,
+                               ...props
+                           }) => {
     const [options, setOptions] = useState([]);
     useEffect(async () => {
         setOptions(await getOptionsFunction());
     }, []);
 
-    const [objValue, setObjValue] = useState(null);
     const [input, setInput] = useState('');
 
-    const isNull = value => value === null;
+    // const isNull = value => value === null;
 
-    return (<>
+    return (<Box className={className}>
+        <Typography>{label}</Typography>
         <Autocomplete
-            value={objValue}
+            value={value}
             onChange={(e, v) => {
-                setObjValue(v);
-                handleValueChange(isNull(v) ? '' : v[neededValueKey]);
+                handleValueChange(v);
+                // handleValueChange(isNull(v) ? '' : v[neededValueKey]);
             }}
             inputValue={input}
             onInputChange={(e, v) => {
@@ -30,11 +39,10 @@ const AutocompleteField = ({getOptionsFunction, label, optionValueKey, handleVal
             {...props}
             renderInput={(params) =>
                 <TextField
-                    label={label}
                     {...params}
                 />}
         />
-    </>)
+    </Box>)
 };
 
 export default AutocompleteField;

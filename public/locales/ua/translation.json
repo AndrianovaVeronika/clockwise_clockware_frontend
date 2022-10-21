@@ -77,7 +77,8 @@
       "no": "Ні"
     },
     "buttons": {
-      "confirm": "Підтвердити"
+      "confirm": "Підтвердити",
+      "clear": "Скинути"
     },
     "resetPassword": {
       "openButton": "Змінити пароль",

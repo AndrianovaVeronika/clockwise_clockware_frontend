@@ -148,7 +148,7 @@ const OrderForm = () => {
     }
 
     return (
-        <Box className={classes.profileContent}>
+        <Box>
             <Paper className={classes.orderFormPaper}>
                 <Stepper activeStep={activeStep} className={classes.stepper}>
                     {steps.map((label, index) => {

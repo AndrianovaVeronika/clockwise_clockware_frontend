@@ -1,7 +1,7 @@
 import {Box, Slider, Typography} from "@mui/material";
 import * as React from "react";
 
-const RangeInput = ({from, to, step, value, handleValueChange, label, ...props}) => {
+const RangeInput = ({from, to, step, value, handleValueChange, label, className, ...props}) => {
     const numberMarks = [
         {
             value: from,
@@ -12,7 +12,7 @@ const RangeInput = ({from, to, step, value, handleValueChange, label, ...props})
             label: to.toString()
         }
     ];
-    return (<Box className={props.className}>
+    return (<Box className={className}>
         <Typography
             id="range-slider"
             gutterBottom
@@ -27,6 +27,7 @@ const RangeInput = ({from, to, step, value, handleValueChange, label, ...props})
             step={step}
             value={value}
             valueLabelDisplay="auto"
+            {...props}
         />
     </Box>)
 };
