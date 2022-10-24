@@ -4,7 +4,7 @@ import FormikPasswordField from "../../FormsComponents/FormikPasswordField";
 import {Form, Formik} from "formik";
 import * as Yup from "yup";
 import {updateCredentials} from "../../../../store/actions/auth";
-import {Alert, AlertTitle} from "@mui/material";
+import {Alert, AlertTitle, Snackbar} from "@mui/material";
 import {useTranslation} from "react-i18next";
 
 const initialValues = {
@@ -18,17 +18,28 @@ const ResetPasswordForm = ({closeAction}) => {
     const dispatch = useDispatch();
 
     const [Error, setError] = useState(<></>);
+    // const [open, setOpen] = React.useState(false);
+
+    // const onClose = (event, reason) => {
+    //     if (reason === 'clickaway') {
+    //         return;
+    //     }
+    //     setOpen(false);
+    // };
 
     const onSubmit = async ({password, currentPassword}) => {
         const {error, payload} = await dispatch(updateCredentials({password, currentPassword}));
+        console.log(error)
         if (error) {
             setError(
-                <Alert severity="error" key={payload.message}>
-                    <AlertTitle>Error</AlertTitle>
-                    {payload.message}
-                </Alert>
-
+                <Snackbar open={true} autoHideDuration={6000} /*onClose={onClose}*/>
+                    <Alert severity="error" key={payload.message}>
+                        <AlertTitle>Error</AlertTitle>
+                        {payload.message}
+                    </Alert>
+                </Snackbar>
             );
+            // setOpen(true);
         } else {
             setError(<></>);
             closeAction();
