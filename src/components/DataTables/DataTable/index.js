@@ -1,6 +1,5 @@
 import * as React from 'react';
 import {useState} from 'react';
-import {DataGrid, ukUA} from '@mui/x-data-grid';
 import {Alert, AlertTitle, IconButton} from "@mui/material";
 import DeleteIcon from '@mui/icons-material/Delete';
 import {useDispatch} from "react-redux";
@@ -10,10 +9,12 @@ import AddIcon from '@mui/icons-material/Add';
 import useStyles from "../../../styles/useStyles";
 import _ from 'lodash';
 import {useTranslation} from "react-i18next";
+import ServerPaginationGrid from "../ServerPaginationGrid";
 
 const DataTable = ({
                        columns,
-                       rows,
+                       filters,
+                       getRowsAction,
                        actions,
                        objType,
                        ModelForm
@@ -98,14 +99,12 @@ const DataTable = ({
     return (
         <>
             <div className={classes.dataTable}>
-                <DataGrid
-                    rows={rows}
+                <ServerPaginationGrid
                     columns={columns}
-                    pageSize={5}
-                    rowsPerPageOptions={[5]}
+                    getRowsAction={getRowsAction}
+                    filters={filters}
                     onRowClick={onRowClick}
                     onRowDoubleClick={() => setActiveRow({})}
-                    localeText={i18n.language === 'ua' ? ukUA.components.MuiDataGrid.defaultProps.localeText : undefined}
                 />
             </div>
             {!_.isEmpty(activeRow) && <>

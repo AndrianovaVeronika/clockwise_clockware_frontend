@@ -18,7 +18,7 @@ const initialValues = {
     isPasswordTemporary: undefined
 };
 
-const UsersFiltrationForm = ({filtrate}) => {
+const UsersFiltrationForm = ({setFilters}) => {
     const classes = useStyles();
     const {t} = useTranslation();
 
@@ -34,12 +34,12 @@ const UsersFiltrationForm = ({filtrate}) => {
                 ...(values.isPasswordTemporary && {isPasswordTemporary: values.isPasswordTemporary}),
             },
         };
-        filtrate(filters);
+        setFilters(filters);
     }
 
     const onClear = () => {
         setValues(initialValues);
-        filtrate({});
+        setFilters({});
     }
 
     return (<Box className={classes.filtrationForm}>

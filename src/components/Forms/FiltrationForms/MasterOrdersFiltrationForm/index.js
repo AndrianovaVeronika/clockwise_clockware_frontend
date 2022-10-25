@@ -23,7 +23,7 @@ const initialValues = {
     email: ''
 };
 
-const MasterOrdersFiltrationForm = ({filtrate}) => {
+const MasterOrdersFiltrationForm = ({setFilters}) => {
     const classes = useStyles();
     const {t} = useTranslation();
 
@@ -51,13 +51,12 @@ const MasterOrdersFiltrationForm = ({filtrate}) => {
                 && {dateRange: values.dateRange}),
             priceRange: values.priceRange
         };
-        console.log(filters)
-        filtrate(filters);
+        setFilters(filters);
     }
 
     const onClear = () => {
         setValues(initialValues);
-        filtrate({});
+        setFilters({});
     }
 
     return (<Box className={classes.filtrationForm}>
@@ -128,7 +127,7 @@ const MasterOrdersFiltrationForm = ({filtrate}) => {
                     className={classes.filtrationFormItem}
                 />
             </Form>
-            <Button type='submit' form='order-filter'>Confirm</Button>
+            <Button type='submit' form='order-filter'>{t("forms.buttons.confirm")}</Button>
             <Button onClick={() => {
                 onClear();
                 props.handleReset();

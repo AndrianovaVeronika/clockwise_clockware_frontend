@@ -16,7 +16,7 @@ const initialValues = {
     priceRange: [0, 20]
 };
 
-const CitiesFiltrationForm = ({filtrate}) => {
+const CitiesFiltrationForm = ({setFilters}) => {
     const {t} = useTranslation();
     const classes = useStyles();
 
@@ -30,12 +30,12 @@ const CitiesFiltrationForm = ({filtrate}) => {
             },
             priceRange: values.priceRange
         };
-        filtrate(filters);
+        setFilters(filters);
     }
 
     const onClear = () => {
         setValues(initialValues);
-        filtrate({});
+        setFilters({});
     }
 
     return (<Box className={classes.filtrationForm}>

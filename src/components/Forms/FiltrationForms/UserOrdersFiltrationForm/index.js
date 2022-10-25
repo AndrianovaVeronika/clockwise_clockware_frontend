@@ -22,9 +22,11 @@ const initialValues = {
     priceRange: [0, 60]
 };
 
-const UserOrdersFiltrationForm = ({filtrate}) => {
+const UserOrdersFiltrationForm = ({setFilters}) => {
     const classes = useStyles();
     const {t} = useTranslation();
+
+    console.log('!!!!!filter_update!!!!!')
 
     const [clockTypesOptions, setClockTypesOptions] = useState([]);
     useEffect(async () => {
@@ -49,12 +51,13 @@ const UserOrdersFiltrationForm = ({filtrate}) => {
                 && {dateRange: values.dateRange}),
             priceRange: values.priceRange
         };
-        filtrate(filters);
+        setFilters(filters);
+        console.log('filters settled')
     }
 
     const onClear = () => {
         setValues(initialValues);
-        filtrate({});
+        setFilters({});
     }
 
     return (<Box className={classes.filtrationForm}>
@@ -126,7 +129,7 @@ const UserOrdersFiltrationForm = ({filtrate}) => {
                     />
                 </Box>
             </Form>
-            <Button type='submit' form='order-filter'>Confirm</Button>
+            <Button type='submit' form='order-filter'>{t("forms.buttons.confirm")}</Button>
             <Button onClick={() => {
                 onClear();
                 props.handleReset();

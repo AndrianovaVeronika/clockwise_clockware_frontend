@@ -14,7 +14,8 @@ const AutocompleteField = ({
                            }) => {
     const [options, setOptions] = useState([]);
     useEffect(async () => {
-        setOptions(await getOptionsFunction());
+        const rows = await getOptionsFunction();
+        setOptions(rows.data);
     }, []);
 
     const [input, setInput] = useState('');

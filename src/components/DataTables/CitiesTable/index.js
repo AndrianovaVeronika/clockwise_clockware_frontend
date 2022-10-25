@@ -1,5 +1,5 @@
 import * as React from 'react';
-import {useEffect, useState} from 'react';
+import {useState} from 'react';
 import DataTable from "../DataTable";
 import cities from "../../../store/actions/cities";
 import CityForm from "../../Forms/AdminForms/CityForm";
@@ -22,21 +22,17 @@ const CitiesTable = () => {
         },
     ];
 
-    const [rows, setRows] = useState([]);
-    useEffect(async () => {
-        setRows(await getAllCities());
-    }, []);
-
-    const filtrate = async filters => setRows(await getAllCities(filters));
+    const [filters, setFilters] = useState({});
 
     return (
         <>
             <CitiesFiltrationForm
-                filtrate={filtrate}
+                setFilters={setFilters}
             />
             <DataTable
+                filters={filters}
+                getRowsAction={getAllCities}
                 columns={columns}
-                rows={rows}
                 actions={cities}
                 objType={'cities'}
                 ModelForm={CityForm}

@@ -13,6 +13,7 @@ import store from "../../../../store/store";
 import {useTranslation} from "react-i18next";
 import MasterOrdersFiltrationForm from "../../../Forms/FiltrationForms/MasterOrdersFiltrationForm";
 import {getCurrentMasterOrders} from "../../../../store/getters/orders";
+import ServerPaginationGrid from "../../../DataTables/ServerPaginationGrid";
 
 function renderStatus({value}, t) {
     const color = value ? 'green' : 'red';
@@ -73,25 +74,18 @@ const MasterOrdersPage = () => {
         }
     ];
 
-    const [rows, setRows] = useState([]);
-    useEffect(async () => {
-        setRows(await getCurrentMasterOrders());
-    }, []);
-
-    const filtrate = async filters => setRows(await getCurrentMasterOrders(filters));
+    const [filters, setFilters] = useState({});
 
     return (
         <Page>
             <Box className={classes.profileContent}>
                 <Typography variant='h5' gutterBottom>{t("pages.masterOrders.title")}</Typography>
-                <MasterOrdersFiltrationForm filtrate={filtrate}/>
+                <MasterOrdersFiltrationForm setFilters={setFilters}/>
                 <Box className={classes.dataTable}>
-                    <DataGrid
-                        rows={rows}
-                        columns={columns}
-                        pageSize={5}
-                        rowsPerPageOptions={[5]}
-                        localeText={i18n.language === 'ua' ? ukUA.components.MuiDataGrid.defaultProps.localeText : undefined}
+                    <ServerPaginationGrid
+                    columns={columns}
+                    getRowsAction={getCurrentMasterOrders}
+                    filters={filters}
                     />
                 </Box>
             </Box>

@@ -11,6 +11,7 @@ import RateOrderForm from "../../../Forms/UserForms/RateOrderForm";
 import {useTranslation} from "react-i18next";
 import UserOrdersFiltrationForm from "../../../Forms/FiltrationForms/UserOrdersFiltrationForm";
 import {getCurrentUserOrders} from "../../../../store/getters/orders";
+import ServerPaginationGrid from "../../../DataTables/ServerPaginationGrid";
 
 function renderStatus({value}, t) {
     const color = value ? 'green' : 'red';
@@ -66,25 +67,20 @@ const UserOrdersPage = () => {
         }
     ];
 
-    const [rows, setRows] = useState([]);
-    useEffect(async () => {
-        setRows(await getCurrentUserOrders());
-    }, []);
+    const [filters, setFilters] = useState({});
 
-    const filtrate = async filters => setRows(await getCurrentUserOrders(filters));
+    console.log('!!!!!page_update!!!!!')
 
     return (
         <Page>
             <Box className={classes.profileContent}>
                 <Typography variant='h5' gutterBottom>{t("pages.userOrders.title")}</Typography>
-                <UserOrdersFiltrationForm filtrate={filtrate}/>
+                <UserOrdersFiltrationForm setFilters={setFilters}/>
                 <Box className={classes.dataTable}>
-                    <DataGrid
-                        rows={rows}
+                    <ServerPaginationGrid
                         columns={columns}
-                        pageSize={5}
-                        rowsPerPageOptions={[5]}
-                        localeText={i18n.language === 'ua' ? ukUA.components.MuiDataGrid.defaultProps.localeText : undefined}
+                        getRowsAction={getCurrentUserOrders}
+                        filters={filters}
                     />
                 </Box>
             </Box>

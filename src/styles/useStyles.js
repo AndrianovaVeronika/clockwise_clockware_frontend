@@ -222,7 +222,8 @@ export const useStyles = makeStyles((theme) => ({
     },
     filterFormSection: {
         margin: '5px'
-    }
+    },
+
 }));
 
 export default useStyles;

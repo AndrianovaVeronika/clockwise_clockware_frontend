@@ -27,7 +27,7 @@ const initialValues = {
     priceRange: [0, 60]
 };
 
-const OrdersFiltrationForm = ({filtrate}) => {
+const OrdersFiltrationForm = ({setFilters}) => {
     const classes = useStyles();
     const {t} = useTranslation();
 
@@ -56,12 +56,12 @@ const OrdersFiltrationForm = ({filtrate}) => {
                 && {dateRange: values.dateRange}),
             priceRange: values.priceRange
         };
-        filtrate(filters);
+        setFilters(filters);
     }
 
     const onClear = () => {
         setValues(initialValues);
-        filtrate({});
+        setFilters({});
     }
 
     return (<Box className={classes.filtrationForm}>
