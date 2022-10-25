@@ -147,6 +147,7 @@ export const useStyles = makeStyles((theme) => ({
         width: '510px',
         padding: '40px 30px',
         flexDirection: 'column',
+        backgroundColor: 'transparent!important'
     },
     stepper: {
         height: '20%'
