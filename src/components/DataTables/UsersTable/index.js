@@ -39,7 +39,8 @@ const UsersTable = () => {
             type: 'number',
             headerName: t("forms.labels.resetPassword"),
             width: 200,
-            renderCell: renderResetPasswordButton
+            renderCell: renderResetPasswordButton,
+            sortable: false
         }
     ];
 

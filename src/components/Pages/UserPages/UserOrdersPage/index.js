@@ -58,7 +58,7 @@ const UserOrdersPage = () => {
             type: 'boolean'
         },
         {
-            field: 'rateOrder',
+            field: 'rating',
             headerName: t("forms.labels.rateOrder"),
             width: 150,
             renderCell: renderButtonRateOrder,
@@ -68,8 +68,6 @@ const UserOrdersPage = () => {
     ];
 
     const [filters, setFilters] = useState({});
-
-    console.log('!!!!!page_update!!!!!')
 
     return (
         <Page>

@@ -19,7 +19,6 @@ const DataTable = ({
                        objType,
                        ModelForm
                    }) => {
-    const {i18n} = useTranslation();
     const dispatch = useDispatch();
     const [activeRow, setActiveRow] = useState({});
     const classes = useStyles();

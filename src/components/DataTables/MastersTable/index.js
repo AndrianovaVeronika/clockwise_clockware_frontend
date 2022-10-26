@@ -33,6 +33,7 @@ const MastersTable = () => {
             field: 'cities',
             headerName: t("forms.labels.city"),
             width: 290,
+            sortable: false
         }
     ];
 

@@ -26,8 +26,6 @@ const UserOrdersFiltrationForm = ({setFilters}) => {
     const classes = useStyles();
     const {t} = useTranslation();
 
-    console.log('!!!!!filter_update!!!!!')
-
     const [clockTypesOptions, setClockTypesOptions] = useState([]);
     useEffect(async () => {
         const clockTypes = await getAllClockTypes();
@@ -45,14 +43,13 @@ const UserOrdersFiltrationForm = ({setFilters}) => {
                 ...(formValues.clockTypeId && {clockTypeId: formValues.clockTypeId}),
                 ...(values.masterId && {masterId: values.masterId.id}),
                 ...(values.cityId && {cityId: values.cityId.id}),
-                ...(formValues.isCompleted && {isCompleted: formValues.isCompleted}),
+                ...(values.isCompleted && {isCompleted: values.isCompleted}),
             },
             ...(((values.dateRange[0] !== null) || (values.dateRange[1] !== null))
                 && {dateRange: values.dateRange}),
             priceRange: values.priceRange
         };
         setFilters(filters);
-        console.log('filters settled')
     }
 
     const onClear = () => {
