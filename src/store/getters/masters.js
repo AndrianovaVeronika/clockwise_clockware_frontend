@@ -6,8 +6,8 @@ export const getAllMasters = async (filters) => {
     return action.payload;
 };
 
-export const getAvailableMasters = async (orderToAdd) => {
-    const action = await store.dispatch(masters.getAvailableMasters(orderToAdd))
+export const getAvailableMasters = async (filters) => {
+    const action = await store.dispatch(masters.getAvailableMasters(filters))
     return action.payload;
 };
 

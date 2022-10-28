@@ -1,9 +1,8 @@
 import {Box, Button, Typography} from "@mui/material";
 import useStyles from "../../../../styles/useStyles";
-import React, {useEffect, useState} from "react";
+import React, {useState} from "react";
 import orders from "../../../../store/actions/orders";
 import Page from "../../../../styles/Page";
-import {DataGrid, ukUA} from "@mui/x-data-grid";
 import {compose} from "redux";
 import {withHeader} from "../../../../functions/withHeader";
 import withSidebar from "../../../../functions/withSidebar";
@@ -30,7 +29,7 @@ function renderCompleteButton({id, row}, t) {
 
 const MasterOrdersPage = () => {
     const classes = useStyles();
-    const {t, i18n} = useTranslation();
+    const {t} = useTranslation();
 
     const columns = [
         {
@@ -83,9 +82,9 @@ const MasterOrdersPage = () => {
                 <MasterOrdersFiltrationForm setFilters={setFilters}/>
                 <Box className={classes.dataTable}>
                     <ServerPaginationGrid
-                    columns={columns}
-                    getRowsAction={getCurrentMasterOrders}
-                    filters={filters}
+                        columns={columns}
+                        getRowsAction={getCurrentMasterOrders}
+                        filters={filters}
                     />
                 </Box>
             </Box>

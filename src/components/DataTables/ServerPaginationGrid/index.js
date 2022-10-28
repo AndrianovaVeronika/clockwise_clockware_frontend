@@ -35,7 +35,7 @@ export default function ServerPaginationGrid({columns, getRowsAction, filters, .
                 ...filters,
             });
             setPageState(old =>
-                ({...old, isLoading: false, data: response.data, total: response.total}));
+                ({...old, isLoading: false, data: response.data || [], total: response.total}));
         }
         fetchData();
     }, [pageState.page, pageState.pageSize, filters, sortingOptions]);
@@ -70,6 +70,7 @@ export default function ServerPaginationGrid({columns, getRowsAction, filters, .
                 }}
                 onColumnHeaderClick={(header) => setLastFieldClicked(header.field)}
                 sortModel={sortingOptions}
+                {...props}
             />
         </>
     );
