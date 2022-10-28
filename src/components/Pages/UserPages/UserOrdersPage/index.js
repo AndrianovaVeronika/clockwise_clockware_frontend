@@ -1,8 +1,7 @@
 import useStyles from "../../../../styles/useStyles";
 import Page from "../../../../styles/Page";
 import {Box, Typography} from "@mui/material";
-import React, {useEffect, useState} from "react";
-import {DataGrid, ukUA} from "@mui/x-data-grid";
+import React, {useState} from "react";
 import {compose} from "redux";
 import {withHeader} from "../../../../functions/withHeader";
 import withSidebar from "../../../../functions/withSidebar";
@@ -11,6 +10,7 @@ import RateOrderForm from "../../../Forms/UserForms/RateOrderForm";
 import {useTranslation} from "react-i18next";
 import UserOrdersFiltrationForm from "../../../Forms/FiltrationForms/UserOrdersFiltrationForm";
 import {getCurrentUserOrders} from "../../../../store/getters/orders";
+import ServerPaginationGrid from "../../../DataTables/ServerPaginationGrid";
 
 function renderStatus({value}, t) {
     const color = value ? 'green' : 'red';
@@ -24,7 +24,7 @@ function renderButtonRateOrder({value}) {
 
 const UserOrdersPage = () => {
     const classes = useStyles();
-    const {t, i18n} = useTranslation();
+    const {t} = useTranslation();
 
     const columns = [
         {
@@ -57,7 +57,7 @@ const UserOrdersPage = () => {
             type: 'boolean'
         },
         {
-            field: 'rateOrder',
+            field: 'rating',
             headerName: t("forms.labels.rateOrder"),
             width: 150,
             renderCell: renderButtonRateOrder,
@@ -66,25 +66,18 @@ const UserOrdersPage = () => {
         }
     ];
 
-    const [rows, setRows] = useState([]);
-    useEffect(async () => {
-        setRows(await getCurrentUserOrders());
-    }, []);
-
-    const filtrate = async filters => setRows(await getCurrentUserOrders(filters));
+    const [filters, setFilters] = useState({});
 
     return (
         <Page>
             <Box className={classes.profileContent}>
                 <Typography variant='h5' gutterBottom>{t("pages.userOrders.title")}</Typography>
-                <UserOrdersFiltrationForm filtrate={filtrate}/>
+                <UserOrdersFiltrationForm setFilters={setFilters}/>
                 <Box className={classes.dataTable}>
-                    <DataGrid
-                        rows={rows}
+                    <ServerPaginationGrid
                         columns={columns}
-                        pageSize={5}
-                        rowsPerPageOptions={[5]}
-                        localeText={i18n.language === 'ua' ? ukUA.components.MuiDataGrid.defaultProps.localeText : undefined}
+                        getRowsAction={getCurrentUserOrders}
+                        filters={filters}
                     />
                 </Box>
             </Box>

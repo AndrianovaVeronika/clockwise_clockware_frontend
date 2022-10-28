@@ -1,9 +1,8 @@
 import {Box, Button, Typography} from "@mui/material";
 import useStyles from "../../../../styles/useStyles";
-import React, {useEffect, useState} from "react";
+import React, {useState} from "react";
 import orders from "../../../../store/actions/orders";
 import Page from "../../../../styles/Page";
-import {DataGrid, ukUA} from "@mui/x-data-grid";
 import {compose} from "redux";
 import {withHeader} from "../../../../functions/withHeader";
 import withSidebar from "../../../../functions/withSidebar";
@@ -13,6 +12,7 @@ import store from "../../../../store/store";
 import {useTranslation} from "react-i18next";
 import MasterOrdersFiltrationForm from "../../../Forms/FiltrationForms/MasterOrdersFiltrationForm";
 import {getCurrentMasterOrders} from "../../../../store/getters/orders";
+import ServerPaginationGrid from "../../../DataTables/ServerPaginationGrid";
 
 function renderStatus({value}, t) {
     const color = value ? 'green' : 'red';
@@ -29,7 +29,7 @@ function renderCompleteButton({id, row}, t) {
 
 const MasterOrdersPage = () => {
     const classes = useStyles();
-    const {t, i18n} = useTranslation();
+    const {t} = useTranslation();
 
     const columns = [
         {
@@ -73,25 +73,18 @@ const MasterOrdersPage = () => {
         }
     ];
 
-    const [rows, setRows] = useState([]);
-    useEffect(async () => {
-        setRows(await getCurrentMasterOrders());
-    }, []);
-
-    const filtrate = async filters => setRows(await getCurrentMasterOrders(filters));
+    const [filters, setFilters] = useState({});
 
     return (
         <Page>
             <Box className={classes.profileContent}>
                 <Typography variant='h5' gutterBottom>{t("pages.masterOrders.title")}</Typography>
-                <MasterOrdersFiltrationForm filtrate={filtrate}/>
+                <MasterOrdersFiltrationForm setFilters={setFilters}/>
                 <Box className={classes.dataTable}>
-                    <DataGrid
-                        rows={rows}
+                    <ServerPaginationGrid
                         columns={columns}
-                        pageSize={5}
-                        rowsPerPageOptions={[5]}
-                        localeText={i18n.language === 'ua' ? ukUA.components.MuiDataGrid.defaultProps.localeText : undefined}
+                        getRowsAction={getCurrentMasterOrders}
+                        filters={filters}
                     />
                 </Box>
             </Box>

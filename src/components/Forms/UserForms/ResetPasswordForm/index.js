@@ -29,7 +29,7 @@ const ResetPasswordForm = ({closeAction}) => {
 
     const onSubmit = async ({password, currentPassword}) => {
         const {error, payload} = await dispatch(updateCredentials({password, currentPassword}));
-        console.log(error)
+
         if (error) {
             setError(
                 <Snackbar open={true} autoHideDuration={6000} /*onClose={onClose}*/>

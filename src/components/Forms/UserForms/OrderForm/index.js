@@ -1,7 +1,6 @@
 import React, {useEffect, useState} from 'react';
 import {Alert, AlertTitle, Box, Button, IconButton, Paper, Step, StepLabel, Stepper} from "@mui/material";
 import CredentialsForm from "./CredentialsForm";
-import masters from "../../../../store/actions/masters";
 import DateTimePick from "./DateTimePick";
 import MasterPick from "./MasterPick";
 import ResultsReport from "./ResultsReport";
@@ -15,6 +14,8 @@ import {getCurrentUserSelector} from "../../../../store/selectors/authSelector";
 import LoginAlertDialog from "../../../Dialogs/LogInAlertDialog";
 import OrderSuccessAlertDialog from "../../../Dialogs/OrderSuccessAlertDialog";
 import {useTranslation} from "react-i18next";
+import {getAllClockTypes} from "../../../../store/getters/clockTypes";
+import {getAllCities} from "../../../../store/getters/cities";
 
 const initialValues = {
     name: '',
@@ -41,6 +42,24 @@ const OrderForm = () => {
     const [values, setValues] = useState(initialValues);
     const steps = getSteps(t);
     const currentUser = useSelector(getCurrentUserSelector);
+
+    const [clockTypesOptions, setClockTypesOptions] = useState([]);
+    const [citiesOptions, setCitiesOptions] = useState([]);
+    useEffect(() => {
+        const retrieveData = async () => {
+            const clockTypes = await getAllClockTypes();
+            setClockTypesOptions(clockTypes.map(clockType => ({
+                key: clockType.id,
+                value: t(`clockTypes.${clockType.name}`)
+            })));
+            const cities = await getAllCities();
+            setCitiesOptions(cities.data.map(city => ({
+                key: city.id,
+                value: city.name
+            })));
+        }
+        retrieveData();
+    }, []);
 
     const [displayLoginError, setDisplayLoginError] = useState(false);
     const onFormSubmit = (v, params) => {
@@ -74,20 +93,6 @@ const OrderForm = () => {
     }
 
     const [activeStep, setActiveStep] = useState(0);
-    const [mastersNeedToBeRetrieved, setMastersNeedToBeRetrieved] = useState(false);
-
-    useEffect(() => {
-        if (values.cityId && values.date && values.time && values.clockTypeId) {
-            setMastersNeedToBeRetrieved(true);
-        }
-    }, [values.cityId, values.date, values.time, values.clockTypeId])
-
-    useEffect(() => {
-        if (mastersNeedToBeRetrieved) {
-            dispatch(masters.getAvailableMasters(values));
-            setMastersNeedToBeRetrieved(false)
-        }
-    }, [mastersNeedToBeRetrieved]);
 
     const handleNext = () => {
         setActiveStep((prevActiveStep) => {
@@ -119,6 +124,8 @@ const OrderForm = () => {
                     formId='form1'
                     submitAction={onFormSubmit}
                     values={values}
+                    clockTypesOptions={clockTypesOptions}
+                    citiesOptions={citiesOptions}
                 />
             }
             case 2 : {

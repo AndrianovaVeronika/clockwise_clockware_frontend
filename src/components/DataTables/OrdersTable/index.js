@@ -1,5 +1,5 @@
 import * as React from 'react';
-import {useEffect, useState} from 'react';
+import {useState} from 'react';
 import DataTable from "../DataTable";
 import AdminOrderForm from "../../Forms/AdminForms/AdminOrderForm";
 import orders from "../../../store/actions/orders";
@@ -55,19 +55,15 @@ const OrdersTable = () => {
         },
     ];
 
-    const [rows, setRows] = useState([]);
-    useEffect(async () => {
-        setRows(await getAllOrders());
-    }, []);
-
-    const filtrate = async filters => setRows(await getAllOrders(filters));
+    const [filters, setFilters] = useState({});
 
     return (<>
         <OrdersFiltrationForm
-            filtrate={filtrate}
+            setFilters={setFilters}
         />
         <DataTable
-            rows={rows}
+            getRowsAction={getAllOrders}
+            filters={filters}
             columns={columns}
             actions={orders}
             objType={'orders'}

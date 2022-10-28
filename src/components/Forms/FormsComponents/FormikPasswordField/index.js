@@ -1,5 +1,5 @@
 import React, {useState} from "react";
-import {FormHelperText, IconButton, InputAdornment, InputLabel, OutlinedInput} from "@mui/material";
+import {FormHelperText, IconButton, InputAdornment, InputLabel, OutlinedInput, Typography} from "@mui/material";
 import {ErrorMessage, Field} from "formik";
 import {Visibility, VisibilityOff} from "@mui/icons-material";
 import useStyles from "../../../../styles/useStyles";
@@ -17,7 +17,7 @@ const FormikPasswordField = ({name, label, error, ...props}) => {
     };
 
     return <>
-        <InputLabel className={classes.formItemLabel} htmlFor={name + '-field'}>{label}</InputLabel>
+        <Typography className={classes.formItemLabel} htmlFor={name + '-field'}>{label}</Typography>
         <Field as={OutlinedInput}
                id={name + '-field'}
                name={name}

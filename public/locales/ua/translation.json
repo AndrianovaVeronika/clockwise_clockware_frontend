@@ -65,7 +65,8 @@
       "emailChecked": "Пошта веріфікована",
       "resetPassword": "Скинути пароль",
       "isPasswordTemporary": "Пароль тимчасовий",
-      "isCompleted": "Виконаний"
+      "isCompleted": "Виконаний",
+      "login": "Логін"
     },
     "dateRangeForm": {
       "to": "по",

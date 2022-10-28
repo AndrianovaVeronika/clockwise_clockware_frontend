@@ -1,18 +1,16 @@
-import React, {useEffect, useState} from "react";
-import {DataGrid, ukUA} from "@mui/x-data-grid";
+import React from "react";
 import Rating from "@mui/material/Rating";
 import {useFormikContext} from "formik";
-import {Typography} from "@mui/material";
 import {useTranslation} from "react-i18next";
 import {getAllMasters} from "../../../../store/getters/masters";
-// import {getAllMasters} from "../../../../store/getters/masters";
+import ServerPaginationGrid from "../../../DataTables/ServerPaginationGrid";
 
 function renderRating(params) {
     return <Rating readOnly value={params.value}/>;
 }
 
 const AvailableMastersListener = () => {
-    const {t, i18n} = useTranslation();
+    const {t} = useTranslation();
 
     const columns = [
         {
@@ -29,28 +27,17 @@ const AvailableMastersListener = () => {
 
     const {values} = useFormikContext();
 
-    const [masters, setMasters] = useState();
-    useEffect(async ()=>{
-        setMasters(await getAllMasters());
-    }, []);
-
     const onMasterSelect = (e) => {
         values.masterId = e.row.id;
     }
 
     return (
         <>
-            {masters.length < 1 ?
-                <Typography>No masters available</Typography> :
-                <DataGrid
-                    rows={masters}
-                    columns={columns}
-                    pageSize={5}
-                    rowsPerPageOptions={[5]}
-                    onRowClick={onMasterSelect}
-                    localeText={i18n.language === 'ua' ? ukUA.components.MuiDataGrid.defaultProps.localeText : undefined}
-                />
-            }
+            <ServerPaginationGrid
+                columns={columns}
+                getRowsAction={(params) => getAllMasters({newOrder: values, ...params})}
+                onRowClick={onMasterSelect}
+            />
         </>
     )
 }
