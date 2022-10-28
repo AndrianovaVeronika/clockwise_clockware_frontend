@@ -1,13 +1,13 @@
 import React from 'react'
 import {ErrorMessage, Field} from 'formik'
-import {Box, InputLabel, MenuItem, Select} from "@mui/material";
+import {Box, MenuItem, Select, Typography} from "@mui/material";
 import useStyles from "../../../../styles/useStyles";
 
 const FormikSelectField = ({label, name, options, className, ...props}) => {
     const classes = useStyles();
 
     return <Box className={className}>
-        <InputLabel htmlFor={name + '-field'}>{label}</InputLabel>
+        <Typography htmlFor={name + '-field'} className={classes.formItemLabel}>{label}</Typography>
         <Field as={Select}
                selected={0}
                id={name + '-field'}

@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from "react";
+import React, {useState} from "react";
 import users, {resetPassword} from "../../../store/actions/users";
 import DataTable from "../DataTable";
 import UserForm from "../../Forms/AdminForms/UserForm";
@@ -6,7 +6,6 @@ import {Button} from "@mui/material";
 import store from "../../../store/store";
 import {useTranslation} from "react-i18next";
 import UsersFiltrationForm from "../../Forms/FiltrationForms/UsersFiltrationForm";
-import {getAllCities} from "../../../store/getters/cities";
 import {getAllUsers} from "../../../store/getters/users";
 
 function renderResetPasswordButton({value}) {
@@ -40,25 +39,22 @@ const UsersTable = () => {
             type: 'number',
             headerName: t("forms.labels.resetPassword"),
             width: 200,
-            renderCell: renderResetPasswordButton
+            renderCell: renderResetPasswordButton,
+            sortable: false
         }
     ];
 
-    const [rows, setRows] = useState([]);
-    useEffect(async () => {
-        setRows(await getAllUsers());
-    }, []);
-
-    const filtrate = async filters => setRows(await getAllUsers(filters));
+    const [filters, setFilters] = useState({});
 
     return (
         <>
             <UsersFiltrationForm
-                filtrate={filtrate}
+                setFilters={setFilters}
             />
             <DataTable
+                getRowsAction={getAllUsers}
+                filters={filters}
                 columns={columns}
-                rows={rows}
                 actions={users}
                 objType={'users'}
                 ModelForm={UserForm}

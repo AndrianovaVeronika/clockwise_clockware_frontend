@@ -12,7 +12,7 @@ const updateMaster = createAsyncThunk(masters.UPDATE_MASTER, actionApi.PUT('/mas
 
 const deleteMaster = createAsyncThunk(masters.DELETE_MASTER, actionApi.DELETE('/masters'));
 
-const getAvailableMasters = createAsyncThunk(masters.GET_AVAILABLE_MASTERS, actionApi.POST('/masters/available'));
+const getAvailableMasters = createAsyncThunk(masters.GET_AVAILABLE_MASTERS, actionApi.GET('/available/masters'));
 
 export default {
     getAll: getMasters,

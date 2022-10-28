@@ -33,24 +33,21 @@ const MastersTable = () => {
             field: 'cities',
             headerName: t("forms.labels.city"),
             width: 290,
+            sortable: false
         }
     ];
 
-    const [rows, setRows] = useState([]);
-    useEffect(async () => {
-        setRows(await getAllMasters());
-    }, []);
-
-    const filtrate = async filters => setRows(await getAllMasters(filters));
+    const [filters, setFilters] = useState({});
 
     return (
         <>
             <MastersFiltrationForm
-                filtrate={filtrate}
+                setFilters={setFilters}
             />
             <DataTable
+                getRowsAction={getAllMasters}
+                filters={filters}
                 columns={columns}
-                rows={rows}
                 actions={masters}
                 objType={'masters'}
                 ModelForm={MasterForm}

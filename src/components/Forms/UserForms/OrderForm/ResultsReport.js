@@ -11,10 +11,13 @@ const ResultsReport = ({formId, onFinalSubmit, values}) => {
     const [city, setCity] = useState();
     const [master, setMaster] = useState();
     const [clockType, setClockType] = useState();
-    useEffect(async () => {
-        setCity(await getCityById(values.cityId));
-        setMaster(await getMasterById(values.masterId));
-        setClockType(await getClockTypeById(values.clockTypeId));
+    useEffect(() => {
+        const retrieve = async () => {
+            setCity(await getCityById(values.cityId));
+            setMaster(await getMasterById(values.masterId));
+            setClockType(await getClockTypeById(values.clockTypeId));
+        };
+        retrieve();
     }, []);
 
     const orderData = {
@@ -36,13 +39,11 @@ const ResultsReport = ({formId, onFinalSubmit, values}) => {
         return report;
     }
 
-    return (
+    return (<>
         <form id={formId} onSubmit={onFinalSubmit}>
-            {
-                getReport()
-            }
+            {getReport()}
         </form>
-    )
+    </>)
 }
 
 export default ResultsReport;

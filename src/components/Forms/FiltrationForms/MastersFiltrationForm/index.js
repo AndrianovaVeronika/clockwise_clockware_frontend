@@ -16,7 +16,7 @@ const initialValues = {
     ratingRange: [0, 5]
 };
 
-const MastersFiltrationForm = ({filtrate}) => {
+const MastersFiltrationForm = ({setFilters}) => {
     const {t} = useTranslation();
     const classes = useStyles();
 
@@ -30,12 +30,12 @@ const MastersFiltrationForm = ({filtrate}) => {
             },
             ratingRange: values.ratingRange
         };
-        filtrate(filters);
+        setFilters(filters);
     }
 
     const onClear = () => {
         setValues(initialValues);
-        filtrate({});
+        setFilters({});
     }
 
     return (<Box className={classes.filtrationForm}>
