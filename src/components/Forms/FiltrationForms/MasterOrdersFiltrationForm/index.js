@@ -19,8 +19,7 @@ const initialValues = {
     isCompleted: undefined,
     dateRange: [null, null],
     priceRange: [0, 60],
-    name: '',
-    email: ''
+    login: ''
 };
 
 const MasterOrdersFiltrationForm = ({setFilters}) => {
@@ -45,8 +44,7 @@ const MasterOrdersFiltrationForm = ({setFilters}) => {
                 ...(values.cityId && {cityId: values.cityId.id}),
                 ...(values.isCompleted && {isCompleted: values.isCompleted}),
             },
-            ...((formValues.name.length > 0) && {name: formValues.name}),
-            ...((formValues.email.length > 0) && {email: formValues.email}),
+            ...((formValues.login.length > 0) && {login: formValues.login}),
             ...(((values.dateRange[0] !== null) || (values.dateRange[1] !== null))
                 && {dateRange: values.dateRange}),
             priceRange: values.priceRange
@@ -66,59 +64,48 @@ const MasterOrdersFiltrationForm = ({setFilters}) => {
             onSubmit={onSubmit}
         >{(props) => (<>
             <Form id='order-filter' className={classes.filter}>
-                <Box className={classes.filterFormSection}>
-                    <FormikTextField
-                        label={t("forms.labels.name")}
-                        name={'name'}
-                        className={classes.filtrationFormItem}
-                    />
-                    <FormikTextField
-                        label={t("forms.labels.email")}
-                        name={'email'}
-                        className={classes.filtrationFormItem}
-                    />
-                </Box>
-                <Box className={classes.filterFormSection}>
-                    <AutocompleteField
-                        value={values.cityId}
-                        getOptionsFunction={getAllCities}
-                        label={t("forms.labels.city")}
-                        optionValueKey={'name'}
-                        handleValueChange={(v) => {
-                            setValues({...values, cityId: v})
-                        }}
-                        neededValueKey={'id'}
-                        className={classes.filtrationFormItem}
-                    />
-                    <FormikSelectField
-                        label={t("forms.labels.clockType")}
-                        name='clockTypeId'
-                        options={clockTypesOptions}
-                        className={classes.filtrationFormItem}
-                    />
-                </Box>
-                <Box className={classes.filterFormSection}>
-                    <YesNoChooseField
-                        label={t("forms.labels.isCompleted")}
-                        name={'isCompleted'}
-                        value={values.isCompleted}
-                        handleChange={(v) => {
-                            setValues({...values, isCompleted: v})
-                        }}
-                        className={classes.filtrationFormItem}
-                    />
-                    <RangeInput
-                        label={t("forms.labels.price")}
-                        from={0}
-                        to={60}
-                        step={0.1}
-                        value={values.priceRange}
-                        handleValueChange={(v) => {
-                            setValues({...values, priceRange: v})
-                        }}
-                        className={classes.filtrationFormItem}
-                    />
-                </Box>
+                <FormikTextField
+                    label={`${t("forms.labels.login")}`}
+                    name={'login'}
+                    className={classes.filtrationFormItem}
+                />
+                <AutocompleteField
+                    value={values.cityId}
+                    getOptionsFunction={getAllCities}
+                    label={t("forms.labels.city")}
+                    optionValueKey={'name'}
+                    handleValueChange={(v) => {
+                        setValues({...values, cityId: v})
+                    }}
+                    neededValueKey={'id'}
+                    className={classes.filtrationFormItem}
+                />
+                <FormikSelectField
+                    label={t("forms.labels.clockType")}
+                    name='clockTypeId'
+                    options={clockTypesOptions}
+                    className={classes.filtrationFormItem}
+                />
+                <YesNoChooseField
+                    label={t("forms.labels.isCompleted")}
+                    name={'isCompleted'}
+                    value={values.isCompleted}
+                    handleChange={(v) => {
+                        setValues({...values, isCompleted: v})
+                    }}
+                    className={classes.filtrationFormItem}
+                />
+                <RangeInput
+                    label={t("forms.labels.price")}
+                    from={0}
+                    to={60}
+                    step={0.1}
+                    value={values.priceRange}
+                    handleValueChange={(v) => {
+                        setValues({...values, priceRange: v})
+                    }}
+                    className={classes.filtrationFormItem}
+                />
                 <FormikDateRangeField
                     value={values.dateRange}
                     handleChange={(v) => {

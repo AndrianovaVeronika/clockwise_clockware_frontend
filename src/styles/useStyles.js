@@ -213,17 +213,22 @@ export const useStyles = makeStyles((theme) => ({
     },
     filtrationFormItem: {
         margin: '10px!important',
-        width: '200px'
+        width: '200px!important',
+        height: '90px!important'
     },
     filter: {
         display: "flex",
-        flexDirection: "row",
-        alignItems: "center"
+        alignItems: "center",
+        flexWrap: "wrap"
     },
     filterFormSection: {
         margin: '5px'
     },
-
+    //yesNoChooseField
+    yesNoChooseField: {
+        display: "flex",
+        flexDirection: "row!important"
+    }
 }));
 
 export default useStyles;

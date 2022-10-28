@@ -1,6 +1,7 @@
 import * as React from "react";
 import {useEffect, useState} from "react";
 import {Autocomplete, Box, TextField, Typography} from "@mui/material";
+import useStyles from "../../../../styles/useStyles";
 
 const AutocompleteField = ({
                                value,
@@ -12,6 +13,8 @@ const AutocompleteField = ({
                                className,
                                ...props
                            }) => {
+    const classes = useStyles();
+
     const [options, setOptions] = useState([]);
     useEffect(async () => {
         const rows = await getOptionsFunction();
@@ -23,7 +26,7 @@ const AutocompleteField = ({
     // const isNull = value => value === null;
 
     return (<Box className={className}>
-        <Typography>{label}</Typography>
+        <Typography sx={{marginBottom: '5px'}}>{label}</Typography>
         <Autocomplete
             value={value}
             onChange={(e, v) => {

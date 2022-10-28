@@ -71,82 +71,77 @@ const OrdersFiltrationForm = ({setFilters}) => {
             onSubmit={onSubmit}
         >{(props) => (<>
             <Form id='order-filter' className={classes.filter}>
-                <Box className={classes.filterFormSection}>
-                    <FormikTextField
-                        name='id'
-                        label='ID'
-                        className={classes.filtrationFormItem}
-                    />
-                    <AutocompleteField
-                        value={values.userId}
-                        getOptionsFunction={getAllUsers}
-                        label={t("forms.labels.email")}
-                        optionValueKey={'email'}
-                        handleValueChange={(v) => {
-                            setValues({...values, userId: v})
-                        }}
-                        neededValueKey={'id'}
-                        className={classes.filtrationFormItem}
-                    />
-                </Box>
-                <Box className={classes.filterFormSection}>
-                    <FormikSelectField
-                        label={t("forms.labels.clockType")}
-                        name='clockTypeId'
-                        options={clockTypesOptions}
-                    />
-                    <AutocompleteField
-                        value={values.masterId}
-                        getOptionsFunction={getAllMasters}
-                        label={t("forms.labels.master")}
-                        optionValueKey={'name'}
-                        handleValueChange={(v) => {
-                            setValues({...values, masterId: v});
-                        }}
-                        neededValueKey={'id'}
-                        className={classes.filtrationFormItem}
-                    />
-                </Box>
-                <Box className={classes.filterFormSection}>
-                    <AutocompleteField
-                        value={values.cityId}
-                        getOptionsFunction={getAllCities}
-                        label={t("forms.labels.city")}
-                        optionValueKey={'name'}
-                        handleValueChange={(v) => {
-                            setValues({...values, cityId: v})
-                        }}
-                        neededValueKey={'id'}
-                        className={classes.filtrationFormItem}
-                    />
-                    <YesNoChooseField
-                        label={t("forms.labels.isCompleted")}
-                        name={'isCompleted'}
-                        value={values.isCompleted}
-                        handleChange={(v) => {
-                            setValues({...values, isCompleted: v})
-                        }}
-                    />
-                </Box>
-                <Box className={classes.filterFormSection}>
-                    <RangeInput
-                        label={t("forms.labels.price")}
-                        from={0}
-                        to={60}
-                        step={0.1}
-                        value={values.priceRange}
-                        handleValueChange={(v) => {
-                            setValues({...values, priceRange: v})
-                        }}
-                        className={classes.filtrationFormItem}
-                    />
-                    <FormikDateRangeField
-                        value={values.dateRange}
-                        handleChange={(v) => {
-                            setValues({...values, dateRange: v});
-                        }}
-                    />
-                </Box>
+                <FormikTextField
+                    name='id'
+                    label='ID'
+                    className={classes.filtrationFormItem}
+                />
+                <AutocompleteField
+                    value={values.userId}
+                    getOptionsFunction={getAllUsers}
+                    label={t("forms.labels.email")}
+                    optionValueKey={'email'}
+                    handleValueChange={(v) => {
+                        setValues({...values, userId: v})
+                    }}
+                    neededValueKey={'id'}
+                    className={classes.filtrationFormItem}
+                />
+                <FormikSelectField
+                    label={t("forms.labels.clockType")}
+                    name='clockTypeId'
+                    options={clockTypesOptions}
+                    className={classes.filtrationFormItem}
+                />
+                <AutocompleteField
+                    value={values.masterId}
+                    getOptionsFunction={getAllMasters}
+                    label={t("forms.labels.master")}
+                    optionValueKey={'name'}
+                    handleValueChange={(v) => {
+                        setValues({...values, masterId: v});
+                    }}
+                    neededValueKey={'id'}
+                    className={classes.filtrationFormItem}
+                />
+                <AutocompleteField
+                    value={values.cityId}
+                    getOptionsFunction={getAllCities}
+                    label={t("forms.labels.city")}
+                    optionValueKey={'name'}
+                    handleValueChange={(v) => {
+                        setValues({...values, cityId: v})
+                    }}
+                    neededValueKey={'id'}
+                    className={classes.filtrationFormItem}
+                />
+                <YesNoChooseField
+                    label={t("forms.labels.isCompleted")}
+                    name={'isCompleted'}
+                    value={values.isCompleted}
+                    handleChange={(v) => {
+                        setValues({...values, isCompleted: v})
+                    }}
+                    className={classes.filtrationFormItem}
+                />
+                <RangeInput
+                    label={t("forms.labels.price")}
+                    from={0}
+                    to={60}
+                    step={0.1}
+                    value={values.priceRange}
+                    handleValueChange={(v) => {
+                        setValues({...values, priceRange: v})
+                    }}
+                    className={classes.filtrationFormItem}
+                />
+                <FormikDateRangeField
+                    value={values.dateRange}
+                    handleChange={(v) => {
+                        setValues({...values, dateRange: v});
+                    }}
+                    className={classes.filtrationFormItem}
+                />
             </Form>
             <Button type='submit' form='order-filter'>{t("forms.buttons.confirm")}</Button>
             <Button onClick={() => {

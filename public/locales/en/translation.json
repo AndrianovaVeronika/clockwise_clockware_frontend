@@ -65,7 +65,8 @@
       "emailChecked": "Email checked",
       "resetPassword": "Reset password",
       "isPasswordTemporary": "Password temporary",
-      "isCompleted": "Completed"
+      "isCompleted": "Completed",
+      "login": "Login"
     },
     "dateRangeForm": {
       "to": "to",

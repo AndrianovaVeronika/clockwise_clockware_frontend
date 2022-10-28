@@ -1,8 +1,7 @@
 import useStyles from "../../../../styles/useStyles";
 import Page from "../../../../styles/Page";
 import {Box, Typography} from "@mui/material";
-import React, {useEffect, useState} from "react";
-import {DataGrid, ukUA} from "@mui/x-data-grid";
+import React, {useState} from "react";
 import {compose} from "redux";
 import {withHeader} from "../../../../functions/withHeader";
 import withSidebar from "../../../../functions/withSidebar";
@@ -25,7 +24,7 @@ function renderButtonRateOrder({value}) {
 
 const UserOrdersPage = () => {
     const classes = useStyles();
-    const {t, i18n} = useTranslation();
+    const {t} = useTranslation();
 
     const columns = [
         {
